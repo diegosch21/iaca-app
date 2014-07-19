@@ -1,0 +1,58 @@
+/* Hoja de estilo principal. Nuevo sitio IACA Laboratorios */
+
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic,700italic|Maven+Pro:400,500,700);
+
+
+//@import url(//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css);
+@import url(//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css);
+
+//Variables
+@import "bootstrap/variables";
+@import "variables";
+
+
+// Mixins
+@import "bootstrap/mixins";
+@import "rem-mixing";
+
+/***** Grilla ******/
+@import "bootstrap/grid";
+/** Fin Estilos Grilla bootstrap **/
+
+/***** Auxiliares ****/
+//@import "bootstrap/close";
+//*Bootstrap Responsive embed*/
+//@import "bootstrap/responsive-embed";
+/*Bootstrap Utilities*/
+@import "bootstrap/utilities";
+/*Bootstrap resposive utilities*/
+@import "bootstrap/responsive-utilities";
+/*Foundation Block Grid*/
+@import "foundation/components/block-grid";
+/* Foundation Flex-video*/
+@import "foundation/components/flex-video";
+/* Foundation Flex-pagination*/
+@import "foundation/components/pagination";
+//@import "foundation/components/_accordion";
+/*Bootstrap Alerts*/
+@import "bootstrap/alerts";
+@import "bootstrap/close";
+
+
+/***** Estilos base ******/
+@import "base";
+
+
+
+/***** Estilos para dispositivos de  768px de ancho, ó superior ******/
+@media (min-width: $screen-sm-min) {
+  @import "screen-sm";
+}
+/***** Estilos para dispositivos de  990px de ancho, ó superior ******/
+@media (min-width: $screen-md-min) {
+  @import "screen-md";
+}
+/***** Estilos para dispositivos de  1200px de ancho, ó superior ******/
+@media (min-width: $screen-lg-min) {
+  @import "screen-lg";
+}

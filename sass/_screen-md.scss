@@ -1,0 +1,207 @@
+/** Menú top **/
+
+.redes-sociales{
+  text-align: center;
+}
+
+.acceso-paciente{
+  text-align: right;
+}
+
+/** Logo **/
+.logo-container{
+  a{
+    @include x-rem(top, 1.5);
+  }
+}
+
+
+/** Breadcrumb **/
+
+.breadcrumb-nav{
+  @include x-rem(margin-top, 3);
+}
+
+
+/** Acordion **/
+.accordion{
+ //dt a{
+ //
+ //}
+
+  .btn_md{
+    display: inline-block;
+    //@include x-rem(margin, -2 0 0 3);
+  }
+  .btn_xs{
+    display: none;
+  }
+}
+
+/** Buscar practica **/
+
+#buscar_practica .busqueda_inline{
+  input[type="text"]{
+    width: 80%;
+  }
+}
+
+/** La empresa **/
+
+.empresa--intro{
+  @include x-rem(padding, 1);
+}
+
+
+/** Laboratorios **/
+
+.lista-laboratorios dt a{
+  .accordion_titulo{
+    width: 65%;
+  }
+
+  .accordion_btn{
+    width: 30%;
+  }
+}
+
+.laboratorios{
+
+  .labo-intro{
+    padding-top: 2em;
+    padding-left: 2em;
+  }
+
+  .labo_foto--interior:first-of-type{
+    margin-top: 0;
+  }
+}
+
+/** Profesionales **/
+
+.foto--profesional{
+  max-width: 220px;
+
+  img{
+    width: 100%;
+    height: auto;
+  }
+}
+
+#direccion_general{
+  .foto--profesional{
+    max-width: 100%
+  }
+}
+
+
+/** Pacientes **/
+
+.pacientes--intro{
+  padding: 2em;
+}
+
+/** Noticias **/
+
+.nota{
+  padding-bottom: 0;
+
+  figure{
+    @include x-rem(margin, 0 0 0 -1);
+  }
+}
+
+
+/** Contacto **/
+.mapa-contacto{
+  .flex-video{
+    padding-bottom: 50%;
+  }
+}
+
+.info-contacto{
+  width: 34.9%;
+
+  p{
+    @include x-rem(padding, 0.5 1.5);
+  }
+}
+
+
+/** Footer **/
+
+.certificaciones--footer{
+  //margin: 0;
+
+  .contenedor-con-punta{
+    z-index: 250;
+    @include x-rem(margin-top, -5);
+    @include x-rem(margin-right, -2.7);
+  }
+
+  .outter-svg-container{
+    display: block;
+  }
+
+}
+
+
+
+/****************************************************
+*****************************************************
+******  ESTILOS AREA DE ACCESO PROFESIONAL  *********
+*****************************************************
+****************************************************/
+
+/** Carga de muestras **/
+
+.label-seccion{
+  width: 65%;
+}
+
+.btn_contenedor--movil{
+  display: none;
+}
+.btn_contenedor--pantalla{
+  display: block;
+}
+
+
+/*** Lista de resultados de protocolos ***/
+
+
+.item--sort{
+  a{
+    padding-left: 0;
+  }
+}
+
+.lista_resultados{
+
+  dt,
+  .item--resultado_paciente{
+
+    .lista_resultados--btn
+    {
+      @include x-rem(padding, 1 0 1 1);
+    }
+
+  }
+
+}
+
+
+.menu--interior_protocolo{
+  width: percentage((2 / $grid-columns));
+
+  .icono--svg svg{
+    @include x-rem(width, 1.25);
+    @include x-rem(height, 1.25);
+    vertical-align: text-bottom;
+  }
+
+  a{
+    text-align: left;
+    line-height: 1.25em;
+  }
+}
