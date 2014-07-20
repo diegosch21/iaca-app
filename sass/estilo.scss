@@ -2,9 +2,8 @@
 
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic,700italic|Maven+Pro:400,500,700);
 
-
-//@import url(//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css);
-@import url(//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css);
+//@import url(//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css);
+@import url(font-awesome.min.css);
 
 //Variables
 @import "bootstrap/variables";
@@ -15,33 +14,46 @@
 @import "bootstrap/mixins";
 @import "rem-mixing";
 
-/***** Grilla ******/
-@import "bootstrap/grid";
-/** Fin Estilos Grilla bootstrap **/
+/**** BOOTSTRAP *****/
 
-/***** Auxiliares ****/
-//@import "bootstrap/close";
-//*Bootstrap Responsive embed*/
-//@import "bootstrap/responsive-embed";
+/*Bootstrap grid*/
+@import "bootstrap/grid";
 /*Bootstrap Utilities*/
 @import "bootstrap/utilities";
-/*Bootstrap resposive utilities*/
+/*Bootstrap responsive utilities*/
 @import "bootstrap/responsive-utilities";
+/*Bootstrap Alerts*/
+@import "bootstrap/alerts";
+/*Bootstrap close*/
+@import "bootstrap/close";
+/*Bootstrap forms */
+@import "bootstrap/forms";
+/*Bootstrap navbar */
+@import "bootstrap/navbar";
+/*Bootstrap typography */
+@import "bootstrap/type";
+/*Bootstrap dropdown */
+@import "bootstrap/dropdowns";
+//*Bootstrap Responsive embed*/
+//@import "bootstrap/responsive-embed";
+
+/**** Fin bootstrap *****/
+
+/**** FOUNDATION ****/
 /*Foundation Block Grid*/
 @import "foundation/components/block-grid";
 /* Foundation Flex-video*/
 @import "foundation/components/flex-video";
-/* Foundation Flex-pagination*/
+/* Foundation Pagination*/
 @import "foundation/components/pagination";
+/* Foundation accordion*/
 //@import "foundation/components/_accordion";
-/*Bootstrap Alerts*/
-@import "bootstrap/alerts";
-@import "bootstrap/close";
+
+/**** Fin foundation ****/
 
 
 /***** Estilos base ******/
 @import "base";
-
 
 
 /***** Estilos para dispositivos de  768px de ancho, ó superior ******/
@@ -56,3 +68,7 @@
 @media (min-width: $screen-lg-min) {
   @import "screen-lg";
 }
+
+
+/**** Estilos app móvil *****/
+@import "app";

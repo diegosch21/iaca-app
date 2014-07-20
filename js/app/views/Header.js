@@ -15,7 +15,7 @@ define([
 		},
 
 		render: function() {
-			this.$el.html(this.template());
+			this.$el.html(this.template({logueado: true, user: "Diego Schwindt"}));
 		}
 
 	});

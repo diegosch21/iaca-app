@@ -1,0 +1,54 @@
+body { 
+	padding-top: 120px; 
+	font-size: 16px;
+}
+
+.app-header {
+	padding: 0;	
+
+	.app-header-top {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.menu-top {
+		font-size: 16px;
+	}
+	#nav-top{
+
+		>li{
+
+			a{
+				padding: 0.5em;
+
+			}
+			i.fa{
+	      		margin-left: 0.5em;
+	      		margin-right: 0.5em;
+	   
+	    	}
+
+			&.redes-sociales {
+				text-align: left;
+				a{
+					padding-top: 0.5em;
+					padding-bottom: 0.5em;
+				}
+			}
+		}
+
+		.dropdown-menu {
+			margin-right: 1em;
+			font-size: 16px;
+			li {
+				text-align: right;
+			}
+		}
+	}
+
+
+
+
+
+}
+
+

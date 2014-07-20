@@ -181,11 +181,11 @@ a {
   color: $primario-violeta;
   text-decoration: none;
 
-  &:hover,
+/*   &:hover,
   &:focus {
     color: $primario-violeta_oscuro;
     //text-decoration: underline;
-  }
+  } */
 
   &:focus {
     @include tab-focus();
@@ -523,9 +523,9 @@ Browse Happy prompt
   a{
     color: $alt-blanco;
 
-    &:hover{
+/*     &:hover{
       background-color: $primario-azul;
-    }
+    } */
   }
 }
 
@@ -566,7 +566,7 @@ Browse Happy prompt
     position: relative;
     //margin-left: -5px;
   }
-
+/*
   .dropdown{
     width: 100%;
     display: none;
@@ -585,7 +585,7 @@ Browse Happy prompt
       background-color: $primario-azul;
     }
     .dropdown{
-      display: block;
+       display: block;
 
       a{
         background-color: transparent;
@@ -598,6 +598,7 @@ Browse Happy prompt
       }
     }
   }
+ */ 
 }
 
 /** Header **/
