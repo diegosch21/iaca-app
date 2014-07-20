@@ -1,17 +1,42 @@
-body { 
-	padding-top: 120px; 
+html {
 	font-size: 16px;
+	margin-top:0;
+    padding-top:0;
 }
+
+body { 
+	padding-top: 120px;
+}
+
+#app {
+	position: relative;
+}
+
+//Redefino alto-logo
+$alto-logo:  3;
+$ancho-logo: $alto-logo*3.3;
 
 .app-header {
 	padding: 0;	
+	position: fixed;
+  	right: 0;
+  	left: 0;
+  	top: 0;
+  	border-width: 0 0 1px;
+  	//height: 120px;
+  	z-index: 100;
+  	background-color: #FFF;
+
+	.menu-top-bg {
+		margin-bottom: 0.5em;
+	}
 
 	.app-header-top {
 		padding-left: 15px;
 		padding-right: 15px;
 	}
 	.menu-top {
-		font-size: 16px;
+		@include x-rem(font-size, 1);
 	}
 	#nav-top{
 
@@ -19,7 +44,7 @@ body {
 
 			a{
 				padding: 0.5em;
-
+				white-space: nowrap;
 			}
 			i.fa{
 	      		margin-left: 0.5em;
@@ -38,17 +63,78 @@ body {
 
 		.dropdown-menu {
 			margin-right: 1em;
-			font-size: 16px;
+			@include x-rem(font-size, 1);
 			li {
 				text-align: right;
+				>a {
+					display: block;
+				}
 			}
+			
 		}
 	}
 
+	.app-header-menu {
+		
+		display: block;
+		
+		height: 60px;
+  		max-height: 60px;
 
+  		.row {
+  			height: 100%;
 
+  			&>div:first-child {
+				height: 100%;
+				padding-left:5px;
+				padding-right: 5px;
+			}
+  		}
 
+		.logo-container {
+			height: 100%;
+			a {
+				display: block;
+				height: 100%;
+				background: url("../img/logo-grande.png") no-repeat center center;
+				background-size: contain;
+			}
+		}
 
+		.menu-principal {
+			@include x-rem(margin-top, 0);
+		}
+
+		.dropdown {
+			text-align: center;
+			border-bottom: 6px solid $alt-gris_claro;
+			margin-bottom: -6px;
+			#menu-principal-xs {
+				display: inline-block;
+				@extend %familia-titulos;
+				@include x-rem(font-size, 1);
+				color: $alt-negro;
+				font-weight: 500;
+				white-space: nowrap;
+
+				&:hover{
+				  	color: $alt-negro;
+			        background-color: #F5F5F5;
+      			};
+				padding: 0.75em 0.5em;
+			}
+			.dropdown-menu {
+				@include x-rem(font-size, 1);
+				a {
+					padding: 0.5em;
+					font-weight: 600;
+				}
+			}
+
+		}
+
+		
+	}
 }
 
 

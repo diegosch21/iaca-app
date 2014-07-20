@@ -4,6 +4,7 @@ require.config({
 
 	paths: {
         app: '../app',
+        lib: '../app/lib',
         templates: '../../templates',
         jquery: 'jquery-1.11.1.min',
         underscore: 'underscore-1.6.0.min',

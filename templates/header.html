@@ -1,109 +1,102 @@
-<nav class="navbar navbar-fixed-top">
-	<div class="container-fluid app-header">
+<div class="container-fluid app-header">
 
-		<div class="menu-top-bg">
-			<div class="container-fluid app-header-top">
-				<nav class="menu-top">
-					<ul id="nav-top" class="list-inline row">
-						<li class="col-md-3 col-sm-4 hidden-xs redes-sociales">
-							<!-- AGREGAR icono sitio web -->
-                            <a href="#"><i class="fa fa-lg fa-facebook"></i> </a>
-                            <a href="#"><i class="fa fa-lg fa-twitter"></i> </a>
-                        </li>
+	<div class="menu-top-bg">
+		<div class="container-fluid app-header-top">
+			<div class="menu-top">
+				<ul id="nav-top" class="list-inline row">
+					<li class="col-md-3 col-sm-4 hidden-xs redes-sociales">
+						<a href="#"><i class="icon-chrome"></i> </a>
+						<a href="#"><i class="fa fa-lg fa-facebook"></i> </a>
+						<a href="#"><i class="fa fa-lg fa-twitter"></i> </a>
+					</li>
 
-						<li class="col-md-offset-3 col-md-6 col-sm-8 col-xs-12 menu-profesional">
-							<div class="dropdown text-right">
+					<li class="col-md-offset-3 col-md-6 col-sm-8 col-xs-12 menu-profesional">
+						<div class="dropdown text-right">
 							<% if (logueado) { %>
-								<a data-toggle="dropdown" id="menuUserLogueado" >
-									Bienvenido, <strong> <%= user %></strong>&nbsp;&nbsp;<i class="fa fa-bars fa-lg"></i>
-								</a>
+							<a data-toggle="dropdown" id="menuUserLogueado" >
+								<span class="hidden-xs">Bienvenido, </span><strong> <%= user %></strong>&nbsp;&nbsp;<i class="fa fa-bars fa-lg"></i>
+							</a>
 							<% } else { %>
-								<a href="#login">
-									<strong> Iniciar sesión</strong>&nbsp;&nbsp;
-								</a>
-								<a data-toggle="dropdown" id="menuUserDeslogueado">
-									<i class="fa fa-bars fa-lg"></i>
-								</a>
+							<a href="#login">
+								<strong> Iniciar sesión</strong>&nbsp;&nbsp;
+							</a>
+							<a data-toggle="dropdown" id="menuUserDeslogueado">
+								<i class="fa fa-bars fa-lg"></i>
+							</a>
 							<% } %>
 							
 							<% if (logueado) { %>
-								<ul class="list-unstyled dropdown-menu pull-right" role="menu" aria-labelledby="menuUserLogueado">
-									<li><a href="#datos"><strong>Mis datos</strong></a></li>
-									<li><a href="#configuracion"><strong>Configuración</strong></a></li>
-									<!-- ToDo: Submenu cambiar usuario -->
-									<li><a href="#"><strong>Cambiar usuario</strong></a></li>
-									<li><a href="#logout"><i class="fa fa-lg fa-sign-out texto-azul">&nbsp;&nbsp;</i><strong class="texto-azul">Cerrar Sesión</strong></a></li>
-								</ul>
+							<ul class="list-unstyled dropdown-menu pull-right" role="menu" aria-labelledby="menuUserLogueado">
+								<li role="presentation"><a role="menuitem" href="#datos"><strong>Mis datos</strong></a></li>
+								<li role="presentation"><a role="menuitem" href="#configuracion"><strong>Configuración</strong></a></li>
+								<!-- ToDo: Submenu cambiar usuario -->
+								<li role="presentation"><a role="menuitem" href="#"><strong>Cambiar usuario</strong></a></li>
+								<li role="presentation" class="divider"></li>
+								<li role="presentation"><a role="menuitem" href="#logout"><i class="fa fa-lg fa-sign-out texto-azul">&nbsp;&nbsp;</i><strong class="texto-azul">Cerrar Sesión</strong></a></li>
+							</ul>
 							<% } else { %>
-								<ul class="list-unstyled dropdown-menu pull-right" role="menu" aria-labelledby="menuUserDeslogueado">
-									<li><a href="#configuracion"><strong>Configuración</strong></a></li>
-									<!-- ToDo: Submenu cambiar usuario -->
-									<li><a href="#"><strong>Cambiar usuario</strong></a></li>
-								</ul>
+							<ul class="list-unstyled dropdown-menu pull-right" role="menu" aria-labelledby="menuUserDeslogueado">
+								<li role="presentation"><a role="menuitem" href="#configuracion"><strong>Configuración</strong></a></li>
+								<!-- ToDo: Submenu cambiar usuario -->
+								<li role="presentation"><a role="menuitem" href="#"><strong>Cambiar usuario</strong></a></li>
+							</ul>
 							<% } %>	
-							</div>
+						</div>
+					</li>
+				</ul> <!-- nav-top-->
+			</div> <!--/menu-top-->
+		</div> <!--/container-->
+	</div> <!--/menu-top-bg (azul, nombre usuario)-->
+	<div class="container-fluid app-header-menu">
+		<div class="row">
+			<div class="col-xs-4 col-sm-4">
+				<div class="logo-container"><a class="text-hide"></a></div>
+			</div>
+			<div class="col-xs-8 col-sm-8 col-md-7 col-lg-6">
+				<nav class="menu-principal hidden-xs">  <!-- menu estirado -->
+					<ul id="main-nav" class="list-inline">
+						<li id='menuitem-inicio'>
+							<a href="#home">Inicio</a>
 						</li>
-					</ul> <!-- nav-top-->
-				</nav> <!--/menu-top-->
-			</div> <!--/container-->
-		</div> <!--/menu-top-bg (azul, nombre usuario)-->
+						<li id='menuitem-resultados'>
+							<a href="#resultados">Resultados</a>
+						</li>
+						<li id='menuitem-configuracion'>
+							<a href="#configuracion">Configuración</a>
+						</li>
+						<li id='menuitem-laboratorios'>
+							<a href="#laboratorios">Laboratorios</a>
+						</li>
+						<li id='menuitem-informacion'>
+							<a href="#info">Información</a>
+						</li>
+					</ul>
+				</nav> 
+				<div class="dropdown visible-xs"> <!-- menu select -->
+					<a data-toggle="dropdown" id="menu-principal-xs" >
+						<span class='menu-principal-xs-activo' id='menu-principal-xs-inicio'>INICIO</span>
+						<span class='menu-principal-xs-activo' id='menu-principal-xs-resultados'>RESULTADOS</span>
+						<span class='menu-principal-xs-activo' id='menu-principal-xs-configuracion'>CONFIGURACIÓN</span>
+						<span class='menu-principal-xs-activo' id='menu-principal-xs-laboratorios'>LABORATORIOS</span>
+						<span class='menu-principal-xs-activo' id='menu-principal-xs-informacion'>INFORMACIÓN</span>
+						<span class="caret"></span>
+					</a>
 
-		<div class="container">
-			<header class="row">
-
-				<div class="col-lg-4 col-md-3 col-sm-12">
-					<div class="logo-container"><a class="text-hide" href="/">IACA Laboratorios</a></div> <!--/logo-container-->
+					<ul class="dropdown-menu list-unstyled pull-right" role="menu" aria-labelledby="menu-principal-xs">
+						<li role="presentation"><a role="menuitem" href="#home">Inicio</a></li>
+						<li role="presentation" class="divider"></li>
+						<li role="presentation"><a role="menuitem" href="#resultados">Resultados</a></li>
+						<li role="presentation" class="divider"></li>
+						<li role="presentation"><a role="menuitem" href="#configuracion">Configuración</a></li>
+						<li role="presentation" class="divider"></li>
+						<li role="presentation"><a role="menuitem" href="#laboratorios">Laboratorios</a></li>
+						<li role="presentation" class="divider"></li>
+						<li role="presentation"><a role="menuitem" href="#info">Información</a></li>
+					</ul>
 				</div>
-				<div class="col-lg-8 col-md-9 col-sm-12">
-					<nav class="menu-principal">
-
-						<ul id="main-nav" class=" list-inline">
-							<li class="activo"><a href="/">Inicio</a></li>
-
-							<li><a href="empresa.html">La Empresa <i class="fa fa-caret-down"></i></a>
-
-								<ul class="dropdown list-inline">
-									<li><a href="profesionales.html">Profesionales</a></li>
-									<li><a href="programas_externos.html">Programas Externos</a></li>
-									<li><a href="labo-san-martin.html">Sede San Martín</a></li>
-									<li><a href="labo-rodriguez.html">Sede Rodríguez</a></li>
-									<li><a href="labo-darwin.html">Sede Darwin</a></li>
-								</ul>
-
-							</li>
-
-							<li><a href="pacientes.html">Pacientes <i class="fa fa-caret-down"></i></a>
-								<ul class="dropdown list-inline">
-									<li><a href="indicaciones.html">Indicaciones para análisis</a></li>
-									<li><a href="pacientes.html#informe_resultados">Informe de resultados</a></li>
-									<li><a href="pacientes.html#preguntas_frecuentes">Preguntas frecuentes</a></li>
-									<li><a href="pacientes.html#atencion_ninos">Atención a niños</a></li>
-								</ul>
-							</li>
-
-							<li><a href="derivaciones.html">Derivaciones <i class="fa fa-caret-down"></i></a>
-								<ul class="dropdown list-inline">
-									<li><a href="directorio.html">Directorio de análisis</a></li>
-									<li><a href="derivaciones.html#clientes">Clientes</a></li>
-									<li><a href="derivaciones.html#logistica">Comenzar a derivar</a></li>
-								</ul>
-							</li>
-
-							<li><a href="news.html">IACA News</a></li>
-
-							<li><a href="contacto.html">Contacto <i class="fa fa-caret-down"></i></a>
-								<ul class="dropdown list-inline">
-									<li><a href="contacto.html#reclamos-sugerencias">Reclamos y sugerencias</a></li>
-									<li><a href="contacto.html#trabajar">Trabajar en IACA</a></li>
-								</ul>
-							</li>
-						</ul>
-
-					</nav> <!--/menu-principal-->
-				</div>
-
-			</header>
-		</div>	<!--/container (logo, nav)-->
+			</div>  
+			<div class="clearfix visible-xs-block"></div>
+		</div>
+	</div>	<!--/container-fluid (logo, nav)-->
 	
-	</div>	<!-- /app-header -->
-</nav>
+</div>	<!-- /app-header -->

@@ -181,11 +181,11 @@ a {
   color: $primario-violeta;
   text-decoration: none;
 
-/*   &:hover,
+  &:hover,
   &:focus {
     color: $primario-violeta_oscuro;
     //text-decoration: underline;
-  } */
+  } 
 
   &:focus {
     @include tab-focus();
@@ -523,9 +523,9 @@ Browse Happy prompt
   a{
     color: $alt-blanco;
 
-/*     &:hover{
+     &:hover{
       background-color: $primario-azul;
-    } */
+    } 
   }
 }
 
