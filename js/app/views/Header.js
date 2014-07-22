@@ -3,14 +3,14 @@ define([
 	'underscore',
 	'backbone',
 	'text!templates/header.html'
-], function ($,_,Backbone,headerTemplate,fixHeader) {
+], function ($,_,Backbone,headerTemplate) {
 	
 	var HeaderView = Backbone.View.extend({
 
-		//precompilo el template
-		template: _.template(headerTemplate),
+			//precompilo el template
+			template: _.template(headerTemplate),
 
-		initialize: function() {
+			initialize: function() {
 			this.render();
 		},
 
@@ -20,13 +20,13 @@ define([
 		},
 
 		selectMenuItem: function (menuItem) {
-			$('.app-header-menu li').removeClass('activo');
+			$('#app-header-menu li').removeClass('activo');
 			$('#menu-principal-xs span.menu-principal-xs-activo').hide();
 	        if (menuItem) {
 	            $('#menuitem-' + menuItem).addClass('activo');
 	            $('#menu-principal-xs-'+ menuItem).show();
-        }
-    }
+        	}
+    	}
 
 	});
 

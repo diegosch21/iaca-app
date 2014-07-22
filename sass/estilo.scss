@@ -9,6 +9,7 @@
 @import url(icomoon.css);
 
 //Variables
+@import "variables-app";
 @import "bootstrap/variables";
 @import "variables";
 
@@ -58,6 +59,8 @@
 /***** Estilos base ******/
 @import "base";
 
+/**** Estilos app móvil *****/
+@import "app";
 
 /***** Estilos para dispositivos de  768px de ancho, ó superior ******/
 @media (min-width: $screen-sm-min) {
@@ -72,6 +75,3 @@
   @import "screen-lg";
 }
 
-
-/**** Estilos app móvil *****/
-@import "app";

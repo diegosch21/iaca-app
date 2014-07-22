@@ -11,29 +11,91 @@ define([
 			"resultados"	: "resultados",
 			"configuracion"	: "configuracion",
 			"laboratorios"	: "laboratorios",
-			"info"			: "info"
+			"info"			: "info",
+			"datos"			: "datos",
+			"login"			: "login"
 		},
 
 		initialize: function(){
 			this.headerView = new HeaderView();
         	$('#header').html(this.headerView.el);
+        	this.cambiarPagina = _.bind(cambiarPagina,this);        	
 		},
 
 		home: function(){
-			this.headerView.selectMenuItem('inicio');
+			var self = this;
+			require(['app/views/Home'], function(view) {
+				if (!self.homeView) {
+					self.homeView = new view();
+				}
+				self.cambiarPagina(self.homeView,'inicio');	
+			});
+			
 		},
 		resultados: function(){
-			this.headerView.selectMenuItem('resultados');
+			var self = this;
+			require(['app/views/ResultadosLista'], function(view) {
+				if (!self.resultadosView) {
+					self.resultadosView = new view();
+				}
+				self.cambiarPagina(self.resultadosView,'resultados');	
+			});
 		},
 		configuracion: function(){
-			this.headerView.selectMenuItem('configuracion');
+			var self = this;
+			require(['app/views/Config'], function(view) {
+				if (!self.configView) {
+					self.configView = new view();
+				}
+				self.cambiarPagina(self.configView,'configuracion');	
+			});
 		},
 		laboratorios: function(){
-			this.headerView.selectMenuItem('laboratorios');
+			var self = this;
+			require(['app/views/Laboratorios'], function(view) {
+				if (!self.laboratoriosView) {
+					self.laboratoriosView = new view();
+				}
+				self.cambiarPagina(self.laboratoriosView,'laboratorios');	
+			});
 		},
 		info: function(){
-			this.headerView.selectMenuItem('informacion');
+			var self = this;
+			require(['app/views/Info'], function(view) {
+				if (!self.infoView) {
+					self.infoView = new view();
+				}
+				self.cambiarPagina(self.infoView,'info');	
+			});
+		},
+		datos: function(){
+			var self = this;
+			require(['app/views/Datos'], function(view) {
+				if (!self.datosView) {
+					self.datosView = new view();
+				}
+				self.cambiarPagina(self.datosView,'configuracion');	
+			});
+		},
+		login: function() {
+			var self = this;
+			require(['app/views/Login'], function(view) {
+				if (!self.loginView) {
+					self.loginView = new view();
+				}
+				self.cambiarPagina(self.loginView,'inicio');	
+			});
 		}
 	})
+
+	function cambiarPagina(view,menuitem) {
+		if (this.currentView)
+			this.currentView.remove();
+		$('#content').html(view.render().el);
+		this.currentView = view;
+		this.headerView.selectMenuItem(menuitem);
+		return view;
+	}
+
 	return appRouter;
 });

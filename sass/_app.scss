@@ -5,20 +5,12 @@ html {
 }
 
 body { 
-	padding-top: 120px;
+	padding-top: 115px;
 }
 
-#app {
-	position: relative;
-}
-
-//Redefino alto-logo
-$alto-logo:  3;
-$ancho-logo: $alto-logo*3.3;
-
-.app-header {
-	padding: 0;	
+#header {
 	position: fixed;
+	padding: 0;	
   	right: 0;
   	left: 0;
   	top: 0;
@@ -26,6 +18,32 @@ $ancho-logo: $alto-logo*3.3;
   	//height: 120px;
   	z-index: 100;
   	background-color: #FFF;
+  	margin-bottom: 0
+}
+
+#content {
+	position: relative;
+	left: 0;
+	top: 0;
+	//top:120px;
+}
+
+a {
+  outline: none;
+  outline: 0;
+   &:focus {
+     outline: none;
+     outline: 0;
+   }
+   &:active {
+     outline: none;
+     outline: 0;
+   }
+}
+
+/** Template header **/
+
+#app-header {
 
 	.menu-top-bg {
 		margin-bottom: 0.5em;
@@ -37,19 +55,28 @@ $ancho-logo: $alto-logo*3.3;
 	}
 	.menu-top {
 		@include x-rem(font-size, 1);
+
 	}
+	
+	/**Barra superior azul **/
+
 	#nav-top{
 
 		>li{
-
+			
+			white-space: nowrap;
 			a{
 				padding: 0.5em;
 				white-space: nowrap;
+
+			}
+			i {
+				margin-left: 0.5em;
+	      		margin-right: 0.5em;
 			}
 			i.fa{
 	      		margin-left: 0.5em;
 	      		margin-right: 0.5em;
-	   
 	    	}
 
 			&.redes-sociales {
@@ -74,13 +101,14 @@ $ancho-logo: $alto-logo*3.3;
 		}
 	}
 
-	.app-header-menu {
-		
-		display: block;
-		
-		height: 60px;
-  		max-height: 60px;
+	/** Logo y menu principal **/
+	#app-header-menu {
 
+		display: block;
+		height: 60px;
+		max-height: 60px;
+		position: relative;
+  		
   		.row {
   			height: 100%;
 
@@ -103,6 +131,56 @@ $ancho-logo: $alto-logo*3.3;
 
 		.menu-principal {
 			@include x-rem(margin-top, 0);
+			#main-nav {
+				  display: block;
+				  display: -webkit-box;
+				  display: -moz-box;
+				  display: -ms-flexbox;
+				  display: -webkit-flex;
+				  display: flex;
+				  justify-content: space-between;
+				  position: relative;
+
+				  >li{
+				    &:hover,
+				    &.activo{
+				      .dropdown{
+				        display: block;
+				       //display: flex;
+				       //justify-content: space-between;
+				        li{
+				          margin-bottom:0;
+				          &:hover{
+				            border:none;
+				            background-color: $primario-azul-oscuro;
+				          }
+				        }
+				      }
+				    }
+					a {
+						white-space: nowrap;
+					}
+
+				  }
+
+				  &:hover{
+				    li:hover{
+				      z-index: 100}
+				  }
+				  &.activo{
+				    li:hover{
+				      z-index: 50}
+				  }
+			}
+
+			ul {
+				li {
+					a {
+						padding-top: 0.75em;
+						padding-bottom: 0.75em;
+					}
+				}
+			}
 		}
 
 		.dropdown {
@@ -116,6 +194,7 @@ $ancho-logo: $alto-logo*3.3;
 				color: $alt-negro;
 				font-weight: 500;
 				white-space: nowrap;
+				
 
 				&:hover{
 				  	color: $alt-negro;
@@ -136,5 +215,4 @@ $ancho-logo: $alto-logo*3.3;
 		
 	}
 }
-
 

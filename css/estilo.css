@@ -3457,7 +3457,7 @@ body {
 }
 
 /* Textos */
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, .menu-principal ul li a, .app-header .app-header-menu .dropdown #menu-principal-xs {
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, .menu-principal ul li a, #app-header #app-header-menu .dropdown #menu-principal-xs {
   font-family: 'Maven Pro', sans-serif;
 }
 
@@ -5413,65 +5413,189 @@ section.acceso .label-seccion {
   margin-bottom: 2rem;
 }
 
+/**** Estilos app móvil *****/
+html {
+  font-size: 16px;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+body {
+  padding-top: 115px;
+}
+
+#header {
+  position: fixed;
+  padding: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+  border-width: 0 0 1px;
+  z-index: 100;
+  background-color: #FFF;
+  margin-bottom: 0;
+}
+
+#content {
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
+a {
+  outline: none;
+  outline: 0;
+}
+a:focus {
+  outline: none;
+  outline: 0;
+}
+a:active {
+  outline: none;
+  outline: 0;
+}
+
+/** Template header **/
+#app-header {
+  /**Barra superior azul **/
+  /** Logo y menu principal **/
+}
+#app-header .menu-top-bg {
+  margin-bottom: 0.5em;
+}
+#app-header .app-header-top {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+#app-header .menu-top {
+  font-size: 16px;
+  font-size: 1rem;
+}
+#app-header #nav-top > li {
+  white-space: nowrap;
+}
+#app-header #nav-top > li a {
+  padding: 0.5em;
+  white-space: nowrap;
+}
+#app-header #nav-top > li i {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+#app-header #nav-top > li i.fa {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+#app-header #nav-top > li.redes-sociales {
+  text-align: left;
+}
+#app-header #nav-top > li.redes-sociales a {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+#app-header #nav-top .dropdown-menu {
+  margin-right: 1em;
+  font-size: 16px;
+  font-size: 1rem;
+}
+#app-header #nav-top .dropdown-menu li {
+  text-align: right;
+}
+#app-header #nav-top .dropdown-menu li > a {
+  display: block;
+}
+#app-header #app-header-menu {
+  display: block;
+  height: 60px;
+  max-height: 60px;
+  position: relative;
+}
+#app-header #app-header-menu .row {
+  height: 100%;
+}
+#app-header #app-header-menu .row > div:first-child {
+  height: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+#app-header #app-header-menu .logo-container {
+  height: 100%;
+}
+#app-header #app-header-menu .logo-container a {
+  display: block;
+  height: 100%;
+  background: url("../img/logo-grande.png") no-repeat center center;
+  background-size: contain;
+}
+#app-header #app-header-menu .menu-principal {
+  margin-top: 0;
+  margin-top: 0;
+}
+#app-header #app-header-menu .menu-principal #main-nav {
+  display: block;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+#app-header #app-header-menu .menu-principal #main-nav > li:hover .dropdown, #app-header #app-header-menu .menu-principal #main-nav > li.activo .dropdown {
+  display: block;
+}
+#app-header #app-header-menu .menu-principal #main-nav > li:hover .dropdown li, #app-header #app-header-menu .menu-principal #main-nav > li.activo .dropdown li {
+  margin-bottom: 0;
+}
+#app-header #app-header-menu .menu-principal #main-nav > li:hover .dropdown li:hover, #app-header #app-header-menu .menu-principal #main-nav > li.activo .dropdown li:hover {
+  border: none;
+  background-color: #28427e;
+}
+#app-header #app-header-menu .menu-principal #main-nav > li a {
+  white-space: nowrap;
+}
+#app-header #app-header-menu .menu-principal #main-nav:hover li:hover {
+  z-index: 100;
+}
+#app-header #app-header-menu .menu-principal #main-nav.activo li:hover {
+  z-index: 50;
+}
+#app-header #app-header-menu .menu-principal ul li a {
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+}
+#app-header #app-header-menu .dropdown {
+  text-align: center;
+  border-bottom: 6px solid #dadeec;
+  margin-bottom: -6px;
+}
+#app-header #app-header-menu .dropdown #menu-principal-xs {
+  display: inline-block;
+  font-size: 16px;
+  font-size: 1rem;
+  color: #112535;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 0.75em 0.5em;
+}
+#app-header #app-header-menu .dropdown #menu-principal-xs:hover {
+  color: #112535;
+  background-color: #F5F5F5;
+}
+#app-header #app-header-menu .dropdown .dropdown-menu {
+  font-size: 16px;
+  font-size: 1rem;
+}
+#app-header #app-header-menu .dropdown .dropdown-menu a {
+  padding: 0.5em;
+  font-weight: 600;
+}
+
 /***** Estilos para dispositivos de  768px de ancho, ó superior ******/
 @media (min-width: 768px) {
   /** Puntas decorativas svg **/
   .outter-svg-container {
     display: block;
-  }
-
-  /** Menu top **/
-  .lengua-sitio a .outter-svg-container,
-  .menu-profesional a .outter-svg-container {
-    display: none;
-    z-index: 910;
-  }
-  .lengua-sitio:hover a .outter-svg-container,
-  .menu-profesional:hover a .outter-svg-container {
-    display: block;
-  }
-
-  .redes-sociales,
-  .acceso-profesional {
-    text-align: right;
-  }
-
-  /** Menú principal **/
-  /* .tinynav { display: none } */
-  .menu-principal #main-nav {
-    display: block;
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-  }
-  .menu-principal #main-nav .dropdown {
-    display: none;
-    border: none;
-    background-color: #0056a0;
-    position: absolute;
-    width: 100%;
-    bottom: -112%;
-    left: 0;
-    margin: 0;
-  }
-  .menu-principal #main-nav .dropdown a {
-    color: #eef3fa;
-  }
-  .menu-principal #main-nav > li:hover .dropdown, .menu-principal #main-nav > li.activo .dropdown {
-    display: block;
-  }
-  .menu-principal #main-nav > li:hover .dropdown li, .menu-principal #main-nav > li.activo .dropdown li {
-    margin-bottom: 0;
-  }
-  .menu-principal #main-nav > li:hover .dropdown li:hover, .menu-principal #main-nav > li.activo .dropdown li:hover {
-    border: none;
-    background-color: #28427e;
-  }
-  .menu-principal #main-nav:hover li:hover {
-    z-index: 100;
-  }
-  .menu-principal #main-nav.activo li:hover {
-    z-index: 50;
   }
 
   /** Breadcrumb **/
@@ -5606,13 +5730,27 @@ section.acceso .label-seccion {
 }
 /***** Estilos para dispositivos de  990px de ancho, ó superior ******/
 @media (min-width: 992px) {
-  /** Menú top **/
-  .redes-sociales {
-    text-align: center;
+  body {
+    padding-top: 140px;
   }
 
-  .acceso-paciente {
-    text-align: right;
+  #app-header {
+    /** Logo y Menu principal **/
+  }
+  #app-header #app-header-menu {
+    height: 85px;
+    max-height: 85px;
+  }
+  #app-header #app-header-menu .menu-principal {
+    font-size: 18px;
+    font-size: 1.15rem;
+  }
+  #app-header #app-header-menu .menu-principal #main-nav {
+    padding-top: 15px;
+  }
+  #app-header #app-header-menu .menu-principal ul li a {
+    font-size: 18px;
+    font-size: 1.15rem;
   }
 
   /** Breadcrumb **/
@@ -5784,118 +5922,4 @@ section.acceso .label-seccion {
   #buscar_practica .busqueda_inline input[type="text"] {
     width: 84%;
   }
-}
-/**** Estilos app móvil *****/
-html {
-  font-size: 16px;
-  margin-top: 0;
-  padding-top: 0;
-}
-
-body {
-  padding-top: 120px;
-}
-
-#app {
-  position: relative;
-}
-
-.app-header {
-  padding: 0;
-  position: fixed;
-  right: 0;
-  left: 0;
-  top: 0;
-  border-width: 0 0 1px;
-  z-index: 100;
-  background-color: #FFF;
-}
-.app-header .menu-top-bg {
-  margin-bottom: 0.5em;
-}
-.app-header .app-header-top {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.app-header .menu-top {
-  font-size: 16px;
-  font-size: 1rem;
-}
-.app-header #nav-top > li a {
-  padding: 0.5em;
-  white-space: nowrap;
-}
-.app-header #nav-top > li i.fa {
-  margin-left: 0.5em;
-  margin-right: 0.5em;
-}
-.app-header #nav-top > li.redes-sociales {
-  text-align: left;
-}
-.app-header #nav-top > li.redes-sociales a {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-}
-.app-header #nav-top .dropdown-menu {
-  margin-right: 1em;
-  font-size: 16px;
-  font-size: 1rem;
-}
-.app-header #nav-top .dropdown-menu li {
-  text-align: right;
-}
-.app-header #nav-top .dropdown-menu li > a {
-  display: block;
-}
-.app-header .app-header-menu {
-  display: block;
-  height: 60px;
-  max-height: 60px;
-}
-.app-header .app-header-menu .row {
-  height: 100%;
-}
-.app-header .app-header-menu .row > div:first-child {
-  height: 100%;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-.app-header .app-header-menu .logo-container {
-  height: 100%;
-}
-.app-header .app-header-menu .logo-container a {
-  display: block;
-  height: 100%;
-  background: url("../img/logo-grande.png") no-repeat center center;
-  background-size: contain;
-}
-.app-header .app-header-menu .menu-principal {
-  margin-top: 0;
-  margin-top: 0;
-}
-.app-header .app-header-menu .dropdown {
-  text-align: center;
-  border-bottom: 6px solid #dadeec;
-  margin-bottom: -6px;
-}
-.app-header .app-header-menu .dropdown #menu-principal-xs {
-  display: inline-block;
-  font-size: 16px;
-  font-size: 1rem;
-  color: #112535;
-  font-weight: 500;
-  white-space: nowrap;
-  padding: 0.75em 0.5em;
-}
-.app-header .app-header-menu .dropdown #menu-principal-xs:hover {
-  color: #112535;
-  background-color: #F5F5F5;
-}
-.app-header .app-header-menu .dropdown .dropdown-menu {
-  font-size: 16px;
-  font-size: 1rem;
-}
-.app-header .app-header-menu .dropdown .dropdown-menu a {
-  padding: 0.5em;
-  font-weight: 600;
 }

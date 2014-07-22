@@ -1,20 +1,31 @@
-/** Menú top **/
-
-.redes-sociales{
-  text-align: center;
+body { 
+  padding-top: 140px;
 }
 
-.acceso-paciente{
-  text-align: right;
+#app-header {
+
+  /** Logo y Menu principal **/
+  #app-header-menu {
+
+    height: 85px;
+    max-height: 85px;
+
+    .menu-principal {
+      @include x-rem(font-size, 1.15);
+      #main-nav {
+        padding-top: 15px;
+      }
+      ul {
+        li {
+          a {
+            @include x-rem(font-size, 1.15);
+          }
+        }
+      }
+    }
+  }
+
 }
-
-// /** Logo **/
-// .logo-container{
-//   a{
-//     @include x-rem(top, 1.5);
-//   }
-// }
-
 
 /** Breadcrumb **/
 
