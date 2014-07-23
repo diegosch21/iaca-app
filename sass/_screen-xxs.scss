@@ -1,0 +1,33 @@
+/*Header */
+#app-header-menu {
+	.dropdown {
+		#menu-principal-xs {
+			@include x-rem(font-size, 1);
+			padding: 0.75em 0.25em;
+		}
+		.dropdown-menu {
+			@include x-rem(font-size, 1);
+		}
+	}
+
+}
+
+/* Home */
+.home-boton {
+	@include x-rem(padding, 0.5);
+	.banner-horizontal {
+		@include x-rem(height,4);
+		.header--banner {
+			padding: 0;
+			span {
+				@include x-rem(font-size,1.2);
+			}
+		}
+		.contenido--banner {
+			span {
+				@include x-rem(font-size,2);
+			}
+		}
+	}
+}
+

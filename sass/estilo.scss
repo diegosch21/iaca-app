@@ -5,8 +5,10 @@
 //@import url(//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css);
 //Font-awesome: glyphicons
 @import url(font-awesome.min.css);
-//Icomoon: glyphicon chrome
+//Icomoon: glyphicon (chrome)
 @import url(icomoon.css);
+//Octicon glyiphicons (microscopio)
+@import url(octicons.css);
 
 //Variables
 @import "variables-app";
@@ -18,7 +20,7 @@
 @import "bootstrap/mixins";
 @import "rem-mixing";
 
-/**** BOOTSTRAP *****/
+/*************************** BOOTSTRAP *************************/
 
 /*Bootstrap grid*/
 @import "bootstrap/grid";
@@ -43,7 +45,7 @@
 
 /**** Fin bootstrap *****/
 
-/**** FOUNDATION ****/
+/************************** FOUNDATION *****************************/
 /*Foundation Block Grid*/
 @import "foundation/components/block-grid";
 /* Foundation Flex-video*/
@@ -56,21 +58,37 @@
 /**** Fin foundation ****/
 
 
-/***** Estilos base ******/
+/*********************************************************************
+*********************** Estilos diseño web ***************************
+**********************************************************************/
 @import "base";
 
-/**** Estilos app móvil *****/
+/*********************************************************************
+*********************** Estilos app móvil ****************************
+**********************************************************************/
 @import "app";
 
-/***** Estilos para dispositivos de  768px de ancho, ó superior ******/
+/*********************************************************************
+***** Estilos para dispositivos de  350px de ancho, ó superior *******
+**********************************************************************/
+@media (max-width: 350px) {
+  @import "screen-xxs";
+}
+/*********************************************************************
+****** Estilos para dispositivos de  768px de ancho, ó superior ******
+**********************************************************************/
 @media (min-width: $screen-sm-min) {
   @import "screen-sm";
 }
-/***** Estilos para dispositivos de  990px de ancho, ó superior ******/
+/*********************************************************************
+****** Estilos para dispositivos de  990px de ancho, ó superior ******
+**********************************************************************/
 @media (min-width: $screen-md-min) {
   @import "screen-md";
 }
-/***** Estilos para dispositivos de  1200px de ancho, ó superior ******/
+/*********************************************************************
+****** Estilos para dispositivos de  1200px de ancho, ó superior *****
+**********************************************************************/
 @media (min-width: $screen-lg-min) {
   @import "screen-lg";
 }
