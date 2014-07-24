@@ -1,6 +1,6 @@
 @charset "CP850";
 /* Hoja de estilo principal. Nuevo sitio IACA Laboratorios */
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic,700italic|Maven+Pro:400,500,700);
+@import url(mavenpro-sourcesanspro.css);
 @import url(font-awesome.min.css);
 @import url(icomoon.css);
 @import url(octicons.css);
@@ -61,7 +61,7 @@
   clear: both;
 }
 
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .home-boton .banner-horizontal .contenido--banner, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .home-boton .banner-horizontal .contenido--banner, .col-md-5, .home-boton .banner-horizontal .header--banner, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .home-boton .banner-horizontal .header--banner, .col-md-7, .home-boton .banner-horizontal .contenido--banner, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .home-boton .banner-horizontal .header--banner, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .home-boton .banner-horizontal .contenido--banner, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .home-boton .banner-horizontal .contenido--banner, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .home-boton .banner-horizontal .header--banner, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .home-boton .banner-horizontal .header--banner, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
@@ -486,7 +486,7 @@
   }
 }
 @media (min-width: 992px) {
-  .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .home-boton .banner-horizontal .header--banner, .col-md-6, .col-md-7, .home-boton .banner-horizontal .contenido--banner, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+  .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
     float: left;
   }
 
@@ -506,7 +506,7 @@
     width: 33.33333%;
   }
 
-  .col-md-5, .home-boton .banner-horizontal .header--banner {
+  .col-md-5 {
     width: 41.66667%;
   }
 
@@ -514,7 +514,7 @@
     width: 50%;
   }
 
-  .col-md-7, .home-boton .banner-horizontal .contenido--banner {
+  .col-md-7 {
     width: 58.33333%;
   }
 
@@ -3567,7 +3567,7 @@ span.texto--normal {
   color: #76b5e6;
 }
 
-.texto-violeta, .home-boton .banner-horizontal:hover .contenido--banner span {
+.texto-violeta, .home-boton a:active .contenido--banner span, html.no-touch .home-boton a:hover .contenido--banner span {
   color: #657bc3;
 }
 
@@ -3851,7 +3851,7 @@ Browse Happy prompt
   fill: #76b5e6;
 }
 
-.punta--violeta, .home-boton .banner-horizontal:hover .header--banner svg {
+.punta--violeta, .home-boton a:active .header--banner svg, html.no-touch .home-boton a:hover .header--banner svg {
   fill: #657bc3;
 }
 
@@ -3873,7 +3873,7 @@ Browse Happy prompt
   background-color: #28427e;
 }
 
-.contenedor--violeta, .home-boton .banner-horizontal:hover .header--banner {
+.contenedor--violeta, .home-boton a:active .header--banner, html.no-touch .home-boton a:hover .header--banner {
   background-color: #657bc3;
 }
 
@@ -5529,27 +5529,34 @@ a:active {
   padding: 0.5em;
   font-weight: 600;
 }
-#app-header-menu .dropdown .menu-principal-xs {
+#app-header-menu .dropdown .menu-principal-xs-activo {
   display: none;
 }
 
 /************* Template home *******************/
 #app-home {
   position: absolute;
-  height: 95%;
   width: 100%;
 }
 
 .home-item {
-  min-height: 50px;
+  min-height: 80px;
+  min-height: 5rem;
   height: 25%;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .home-boton {
-  max-width: 500px;
+  max-width: 450px;
   padding: 16px;
   padding: 1rem;
   margin: 0 auto;
+}
+.home-boton a {
+  z-index: 1000;
+  background-color: #FFF;
+  display: block;
 }
 .home-boton .banner-horizontal {
   margin-bottom: 0;
@@ -5581,7 +5588,7 @@ a:active {
   display: block;
 }
 
-/**** Fin app.scss ****/
+/**** Fin app.scss ***/
 /*********************************************************************
 ***** Estilos para dispositivos de  350px de ancho, ó superior *******
 **********************************************************************/
@@ -5624,6 +5631,13 @@ a:active {
 @media (min-width: 768px) {
   #content {
     padding-top: 10px;
+  }
+
+  .home-item {
+    height: 112px;
+    height: 7rem;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   /** Breadcrumb **/

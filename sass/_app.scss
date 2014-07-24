@@ -236,7 +236,7 @@ a {
 			}
 		}
 
-		.menu-principal-xs {
+		.menu-principal-xs-activo {
 			display: none;
 		}
 
@@ -249,45 +249,26 @@ a {
 /************* Template home *******************/
 #app-home {
 	position: absolute;
-	height: 95%;
+	//height: 95%; //para que el contenido se estire a lo alto (en combinación con height 25% de home item)
 	width: 100%;
 }
 .home-item {
-	min-height: 50px;
+	@include x-rem(min-height,5);
 	height: 25%;
+	padding-left: 0;
+	padding-right: 0;
 }
 .home-boton {
 	@extend .row;
-	max-width: 500px;
+	max-width: 450px;
 	@include x-rem(padding, 1);
 	margin: 0 auto;
-	.banner-horizontal {
-		@extend .row;
-		margin-bottom: 0;
-		@include x-rem(height,5);
-		.header--banner {
-			@extend .col-xs-9, .col-sm-7, .col-md-5; 
-			@include x-rem(padding,0.5);
-			height: 100%;
-			@extend .centrado-vertical;
-			span {
-				@include x-rem(font-size,1.25);
-			}
-			
-			
-		}
-		.contenido--banner {
-			@include x-rem(padding,0 0.5);
-			@extend .col-xs-3, .col-sm-5, .col-md-7; 
-			height: 100%;
-			@extend .centrado-vertical;
-			span {
-				cursor: pointer;
-				@include x-rem(font-size,3);
-			}
-		}
-		box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
-		&:hover {
+	a {
+		z-index: 1000;
+		background-color: #FFF;
+		display: block;
+		&:active, 
+		html.no-touch &:hover {
 			.header--banner {
 				@extend .contenedor--violeta;
 				svg {
@@ -301,20 +282,34 @@ a {
 			}
 		}
 	}
-	// a:active, 
-	// html.no-touch .banner-horizontal:hover {
-	// 	.header--banner {
-	// 		@extend .contenedor--violeta;
-	// 		svg {
-	// 			@extend .punta--violeta;
-	// 		}
-	// 	}
-	// 	.contenido--banner {
-	// 		span {
-	// 			@extend .texto-violeta;
-	// 		}
-	// 	}
-	// }
+	.banner-horizontal {
+		@extend .row;
+		margin-bottom: 0;
+		@include x-rem(height,5);
+		.header--banner {
+			@extend .col-xs-9, .col-sm-7; 
+			@include x-rem(padding,0.5);
+			height: 100%;
+			@extend .centrado-vertical;
+			span {
+				@include x-rem(font-size,1.25);
+			}
+			
+			
+		}
+		.contenido--banner {
+			@include x-rem(padding,0 0.5);
+			@extend .col-xs-3, .col-sm-5; 
+			height: 100%;
+			@extend .centrado-vertical;
+			span {
+				cursor: pointer;
+				@include x-rem(font-size,3);
+			}
+		}
+		box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+	}
+	 
 }
 
 
@@ -324,4 +319,4 @@ a {
 }
 
 
-/**** Fin app.scss ****/
+/**** Fin app.scss ***/

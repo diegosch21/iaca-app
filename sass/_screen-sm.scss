@@ -3,6 +3,12 @@
 }
 
 
+//* Home */
+.home-item {
+  @include x-rem(height,7);
+  padding-left: 20px;
+  padding-right: 20px;
+}
 
 
 

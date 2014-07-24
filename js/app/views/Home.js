@@ -10,6 +10,10 @@ define([
 		//precompilo el template
 		template: _.template(homeTemplate),
 
+		events: {
+			'click .home-link' : 'clickBoton'
+		},
+
 		initialize: function() {
 			this.render();
 		},
@@ -18,6 +22,11 @@ define([
 			this.$el.html(this.template());
 			return this;
 		},
+
+		clickBoton: function(e) {
+			
+			
+		}
 		
 	});
 
