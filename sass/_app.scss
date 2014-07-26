@@ -1,4 +1,4 @@
-/** Genéricos **/
+/********* Genéricos **********/
 
 html {
 	font-size: 16px;
@@ -26,7 +26,7 @@ a {
 .centrado-vertical {
 	display: table;
 	text-align: center;
-	span {
+	span, .centrar {
 		width: 100%;
 		display: table-cell;
 		vertical-align: middle;
@@ -72,6 +72,93 @@ a {
     bottom:0px;
     overflow-y:auto; 
 }
+
+
+/** Estilo boton (generico, como en home) **/
+.boton {
+	@include x-rem(padding, 1);
+	cursor: pointer;	
+	
+	.banner-horizontal {
+		box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+		.contenido--banner {
+			span {
+				cursor: pointer;
+			}
+		}
+	}
+}
+@mixin boton-activo($color) {
+	&.activo,
+	html.no-touch &:hover {
+		.header--banner {
+			@extend .contenedor--#{$color};
+			svg {
+				@extend .punta--#{$color};
+			}
+		}
+		.contenido--banner {
+			span {
+				@extend .texto-#{$color};
+			}
+		}
+	}
+}
+
+.banner-horizontal {
+	@extend .row;
+	margin-bottom: 0;
+	.header--banner {
+		@extend .col-xs-9, .col-sm-7; 
+		@include x-rem(padding,0.5);
+		height: 100%;
+		span {
+			@include x-rem(font-size,1.25);
+		}
+		@extend .centrado-vertical;
+		.texto--banner {
+			@include x-rem(padding,0.25);
+			position: absolute;
+			width: 100%;
+			@extend .centrado-vertical;
+			h5 {
+				margin: 0;
+				line-height: 1.25;
+				@include x-rem(font-size,1.25);
+			}
+			span, p {
+				text-align: center;
+				@include x-rem(font-size,1);
+				display: block;
+			}
+		}
+	}
+	.contenido--banner, .img--banner {
+		@extend .col-xs-3, .col-sm-5; 
+		height: 100%;
+	}
+	.img--banner {
+		padding: 0;
+		img {
+			min-height: 100%;
+		}
+	}
+	.contenido--banner {
+		@include x-rem(padding,0 0.5);
+		@extend .centrado-vertical;
+		span {
+			@include x-rem(font-size,3);
+		}
+	}
+	
+	
+	.outter-svg-container {
+		display: block;
+	}						
+}
+
+
+
 
 /************** Template header *****************/
 #app-header {
@@ -241,10 +328,8 @@ a {
 		}
 
 	}
-
-	
 }
-
+/***** Fin header *****/
 
 /************* Template home *******************/
 #app-home {
@@ -261,62 +346,34 @@ a {
 .home-boton {
 	@extend .row;
 	max-width: 450px;
-	@include x-rem(padding, 1);
 	margin: 0 auto;
-	a {
-		z-index: 1000;
-		background-color: #FFF;
-		display: block;
-		&:active, 
-		html.no-touch &:hover {
-			.header--banner {
-				@extend .contenedor--violeta;
-				svg {
-					@extend .punta--violeta;
-				}
-			}
-			.contenido--banner {
-				span {
-					@extend .texto-violeta;
-				}
-			}
-		}
-	}
 	.banner-horizontal {
-		@extend .row;
-		margin-bottom: 0;
 		@include x-rem(height,5);
-		.header--banner {
-			@extend .col-xs-9, .col-sm-7; 
-			@include x-rem(padding,0.5);
-			height: 100%;
-			@extend .centrado-vertical;
-			span {
-				@include x-rem(font-size,1.25);
-			}
-			
-			
-		}
-		.contenido--banner {
-			@include x-rem(padding,0 0.5);
-			@extend .col-xs-3, .col-sm-5; 
-			height: 100%;
-			@extend .centrado-vertical;
-			span {
-				cursor: pointer;
-				@include x-rem(font-size,3);
-			}
-		}
-		box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
 	}
-	 
+	@include boton-activo(violeta);
+}
+/***** Fin home *****/
+
+/********** Template laboratorios **********/
+.labos-boton {
+	@include x-rem(padding-top, 0.5);
+	@include x-rem(padding-bottom, 0.5);
+	@include boton-activo(azul);
+	.banner-horizontal {
+		@include x-rem(height,6);
+		.header--banner {
+			@extend .col-xs-7, .col-md-6; 
+			padding: 0;
+		}
+		.img--banner {
+			@extend .col-xs-5, .col-md-6; 
+			padding: 0;
+		}
+	}
+
 }
 
+/***** Fin laboratorios ********/
 
 
-.outter-svg-container {
-	display: block;
-}
-
-
-/**** Fin app.scss ***/
+/*********************** Fin app.scss ************************/

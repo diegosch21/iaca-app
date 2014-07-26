@@ -1,5 +1,6 @@
 @charset "CP850";
-/* Hoja de estilo principal. Nuevo sitio IACA Laboratorios */
+/* Hoja de estilo principal. Nuevo sitio IACA Laboratorios  - App móvil*/
+/** Fuentes usadas  **/
 @import url(mavenpro-sourcesanspro.css);
 @import url(font-awesome.min.css);
 @import url(icomoon.css);
@@ -49,26 +50,26 @@
   clear: both;
 }
 
-.row, .home-boton, .home-boton .banner-horizontal {
+.row, .banner-horizontal, .home-boton {
   margin-left: -15px;
   margin-right: -15px;
 }
-.row:before, .home-boton:before, .home-boton .banner-horizontal:before, .row:after, .home-boton:after, .home-boton .banner-horizontal:after {
+.row:before, .banner-horizontal:before, .home-boton:before, .row:after, .banner-horizontal:after, .home-boton:after {
   content: " ";
   display: table;
 }
-.row:after, .home-boton:after, .home-boton .banner-horizontal:after {
+.row:after, .banner-horizontal:after, .home-boton:after {
   clear: both;
 }
 
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .home-boton .banner-horizontal .contenido--banner, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .home-boton .banner-horizontal .contenido--banner, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .home-boton .banner-horizontal .header--banner, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .home-boton .banner-horizontal .header--banner, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .banner-horizontal .contenido--banner, .banner-horizontal .img--banner, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .labos-boton .banner-horizontal .img--banner, .col-sm-5, .banner-horizontal .contenido--banner, .banner-horizontal .img--banner, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .labos-boton .banner-horizontal .header--banner, .labos-boton .banner-horizontal .img--banner, .col-lg-6, .col-xs-7, .labos-boton .banner-horizontal .header--banner, .col-sm-7, .banner-horizontal .header--banner, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .banner-horizontal .header--banner, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
 
-.col-xs-1, .col-xs-2, .col-xs-3, .home-boton .banner-horizontal .contenido--banner, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .home-boton .banner-horizontal .header--banner, .col-xs-10, .col-xs-11, .col-xs-12 {
+.col-xs-1, .col-xs-2, .col-xs-3, .banner-horizontal .contenido--banner, .banner-horizontal .img--banner, .col-xs-4, .col-xs-5, .labos-boton .banner-horizontal .img--banner, .col-xs-6, .col-xs-7, .labos-boton .banner-horizontal .header--banner, .col-xs-8, .col-xs-9, .banner-horizontal .header--banner, .col-xs-10, .col-xs-11, .col-xs-12 {
   float: left;
 }
 
@@ -80,7 +81,7 @@
   width: 16.66667%;
 }
 
-.col-xs-3, .home-boton .banner-horizontal .contenido--banner {
+.col-xs-3, .banner-horizontal .contenido--banner, .banner-horizontal .img--banner {
   width: 25%;
 }
 
@@ -88,7 +89,7 @@
   width: 33.33333%;
 }
 
-.col-xs-5 {
+.col-xs-5, .labos-boton .banner-horizontal .img--banner {
   width: 41.66667%;
 }
 
@@ -96,7 +97,7 @@
   width: 50%;
 }
 
-.col-xs-7 {
+.col-xs-7, .labos-boton .banner-horizontal .header--banner {
   width: 58.33333%;
 }
 
@@ -104,7 +105,7 @@
   width: 66.66667%;
 }
 
-.col-xs-9, .home-boton .banner-horizontal .header--banner {
+.col-xs-9, .banner-horizontal .header--banner {
   width: 75%;
 }
 
@@ -277,7 +278,7 @@
 }
 
 @media (min-width: 768px) {
-  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .home-boton .banner-horizontal .contenido--banner, .col-sm-6, .col-sm-7, .home-boton .banner-horizontal .header--banner, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .banner-horizontal .contenido--banner, .banner-horizontal .img--banner, .col-sm-6, .col-sm-7, .banner-horizontal .header--banner, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
     float: left;
   }
 
@@ -297,7 +298,7 @@
     width: 33.33333%;
   }
 
-  .col-sm-5, .home-boton .banner-horizontal .contenido--banner {
+  .col-sm-5, .banner-horizontal .contenido--banner, .banner-horizontal .img--banner {
     width: 41.66667%;
   }
 
@@ -305,7 +306,7 @@
     width: 50%;
   }
 
-  .col-sm-7, .home-boton .banner-horizontal .header--banner {
+  .col-sm-7, .banner-horizontal .header--banner {
     width: 58.33333%;
   }
 
@@ -486,7 +487,7 @@
   }
 }
 @media (min-width: 992px) {
-  .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+  .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .labos-boton .banner-horizontal .header--banner, .labos-boton .banner-horizontal .img--banner, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
     float: left;
   }
 
@@ -510,7 +511,7 @@
     width: 41.66667%;
   }
 
-  .col-md-6 {
+  .col-md-6, .labos-boton .banner-horizontal .header--banner, .labos-boton .banner-horizontal .img--banner {
     width: 50%;
   }
 
@@ -3555,7 +3556,7 @@ span.texto--normal {
   color: #54676d;
 }
 
-.texto-azul {
+.texto-azul, .labos-boton.activo .contenido--banner span, html.no-touch .labos-boton:hover .contenido--banner span {
   color: #0056a0;
 }
 
@@ -3567,7 +3568,7 @@ span.texto--normal {
   color: #76b5e6;
 }
 
-.texto-violeta, .home-boton a:active .contenido--banner span, html.no-touch .home-boton a:hover .contenido--banner span {
+.texto-violeta, .home-boton.activo .contenido--banner span, html.no-touch .home-boton:hover .contenido--banner span {
   color: #657bc3;
 }
 
@@ -3843,7 +3844,7 @@ Browse Happy prompt
   fill: #28427e;
 }
 
-.punta--azul {
+.punta--azul, .labos-boton.activo .header--banner svg, html.no-touch .labos-boton:hover .header--banner svg {
   fill: #0056a0;
 }
 
@@ -3851,11 +3852,11 @@ Browse Happy prompt
   fill: #76b5e6;
 }
 
-.punta--violeta, .home-boton a:active .header--banner svg, html.no-touch .home-boton a:hover .header--banner svg {
+.punta--violeta, .home-boton.activo .header--banner svg, html.no-touch .home-boton:hover .header--banner svg {
   fill: #657bc3;
 }
 
-.punta--violeta_claro {
+.punta--gris {
   fill: #8fa9ce;
 }
 
@@ -3865,7 +3866,7 @@ Browse Happy prompt
 
 /* Fin estilos para puntas */
 /** Contenedores **/
-.contenedor--azul {
+.contenedor--azul, .labos-boton.activo .header--banner, html.no-touch .labos-boton:hover .header--banner {
   background-color: #0056a0;
 }
 
@@ -3873,7 +3874,7 @@ Browse Happy prompt
   background-color: #28427e;
 }
 
-.contenedor--violeta, .home-boton a:active .header--banner, html.no-touch .home-boton a:hover .header--banner {
+.contenedor--violeta, .home-boton.activo .header--banner, html.no-touch .home-boton:hover .header--banner {
   background-color: #657bc3;
 }
 
@@ -4115,8 +4116,6 @@ main.max_480 {
   height: 100%;
   vertical-align: middle;
   display: inline-block;
-  min-height: 160px;
-  min-height: 10rem;
 }
 .banner-horizontal .contenido--banner {
   padding: 32px;
@@ -4129,7 +4128,6 @@ main.max_480 {
   padding-bottom: 1em;
 }
 .banner-horizontal .img--banner {
-  width: 50%;
   height: auto;
 }
 .banner-horizontal.banner--full {
@@ -5318,7 +5316,7 @@ section.acceso.oculto .label-seccion {
   background-color: #657bc3;
   cursor: pointer;
 }
-section.acceso.oculto .label-seccion .punta--azul {
+section.acceso.oculto .label-seccion .punta--azul, section.acceso.oculto .label-seccion .labos-boton.activo .header--banner svg, .labos-boton.activo .header--banner section.acceso.oculto .label-seccion svg, section.acceso.oculto .label-seccion html.no-touch .labos-boton:hover .header--banner svg, html.no-touch .labos-boton:hover .header--banner section.acceso.oculto .label-seccion svg {
   fill: #657bc3;
 }
 section.acceso.oculto .label-seccion p {
@@ -5337,7 +5335,7 @@ section.acceso .label-seccion {
 /*********************************************************************
 *********************** Estilos app móvil ****************************
 **********************************************************************/
-/** Genéricos **/
+/********* Genéricos **********/
 html {
   font-size: 16px;
   margin-top: 0;
@@ -5357,19 +5355,19 @@ a:active {
   outline: 0;
 }
 
-.centrado-vertical, .home-boton .banner-horizontal .header--banner, .home-boton .banner-horizontal .contenido--banner {
+.centrado-vertical, .banner-horizontal .header--banner, .banner-horizontal .header--banner .texto--banner, .banner-horizontal .contenido--banner {
   display: table;
   text-align: center;
 }
-.centrado-vertical span, .home-boton .banner-horizontal .header--banner span, .home-boton .banner-horizontal .contenido--banner span {
+.centrado-vertical span, .banner-horizontal .header--banner span, .banner-horizontal .header--banner .texto--banner span, .banner-horizontal .contenido--banner span, .centrado-vertical .centrar, .banner-horizontal .header--banner .centrar, .banner-horizontal .contenido--banner .centrar {
   width: 100%;
   display: table-cell;
   vertical-align: middle;
 }
-.centrado-vertical.derecha, .home-boton .banner-horizontal .derecha.header--banner, .home-boton .banner-horizontal .derecha.contenido--banner {
+.centrado-vertical.derecha, .banner-horizontal .derecha.header--banner, .banner-horizontal .header--banner .derecha.texto--banner, .banner-horizontal .derecha.contenido--banner {
   text-align: right;
 }
-.centrado-vertical.izquierda, .home-boton .banner-horizontal .izquierda.header--banner, .home-boton .banner-horizontal .izquierda.contenido--banner {
+.centrado-vertical.izquierda, .banner-horizontal .izquierda.header--banner, .banner-horizontal .header--banner .izquierda.texto--banner, .banner-horizontal .izquierda.contenido--banner {
   text-align: left;
 }
 
@@ -5401,6 +5399,70 @@ a:active {
   right: 0px;
   bottom: 0px;
   overflow-y: auto;
+}
+
+/** Estilo boton (generico, como en home) **/
+.boton {
+  padding: 16px;
+  padding: 1rem;
+  cursor: pointer;
+}
+.boton .banner-horizontal {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+}
+.boton .banner-horizontal .contenido--banner span {
+  cursor: pointer;
+}
+
+.banner-horizontal {
+  margin-bottom: 0;
+}
+.banner-horizontal .header--banner {
+  padding: 8px;
+  padding: 0.5rem;
+  height: 100%;
+}
+.banner-horizontal .header--banner span {
+  font-size: 20px;
+  font-size: 1.25rem;
+}
+.banner-horizontal .header--banner .texto--banner {
+  padding: 4px;
+  padding: 0.25rem;
+  position: absolute;
+  width: 100%;
+}
+.banner-horizontal .header--banner .texto--banner h5 {
+  margin: 0;
+  line-height: 1.25;
+  font-size: 20px;
+  font-size: 1.25rem;
+}
+.banner-horizontal .header--banner .texto--banner span, .banner-horizontal .header--banner .texto--banner p {
+  text-align: center;
+  font-size: 16px;
+  font-size: 1rem;
+  display: block;
+}
+.banner-horizontal .contenido--banner, .banner-horizontal .img--banner {
+  height: 100%;
+}
+.banner-horizontal .img--banner {
+  padding: 0;
+}
+.banner-horizontal .img--banner img {
+  min-height: 100%;
+}
+.banner-horizontal .contenido--banner {
+  padding: 0 8px;
+  padding: 0 0.5rem;
+}
+.banner-horizontal .contenido--banner span {
+  font-size: 48px;
+  font-size: 3rem;
+}
+.banner-horizontal .outter-svg-container {
+  display: block;
 }
 
 /************** Template header *****************/
@@ -5458,10 +5520,10 @@ a:active {
   max-height: 60px;
   position: relative;
 }
-#app-header-menu .row, #app-header-menu .home-boton, #app-header-menu .home-boton .banner-horizontal, .home-boton #app-header-menu .banner-horizontal {
+#app-header-menu .row, #app-header-menu .banner-horizontal, #app-header-menu .home-boton {
   height: 100%;
 }
-#app-header-menu .row > div:first-child, #app-header-menu .home-boton > div:first-child, #app-header-menu .home-boton .banner-horizontal > div:first-child, .home-boton #app-header-menu .banner-horizontal > div:first-child {
+#app-header-menu .row > div:first-child, #app-header-menu .banner-horizontal > div:first-child, #app-header-menu .home-boton > div:first-child {
   height: 100%;
   padding-left: 5px;
   padding-right: 5px;
@@ -5533,6 +5595,7 @@ a:active {
   display: none;
 }
 
+/***** Fin header *****/
 /************* Template home *******************/
 #app-home {
   position: absolute;
@@ -5549,50 +5612,46 @@ a:active {
 
 .home-boton {
   max-width: 450px;
-  padding: 16px;
-  padding: 1rem;
   margin: 0 auto;
 }
-.home-boton a {
-  z-index: 1000;
-  background-color: #FFF;
-  display: block;
-}
 .home-boton .banner-horizontal {
-  margin-bottom: 0;
   height: 80px;
   height: 5rem;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
-}
-.home-boton .banner-horizontal .header--banner {
-  padding: 8px;
-  padding: 0.5rem;
-  height: 100%;
-}
-.home-boton .banner-horizontal .header--banner span {
-  font-size: 20px;
-  font-size: 1.25rem;
-}
-.home-boton .banner-horizontal .contenido--banner {
-  padding: 0 8px;
-  padding: 0 0.5rem;
-  height: 100%;
-}
-.home-boton .banner-horizontal .contenido--banner span {
-  cursor: pointer;
-  font-size: 48px;
-  font-size: 3rem;
 }
 
-.outter-svg-container {
-  display: block;
+/***** Fin home *****/
+/********** Template laboratorios **********/
+.labos-boton {
+  padding-top: 8px;
+  padding-top: 0.5rem;
+  padding-bottom: 8px;
+  padding-bottom: 0.5rem;
+}
+.labos-boton .banner-horizontal {
+  height: 96px;
+  height: 6rem;
+}
+.labos-boton .banner-horizontal .header--banner {
+  padding: 0;
+}
+.labos-boton .banner-horizontal .img--banner {
+  padding: 0;
 }
 
-/**** Fin app.scss ***/
+/***** Fin laboratorios ********/
+/*********************** Fin app.scss ************************/
 /*********************************************************************
 ***** Estilos para dispositivos de  350px de ancho, ó superior *******
 **********************************************************************/
 @media (max-width: 350px) {
+  .hidden-xxs {
+    display: none !important;
+  }
+
+  .visible-xxs-block {
+    display: block !important;
+  }
+
   /*Header */
   #app-header-menu .dropdown #menu-principal-xs {
     font-size: 16px;

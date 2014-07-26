@@ -38,10 +38,9 @@ require(['jquery', 'backbone', 'app/router', 'modernizr', 'bootstrap'],
 
 	   	var router = new Router();
 
-	/*    $("body").on("click", ".back-button", function (event) {
-	        event.preventDefault();
-	        window.history.back();
-	    });
-*/
+	 //   	$('body').on("click", function (event) {
+		//     alert(event.target.tagName +' '+event.target.id +' '+ event.target.className);    
+		// })
+
 	    Backbone.history.start();
 });

@@ -473,7 +473,7 @@ Browse Happy prompt
 .punta--violeta{
   fill: $primario-violeta
 }
-.punta--violeta_claro{
+.punta--gris{
   fill: $alt-gris
 }
 .punta--violeta_oscuro{
@@ -783,7 +783,7 @@ main{
   //  width: 50%;
     vertical-align: middle;
     display: inline-block;
-    @include x-rem(min-height, 10);
+  //  @include x-rem(min-height, 10);
   }
 
   .contenido--banner{
@@ -798,7 +798,7 @@ main{
   }
 
   .img--banner{
-    width: 50%;
+    //width: 50%;
     height: auto;
     //z-index: 400;
   }

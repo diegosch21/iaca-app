@@ -7,10 +7,10 @@ define([
 	
 	var HeaderView = Backbone.View.extend({
 
-			//precompilo el template
-			template: _.template(headerTemplate),
+		//precompilo el template
+		template: _.template(headerTemplate),
 
-			initialize: function() {
+		initialize: function() {
 			this.render();
 		},
 

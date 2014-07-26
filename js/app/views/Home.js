@@ -11,21 +11,26 @@ define([
 		template: _.template(homeTemplate),
 
 		events: {
-			'click .home-link' : 'clickBoton'
+			'click .home-boton' : 'clickBoton',
+			'touchstart .home-boton': 'activarBoton',
+			'touchend .home-boton': 'desactivarBoton'
 		},
 
 		initialize: function() {
 			this.render();
 		},
-
 		render: function() {
 			this.$el.html(this.template());
 			return this;
 		},
-
 		clickBoton: function(e) {
-			
-			
+			Backbone.history.navigate($(e.currentTarget).data('href'),true);
+		},
+		activarBoton: function(e) {
+			$(e.currentTarget).addClass('activo');
+		},
+		desactivarBoton: function(e) {
+			$(e.currentTarget).removeClass('activo');
 		}
 		
 	});
