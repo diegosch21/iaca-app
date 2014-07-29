@@ -1,4 +1,5 @@
-/* Hoja de estilo principal. Nuevo sitio IACA Laboratorios */
+/* Hoja de estilo principal. Nuevo sitio IACA Laboratorios  - App móvil*/
+/** Fuentes usadas  **/
 //Google fonts: Source Sans Pro & Maven Pro
 @import url(mavenpro-sourcesanspro.css);
 //Font-awesome: glyphicons
@@ -63,6 +64,7 @@
 
 /*********************************************************************
 *********************** Estilos app móvil ****************************
+************* Base: xs (entre 350px y 768px de ancho) ****************
 **********************************************************************/
 @import "app";
 

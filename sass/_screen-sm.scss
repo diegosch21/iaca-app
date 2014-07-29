@@ -10,7 +10,12 @@
   padding-right: 20px;
 }
 
-
+//* Labos */
+.labos-boton {
+  .banner-horizontal {
+    @include x-rem(height,7);
+  }
+}
 
 
 

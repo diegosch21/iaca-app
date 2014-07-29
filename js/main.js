@@ -38,10 +38,21 @@ require(['jquery', 'backbone', 'app/router', 'modernizr', 'bootstrap'],
 
 	   	var router = new Router();
 
-	/*    $("body").on("click", ".back-button", function (event) {
-	        event.preventDefault();
-	        window.history.back();
-	    });
-*/
-	    Backbone.history.start();
-});
+	 //   	$('body').on("click", function (event) {
+		//     alert(event.target.tagName +' '+event.target.id +' '+ event.target.className);    
+		// })
+		Backbone.history.start();
+
+		eventHandlersGenerales();
+	}	
+);
+
+function eventHandlersGenerales() {
+	$('body').on("mousedown touchstart",'.boton', function (e) {
+		$(e.currentTarget).addClass('activo');
+	});
+	$('body').on("mouseup touchend",'.boton', function (e) {
+		$(e.currentTarget).removeClass('activo');
+	});	
+}
+
