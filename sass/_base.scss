@@ -139,6 +139,12 @@ p{
 .texto-gris_oscuro{
   color: $alt-gris_oscuro;
 }
+.texto-gris{
+  color: $alt-gris;
+}
+.texto-gris_claro{
+  color: $alt-gris_claro;
+}
 .texto-azul{
   color: $primario-azul;
 }
@@ -462,22 +468,25 @@ Browse Happy prompt
 }
 
 .punta--azul_oscuro{
-  fill: $primario-azul_oscuro
+  fill: $primario-azul_oscuro;
 }
 .punta--azul{
-  fill: $primario-azul
+  fill: $primario-azul;
 }
 .punta--celeste{
-  fill: $primario-celeste
+  fill: $primario-celeste;
 }
 .punta--violeta{
-  fill: $primario-violeta
+  fill: $primario-violeta;
 }
 .punta--gris{
-  fill: $alt-gris
+  fill: $alt-gris;
+}
+.punta--gris_claro{
+  fill: $alt-gris_claro;
 }
 .punta--violeta_oscuro{
-  fill: $primario-violeta_oscuro
+  fill: $primario-violeta_oscuro;
 }
 /* Fin estilos para puntas */
 

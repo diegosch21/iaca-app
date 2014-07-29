@@ -3556,7 +3556,15 @@ span.texto--normal {
   color: #54676d;
 }
 
-.texto-azul, .labos-boton.activo .contenido--banner span, html.no-touch .labos-boton:hover .contenido--banner span {
+.texto-gris, .home-boton.activo .contenido--banner span, html.no-touch .home-boton:hover .contenido--banner span {
+  color: #8fa9ce;
+}
+
+.texto-gris_claro, .labos-boton.activo .contenido--banner span, html.no-touch .labos-boton:hover .contenido--banner span {
+  color: #dadeec;
+}
+
+.texto-azul {
   color: #0056a0;
 }
 
@@ -3568,7 +3576,7 @@ span.texto--normal {
   color: #76b5e6;
 }
 
-.texto-violeta, .home-boton.activo .contenido--banner span, html.no-touch .home-boton:hover .contenido--banner span {
+.texto-violeta {
   color: #657bc3;
 }
 
@@ -3844,7 +3852,7 @@ Browse Happy prompt
   fill: #28427e;
 }
 
-.punta--azul, .labos-boton.activo .header--banner svg, html.no-touch .labos-boton:hover .header--banner svg {
+.punta--azul {
   fill: #0056a0;
 }
 
@@ -3852,12 +3860,16 @@ Browse Happy prompt
   fill: #76b5e6;
 }
 
-.punta--violeta, .home-boton.activo .header--banner svg, html.no-touch .home-boton:hover .header--banner svg {
+.punta--violeta {
   fill: #657bc3;
 }
 
-.punta--gris {
+.punta--gris, .home-boton.activo .header--banner svg, html.no-touch .home-boton:hover .header--banner svg {
   fill: #8fa9ce;
+}
+
+.punta--gris_claro, .labos-boton.activo .header--banner svg, html.no-touch .labos-boton:hover .header--banner svg {
+  fill: #dadeec;
 }
 
 .punta--violeta_oscuro {
@@ -3866,7 +3878,7 @@ Browse Happy prompt
 
 /* Fin estilos para puntas */
 /** Contenedores **/
-.contenedor--azul, .labos-boton.activo .header--banner, html.no-touch .labos-boton:hover .header--banner {
+.contenedor--azul {
   background-color: #0056a0;
 }
 
@@ -3874,7 +3886,7 @@ Browse Happy prompt
   background-color: #28427e;
 }
 
-.contenedor--violeta, .home-boton.activo .header--banner, html.no-touch .home-boton:hover .header--banner {
+.contenedor--violeta {
   background-color: #657bc3;
 }
 
@@ -3890,11 +3902,11 @@ Browse Happy prompt
   background-color: #eef3fa;
 }
 
-.contenedor--gris_claro {
+.contenedor--gris_claro, .labos-boton.activo .header--banner, html.no-touch .labos-boton:hover .header--banner {
   background-color: #dadeec;
 }
 
-.contenedor--gris {
+.contenedor--gris, .home-boton.activo .header--banner, html.no-touch .home-boton:hover .header--banner {
   background-color: #8fa9ce;
 }
 
@@ -5316,7 +5328,7 @@ section.acceso.oculto .label-seccion {
   background-color: #657bc3;
   cursor: pointer;
 }
-section.acceso.oculto .label-seccion .punta--azul, section.acceso.oculto .label-seccion .labos-boton.activo .header--banner svg, .labos-boton.activo .header--banner section.acceso.oculto .label-seccion svg, section.acceso.oculto .label-seccion html.no-touch .labos-boton:hover .header--banner svg, html.no-touch .labos-boton:hover .header--banner section.acceso.oculto .label-seccion svg {
+section.acceso.oculto .label-seccion .punta--azul {
   fill: #657bc3;
 }
 section.acceso.oculto .label-seccion p {
@@ -5334,12 +5346,21 @@ section.acceso .label-seccion {
 /**** Fin base.scss ****/
 /*********************************************************************
 *********************** Estilos app móvil ****************************
+************* Base: xs (entre 350px y 768px de ancho) ****************
 **********************************************************************/
 /********* Genéricos **********/
 html {
   font-size: 16px;
   margin-top: 0;
   padding-top: 0;
+}
+
+.visible-xxs-block {
+  display: none;
+}
+
+.visible-xxs-inline-block {
+  display: none;
 }
 
 a {
@@ -5405,6 +5426,7 @@ a:active {
 .boton {
   padding: 16px;
   padding: 1rem;
+  margin: 0 auto;
   cursor: pointer;
 }
 .boton .banner-horizontal {
@@ -5412,6 +5434,9 @@ a:active {
 }
 .boton .banner-horizontal .contenido--banner span {
   cursor: pointer;
+}
+.boton.activo .banner-horizontal {
+  box-shadow: -2px -2px 10px rgba(0, 0, 0, 0.25);
 }
 
 .banner-horizontal {
@@ -5449,9 +5474,14 @@ a:active {
 }
 .banner-horizontal .img--banner {
   padding: 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
 }
 .banner-horizontal .img--banner img {
-  min-height: 100%;
+  height: 100%;
+  max-width: initial;
+  margin: 0 auto;
 }
 .banner-horizontal .contenido--banner {
   padding: 0 8px;
@@ -5612,7 +5642,6 @@ a:active {
 
 .home-boton {
   max-width: 450px;
-  margin: 0 auto;
 }
 .home-boton .banner-horizontal {
   height: 80px;
@@ -5626,15 +5655,13 @@ a:active {
   padding-top: 0.5rem;
   padding-bottom: 8px;
   padding-bottom: 0.5rem;
+  max-width: 460px;
 }
 .labos-boton .banner-horizontal {
   height: 96px;
   height: 6rem;
 }
 .labos-boton .banner-horizontal .header--banner {
-  padding: 0;
-}
-.labos-boton .banner-horizontal .img--banner {
   padding: 0;
 }
 
@@ -5652,7 +5679,10 @@ a:active {
     display: block !important;
   }
 
-  /*Header */
+  .visible-xxs-inline-block {
+    display: inline-block !important;
+  }
+
   #app-header-menu .dropdown #menu-principal-xs {
     font-size: 16px;
     font-size: 1rem;
@@ -5663,7 +5693,6 @@ a:active {
     font-size: 1rem;
   }
 
-  /* Home */
   .home-boton {
     padding: 8px;
     padding: 0.5rem;
@@ -5683,6 +5712,20 @@ a:active {
     font-size: 32px;
     font-size: 2rem;
   }
+
+  .labos-boton .banner-horizontal {
+    height: 64px;
+    height: 4rem;
+  }
+  .labos-boton .banner-horizontal .texto--banner h5 {
+    line-height: 1.2;
+    font-size: 16px;
+    font-size: 1rem;
+  }
+  .labos-boton .banner-horizontal .texto--banner span, .labos-boton .banner-horizontal .texto--banner p {
+    font-size: 14px;
+    font-size: 0.85rem;
+  }
 }
 /*********************************************************************
 ****** Estilos para dispositivos de  768px de ancho, ó superior ******
@@ -5697,6 +5740,11 @@ a:active {
     height: 7rem;
     padding-left: 20px;
     padding-right: 20px;
+  }
+
+  .labos-boton .banner-horizontal {
+    height: 112px;
+    height: 7rem;
   }
 
   /** Breadcrumb **/
@@ -5837,7 +5885,6 @@ a:active {
     top: 135px;
   }
 
-  /** Header **/
   #app-header {
     /** Logo y Menu principal **/
   }
@@ -5855,6 +5902,14 @@ a:active {
   #app-header #app-header-menu .menu-principal ul li a {
     font-size: 18px;
     font-size: 1.15rem;
+  }
+
+  .labos-boton {
+    max-width: 380px;
+  }
+  .labos-boton .banner-horizontal {
+    height: 128px;
+    height: 8rem;
   }
 
   /** Breadcrumb **/

@@ -1,11 +1,16 @@
+//* MENOS DE 350PX DE ANCHO */
+
 .hidden-xxs {
 	display: none !important;
 }
 .visible-xxs-block {
 	display: block !important;
 }
+.visible-xxs-inline-block {
+	display: inline-block !important;
+}
 
-/*Header */
+//*Header */
 #app-header-menu {
 	.dropdown {
 		#menu-principal-xs {
@@ -19,7 +24,7 @@
 
 }
 
-/* Home */
+//* Home */
 .home-boton {
 	@include x-rem(padding, 0.5);
 	.banner-horizontal {
@@ -37,4 +42,21 @@
 		}
 	}
 }
+
+//* Labos */
+.labos-boton {
+	.banner-horizontal {
+		@include x-rem(height,4);
+		.texto--banner {
+			h5 {
+				line-height: 1.2;
+				@include x-rem(font-size,1);
+			}
+			span, p {
+				@include x-rem(font-size,0.85);
+			}
+		}
+	}
+}
+
 
