@@ -6,15 +6,19 @@ require.config({
         app: '../app',
         lib: '../app/lib',
         templates: '../../templates',
+        data: '../../data',
+        views: '../app/views',
+        models: '../app/models',
+        collections: '../app/collections',
+        text: 'requirejs-text',
+        async: 'requirejs-async',
         jquery: 'jquery-1.11.1.min',
         underscore: 'underscore-1.6.0.min',
         backbone: 'backbone-1.1.2.min',
-        backboneLocalstorage: 'backbone.localStorage-min',
+        localstorage: 'backbone.localStorage-min',
         modernizr: 'modernizr-2.8.0.min',
-        text: 'requirejs-text',
-        bootstrap: 'bootstrap-3.2.0.min'
+        bootstrap: 'bootstrap-3.2.0.min',
     }, 
-
 	shim: {
 		underscore: {
 			exports: '_'
@@ -23,7 +27,7 @@ require.config({
 			deps: ['underscore','jquery'],
 			exports: 'Backbone'
 		},
-		backboneLocalstorage: {
+		localstorage: {
 			deps: ['backbone'],
 			exports: 'Store'
 		},
@@ -38,7 +42,7 @@ require(['jquery', 'backbone', 'app/router', 'modernizr', 'bootstrap'],
 
 	   	var router = new Router();
 
-	 //   	$('body').on("click", function (event) {
+	 //   	$('body').on("touchend", function (event) {
 		//     alert(event.target.tagName +' '+event.target.id +' '+ event.target.className);    
 		// })
 		Backbone.history.start();
@@ -50,9 +54,15 @@ require(['jquery', 'backbone', 'app/router', 'modernizr', 'bootstrap'],
 function eventHandlersGenerales() {
 	$('body').on("mousedown touchstart",'.boton', function (e) {
 		$(e.currentTarget).addClass('activo');
+		e.stopPropagation();
 	});
-	$('body').on("mouseup touchend",'.boton', function (e) {
-		$(e.currentTarget).removeClass('activo');
+	$('body').on("mouseup touchend touchmove",'.boton', function (e) {
+		$('.boton').removeClass('activo');
+		e.stopPropagation();
 	});	
+	$('body').on('mouseup touchend', function(e) {
+		$('.boton').removeClass('activo');
+	})
+
 }
 

@@ -36,6 +36,10 @@ html {
     @include x-rem(height,8);
   }
 }
+#map_canvas {
+  width: 80%;
+}
+
 
 
 

@@ -6,14 +6,15 @@ define([
 	
 	var appRouter = Backbone.Router.extend({
 		routes: {
-			""				: "home",
-			"home"			: "home",
-			"resultados"	: "resultados",
-			"configuracion"	: "configuracion",
-			"laboratorios"	: "laboratorios",
-			"info"			: "info",
-			"datos"			: "datos",
-			"login"			: "login"
+			""					: "home",
+			"home"				: "home",
+			"resultados"		: "resultados",
+			"configuracion"		: "configuracion",
+			"laboratorios"		: "laboratorios",
+			"laboratorios/*lab"	: "verLabo",
+			"info"				: "info",
+			"datos"				: "datos",
+			"login"				: "login"
 		},
 
 		initialize: function(){
@@ -24,65 +25,58 @@ define([
 
 		home: function(){
 			var self = this;
-			require(['app/views/Home'], function(view) {
-				//if (!self.homeView) {
+			require(['views/Home'], function(view) {
 				self.homeView = new view();
-				//}
-				self.cambiarPagina(self.homeView,'inicio');	
+				self.cambiarPagina(self.homeView,'inicio',true);	
 			});
 			
 		},
 		resultados: function(){
 			var self = this;
-			require(['app/views/ResultadosLista'], function(view) {
-				// if (!self.resultadosView) {
+			require(['views/ResultadosLista'], function(view) {
 				self.resultadosView = new view();
-				// }
 				self.cambiarPagina(self.resultadosView,'resultados');	
 			});
 		},
 		configuracion: function(){
 			var self = this;
-			require(['app/views/Config'], function(view) {
-				// if (!self.configView) {
+			require(['views/Config'], function(view) {
 				self.configView = new view();
-				// }
 				self.cambiarPagina(self.configView,'configuracion');	
 			});
 		},
 		laboratorios: function(){
 			var self = this;
-			require(['app/views/Laboratorios'], function(view) {
-				// if (!self.laboratoriosView) {
+			require(['views/Laboratorios'], function(view) {
 				self.laboratoriosView = new view();
-				// }
 				self.cambiarPagina(self.laboratoriosView,'laboratorios');	
+			});
+		},
+		verLabo: function(lab){
+			var self = this;
+			require(['views/LaboratorioDetalles'], function(view) {
+				self.laboView = new view({id_lab: lab});
+				self.cambiarPagina(self.laboView,'laboratorios');	
 			});
 		},
 		info: function(){
 			var self = this;
-			require(['app/views/Info'], function(view) {
-				// if (!self.infoView) {
+			require(['views/Info'], function(view) {
 				self.infoView = new view();
-				// }
 				self.cambiarPagina(self.infoView,'info');	
 			});
 		},
 		datos: function(){
 			var self = this;
-			require(['app/views/Datos'], function(view) {
-				// if (!self.datosView) {
+			require(['views/Datos'], function(view) {
 				self.datosView = new view();
-				// }
 				self.cambiarPagina(self.datosView,'configuracion');	
 			});
 		},
 		login: function() {
 			var self = this;
-			require(['app/views/Login'], function(view) {
-				// if (!self.loginView) {
+			require(['views/Login'], function(view) {
 				self.loginView = new view();
-				// }
 				self.cambiarPagina(self.loginView,'inicio');	
 			});
 		}

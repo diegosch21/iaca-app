@@ -11,7 +11,7 @@ define([
 		template: _.template(resultadosListaTemplate),
 
 		initialize: function() {
-			this.render();
+			
 		},
 
 		render: function() {

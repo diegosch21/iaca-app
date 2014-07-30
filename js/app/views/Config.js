@@ -11,7 +11,7 @@ define([
 		template: _.template(configTemplate),
 
 		initialize: function() {
-			this.render();
+			
 		},
 
 		render: function() {

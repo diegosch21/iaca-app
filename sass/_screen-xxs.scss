@@ -1,4 +1,4 @@
-//* MENOS DE 350PX DE ANCHO */
+//* MENOS DE 360PX DE ANCHO */
 
 .hidden-xxs {
 	display: none !important;
@@ -58,5 +58,10 @@
 		}
 	}
 }
+
+#map_canvas {
+	height: 250px;
+}
+
 
 

@@ -11,7 +11,7 @@ define([
 		template: _.template(resultadoItemTemplate),
 
 		initialize: function() {
-			this.render();
+			
 		},
 
 		render: function() {
