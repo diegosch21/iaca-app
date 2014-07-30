@@ -5346,7 +5346,7 @@ section.acceso .label-seccion {
 /**** Fin base.scss ****/
 /*********************************************************************
 *********************** Estilos app móvil ****************************
-************* Base: xs (entre 350px y 768px de ancho) ****************
+************* Base: xs (entre 360px y 768px de ancho) ****************
 **********************************************************************/
 /********* Genéricos **********/
 html {
@@ -5454,7 +5454,6 @@ a:active {
 .banner-horizontal .header--banner .texto--banner {
   padding: 4px;
   padding: 0.25rem;
-  position: absolute;
   width: 100%;
 }
 .banner-horizontal .header--banner .texto--banner h5 {
@@ -5665,12 +5664,32 @@ a:active {
   padding: 0;
 }
 
+#map {
+  position: relative;
+  margin-top: 16px;
+  margin-top: 1rem;
+  padding: 0 8px;
+  padding: 0 0.5rem;
+}
+
+#map_canvas {
+  width: 90%;
+  height: 300px;
+  margin: 0 auto;
+}
+
 /***** Fin laboratorios ********/
+/***** Template laboratorio_detalles *******/
+#app-labo-detalles {
+  height: 300px;
+}
+
+/****** Fin laboratorios_detalles **********/
 /*********************** Fin app.scss ************************/
 /*********************************************************************
-***** Estilos para dispositivos de  350px de ancho, ó superior *******
+***** Estilos para dispositivos de  360px de ancho, ó superior *******
 **********************************************************************/
-@media (max-width: 350px) {
+@media (max-width: 360px) {
   .hidden-xxs {
     display: none !important;
   }
@@ -5726,6 +5745,10 @@ a:active {
     font-size: 14px;
     font-size: 0.85rem;
   }
+
+  #map_canvas {
+    height: 250px;
+  }
 }
 /*********************************************************************
 ****** Estilos para dispositivos de  768px de ancho, ó superior ******
@@ -5745,6 +5768,10 @@ a:active {
   .labos-boton .banner-horizontal {
     height: 112px;
     height: 7rem;
+  }
+
+  #map_canvas {
+    height: 400px;
   }
 
   /** Breadcrumb **/
@@ -5912,6 +5939,10 @@ a:active {
     height: 8rem;
   }
 
+  #map_canvas {
+    width: 80%;
+  }
+
   /** Breadcrumb **/
   .breadcrumb-nav {
     margin-top: 48px;
@@ -6053,6 +6084,10 @@ a:active {
 ****** Estilos para dispositivos de  1200px de ancho, ó superior *****
 **********************************************************************/
 @media (min-width: 1200px) {
+  #map_canvas {
+    height: 500px;
+  }
+
   /** La empresa **/
   .empresa--intro {
     padding: 48px;

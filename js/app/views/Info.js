@@ -11,7 +11,7 @@ define([
 		template: _.template(infoTemplate),
 
 		initialize: function() {
-			this.render();
+			
 		},
 
 		render: function() {

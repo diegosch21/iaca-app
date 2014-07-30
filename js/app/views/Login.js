@@ -11,7 +11,7 @@ define([
 		template: _.template(loginTemplate),
 
 		initialize: function() {
-			this.render();
+			
 		},
 
 		render: function() {

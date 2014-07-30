@@ -131,7 +131,6 @@ a {
 		@extend .centrado-vertical;
 		.texto--banner {
 			@include x-rem(padding,0.25);
-			position: absolute;
 			width: 100%;
 			@extend .centrado-vertical;
 			h5 {
@@ -373,6 +372,10 @@ a {
 /***** Fin home *****/
 
 /********** Template laboratorios **********/
+#app-labos {
+// 	overflow: scroll;
+// -webkit-overflow-scrolling: touch;
+}
 .labos-boton {
 	@include x-rem(padding-top, 0.5);
 	@include x-rem(padding-bottom, 0.5);
@@ -390,8 +393,29 @@ a {
 	}
 
 }
+#map {
+	position: relative;
+	@include x-rem(margin-top, 1);
+	@include x-rem(padding, 0 0.5);
+}
+#map_canvas {
+	width: 90%;
+	height: 300px;
+	margin: 0 auto;
+
+}
+
 
 /***** Fin laboratorios ********/
+
+/***** Template laboratorio_detalles *******/
+#app-labo-detalles {
+	height: 300px;
+}
+
+
+/****** Fin laboratorios_detalles **********/
+
 
 
 /*********************** Fin app.scss ************************/

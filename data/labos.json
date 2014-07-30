@@ -1,0 +1,31 @@
+[ 
+	{
+	  	"id": "sanmartin", 
+	  	"sede":"San Martín",
+	  	"direccion" : "San Martín 68",
+	  	"info": "Laboratorio Clínico Humano. Sede central",
+	  	"lat": -38.717482,
+	  	"lng": -62.263989,
+	  	"icon" : "img/mapa--marca_azul.png"
+  	},
+  	{
+	  	"id": "rodriguez", 
+	  	"sede":"Rodríguez",
+	  	"direccion" : "Rodríguez 710",
+	  	"info" : "Laboratorio Clínico Humano. Oficinas",
+	  	"lat": -38.709720,
+	  	"lng": -62.259817,
+	  	"icon" : "img/mapa--marca_celeste.png"
+  	},
+  	{
+	  	"id": "darwin", 
+	  	"sede":"Darwin",
+	  	"direccion" : "Darwin 530",
+	  	"info" : "Bromatología, Química Industrial y Medio Ambiente, Agronomía, Veterinaria y Bioanalítica",
+	  	"lat": -38.719456,
+	  	"lng": -62.252655,
+	  	"icon" : "img/mapa--marca_violeta.png"
+  	}
+]
+
+ 
