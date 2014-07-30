@@ -8,6 +8,7 @@ html {
 
 body { 
 	//padding-top: 115px;
+
 }
 
 .visible-xxs-block {
@@ -57,7 +58,7 @@ a {
 }
 
 #header {
-	position: fixed;
+	//position: fixed;
 	padding: 0;	
   	right: 0;
   	left: 0;
@@ -68,16 +69,46 @@ a {
   	background-color: #FFF;
   	margin-bottom: 0;
   	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+	
+	//iScroll: 		
+  	position: absolute;
+	width: 100%;
 }
 
-#content {
+#content-wrapper {	
 	position:absolute;
 	top: 110px;
 	padding-top: 5px;
     left:0px;
     right:0px;
     bottom:0px;
-    overflow-y:auto; 
+    //overflow-y:auto; 
+
+    z-index: 1;
+	width: 100%;
+	overflow: hidden;
+}
+
+.scroller {
+	// position: absolute;
+	// z-index: 1;
+	// -webkit-tap-highlight-color: rgba(0,0,0,0);
+	// width: 100%;
+	// -webkit-transform: translateZ(0);
+	// -moz-transform: translateZ(0);
+	// -ms-transform: translateZ(0);
+	// -o-transform: translateZ(0);
+	// transform: translateZ(0);
+	// -webkit-touch-callout: none;
+	// -webkit-user-select: none;
+	// -moz-user-select: none;
+	// -ms-user-select: none;
+	// user-select: none;
+	// -webkit-text-size-adjust: none;
+	// -moz-text-size-adjust: none;
+	// -ms-text-size-adjust: none;
+	// -o-text-size-adjust: none;
+	// text-size-adjust: none;
 }
 
 
@@ -351,7 +382,7 @@ a {
 
 /************* Template home *******************/
 #app-home {
-	position: absolute;
+	//position: absolute;
 	//height: 95%; //para que el contenido se estire a lo alto (en combinación con height 25% de home item)
 	width: 100%;
 }

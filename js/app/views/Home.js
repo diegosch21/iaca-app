@@ -12,7 +12,8 @@ define([
 
 		events: {
 			'touchend .home-boton' : 'pressBoton',
-			'mouseup .home-boton' : 'pressBoton'
+			'mouseup .home-boton' : 'pressBoton',
+			'touchmove .home-boton' : 'touchMove'
 		},
 
 		initialize: function() {
@@ -23,8 +24,14 @@ define([
 			return this;
 		},
 		pressBoton: function(e) {
-			Backbone.history.navigate($(e.currentTarget).data('href'),true);
+			if(this.dragging)
+				this.dragging = false;
+			else
+				Backbone.history.navigate($(e.currentTarget).data('href'),true);
 		},
+		touchMove: function() {
+			this.dragging = true;
+		}
 
 		
 	});

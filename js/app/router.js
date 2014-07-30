@@ -1,8 +1,9 @@
 define([
 	'jquery',
 	'backbone',
-	'app/views/Header'
-], function ($, Backbone, HeaderView) {
+	'app/views/Header',
+	'iscroll'
+], function ($, Backbone, HeaderView,IScroll) {
 	
 	var appRouter = Backbone.Router.extend({
 		routes: {
@@ -27,7 +28,7 @@ define([
 			var self = this;
 			require(['views/Home'], function(view) {
 				self.homeView = new view();
-				self.cambiarPagina(self.homeView,'inicio',true);	
+				self.cambiarPagina(self.homeView,'inicio');	
 			});
 			
 		},
@@ -80,14 +81,28 @@ define([
 				self.cambiarPagina(self.loginView,'inicio');	
 			});
 		}
-	})
+	});
 
-	function cambiarPagina(view,menuitem) {
+	
+
+	function cambiarPagina(view,menuitem,scroller) {
 		this.headerView.selectMenuItem(menuitem);
 		if (this.currentView)
 			this.currentView.remove();
 		$('#content').html(view.render().el);
 		this.currentView = view;
+		
+		if(this.scroller)
+			this.scroller.destroy();				
+		this.scroller = new IScroll('#content-wrapper', {
+		    mouseWheel: true,
+		    scrollbars: true,
+		    interactiveScrollbars: true,
+			shrinkScrollbars: 'scale',
+			fadeScrollbars: true,
+			bounce: false
+		});	
+	
 		return view;
 	}
 

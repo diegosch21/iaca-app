@@ -14,12 +14,14 @@ define([
 
 		events: {
 			'touchend .labos-boton' : 'pressBoton',
-			'mouseup .labos-boton' : 'pressBoton'
+			'mouseup .labos-boton' : 'pressBoton',
+			'touchmove .labos-boton' : 'touchMove'
 		},
 
 		initialize: function() {
 			this.mapaView = new mapaView();
 			this.collection = new labosCollection();
+			this.dragging = false;
 
         },
 		render: function() {
@@ -40,8 +42,15 @@ define([
             
 		},
 		pressBoton: function(e) {
-			Backbone.history.navigate('laboratorios/'+$(e.currentTarget).data('lab'),true);
+			if(this.dragging)
+				this.dragging = false;
+			else 
+				Backbone.history.navigate('laboratorios/'+$(e.currentTarget).data('lab'),true);
+		},
+		touchMove: function() {
+			this.dragging = true;
 		}
+
 
 	});
 

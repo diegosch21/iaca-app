@@ -5400,7 +5400,6 @@ a:active {
 }
 
 #header {
-  position: fixed;
   padding: 0;
   right: 0;
   left: 0;
@@ -5410,16 +5409,20 @@ a:active {
   background-color: #FFF;
   margin-bottom: 0;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  width: 100%;
 }
 
-#content {
+#content-wrapper {
   position: absolute;
   top: 110px;
   padding-top: 5px;
   left: 0px;
   right: 0px;
   bottom: 0px;
-  overflow-y: auto;
+  z-index: 1;
+  width: 100%;
+  overflow: hidden;
 }
 
 /** Estilo boton (generico, como en home) **/
@@ -5627,7 +5630,6 @@ a:active {
 /***** Fin header *****/
 /************* Template home *******************/
 #app-home {
-  position: absolute;
   width: 100%;
 }
 
@@ -5754,7 +5756,7 @@ a:active {
 ****** Estilos para dispositivos de  768px de ancho, ó superior ******
 **********************************************************************/
 @media (min-width: 768px) {
-  #content {
+  #content-wrapper {
     padding-top: 10px;
   }
 
@@ -5908,7 +5910,7 @@ a:active {
 ****** Estilos para dispositivos de  990px de ancho, ó superior ******
 **********************************************************************/
 @media (min-width: 992px) {
-  #content {
+  #content-wrapper {
     top: 135px;
   }
 

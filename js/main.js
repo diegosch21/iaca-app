@@ -18,6 +18,7 @@ require.config({
         localstorage: 'backbone.localStorage-min',
         modernizr: 'modernizr-2.8.0.min',
         bootstrap: 'bootstrap-3.2.0.min',
+        iscroll: 'iscroll'
     }, 
 	shim: {
 		underscore: {
@@ -33,6 +34,9 @@ require.config({
 		},
 		bootstrap: {
 			deps: ['jquery']
+		},
+		iscroll: {
+			exports: 'IScroll'
 		}
 	}
 });
@@ -48,21 +52,23 @@ require(['jquery', 'backbone', 'app/router', 'modernizr', 'bootstrap'],
 		Backbone.history.start();
 
 		eventHandlersGenerales();
+		
 	}	
 );
 
 function eventHandlersGenerales() {
+	$(document).on('touchmove', function (e) { e.preventDefault(); });
 	$('body').on("mousedown touchstart",'.boton', function (e) {
 		$(e.currentTarget).addClass('activo');
 		e.stopPropagation();
 	});
-	$('body').on("mouseup touchend touchmove",'.boton', function (e) {
+	$('body').on("mouseup touchend",'.boton', function (e) {
 		$('.boton').removeClass('activo');
 		e.stopPropagation();
 	});	
-	$('body').on('mouseup touchend', function(e) {
+	$('body').on('mouseup touchend touchmove', function(e) {
 		$('.boton').removeClass('activo');
-	})
+	});
 
 }
 
