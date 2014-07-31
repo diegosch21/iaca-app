@@ -3,9 +3,8 @@ define([
 	'underscore',
 	'backbone',
 	'text!templates/laboratorio_detalles.html',
-	'views/Mapa',
-	'collections/Labos'
-], function ($,_,Backbone,laboTemplate,mapaView,labosCollection) {
+	'lib/gmaps'
+], function ($,_,Backbone,laboTemplate,mapa) {
 	
 	var LaboratoriosView = Backbone.View.extend({
 
@@ -13,33 +12,30 @@ define([
 		template: _.template(laboTemplate),
 
 		events: {
-			
+			'touchend #back' : 'botonBack',
+			'click #back' : 'botonBack'
 		},
 
 		initialize: function(options) {
-			this.mapaView = new mapaView();
-			this.id_lab = options['id_lab'];
-			this.collection = new labosCollection();
+			this.mapa = options['mapa'];
 		},
 		render: function() {
-			this.$el.html(this.template());
-			self = this;
-			this.collection.fetch({
-                success:function(){
-                	self.model = self.collection.get(self.id_lab);
-					self.mapaLabo();
-                }
-            });
-			return this;
+			this.$el.html(this.template(this.model.toJSON()));
+			self= this;
+			setTimeout(function() {
+				self.mapaLabo();
+			},0);
+            return this;
 		},
 		mapaLabo: function() {
-			this.mapaView.setCenter(this.model.get('lat'),this.model.get('lng'));
-			this.mapaView.setZoom(14);
-			this.mapaView.render(this.$('#map_canvas')[0]);
-			this.mapaView.setMarkers([this.model.toJSON()]);
+			this.mapa.setCenter(this.model.get('lat'),this.model.get('lng'));
+			this.mapa.setZoom(14);
+			this.mapa.render(this.$('#map_canvas')[0]);
+			this.mapa.setMarkers([this.model.toJSON()]);
+
 		},
 		botonBack: function(e) {
-			
+			Backbone.history.navigate('laboratorios',true);
 		}
 
 	});

@@ -25,8 +25,10 @@
 }
 
 //* Home */
-.home-boton {
+.home-item {
 	@include x-rem(padding, 0.5);
+}
+.home-boton {
 	.banner-horizontal {
 		@include x-rem(height,4);
 		.header--banner {
@@ -44,6 +46,9 @@
 }
 
 //* Labos */
+.labos-item {
+	@include x-rem(padding, 0.5);
+}
 .labos-boton {
 	.banner-horizontal {
 		@include x-rem(height,4);
@@ -58,9 +63,25 @@
 		}
 	}
 }
-
 #map_canvas {
 	height: 250px;
+}
+
+//* Labo detalles */
+#app-labo-detalles {
+	#back {
+		@include x-rem(font-size, 3);
+	}
+	div {
+		@include x-rem(font-size, 0.8);	
+	}
+	h5 {
+		@include x-rem(margin-top, 0.5);
+		@include x-rem(font-size, 1.2);
+	}
+	h6 {
+		@include x-rem(font-size, 1);	
+	}
 }
 
 

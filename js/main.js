@@ -46,9 +46,12 @@ require(['jquery', 'backbone', 'app/router', 'modernizr', 'bootstrap'],
 
 	   	var router = new Router();
 
-	 //   	$('body').on("touchend", function (event) {
-		//     alert(event.target.tagName +' '+event.target.id +' '+ event.target.className);    
-		// })
+	    $('body').on("touchend", function (event) {
+		     console.log("touchend "+event.target.tagName +' '+event.target.id +' '+ event.target.className);    
+		 })
+	    $('body').on("click", function (event) {
+		     console.log("click "+event.target.tagName +' '+event.target.id +' '+ event.target.className);    
+		 })
 		Backbone.history.start();
 
 		eventHandlersGenerales();
@@ -61,10 +64,12 @@ function eventHandlersGenerales() {
 	$('body').on("mousedown touchstart",'.boton', function (e) {
 		$(e.currentTarget).addClass('activo');
 		e.stopPropagation();
+		console.log("activo "+e.target.tagName +' '+e.target.id +' '+ e.target.className);    
 	});
 	$('body').on("mouseup touchend",'.boton', function (e) {
 		$('.boton').removeClass('activo');
 		e.stopPropagation();
+		console.log("desactivo "+e.target.tagName +' '+e.target.id +' '+ e.target.className);    
 	});	
 	$('body').on('mouseup touchend touchmove', function(e) {
 		$('.boton').removeClass('activo');

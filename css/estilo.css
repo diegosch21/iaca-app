@@ -3572,7 +3572,7 @@ span.texto--normal {
   color: #28427e;
 }
 
-.texto-celeste {
+.texto-celeste, #labo-detalles i.fa, #labo-detalles a {
   color: #76b5e6;
 }
 
@@ -3584,7 +3584,7 @@ span.texto--normal {
   color: #523f89;
 }
 
-.texto-invertido {
+.texto-invertido, #labo-detalles div {
   color: #eef3fa;
 }
 
@@ -5427,12 +5427,12 @@ a:active {
 
 /** Estilo boton (generico, como en home) **/
 .boton {
-  padding: 16px;
-  padding: 1rem;
   margin: 0 auto;
   cursor: pointer;
 }
 .boton .banner-horizontal {
+  margin: 0 auto;
+  max-height: inherit;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
 }
 .boton .banner-horizontal .contenido--banner span {
@@ -5639,6 +5639,8 @@ a:active {
   height: 25%;
   padding-left: 0;
   padding-right: 0;
+  padding: 16px;
+  padding: 1rem;
 }
 
 .home-boton {
@@ -5651,11 +5653,12 @@ a:active {
 
 /***** Fin home *****/
 /********** Template laboratorios **********/
+.labos-item {
+  padding: 16px;
+  padding: 1rem;
+}
+
 .labos-boton {
-  padding-top: 8px;
-  padding-top: 0.5rem;
-  padding-bottom: 8px;
-  padding-bottom: 0.5rem;
   max-width: 460px;
 }
 .labos-boton .banner-horizontal {
@@ -5670,6 +5673,8 @@ a:active {
   position: relative;
   margin-top: 16px;
   margin-top: 1rem;
+  margin-bottom: 16px;
+  margin-bottom: 1rem;
   padding: 0 8px;
   padding: 0 0.5rem;
 }
@@ -5682,8 +5687,90 @@ a:active {
 
 /***** Fin laboratorios ********/
 /***** Template laboratorio_detalles *******/
-#app-labo-detalles {
-  height: 300px;
+#app-labo-detalles #back {
+  position: absolute;
+  left: 5px;
+  top: 0;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 64px;
+  font-size: 4rem;
+  z-index: 1000;
+  cursor: pointer;
+}
+#app-labo-detalles .contenedor--azul {
+  margin-top: -10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#labo-detalles {
+  margin-top: -10px;
+  padding: 5px 5px;
+}
+#labo-detalles div {
+  text-align: center;
+  font-size: 14px;
+  font-size: 0.85rem;
+}
+#labo-detalles div#labo-link {
+  font-size: 16px;
+  font-size: 1rem;
+}
+#labo-detalles h5 {
+  font-size: 24px;
+  font-size: 1.5rem;
+  margin-top: 4px;
+  margin-top: 0.25rem;
+  font-weight: bold;
+}
+#labo-detalles h6 {
+  font-size: 19px;
+  font-size: 1.2rem;
+  margin-top: 2px;
+  margin-top: 0.1rem;
+  font-weight: 500;
+}
+#labo-detalles span {
+  display: inline-block;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+#labo-detalles p {
+  margin: 0;
+  margin-bottom: 3px;
+  margin-bottom: 0.2rem;
+  font-size: inherit;
+}
+#labo-detalles i.fa {
+  margin-right: 3px;
+  margin-left: 3px;
+}
+#labo-detalles a {
+  font-weight: 500;
+}
+
+#labo-contacto, #labo-horarios, #labo-info, #labo-link {
+  margin-top: 8px;
+  margin-top: 0.5rem;
+}
+
+#labo-img-top img {
+  max-height: 350px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.9);
+}
+
+#labo-img-bottom {
+  text-align: center;
+  margin-top: 16px;
+  margin-top: 1rem;
+  margin-bottom: 16px;
+  margin-bottom: 1rem;
+}
+#labo-img-bottom img {
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 /****** Fin laboratorios_detalles **********/
@@ -5714,10 +5801,11 @@ a:active {
     font-size: 1rem;
   }
 
-  .home-boton {
+  .home-item {
     padding: 8px;
     padding: 0.5rem;
   }
+
   .home-boton .banner-horizontal {
     height: 64px;
     height: 4rem;
@@ -5732,6 +5820,11 @@ a:active {
   .home-boton .banner-horizontal .contenido--banner span {
     font-size: 32px;
     font-size: 2rem;
+  }
+
+  .labos-item {
+    padding: 8px;
+    padding: 0.5rem;
   }
 
   .labos-boton .banner-horizontal {
@@ -5750,6 +5843,25 @@ a:active {
 
   #map_canvas {
     height: 250px;
+  }
+
+  #app-labo-detalles #back {
+    font-size: 48px;
+    font-size: 3rem;
+  }
+  #app-labo-detalles div {
+    font-size: 13px;
+    font-size: 0.8rem;
+  }
+  #app-labo-detalles h5 {
+    margin-top: 8px;
+    margin-top: 0.5rem;
+    font-size: 19px;
+    font-size: 1.2rem;
+  }
+  #app-labo-detalles h6 {
+    font-size: 16px;
+    font-size: 1rem;
   }
 }
 /*********************************************************************
@@ -5943,6 +6055,11 @@ a:active {
 
   #map_canvas {
     width: 80%;
+  }
+
+  #labo-contacto, #labo-horarios, #labo-info, #labo-link {
+    margin-top: 16px;
+    margin-top: 1rem;
   }
 
   /** Breadcrumb **/

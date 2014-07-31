@@ -113,11 +113,11 @@ a {
 
 /** Estilo boton (generico, como en home) **/
 .boton {
-	@include x-rem(padding, 1);
 	margin: 0 auto;
 	cursor: pointer;	
-	
 	.banner-horizontal {
+		margin: 0 auto;
+		max-height: inherit;
 		box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
 		.contenido--banner {
 			span {
@@ -390,6 +390,7 @@ a {
 	height: 25%;
 	padding-left: 0;
 	padding-right: 0;
+	@include x-rem(padding, 1);
 }
 .home-boton {
 	@extend .row;
@@ -406,11 +407,12 @@ a {
 // 	overflow: scroll;
 // -webkit-overflow-scrolling: touch;
 }
+.labos-item {
+	@include x-rem(padding, 1);
+}
 .labos-boton {
-	@include x-rem(padding-top, 0.5);
-	@include x-rem(padding-bottom, 0.5);
-	max-width: 460px;
 	@include boton-activo(gris_claro);
+	max-width: 460px;
 	.banner-horizontal {
 		@include x-rem(height,6);
 		.header--banner {
@@ -426,6 +428,7 @@ a {
 #map {
 	position: relative;
 	@include x-rem(margin-top, 1);
+	@include x-rem(margin-bottom, 1);
 	@include x-rem(padding, 0 0.5);
 }
 #map_canvas {
@@ -440,8 +443,86 @@ a {
 
 /***** Template laboratorio_detalles *******/
 #app-labo-detalles {
-	height: 300px;
+
+	#back {
+		position: absolute;
+		left: 5px;
+		top: 0;
+		padding-left: 5px;
+		padding-right: 5px;
+		@include x-rem(font-size, 4);
+		z-index: 1000;
+		cursor: pointer;
+		
+	}
+	.contenedor--azul {
+		margin-top: -10px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
 }
+#labo-detalles {
+	margin-top: -10px;
+	padding: 5px 5px ;
+
+	div {
+		text-align: center;
+		@extend .texto-invertido;
+		@include x-rem(font-size, 0.85);	
+		&#labo-link {
+			@include x-rem(font-size, 1);
+		}
+	}
+	h5 {
+		@include x-rem(font-size, 1.5);	
+		@include x-rem(margin-top, 0.25);	
+		font-weight: bold;
+	}
+	h6 {
+		@include x-rem(font-size, 1.2);	
+		@include x-rem(margin-top, 0.1);	
+		font-weight: 500;
+	}
+	span {
+		display: inline-block;
+		padding-left: 3px;
+		padding-right: 3px;
+	}
+	p {
+		margin: 0;
+		@include x-rem(margin-bottom, 0.2);
+		font-size: inherit;
+	}
+	i.fa {
+		@extend .texto-celeste;
+	 	margin-right: 3px;
+	 	margin-left: 3px;
+	}
+	a {
+		@extend .texto-celeste;
+		font-weight: 500;
+	}
+}
+#labo-contacto, #labo-horarios, #labo-info, #labo-link {
+	@include x-rem(margin-top, 0.5);
+}
+#labo-img-top {
+	img {
+		max-height: 350px;
+		box-shadow: 0px 0px 15px rgba(0,0,0,0.9);
+	}
+}
+#labo-img-bottom {
+	text-align: center;
+	@include x-rem(margin-top, 1);
+	@include x-rem(margin-bottom, 1);
+	img {
+		max-width: 500px;
+		width: 100%;
+		box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+	}
+}
+
 
 
 /****** Fin laboratorios_detalles **********/

@@ -12,18 +12,19 @@ define([
 
 		events: {
 			'touchend .home-boton' : 'pressBoton',
-			'mouseup .home-boton' : 'pressBoton',
+			'click .home-boton' : 'pressBoton',
 			'touchmove .home-boton' : 'touchMove'
 		},
 
 		initialize: function() {
-			
+			this.dragging = false;
 		},
 		render: function() {
 			this.$el.html(this.template());
 			return this;
 		},
 		pressBoton: function(e) {
+			console.log('pressBoton (dragging: '+this.dragging);
 			if(this.dragging)
 				this.dragging = false;
 			else
