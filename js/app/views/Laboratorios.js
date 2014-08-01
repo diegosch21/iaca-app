@@ -3,10 +3,9 @@ define([
 	'underscore',
 	'backbone',
 	'text!templates/laboratorios.html',
-	//'views/Mapa',
-	'lib/gmaps',
+	//'lib/gmaps',
 	'collections/Labos'
-], function ($,_,Backbone,laboratoriosTemplate,mapa,labosCollection) {
+], function ($,_,Backbone,laboratoriosTemplate,labosCollection) {
 	
 	var LaboratoriosView = Backbone.View.extend({
 
@@ -16,27 +15,36 @@ define([
 		events: {
 			'touchend .labos-boton' : 'pressBoton',
 			'click .labos-boton' : 'pressBoton',
-			'touchmove .labos-boton' : 'touchMove'
+			'touchmove .labos-boton' : 'touchMove',
+			'click #reload' : 'reloadMapa',
 		},
 
 		initialize: function(options) {
+			console.log(3);
 			this.dragging = false;
-			this.mapa = options['mapa'];
+			//this.mapa = options['mapa'];
         },
 		render: function() {
+			console.log(5);
 			this.$el.html(this.template());
-			self = this;
-			setTimeout(function() {
-				self.mapaTodos();
-			},0);
+			// self = this;
+			// setTimeout(function() {
+			// 	self.mapaTodos();
+			// },0);
+			this.mapaTodos();
             return this;
 		},
 		mapaTodos: function() {
-			this.mapa.setCenter(-38.717607, -62.265389);  //Bahia Blanca
-			this.mapa.setZoom(13);
-			this.mapa.render(this.$('#map_canvas')[0]);
-			this.mapa.setMarkers(this.collection.toJSON());
-            
+			console.log(6);
+			self = this;
+			require(['lib/gmaps'], function(mapa) {
+				$('#reload').hide();
+				console.log(7);
+				mapa.setCenter(-38.717607, -62.265389);  //Bahia Blanca
+				mapa.setZoom(13);
+				mapa.render(self.$('#map_canvas')[0]);
+				mapa.setMarkers(self.collection.toJSON());
+			});	
 		},
 		pressBoton: function(e) {
 			console.log('pressBoton (dragging: '+this.dragging);
@@ -47,6 +55,11 @@ define([
 		},
 		touchMove: function() {
 			this.dragging = true;
+		},
+		reloadMapa: function() {
+			console.log("lalal");
+			requirejs.undef('lib/gmaps');
+			this.mapaTodos();
 		}
 
 

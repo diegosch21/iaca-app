@@ -38,7 +38,8 @@ require.config({
 		iscroll: {
 			exports: 'IScroll'
 		}
-	}
+	},
+	waitSeconds: 20
 });
 
 require(['jquery', 'backbone', 'app/router', 'modernizr', 'bootstrap'], 
@@ -62,16 +63,19 @@ require(['jquery', 'backbone', 'app/router', 'modernizr', 'bootstrap'],
 function eventHandlersGenerales() {
 	$(document).on('touchmove', function (e) { e.preventDefault(); });
 	$('body').on("mousedown touchstart",'.boton', function (e) {
+	//$('body').on("touchstart",'.boton', function (e) {
 		$(e.currentTarget).addClass('activo');
 		e.stopPropagation();
 		console.log("activo "+e.target.tagName +' '+e.target.id +' '+ e.target.className);    
 	});
 	$('body').on("mouseup touchend",'.boton', function (e) {
+	// $('body').on("touchend",'.boton', function (e) {
 		$('.boton').removeClass('activo');
 		e.stopPropagation();
 		console.log("desactivo "+e.target.tagName +' '+e.target.id +' '+ e.target.className);    
 	});	
 	$('body').on('mouseup touchend touchmove', function(e) {
+	// $('body').on('touchend touchmove', function(e) {
 		$('.boton').removeClass('activo');
 	});
 

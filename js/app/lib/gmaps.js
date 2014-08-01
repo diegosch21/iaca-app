@@ -1,5 +1,6 @@
 define(
     [ "async!http://maps.google.com/maps/api/js?sensor=false" ],
+    //[ "http://www.cualquiercosaaaaaa.com.ar" ],
     function() {
 
     	var Mapa = function() {
@@ -10,12 +11,10 @@ define(
     		    zoom: 13,
     		    center: new google.maps.LatLng(-38.717607, -62.265389), //Bahia Blanca
     		    mapTypeId: google.maps.MapTypeId.ROADMAP
-    		},
-
+    		};
     		this.render = function(el){
     		    map = new google.maps.Map(el,this.mapOptions);
-    		    
-    		},
+    		};
     		this.setMarkers = function(markers) {
     		    var infowindow = new google.maps.InfoWindow({maxWidth: 160});
     		    var marker, i;
@@ -38,16 +37,17 @@ define(
     		            }
     		        })(marker, i));
     		    }
-    		},
+    		};
     		this.setCenter = function(lat,lng) {
     		    this.mapOptions.center = new google.maps.LatLng(lat,lng);
-    		},
+    		};
     		this.setZoom = function(z) {
     		    this.mapOptions.zoom = z;
-    		}
+    		};
+        
 
     	}
 
-        return Mapa;
+        return new Mapa();  //SINGLETON
     }
 );

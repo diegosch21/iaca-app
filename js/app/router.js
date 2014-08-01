@@ -45,22 +45,31 @@ define([
 		},
 		laboratorios: function(){
 			var self = this;
-			require(['views/Laboratorios','lib/gmaps'], function(LaboratoriosView,Mapa) {
+			//require(['views/Laboratorios','lib/gmaps'], function(LaboratoriosView,Mapa) {
+			require(['views/Laboratorios'], function(LaboratoriosView) {
+				console.log(1);	
 				self.getLabos(function() {
-					if(!self.mapa)
-					  	self.mapa = new Mapa();
-					self.cambiarPagina(new LaboratoriosView({collection: self.labosCollection,mapa: self.mapa}),'laboratorios');	
+					// if(!self.mapa)
+					//   	self.mapa = new Mapa();
+					self.cambiarPagina(new LaboratoriosView({
+							//mapa: self.mapa,
+							collection: self.labosCollection
+						}),'laboratorios');	
 				});
 			});
 		},
 		verLabo: function(lab){
 			var self = this;
-			require(['views/LaboratorioDetalles','lib/gmaps'], function(LaboView,Mapa) {
+			//require(['views/LaboratorioDetalles','lib/gmaps'], function(LaboView,Mapa) {
+			require(['views/LaboratorioDetalles'], function(LaboView) {
 				self.getLabos(function() {
 					var labo = self.labosCollection.get(lab);
-					if(!self.mapa)
-					 	self.mapa = new Mapa();
-					self.cambiarPagina(new LaboView({model: labo,mapa: self.mapa}),'laboratorios');	
+					// if(!self.mapa)
+					//  	self.mapa = new Mapa();
+					self.cambiarPagina(new LaboView({
+							//mapa: self.mapa,
+							model: labo
+						}),'laboratorios');	
 				});	
 			});
 		},
@@ -90,10 +99,11 @@ define([
 		this.headerView.selectMenuItem(menuitem);
 		if (this.currentView)
 			this.currentView.remove();
+		console.log(4);
 
 		$('#content').html(view.render().el);
 		this.currentView = view;
-
+		console.log(8);
 		if(this.scroller)
 			this.scroller.destroy();				
 		this.scroller = new IScroll('#content-wrapper', {
@@ -104,7 +114,7 @@ define([
 			bounce: false,
 			checkDOMChanges:true
 		});	
-
+		console.log(9);
 		var self = this;
 		$('.loading').on('load',function(){
         	$(this).removeClass("loading");
@@ -119,12 +129,14 @@ define([
 		var self = this;
 		require(['collections/Labos'], function(LabosCollection) {
 			if (self.labosCollection) {
+				console.log(21);
 	        	if (callback) callback();
 	    	}
 	    	else {
 	    		self.labosCollection = new LabosCollection();
 	            self.labosCollection.fetch({
 	            	success:function () {
+	            		console.log(22);
 	            		if (callback) callback();
 	        		}
 	        	});
