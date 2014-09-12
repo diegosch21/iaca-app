@@ -27,6 +27,7 @@
 //* Home */
 .home-item {
 	@include x-rem(padding, 0.5);
+    margin: 0;
 }
 .home-boton {
 	.banner-horizontal {
@@ -85,4 +86,30 @@
 }
 
 
+
+/** Info y Contacto **/
+.app-info_contacto{
+
+  //@include x-rem(margin-bottom, 1);
+
+  .banner_contacto{
+    //max-width: 480px;
+    //@include x-rem(margin, 1 auto);
+
+    .header--banner{
+      width: 100%;
+      //@include x-rem(margin-right, 1.5);
+      //@include x-rem(padding, 1.5 0);
+      text-align: center;
+    }
+
+    .contenedor_sede{
+      display: block;
+     //vertical-align: top;
+      //@include x-rem(padding, 0.5 1);
+      //width: 30%;
+
+    }
+  }
+}
 

@@ -36,9 +36,9 @@ html {
     @include x-rem(height,8);
   }
 }
-#map_canvas {
-  width: 80%;
-}
+//#map_canvas {
+//  width: 80%;
+//}
 //* Labo detalles */
 #labo-contacto, #labo-horarios, #labo-info, #labo-link {
   @include x-rem(margin-top, 1);

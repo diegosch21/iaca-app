@@ -47,6 +47,11 @@ a {
 
 }
 
+
+.container-fluid_max{
+  max-width: 980px;
+}
+
 /** Contenedores **/
 
 #app {
@@ -118,10 +123,11 @@ a {
 	.banner-horizontal {
 		margin: 0 auto;
 		max-height: inherit;
-		box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+		//box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
 		.contenido--banner {
 			span {
 				cursor: pointer;
+                text-align: center; //centrar icono en boton
 			}
 		}
 	}
@@ -152,7 +158,7 @@ a {
 	@extend .row;
 	margin-bottom: 0;
 	.header--banner {
-		@extend .col-xs-9, .col-sm-7; 
+		@extend .col-xs-8, .col-sm-7;
 		@include x-rem(padding,0.5);
 		height: 100%;
 		span {
@@ -176,14 +182,14 @@ a {
 		}
 	}
 	.contenido--banner, .img--banner {
-		@extend .col-xs-3, .col-sm-5; 
+		@extend .col-xs-4, .col-sm-5;
 		height: 100%;
 	}
 	.img--banner {
 		padding: 0;
 		background-position: center center;
     	background-repeat: no-repeat;
-    	background-size: auto 100%;
+    	background-size: cover;
 		img {
 			height: 100%;
 			max-width: initial;
@@ -385,18 +391,18 @@ a {
 	//height: 95%; //para que el contenido se estire a lo alto (en combinación con height 25% de home item)
 	width: 100%;
 }
-.home-item {
-	@include x-rem(min-height,5);
-	height: 25%;
+.home-item {/** Clase usada tambien para los botones de la sección información **/
+	//@include x-rem(min-height,5);
+	//height: 25%;
 	padding-left: 0;
 	padding-right: 0;
-	@include x-rem(padding, 1);
+	@include x-rem(margin, 1 0 0.5);
 }
 .home-boton {
 	@extend .row;
 	max-width: 450px;
 	.banner-horizontal {
-		@include x-rem(height,5);
+		@include x-rem(height,6);
 	}
 	@include boton-activo(gris);
 }
@@ -462,11 +468,11 @@ a {
 	}
 }
 #labo-detalles {
-	margin-top: -10px;
-	padding: 5px 5px ;
+	//margin-top: -10px;
+	@include x-rem(padding, 0.5 0.5 0.5 4);
 
 	div {
-		text-align: center;
+		text-align: left;
 		@extend .texto-invertido;
 		@include x-rem(font-size, 0.85);	
 		&#labo-link {
@@ -509,7 +515,8 @@ a {
 #labo-img-top {
 	img {
 		max-height: 350px;
-		box-shadow: 0px 0px 15px rgba(0,0,0,0.9);
+		//box-shadow: 0px 0px 15px rgba(0,0,0,0.9);
+
 	}
 }
 #labo-img-bottom {
@@ -526,6 +533,64 @@ a {
 
 
 /****** Fin laboratorios_detalles **********/
+
+
+/********* Info & Contacto  *********/
+
+.app-info_contacto{
+
+  //@include x-rem(margin-bottom, 1);
+
+  .banner_contacto{
+    //max-width: 480px;
+    @include x-rem(margin, 1 auto);
+
+    .header--banner{
+      width: 30%;
+      @include x-rem(margin-right, 1.5);
+      @include x-rem(padding, 1.5 0);
+    }
+
+    /*.contenido--banner{
+      width: 73%;
+      padding-top: 0;
+      padding-bottom: 0;
+    }*/
+
+    .contenedor_sede{
+      display: inline-block;
+      vertical-align: top;
+      @include x-rem(padding, 0.5 1);
+      //width: 30%;
+
+      p{
+        margin: 0;
+        padding: 0 0 0.5em 0;
+      }
+    }
+  }
+}
+
+
+/** Certificaciones **/
+
+.app_certificaciones{
+  //max-width: 500px;
+  @include x-rem(margin, 1.5 auto);
+
+  .h4{
+    text-align: center;
+    margin: 0;
+    @include x-rem(padding, 0.75);
+  }
+
+  img.iconos_certificaciones{
+    //text-align: center;
+    @include x-rem(margin, 0 auto);
+    @include x-rem(padding, 1.5);
+    display: block;
+  }
+}
 
 
 
