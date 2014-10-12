@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* Hoja de estilo principal. Nuevo sitio IACA Laboratorios  - App móvil*/
+/* Hoja de estilo principal. Nuevo sitio IACA Laboratorios  - App m├│vil*/
 /** Fuentes usadas  **/
 @import url(mavenpro-sourcesanspro.css);
 @import url(font-awesome.min.css);
@@ -1287,13 +1287,13 @@
   font-size: 21px;
   font-weight: bold;
   line-height: 1;
-  color: black;
-  text-shadow: 0 1px 0 white;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
   opacity: 0.2;
   filter: alpha(opacity=20);
 }
 .close:hover, .close:focus {
-  color: black;
+  color: #000;
   text-decoration: none;
   cursor: pointer;
   opacity: 0.5;
@@ -1386,13 +1386,14 @@ output {
   font-size: 14px;
   line-height: 1.42857;
   color: #555555;
-  background-color: white;
+  background-color: #fff;
   background-image: none;
-  border: 1px solid #cccccc;
+  border: 1px solid #ccc;
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 .form-control:focus {
@@ -1827,7 +1828,6 @@ select[multiple].input-lg,
   padding-right: 15px;
   padding-left: 15px;
   border-top: 1px solid transparent;
-  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
   -webkit-overflow-scrolling: touch;
 }
@@ -1845,7 +1845,6 @@ select[multiple].input-lg,
   .navbar-collapse {
     width: auto;
     border-top: 0;
-    -webkit-box-shadow: none;
     box-shadow: none;
   }
   .navbar-collapse.collapse {
@@ -1990,7 +1989,6 @@ select[multiple].input-lg,
     margin-top: 0;
     background-color: transparent;
     border: 0;
-    -webkit-box-shadow: none;
     box-shadow: none;
   }
   .navbar-nav .open .dropdown-menu > li > a,
@@ -2106,38 +2104,38 @@ select[multiple].input-lg,
   border-color: #e7e7e7;
 }
 .navbar-default .navbar-brand {
-  color: #777777;
+  color: #777;
 }
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
   color: #5e5e5e;
   background-color: transparent;
 }
 .navbar-default .navbar-text {
-  color: #777777;
+  color: #777;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #777777;
+  color: #777;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-  color: #333333;
+  color: #333;
   background-color: transparent;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-  color: #555555;
+  color: #555;
   background-color: #e7e7e7;
 }
 .navbar-default .navbar-nav > .disabled > a, .navbar-default .navbar-nav > .disabled > a:hover, .navbar-default .navbar-nav > .disabled > a:focus {
-  color: #cccccc;
+  color: #ccc;
   background-color: transparent;
 }
 .navbar-default .navbar-toggle {
-  border-color: #dddddd;
+  border-color: #ddd;
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-  background-color: #dddddd;
+  background-color: #ddd;
 }
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #888888;
+  background-color: #888;
 }
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
@@ -2145,50 +2143,50 @@ select[multiple].input-lg,
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
   background-color: #e7e7e7;
-  color: #555555;
+  color: #555;
 }
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: #777777;
+    color: #777;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #333333;
+    color: #333;
     background-color: transparent;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #555555;
+    color: #555;
     background-color: #e7e7e7;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus {
-    color: #cccccc;
+    color: #ccc;
     background-color: transparent;
   }
 }
 .navbar-default .navbar-link {
-  color: #777777;
+  color: #777;
 }
 .navbar-default .navbar-link:hover {
-  color: #333333;
+  color: #333;
 }
 .navbar-default .btn-link {
-  color: #777777;
+  color: #777;
 }
 .navbar-default .btn-link:hover, .navbar-default .btn-link:focus {
-  color: #333333;
+  color: #333;
 }
 .navbar-default .btn-link[disabled]:hover, .navbar-default .btn-link[disabled]:focus, fieldset[disabled] .navbar-default .btn-link:hover, fieldset[disabled] .navbar-default .btn-link:focus {
-  color: #cccccc;
+  color: #ccc;
 }
 
 .navbar-inverse {
-  background-color: #222222;
+  background-color: #222;
   border-color: #090909;
 }
 .navbar-inverse .navbar-brand {
   color: #777777;
 }
 .navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
-  color: white;
+  color: #fff;
   background-color: transparent;
 }
 .navbar-inverse .navbar-text {
@@ -2198,25 +2196,25 @@ select[multiple].input-lg,
   color: #777777;
 }
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
-  color: white;
+  color: #fff;
   background-color: transparent;
 }
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
-  color: white;
+  color: #fff;
   background-color: #090909;
 }
 .navbar-inverse .navbar-nav > .disabled > a, .navbar-inverse .navbar-nav > .disabled > a:hover, .navbar-inverse .navbar-nav > .disabled > a:focus {
-  color: #444444;
+  color: #444;
   background-color: transparent;
 }
 .navbar-inverse .navbar-toggle {
-  border-color: #333333;
+  border-color: #333;
 }
 .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
-  background-color: #333333;
+  background-color: #333;
 }
 .navbar-inverse .navbar-toggle .icon-bar {
-  background-color: white;
+  background-color: #fff;
 }
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
@@ -2224,7 +2222,7 @@ select[multiple].input-lg,
 }
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
   background-color: #090909;
-  color: white;
+  color: #fff;
 }
 @media (max-width: 767px) {
   .navbar-inverse .navbar-nav .open .dropdown-menu > .dropdown-header {
@@ -2237,15 +2235,15 @@ select[multiple].input-lg,
     color: #777777;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: white;
+    color: #fff;
     background-color: transparent;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: white;
+    color: #fff;
     background-color: #090909;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:focus {
-    color: #444444;
+    color: #444;
     background-color: transparent;
   }
 }
@@ -2253,16 +2251,16 @@ select[multiple].input-lg,
   color: #777777;
 }
 .navbar-inverse .navbar-link:hover {
-  color: white;
+  color: #fff;
 }
 .navbar-inverse .btn-link {
   color: #777777;
 }
 .navbar-inverse .btn-link:hover, .navbar-inverse .btn-link:focus {
-  color: white;
+  color: #fff;
 }
 .navbar-inverse .btn-link[disabled]:hover, .navbar-inverse .btn-link[disabled]:focus, fieldset[disabled] .navbar-inverse .btn-link:hover, fieldset[disabled] .navbar-inverse .btn-link:focus {
-  color: #444444;
+  color: #444;
 }
 
 /*Bootstrap typography */
@@ -2680,13 +2678,12 @@ address {
   list-style: none;
   font-size: 14px;
   text-align: left;
-  background-color: white;
-  border: 1px solid #cccccc;
+  background-color: #fff;
+  border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  -webkit-background-clip: padding-box;
   background-clip: padding-box;
 }
 .dropdown-menu.pull-right {
@@ -2712,11 +2709,11 @@ address {
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
   text-decoration: none;
   color: #262626;
-  background-color: whitesmoke;
+  background-color: #f5f5f5;
 }
 
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
-  color: white;
+  color: #fff;
   text-decoration: none;
   outline: 0;
   background-color: #428bca;
@@ -2851,8 +2848,8 @@ body {
 }
 
 body {
-  background: white;
-  color: #222222;
+  background: #fff;
+  color: #222;
   padding: 0;
   margin: 0;
   font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
@@ -3389,7 +3386,6 @@ ul.pagination li a, ul.pagination li button {
   font-weight: normal;
   font-size: 1em;
   line-height: inherit;
-  -webkit-transition: background-color 300ms ease-out;
   transition: background-color 300ms ease-out;
 }
 ul.pagination li:hover a,
@@ -3406,7 +3402,7 @@ ul.pagination li.unavailable:hover a, ul.pagination li.unavailable a:focus, ul.p
 }
 ul.pagination li.current a, ul.pagination li.current button {
   background: #76b5e6;
-  color: white;
+  color: #fff;
   font-weight: bold;
   cursor: default;
 }
@@ -3430,7 +3426,7 @@ ul.pagination li {
 /* Foundation accordion*/
 /**** Fin foundation ****/
 /*********************************************************************
-*********************** Estilos diseño web ***************************
+*********************** Estilos dise├▒o web ***************************
 **********************************************************************/
 * {
   -webkit-box-sizing: border-box;
@@ -3560,11 +3556,11 @@ span.texto--normal {
   color: #54676d;
 }
 
-.texto-gris, .home-boton.activo .contenido--banner span, html.no-touch .home-boton:hover .contenido--banner span {
+.texto-gris, .home-boton .banner-horizontal.activo .contenido--banner span, html.no-touch .home-boton .banner-horizontal:hover .contenido--banner span {
   color: #8fa9ce;
 }
 
-.texto-gris_claro, .labos-boton.activo .contenido--banner span, html.no-touch .labos-boton:hover .contenido--banner span {
+.texto-gris_claro, .labos-boton .banner-horizontal.activo .contenido--banner span, html.no-touch .labos-boton .banner-horizontal:hover .contenido--banner span {
   color: #dadeec;
 }
 
@@ -3853,31 +3849,31 @@ Browse Happy prompt
 }
 
 .punta--azul_oscuro {
-  fill: #28427e;
+  border-color: #28427e;
 }
 
 .punta--azul {
-  fill: #0056a0;
+  border-color: #0056a0;
 }
 
 .punta--celeste {
-  fill: #76b5e6;
+  border-color: #76b5e6;
 }
 
 .punta--violeta {
-  fill: #657bc3;
+  border-color: #657bc3;
 }
 
-.punta--gris, .home-boton.activo .header--banner svg, html.no-touch .home-boton:hover .header--banner svg {
-  fill: #8fa9ce;
+.punta--gris, .home-boton .banner-horizontal.activo .header--banner .punta--izquierda, .home-boton .banner-horizontal.activo .header--banner .punta--derecha, html.no-touch .home-boton .banner-horizontal:hover .header--banner .punta--izquierda, html.no-touch .home-boton .banner-horizontal:hover .header--banner .punta--derecha {
+  border-color: #8fa9ce;
 }
 
-.punta--gris_claro, .labos-boton.activo .header--banner svg, html.no-touch .labos-boton:hover .header--banner svg {
-  fill: #dadeec;
+.punta--gris_claro, .labos-boton .banner-horizontal.activo .header--banner .punta--izquierda, .labos-boton .banner-horizontal.activo .header--banner .punta--derecha, html.no-touch .labos-boton .banner-horizontal:hover .header--banner .punta--izquierda, html.no-touch .labos-boton .banner-horizontal:hover .header--banner .punta--derecha {
+  border-color: #dadeec;
 }
 
 .punta--violeta_oscuro {
-  fill: #523f89;
+  border-color: #523f89;
 }
 
 /* Fin estilos para puntas */
@@ -3906,15 +3902,15 @@ Browse Happy prompt
   background-color: #eef3fa;
 }
 
-.contenedor--gris_claro, .labos-boton.activo .header--banner, html.no-touch .labos-boton:hover .header--banner {
+.contenedor--gris_claro, .labos-boton .banner-horizontal.activo .header--banner, html.no-touch .labos-boton .banner-horizontal:hover .header--banner {
   background-color: #dadeec;
 }
 
-.contenedor--gris, .home-boton.activo .header--banner, html.no-touch .home-boton:hover .header--banner {
+.contenedor--gris, .home-boton .banner-horizontal.activo .header--banner, html.no-touch .home-boton .banner-horizontal:hover .header--banner {
   background-color: #8fa9ce;
 }
 
-/** Menú top **/
+/** Men├║ top **/
 .menu-top-bg {
   background-color: #28427e;
   margin: 0 0 32px 0;
@@ -4007,7 +4003,6 @@ header {
   height: 6rem;
   position: relative;
   background: url("../img/logo-grande.png") no-repeat top left;
-  -webkit-background-size: contain;
   background-size: contain;
 }
 
@@ -5350,10 +5345,10 @@ section.acceso .label-seccion {
 
 /**** Fin base.scss ****/
 /*********************************************************************
-*********************** Estilos app móvil ****************************
+*********************** Estilos app m├│vil ****************************
 ************* Base: xs (entre 360px y 768px de ancho) ****************
 **********************************************************************/
-/********* Genéricos **********/
+/********* Gen├®ricos **********/
 html {
   font-size: 16px;
   margin-top: 0;
@@ -5417,7 +5412,6 @@ a:active {
   z-index: 9999;
   background-color: #FFF;
   margin-bottom: 0;
-  -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
   position: absolute;
   width: 100%;
@@ -5449,7 +5443,6 @@ a:active {
   text-align: center;
 }
 .boton.activo .banner-horizontal {
-  -webkit-box-shadow: -2px -2px 10px rgba(0, 0, 0, 0.25);
   box-shadow: -2px -2px 10px rgba(0, 0, 0, 0.25);
 }
 
@@ -5489,7 +5482,6 @@ a:active {
   padding: 0;
   background-position: center center;
   background-repeat: no-repeat;
-  -webkit-background-size: cover;
   background-size: cover;
 }
 .banner-horizontal .img--banner img {
@@ -5580,7 +5572,6 @@ a:active {
   display: block;
   height: 100%;
   background: url("../img/logo-grande.png") no-repeat center center;
-  -webkit-background-size: contain;
   background-size: contain;
 }
 #app-header-menu .menu-principal {
@@ -5590,12 +5581,10 @@ a:active {
 #app-header-menu .menu-principal #main-nav {
   display: block;
   display: -webkit-box;
+  display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   position: relative;
 }
@@ -5649,7 +5638,7 @@ a:active {
 }
 
 .home-item {
-  /** Clase usada tambien para los botones de la sección información **/
+  /** Clase usada tambien para los botones de la secci├│n informaci├│n **/
   padding-left: 0;
   padding-right: 0;
   margin: 16px 0 8px;
@@ -5662,6 +5651,49 @@ a:active {
 .home-boton .banner-horizontal {
   height: 96px;
   height: 6rem;
+}
+.home-boton .banner-horizontal .contenedor-con-punta {
+  height: 96px;
+  height: 6rem;
+  position: relative;
+}
+.home-boton .banner-horizontal .contenedor-con-punta .punta--derecha, .home-boton .banner-horizontal .contenedor-con-punta .punta--izquierda {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  top: -8px;
+  top: -0.5rem;
+  border-style: solid;
+  border-top-width: 56px;
+  border-top-width: 3.5rem;
+  border-bottom-width: 56px;
+  border-bottom-width: 3.5rem;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+.home-boton .banner-horizontal .contenedor-con-punta .punta--derecha {
+  border-left-width: 32px;
+  border-left-width: 2rem;
+  right: -32px;
+  right: -2rem;
+  border-right-color: transparent;
+}
+.home-boton .banner-horizontal .contenedor-con-punta .punta--izquierda {
+  border-right-width: 32px;
+  border-right-width: 2rem;
+  left: -32px;
+  left: -2rem;
+  border-left-color: transparent;
+}
+.home-boton .banner-horizontal.activo .header--banner .punta--izquierda, .home-boton .banner-horizontal.activo .header--banner .punta--derecha, html.no-touch .home-boton .banner-horizontal:hover .header--banner .punta--izquierda, html.no-touch .home-boton .banner-horizontal:hover .header--banner .punta--derecha {
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+.home-boton .banner-horizontal.activo .header--banner .punta--izquierda, html.no-touch .home-boton .banner-horizontal:hover .header--banner .punta--izquierda {
+  border-left-color: transparent;
+}
+.home-boton .banner-horizontal.activo .header--banner .punta--derecha, html.no-touch .home-boton .banner-horizontal:hover .header--banner .punta--derecha {
+  border-right-color: transparent;
 }
 
 /***** Fin home *****/
@@ -5677,6 +5709,49 @@ a:active {
 .labos-boton .banner-horizontal {
   height: 96px;
   height: 6rem;
+}
+.labos-boton .banner-horizontal.activo .header--banner .punta--izquierda, .labos-boton .banner-horizontal.activo .header--banner .punta--derecha, html.no-touch .labos-boton .banner-horizontal:hover .header--banner .punta--izquierda, html.no-touch .labos-boton .banner-horizontal:hover .header--banner .punta--derecha {
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+.labos-boton .banner-horizontal.activo .header--banner .punta--izquierda, html.no-touch .labos-boton .banner-horizontal:hover .header--banner .punta--izquierda {
+  border-left-color: transparent;
+}
+.labos-boton .banner-horizontal.activo .header--banner .punta--derecha, html.no-touch .labos-boton .banner-horizontal:hover .header--banner .punta--derecha {
+  border-right-color: transparent;
+}
+.labos-boton .banner-horizontal .contenedor-con-punta {
+  height: 96px;
+  height: 6rem;
+  position: relative;
+}
+.labos-boton .banner-horizontal .contenedor-con-punta .punta--derecha, .labos-boton .banner-horizontal .contenedor-con-punta .punta--izquierda {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  top: -8px;
+  top: -0.5rem;
+  border-style: solid;
+  border-top-width: 56px;
+  border-top-width: 3.5rem;
+  border-bottom-width: 56px;
+  border-bottom-width: 3.5rem;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+.labos-boton .banner-horizontal .contenedor-con-punta .punta--derecha {
+  border-left-width: 32px;
+  border-left-width: 2rem;
+  right: -32px;
+  right: -2rem;
+  border-right-color: transparent;
+}
+.labos-boton .banner-horizontal .contenedor-con-punta .punta--izquierda {
+  border-right-width: 32px;
+  border-right-width: 2rem;
+  left: -32px;
+  left: -2rem;
+  border-left-color: transparent;
 }
 .labos-boton .banner-horizontal .header--banner {
   padding: 0;
@@ -5782,7 +5857,6 @@ a:active {
 #labo-img-bottom img {
   max-width: 500px;
   width: 100%;
-  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -5797,12 +5871,38 @@ a:active {
     padding-bottom: 0;
   }*/
 }
+.app-info_contacto .banner_contacto .contenedor-con-punta {
+  height: 128px;
+  height: 8rem;
+  position: relative;
+}
+.app-info_contacto .banner_contacto .contenedor-con-punta .punta--derecha {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  top: 0;
+  border-style: solid;
+  border-top-width: 64px;
+  border-top-width: 4rem;
+  border-bottom-width: 64px;
+  border-bottom-width: 4rem;
+  border-left-width: 32px;
+  border-left-width: 2rem;
+  right: -35px;
+  right: -2.2rem;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
 .app-info_contacto .banner_contacto .header--banner {
   width: 30%;
   margin-right: 24px;
   margin-right: 1.5rem;
-  padding: 24px 0;
-  padding: 1.5rem 0;
+  padding: 20px 0;
+  padding: 1.25rem 0;
+}
+.app-info_contacto .banner_contacto .header--banner .h3 {
+  margin: 1.5rem 0;
 }
 .app-info_contacto .banner_contacto .contenedor_sede {
   display: inline-block;
@@ -5836,7 +5936,7 @@ a:active {
 
 /*********************** Fin app.scss ************************/
 /*********************************************************************
-***** Estilos para dispositivos de  360px de ancho, ó superior *******
+***** Estilos para dispositivos de  360px de ancho, ├│ superior *******
 **********************************************************************/
 @media (max-width: 360px) {
   .hidden-xxs {
@@ -5871,6 +5971,39 @@ a:active {
     height: 64px;
     height: 4rem;
   }
+  .home-boton .banner-horizontal .contenedor-con-punta {
+    height: 64px;
+    height: 4rem;
+    position: relative;
+  }
+  .home-boton .banner-horizontal .contenedor-con-punta .punta--derecha, .home-boton .banner-horizontal .contenedor-con-punta .punta--izquierda {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    top: -8px;
+    top: -0.5rem;
+    border-style: solid;
+    border-top-width: 40px;
+    border-top-width: 2.5rem;
+    border-bottom-width: 40px;
+    border-bottom-width: 2.5rem;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+  }
+  .home-boton .banner-horizontal .contenedor-con-punta .punta--derecha {
+    border-left-width: 21px;
+    border-left-width: 1.33333rem;
+    right: -21px;
+    right: -1.33333rem;
+    border-right-color: transparent;
+  }
+  .home-boton .banner-horizontal .contenedor-con-punta .punta--izquierda {
+    border-right-width: 21px;
+    border-right-width: 1.33333rem;
+    left: -21px;
+    left: -1.33333rem;
+    border-left-color: transparent;
+  }
   .home-boton .banner-horizontal .header--banner {
     padding: 0;
   }
@@ -5888,9 +6021,38 @@ a:active {
     padding: 0.5rem;
   }
 
-  .labos-boton .banner-horizontal {
+  .labos-boton .contenedor-con-punta {
     height: 64px;
     height: 4rem;
+    position: relative;
+  }
+  .labos-boton .contenedor-con-punta .punta--derecha, .labos-boton .contenedor-con-punta .punta--izquierda {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    top: -8px;
+    top: -0.5rem;
+    border-style: solid;
+    border-top-width: 40px;
+    border-top-width: 2.5rem;
+    border-bottom-width: 40px;
+    border-bottom-width: 2.5rem;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+  }
+  .labos-boton .contenedor-con-punta .punta--derecha {
+    border-left-width: 21px;
+    border-left-width: 1.33333rem;
+    right: -21px;
+    right: -1.33333rem;
+    border-right-color: transparent;
+  }
+  .labos-boton .contenedor-con-punta .punta--izquierda {
+    border-right-width: 21px;
+    border-right-width: 1.33333rem;
+    left: -21px;
+    left: -1.33333rem;
+    border-left-color: transparent;
   }
   .labos-boton .banner-horizontal .texto--banner h5 {
     line-height: 1.2;
@@ -5935,7 +6097,7 @@ a:active {
   }
 }
 /*********************************************************************
-****** Estilos para dispositivos de  768px de ancho, ó superior ******
+****** Estilos para dispositivos de  768px de ancho, ├│ superior ******
 **********************************************************************/
 @media (min-width: 768px) {
   #content-wrapper {
@@ -5950,8 +6112,41 @@ a:active {
   }
 
   .labos-boton .banner-horizontal {
-    height: 112px;
-    height: 7rem;
+    height: 128px;
+    height: 8rem;
+  }
+  .labos-boton .banner-horizontal .contenedor-con-punta {
+    height: 128px;
+    height: 8rem;
+    position: relative;
+  }
+  .labos-boton .banner-horizontal .contenedor-con-punta .punta--derecha, .labos-boton .banner-horizontal .contenedor-con-punta .punta--izquierda {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    top: -8px;
+    top: -0.5rem;
+    border-style: solid;
+    border-top-width: 72px;
+    border-top-width: 4.5rem;
+    border-bottom-width: 72px;
+    border-bottom-width: 4.5rem;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+  }
+  .labos-boton .banner-horizontal .contenedor-con-punta .punta--derecha {
+    border-left-width: 43px;
+    border-left-width: 2.66667rem;
+    right: -43px;
+    right: -2.66667rem;
+    border-right-color: transparent;
+  }
+  .labos-boton .banner-horizontal .contenedor-con-punta .punta--izquierda {
+    border-right-width: 43px;
+    border-right-width: 2.66667rem;
+    left: -43px;
+    left: -2.66667rem;
+    border-left-color: transparent;
   }
 
   #map_canvas {
@@ -5992,7 +6187,7 @@ a:active {
     padding-left: 1.5rem;
   }
 
-  /*** Página de inicio ***/
+  /*** P├ígina de inicio ***/
   .front_page .banner_contacto {
     max-width: 100%;
   }
@@ -6089,7 +6284,7 @@ a:active {
   }
 }
 /*********************************************************************
-****** Estilos para dispositivos de  990px de ancho, ó superior ******
+****** Estilos para dispositivos de  990px de ancho, ├│ superior ******
 **********************************************************************/
 @media (min-width: 992px) {
   #content-wrapper {
@@ -6121,6 +6316,39 @@ a:active {
   .labos-boton .banner-horizontal {
     height: 128px;
     height: 8rem;
+  }
+  .labos-boton .banner-horizontal .contenedor-con-punta {
+    height: 128px;
+    height: 8rem;
+    position: relative;
+  }
+  .labos-boton .banner-horizontal .contenedor-con-punta .punta--derecha, .labos-boton .banner-horizontal .contenedor-con-punta .punta--izquierda {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    top: -8px;
+    top: -0.5rem;
+    border-style: solid;
+    border-top-width: 72px;
+    border-top-width: 4.5rem;
+    border-bottom-width: 72px;
+    border-bottom-width: 4.5rem;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+  }
+  .labos-boton .banner-horizontal .contenedor-con-punta .punta--derecha {
+    border-left-width: 43px;
+    border-left-width: 2.66667rem;
+    right: -43px;
+    right: -2.66667rem;
+    border-right-color: transparent;
+  }
+  .labos-boton .banner-horizontal .contenedor-con-punta .punta--izquierda {
+    border-right-width: 43px;
+    border-right-width: 2.66667rem;
+    left: -43px;
+    left: -2.66667rem;
+    border-left-color: transparent;
   }
 
   #labo-contacto, #labo-horarios, #labo-info, #labo-link {
@@ -6266,7 +6494,7 @@ a:active {
   }
 }
 /*********************************************************************
-****** Estilos para dispositivos de  1200px de ancho, ó superior *****
+****** Estilos para dispositivos de  1200px de ancho, ├│ superior *****
 **********************************************************************/
 @media (min-width: 1200px) {
   #map_canvas {
@@ -6304,3 +6532,5 @@ a:active {
     width: 84%;
   }
 }
+
+/*# sourceMappingURL=estilo.css.map */

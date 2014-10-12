@@ -137,22 +137,7 @@ a {
 		}
 	}
 }
-@mixin boton-activo($color) {
-	&.activo,
-	html.no-touch &:hover {
-		.header--banner {
-			@extend .contenedor--#{$color};
-			svg {
-				@extend .punta--#{$color};
-			}
-		}
-		.contenido--banner {
-			span {
-				@extend .texto-#{$color};
-			}
-		}
-	}
-}
+
 
 .banner-horizontal {
 	@extend .row;
@@ -284,10 +269,10 @@ a {
 			height: 100%;
 
 			&>div:first-child {
-			height: 100%;
-			padding-left:5px;
-			padding-right: 5px;
-		}
+				height: 100%;
+				padding-left:5px;
+				padding-right: 5px;
+			}
 		}
 
 	.logo-container {
@@ -402,9 +387,11 @@ a {
 	@extend .row;
 	max-width: 450px;
 	.banner-horizontal {
-		@include x-rem(height,6);
+		@include x-rem(height,6);	
+		@include boton-punta(6);
+		@include boton-activo(gris);
 	}
-	@include boton-activo(gris);
+	
 }
 /***** Fin home *****/
 
@@ -417,10 +404,11 @@ a {
 	@include x-rem(padding, 1);
 }
 .labos-boton {
-	@include boton-activo(gris_claro);
 	max-width: 460px;
 	.banner-horizontal {
 		@include x-rem(height,6);
+		@include boton-activo(gris_claro);
+		@include boton-punta(6);
 		.header--banner {
 			@extend .col-xs-7, .col-md-6; 
 			padding: 0;
@@ -545,10 +533,32 @@ a {
     //max-width: 480px;
     @include x-rem(margin, 1 auto);
 
+    .contenedor-con-punta {
+		@include x-rem(height,8);
+		position: relative;
+		.punta--derecha{
+			position: absolute;
+			width: 0px;
+			height: 0px;
+			top: 0;
+			border-style: solid;
+			@include x-rem(border-top-width,4);
+			@include x-rem(border-bottom-width,4);
+			@include x-rem(border-left-width,2);
+			@include x-rem(right,-2.2);
+			border-right-color: transparent;
+			border-top-color: transparent;
+			border-bottom-color: transparent;
+		}
+	}
+
     .header--banner{
-      width: 30%;
-      @include x-rem(margin-right, 1.5);
-      @include x-rem(padding, 1.5 0);
+      	width: 30%;
+      	@include x-rem(margin-right, 1.5);
+      	@include x-rem(padding, 1.25 0);
+      	.h3 {
+			margin: 1.5rem 0;
+      	}
     }
 
     /*.contenido--banner{

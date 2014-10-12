@@ -1,3 +1,60 @@
+@mixin boton-punta($height) {
+	.contenedor-con-punta {
+		@include x-rem(height,$height);
+		position: relative;
+		.punta--derecha, .punta--izquierda {
+			position: absolute;
+			width: 0px;
+			height: 0px;
+			@include x-rem(top,-0.5);
+			border-style: solid;
+			@include x-rem(border-top-width,$height/2 + 0.5);
+			@include x-rem(border-bottom-width,$height/2 + 0.5);
+			border-top-color: transparent;
+			border-bottom-color: transparent;
+		}
+		.punta--derecha {
+			@include x-rem(border-left-width,$height/3);
+			@include x-rem(right,-$height/3);
+			border-right-color: transparent;
+			//color de la punta: border left con el color definido en _base.scss
+		}
+		.punta--izquierda {
+			@include x-rem(border-right-width,$height/3);
+			@include x-rem(left,-$height/3);
+			border-left-color: transparent;
+			//color de la punta: border right con el color definido en _base.scss
+		}
+	}
+}
+
+@mixin boton-activo($color) {
+	&.activo, 
+	html.no-touch &:hover {
+		.header--banner {
+			@extend .contenedor--#{$color};
+			.punta--izquierda, .punta--derecha {
+				@extend .punta--#{$color};
+				border-top-color: transparent;
+				border-bottom-color: transparent;
+			}
+			.punta--izquierda {
+				border-left-color: transparent;
+			}
+			.punta--derecha {
+				border-right-color: transparent;
+			}
+		}
+		.contenido--banner {
+			span {
+				@extend .texto-#{$color};
+			}
+		}
+	}
+}
+
+
+
 //
 //a small mixin for easy use of rem with px as fallback
 //usage: @include x-rem(font-size, 14px)

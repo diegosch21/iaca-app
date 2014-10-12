@@ -13,8 +13,11 @@
 //* Labos */
 .labos-boton {
   .banner-horizontal {
-    @include x-rem(height,7);
+    @include x-rem(height,8);
+    @include boton-punta(8);  
   }
+   
+  
 }
 #map_canvas {
   height: 400px;

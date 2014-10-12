@@ -32,6 +32,7 @@
 .home-boton {
 	.banner-horizontal {
 		@include x-rem(height,4);
+		@include boton-punta(4);
 		.header--banner {
 			padding: 0;
 			span {
@@ -51,8 +52,8 @@
 	@include x-rem(padding, 0.5);
 }
 .labos-boton {
+	@include boton-punta(4);
 	.banner-horizontal {
-		@include x-rem(height,4);
 		.texto--banner {
 			h5 {
 				line-height: 1.2;
