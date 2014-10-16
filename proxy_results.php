@@ -22,7 +22,7 @@ function file_get_contents_curl($url,$cookie)
 //	curl_setopt($curl, CURLOPT_FOLLOWLOCATION, TRUE); //To follow any "Location: " header that the server sends as part of the HTTP header.
 //	curl_setopt($curl, CURLOPT_AUTOREFERER, TRUE); //To automatically set the Referer: field in requests where it follows a Location: redirect.
 //	curl_setopt($curl, CURLOPT_TIMEOUT, 10); //The maximum number of seconds to allow cURL functions to execute.	
-//	curl_setopt($curl,CURLOPT_COOKIE,"PHPSESSID=".$cookie);
+	curl_setopt($curl,CURLOPT_COOKIE,"PHPSESSID=".$cookie);
 
 	$contents = curl_exec($curl);
 	curl_close($curl);

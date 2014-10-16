@@ -30,6 +30,7 @@ define([
 				evt.preventDefault();
 			var username = this.$("#usuario").val();
 			var password = this.$("#pass").val();
+			self.$('.mensaje--alerta').html('');
 			
 			if(username!="" && password!="") {
 				this.loading(true);

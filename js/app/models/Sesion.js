@@ -21,7 +21,9 @@ define([
 
         urls: {
         	//login: 'http://iaca3.web.vianetcon.com.ar/ws.json!login!',
+        	login: 'http://localhost/iaca/iaca-www/proxy_login.php?',
         	//results: 'http://iaca3.web.vianetcon.com.ar/ws.json!list-results!'
+        	results: 'http://localhost/iaca/iaca-www/proxy_results.php?'
         },
 
         localStorage: new Backbone.LocalStorage('iaca-session'),
