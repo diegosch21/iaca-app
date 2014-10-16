@@ -3,6 +3,9 @@
 *  SINGLETON
 */
 define([
+	'jquery',
+	'underscore',
+	'backbone',
 	'localstorage'
 ], function() {
 
