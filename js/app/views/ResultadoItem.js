@@ -1,9 +1,6 @@
 define([
-	'jquery',
-	'underscore',
-	'backbone',
 	'text!templates/resultado_item.html'
-], function ($,_,Backbone,resultadoItemTemplate) {
+], function (resultadoItemTemplate) {
 	
 	var ResultadoItemView = Backbone.View.extend({
 

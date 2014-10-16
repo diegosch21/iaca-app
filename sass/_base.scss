@@ -491,29 +491,37 @@ Browse Happy prompt
 /* Fin estilos para puntas */
 
 /** Contenedores **/
-.contenedor--azul{
+.contenedor--azul, .fondo-azul{
   background-color: $primario-azul;
+  border-color: $primario-azul;
 }
-.contenedor--azul_oscuro{
+.contenedor--azul_oscuro, .fondo-azul_oscuro {
   background-color: $primario-azul_oscuro;
+  border-color: $primario-azul_oscuro;
 }
-.contenedor--violeta{
+.contenedor--violeta, .fondo-violeta {
   background-color: $primario-violeta;
+  border-color: $primario-violeta;
 }
-.contenedor--violeta_oscuro{
+.contenedor--violeta_oscuro, .fondo-violeta_oscuro {
   background-color: $primario-violeta_oscuro;
+  border-color: $primario-violeta_oscuro;
 }
-.contenedor--celeste{
+.contenedor--celeste, .fondo-celeste {
   background-color: $primario-celeste;
+  border-color: $primario-celeste;
 }
-.contenedor--blanco{
+.contenedor--blanco, .fondo-blanco{
   background-color: $alt-blanco;
+  border-color: $alt-blanco;
 }
-.contenedor--gris_claro{
+.contenedor--gris_claro, .fondo-gris_claro{
   background-color: $alt-gris_claro;
+  border-color: $alt-gris_claro;
 }
-.contenedor--gris{
+.contenedor--gris, .fondo-gris{
   background-color: $alt-gris;
+  border-color: $alt-gris;
 }
 
 
@@ -882,55 +890,6 @@ main{
 }
 
 
-/** Sliders **/
-
-.contenedor-slider{
-  @include  x-rem(margin-bottom, 1.5);
-}
-
-.slider-control,
-.slider-news-control,
-.slider-news_movil-control{
-  z-index: 500;
-  @include x-rem(margin-top, -1.5);
-  @include x-rem(padding, 0.75 0);
-
-  .slider_prev,
-  .slider_next{
-    color: $alt-blanco;
-    position: absolute;
-    display: inline-block;
-    //bottom: 0;
-    @include x-rem(margin-top, -0.5);
-
-    &:hover{
-      color: $primario-celeste;
-    }
-  }
-
-  .slider_next{
-   right: 20%;
-  }
-
-  .slider_prev{
-    left: 20%;
-  }
-}
-
-.slider-news-control,
-.slider-news_movil-control{
-
-  .owl-page.active span{
-    background-color: $primario-azul !important;
-  }
-
-  .slider_prev,
-  .slider_next{
-    &:hover{
-      color: $primario-azul;
-    }
-  }
-}
 
 /** Acordion **/
 
@@ -1080,161 +1039,11 @@ main{
   }
 }
 
-/** Directorio Analisis **/
-
-.lista_directorio dt a{
-  .codigo-analisis,
-  .nombre-analisis,
-  .precio-analisis{
-    display: inline-block;
-    margin:0;
-    @include x-rem(padding, 0.75);
-  }
-
- .codigo-analisis{
-   width: 20%;
-   text-align: center;
-   color: $alt-blanco;
-
-   p{
-     margin: 0;
-   }
- }
-
- .nombre-analisis{
-   width: 78%;
-   color: $alt-negro;
- }
-
-  &.analisis--con_precio{
-    .nombre-analisis{
-      width: 50%;
-    }
-
-    .precio-analisis{
-      width: 25%;
-      color: $alt-negro;
-    }
-  }
-
-  &.active{
-    .nombre-analisis,
-    .precio-analisis{
-      color: $alt-blanco;
-    }
-  }
-
-}
-
-.descripcion-analisis{
-  dt,
-  dd{
-    @include x-rem(padding, 0.5 0);
-  }
-
-  dt{
-    color: $primario-azul;
-    padding-bottom: 0;
-    margin-top: 0.5em;
-
-    &:first-child{
-      margin-top: 0;
-    }
-  }
-}
 
 .pagination a{
   font-weight: bold;
 }
 
-
-/*Buscar practica*/
-
-#buscar_practica,
-#buscar_practica--movil{
-  label{
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-  input[type="text"],
-  select{
-    width: 100%;
-    @include x-rem(padding, 1);
-    @include x-rem(margin-bottom, 1.5);
-  }
-  input[type="text"],
-  select,
-  .lista_letras{
-    background-color: #fff;
-    border: 1px solid $primario-celeste;
-  }
-
-  .lista_letras{
-    text-align: justify;
-
-    a{
-      display: inline-block;
-      //width: 10%;
-      //font-size: 1.25em;
-      padding: 0.2em 0.5em;
-      //margin-bottom: 1.5em;
-      text-transform: uppercase;
-      color: $alt-gris_oscuro;
-      text-align: center;
-
-      &:hover{
-        color: $alt-negro;
-      }
-
-      &.mas-recientes{
-        text-transform: none;
-        width: 50%;
-        text-align: right;
-        font-weight: 700;
-        color: $primario-azul;
-
-        &:hover{
-          color: $primario-violeta;
-        }
-      }
-    }
-  }
-
-  .busqueda_alfabetica{
-    margin-top: 1em;
-
-    p{
-      margin-bottom: 0;
-    }
-  }
-
-  .boton--enviar{
-    display: block;
-    position: relative;
-    @include x-rem(margin, 0 auto 1.5);
-  }
-
-  .busqueda_inline{
-    input{
-      display: inline-block;
-
-      &[type="submit"]{
-        font-family: FontAwesome;
-        margin: 0 0 0 -5px;
-        @include x-rem(padding, 1.2);
-      }
-
-    }
-  }
-
-}
-
-
-//.slider--azul{
-//  @extend .contenedor--azul;
-//}
 
 /** Formularios **/
 
@@ -1242,15 +1051,15 @@ form{
   input, textarea{
     @include x-rem(padding, 1 1.5);
     @include x-rem(margin-bottom, 1.5);
-    width: 86%;
+    width: 80%;
     border: 0;
     z-index: 400;
     color: $alt-gris_oscuro;
   }
 
   label{
-    width: 12.5%;
-    display: inline-block;
+  //  width: 12.5%;
+  // display: inline-block;
     @include x-rem(padding, 0.9 0 0.9 0.75);
     z-index: 500;
   }
@@ -1310,409 +1119,7 @@ form{
   }
 }
 
-/** Derivaciones **/
-/* Formulario comenzar a derivar */
 
-#comenzar-derivacion,
-#reclamos,
-#curriculum,
-{
-  input, textarea{
-    background-color: $alt-blanco;
-  }
-
-  label{
-    background-color: $primario-azul;
-  }
-}
-
-/* Clientes */
-
-#clientes{
-  @include x-rem(margin-bottom, 1.5);
-}
-
-
-/** la empresa **/
-
-
-.parrafo-especial{
-  @include x-rem(font-size, 1.5);
-  font-weight: 600;
-  padding: 0.5em 1em;
-}
-
-.descripcion-laboratorios{
-  li{
-    @include x-rem(margin-bottom, 1.5);
-
-    &:last-child{
-      margin-bottom: 0;
-    }
-  }
-}
-
-/** Laboratorios **/
-
-.laboratorios{
-  .labo_contacto{
-    margin-top: 0;
-  }
-
-  .labo_foto--interior{
-    margin-top: 1.5em;
-  }
-}
-
-/** Profesionales **/
-
-.seccion_profesionales{
-  p{
-    @include x-rem(padding, 0.75 1.5);
-    margin: 0;
-  }
-
-  .h4{
-    //margin: 0;
-    @include x-rem(padding, 1 1 0.5);
-
-    &+.h6{
-      padding-top: 0;
-    }
-  }
-
-  .h4+.h4{
-    padding-top: 0;
-  }
-
-  .h5{
-    text-align: center;
-    @include x-rem(padding, 1);
-
-    &+.h5{
-      padding-top: 0;
-    }
-  }
-}
-
-.contenedor--profesionales{
-  max-width: 350px;
-  @include x-rem(margin-bottom, 2);
-  //@include x-rem(padding, 0 1.5);
-
-  ul{
-    @include x-rem(padding, 0 1.5 1.5);
-
-    .h6{
-      @include x-rem(padding, 1.5 0 0 0);
-      margin: 0;
-    }
-  }
-}
-
-
-/** Noticias **/
-
-.fecha-nota{
-  color: $primario-azul_oscuro;
-  font-style: italic;
-  font-weight: 600;
-  margin: 0;
-}
-
-.boton_ver-mas{
-  position: relative;
-  display: inline-block;
-  //width: 100%;
-  color: $alt-blanco;
-  @include x-rem(padding, 0.5 0.75);
-
-  &:hover{
-    color: $alt-blanco;
-  }
-
-  .punta--right{
-    z-index: 500;
-
-    svg{
-      width: 1em;
-    }
-  }
-}
-
-.boton--notas{
-  font-weight: 700;
-  background-color: $primario-celeste;
-
-  &:hover{
-    background-color: $primario-violeta;
-
-    svg{
-      fill: $primario-violeta
-    }
-  }
-}
-
-.nota{
-  background-color: $alt-blanco;
-  @include x-rem(margin-bottom, 2);
-  @include x-rem(padding, 1);
-  border-bottom: 1px solid $primario-celeste;
-
-  &:nth-of-type(even){
-    background-color: $alt-gris_claro;
-    border-bottom: 1px solid $primario-violeta;
-  }
-
-  h4{
-    @include x-rem(margin, 0 0 1 0);
-    //@include x-rem(padding, 1);
-  }
-
-  figure{
-    @include x-rem(margin, 0 -1 1.5);
-  }
-}
-
-.nota-principal{
-  position: relative;
-  @include x-rem(margin-bottom, 2);
-
-  .contenido-nota{
-    background-color: rgba($alt-blanco, 0.7);
-    @include x-rem(padding, 1 1.5);
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-
-    h3{
-      margin-top: 0;
-    }
-
-    .fecha-nota{
-      text-align: right;
-    }
-  }
-}
-
-.nota--img_principal{
-  @include x-rem(margin, 3 0);
-}
-
-/** Publicaciones **/
-
-.lista-publicaciones{
-  //margin: 0;
-  //@include x-rem(padding, 2 1 1.5);
-
-  @include x-rem(margin-top, 3);
-
-  .header--banner{
-    @include x-rem(padding, 1);
-  }
-
-  .contenido--banner{
-    @include x-rem(padding, 2 1 1.5);
-    //margin-bottom: -10px;
-
-    .svg-down{
-      fill:$alt-blanco;
-      margin-top: 3px;
-    }
-  }
-
-  .publicaciones--footer{
-    margin-top: -15px;
-    padding: 0;
-    text-align: center;
-
-    a{
-      @include x-rem(padding, 0 1);
-      //vertical-align: top;
-
-      i.fa{
-        margin-bottom: -0.5em;
-      }
-    }
-  }
-}
-
-.publicaciones--paginacion{
-  @include x-rem(margin-top, 1.5);
-}
-
-  .publicacion{
-    @include x-rem(padding-bottom, 1);
-    border-bottom: 1px solid $primario-azul;
-
-    &:last-of-type{
-      border-bottom: none;
-    }
-
-    figure{
-      @include x-rem(margin, 1 0);
-    }
-  }
-
-  .boton--ver_pdf{
-    background-color: $primario-violeta;
-    padding-left: 1.5em;
-
-    &:hover{
-      background-color: $primario-azul;
-
-      svg{
-        fill: $primario-azul
-      }
-    }
-  }
-
-
-/** Contacto **/
-
-#mapa-contacto{
-  @include x-rem(margin-top, 2);
-
-  .banner-horizontal .header--banner{
-    width: 40%;
-  }
-  .banner--vertical .header--banner{
-    @include x-rem(padding-bottom, 0.5);
-  }
-}
-
-.mapa-contacto,
-.info-contacto{
-  display: inline-block;
-  position: relative;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-.mapa-contacto{
-  z-index: 400;
-
-  .flex-video{
-    margin-bottom: 0;
-  }
-}
-
-.info-contacto{
-  z-index: 500;
-  margin-top: -6px;
-  margin-bottom: 1.5rem;
-
-  p{
-    margin: 0;
-    @include x-rem(padding, 0.375 1.5);
-  }
-}
-
-
-//*** Página de inicio ***/
-// .front_page{
-//   .banner-horizontal{
-//     //max-width: 480px;
-//     margin-left: auto;
-//     margin-right: auto;
-
-//     .texto--banner{
-//       width: 55%;
-//     }
-
-//     .header--banner{
-//       width: 60%;
-//     }
-
-//     .contenido--banner{
-//       width: 37%;
-//       text-align: center;
-//       vertical-align: middle;
-//     }
-//   }
-
-//   .banner--vertical{
-//     margin-top: 0;
-//   }
-
-//   .banner--app_movil{
-//     .header--banner{
-//       width: 50%;
-//     }
-//     .contenido--banner{
-//       width: 47%;
-//     }
-
-//     i.fa{
-//       padding: 0.1em 0.2em;
-//     }
-//   }
-
-//   .banner_contacto{
-//     max-width: 480px;
-//     @include x-rem(margin, 1.5 auto 0);
-
-//     .header--banner{
-//       width: 100%;
-//       //@include x-rem(margin-right, 1.5);
-//       text-align: center;
-//     }
-
-//     .contenido--banner{
-//       width: 73%;
-//       padding-top: 0;
-//       padding-bottom: 0;
-//     }
-
-//     .contenedor_sede{
-//       display: block;
-//       vertical-align: top;
-//       @include x-rem(padding, 1 1.5);
-//       //width: 30%;
-
-//       p{
-//         margin: 0;
-//         padding: 0 0 0.5em 0;
-//       }
-//     }
-//   }
-
-//   .buscador-analisis{
-//     .header--banner{
-//       @include x-rem(padding, 0.75 1);
-//     }
-
-//     .contenido--banner{
-//       @include x-rem(padding, 2 0.5 0.75);
-//     }
-//   }
-
-//   /*.carrusel--home{
-//     @include x-rem(margin-top, 1.5);
-//   }*/
-
-//   /*.primera_seccion{
-//     @include x-rem(margin-top, 3)
-//   }*/
-//   .segunda_seccion{
-//     @include x-rem(margin-top, 1.5);
-//   }
-
-// }
-
-// .slider--noticias{
-//   .nota-principal{
-//     margin-bottom: 0;
-
-//     .contenido-nota{
-//       @include x-rem(bottom, 3);
-//       @include x-rem(padding-bottom, 1.5);
-//     }
-//   }
-
-// }
 
 
 /** Footer **/
@@ -1753,178 +1160,12 @@ footer{
   }
 }
 
-.certificaciones--footer{
-
-  .contenedor-con-punta{
-    @include x-rem(margin-top, 3);
-  }
-
-  .h4{
-    text-align: center;
-    @include x-rem(line-height, 3);
-    margin: 0;
-  }
-
-  img.iconos_certificaciones{
-    display: block;
-    position: relative;
-    @include x-rem(margin, 3 auto 0);
-  }
-
-}
-
-
 
 /****************************************************
 *****************************************************
 ******  ESTILOS AREA DE ACCESO PROFESIONAL  *********
 *****************************************************
 ****************************************************/
-
-
-
-/** Carga de muestras **/
-
-form.formulario--carga_muestras{
-
-  label{
-    width: 100%;
-    padding: 0;
-    margin: 0;
-  }
-
-  input[type="text"],
-  select,
-  textarea{
-    border: 1px solid $primario-celeste;
-    width: 100%;
-    padding: 0.75em 1em;
-  }
-
-  .radio--inline{
-    label,
-    input[type="radio"],
-    input[type="checkbox"]{
-      display: inline-block;
-      width: auto;
-    }
-
-    label{
-      padding: 0 0.75em 0 2em;
-
-      &:first-of-type{
-        padding-left: 0;
-      }
-    }
-
-    input[type="radio"],
-    input[type="checkbox"]{
-      padding-right: 2em;
-    }
-  }
-
-  .espaciador{
-    @include x-rem(padding, 0 1 0.75);
-
-    &.reset--bottom{
-      padding-bottom: 0;
-    }
-  }
-
-}
-
-.carga_muestra--seccion,
-.acceso{
-  @include x-rem(margin, 0 auto 3);
-  width: 100%;
-  max-width: 480px;
-}
-
-.label-seccion{
-  width: 100%;
-  @include x-rem(margin-bottom, 1);
-  display: block;
-
-  p{
-    margin: 0;
-    padding: 0;
-  }
-
-  .outter-svg-container{
-    z-index: 500;
-  }
-
-  .indice_label,
-  .titulo_label{
-    display: inline-block;
-    @include x-rem(padding, 0.75 0.5 0.75 2);
-  }
-
-  .indice_label{
-    width: 20%;
-    z-index: 400;
-  }
-  .titulo_label{
-    //width: 80%;
-    //margin-left: -4px;
-    z-index: 300;
-  }
-}
-
-.btn--select_practica{
-  padding: 1em;
-  background-color: $primario-celeste;
-  color: #fff;
-  width: 3.5em;
-  height: 3.5em;
-  text-align: center;
-
-  &:hover{
-    color: #fff;
-    background-color: $primario-violeta;
-  }
-}
-
-.btn--select_right,
-.btn--select_left{
-  display: block;
-  margin: 1em auto;
-}
-
-.btn--select_down,
-.btn--select_up{
-  display: inline-block;
-  margin: 1em;
-}
-
-.btn_contenedor--movil{
-  display: block;
-  width: 12em;
-  margin: 0 auto;
-}
-.btn_contenedor--pantalla{
-  display: none;
-  //padding-top:50%;
-  margin-top: 3em;
-  //height: 10em;
-}
-
-.pacietnes-cargados {
-    margin-top: 0;
-
-  #pedido{
-    height: 18em;
-    padding: 1.5em 1em;
-  }
-
-  .boton--cancelar,
-  .boton--enviar{
-    display: block;
-    @include x-rem(margin, 1 auto 0);
-  }
-}
-
-
 
 /*** Lista de resultados de protocolos ***/
 
@@ -2239,31 +1480,9 @@ dt.leido_no+dd{
   input, textarea{
     background-color: #fff;
   }
-
-  label{
-    background-color: $primario-azul_oscuro;
-  }
 }
 
 section.acceso{
-  &.oculto{
-    form{
-      display: none;
-    }
-
-    .label-seccion{
-      background-color: $primario-violeta;
-      cursor: pointer;
-
-      .punta--azul{
-        fill: $primario-violeta
-      }
-
-      p{
-        @include x-rem(font-size, $h4);
-      }
-    }
-  }
 
   &.activo{
     form{
@@ -2271,10 +1490,7 @@ section.acceso{
     }
   }
 
-  .label-seccion{
-    //width: 100%;
-    @include x-rem(margin-bottom, 2);
-  }
+
 }
 
 /**** Fin base.scss ****/

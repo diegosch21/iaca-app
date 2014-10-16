@@ -1,9 +1,9 @@
 define([
+	'text!templates/header.html',
 	'jquery',
 	'underscore',
-	'backbone',
-	'text!templates/header.html'
-], function ($,_,Backbone,headerTemplate) {
+	'backbone'
+], function (headerTemplate,$,_) {
 	
 	var HeaderView = Backbone.View.extend({
 
@@ -15,7 +15,7 @@ define([
 		},
 
 		render: function() {
-			this.$el.html(this.template({logueado: true, user: "Diego Martín Schwindt"}));
+			this.$el.html(this.template({logueado: false}));
 			return this;
 		},
 

@@ -1,9 +1,6 @@
 define([
-	'jquery',
-	'underscore',
-	'backbone',
 	'text!templates/info.html'
-], function ($,_,Backbone,infoTemplate) {
+], function (infoTemplate) {
 	
 	var InfoView = Backbone.View.extend({
 

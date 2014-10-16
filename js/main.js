@@ -42,8 +42,8 @@ require.config({
 	waitSeconds: 20
 });
 
-require(['jquery', 'backbone', 'app/router', 'modernizr', 'bootstrap'], 
-	function ($, Backbone, Router) {
+require(['jquery', 'underscore', 'backbone', 'app/router', 'models/sesion', 'modernizr', 'bootstrap'], 
+	function ($,_, Backbone, Router) {
 
 	   	var router = new Router();
 

@@ -1,9 +1,6 @@
 define([
-	'jquery',
-	'underscore',
-	'backbone',
 	'text!templates/config.html'
-], function ($,_,Backbone,configTemplate) {
+], function (configTemplate) {
 	
 	var ConfigView = Backbone.View.extend({
 

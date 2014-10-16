@@ -49,7 +49,23 @@ a {
 
 
 .container-fluid_max{
-  max-width: 980px;
+	max-width: 980px;
+}
+
+/** Page loading **/
+
+#page-loading {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('ajax-loader.gif') 
+                50% 50% 
+                no-repeat;
 }
 
 /** Contenedores **/
@@ -523,6 +539,12 @@ a {
 /****** Fin laboratorios_detalles **********/
 
 
+
+%fix-border-derecha {
+	border-right-style: solid;
+	border-right-width: thin;
+}
+
 /********* Info & Contacto  *********/
 
 .app-info_contacto{
@@ -533,34 +555,11 @@ a {
     //max-width: 480px;
     @include x-rem(margin, 1 auto);
 
-    .contenedor-con-punta {
-		@include x-rem(height,8);
-		position: relative;
-		.punta--derecha{
-			position: absolute;
-			width: 0px;
-			height: 0px;
-			top: 0;
-			border-style: solid;
-			@include x-rem(border-top-width,4);
-			@include x-rem(border-bottom-width,4);
-			@include x-rem(border-left-width,2);
-			@include x-rem(right,-2.2);
-			border-right-color: transparent;
-			border-top-color: transparent;
-			border-bottom-color: transparent;
-		}
-	}
+	@include header-banner-punta(8,30%);
 
-    .header--banner{
-      	width: 30%;
-      	@include x-rem(margin-right, 1.5);
-      	@include x-rem(padding, 1.25 0);
-      	.h3 {
-			margin: 1.5rem 0;
-      	}
-    }
-
+	.h3 {
+		@include x-rem(margin, 1.5 0);
+	}	
     /*.contenido--banner{
       width: 73%;
       padding-top: 0;
@@ -600,6 +599,57 @@ a {
     @include x-rem(padding, 1.5);
     display: block;
   }
+}
+
+
+
+
+/** Login **/
+#app-login {
+
+	@include header-banner-punta(5,60%);
+	.contenedor-con-punta {
+		@extend %fix-border-derecha;
+
+		.h3{
+			margin: 0;
+			@include x-rem(margin-left,1); 
+		}
+		@include x-rem(margin-bottom,2);
+
+	}
+
+	ul.row {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	li.input-login {
+		
+		@include header-banner-punta(3,100%);
+		label {
+			display: inline;
+			i {
+				@include x-rem(width, 2);
+			}
+			@include x-rem(padding-left, 1.5);
+
+		}
+		input {
+			@include x-rem(height, 3);
+			@include x-rem(padding, 0.5 1.5)
+		}
+	}
+
+	input[type="password"], input[type="text"]{
+  		position:relative;
+  		top:-10000px;
+  		-webkit-transform: translate3d(0, 10000px, 0);
+  		transform: translate3d(0, 10000px, 0);
+  		
+	}
+
+
 }
 
 

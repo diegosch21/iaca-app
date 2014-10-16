@@ -1,9 +1,6 @@
 define([
-	'jquery',
-	'underscore',
-	'backbone',
 	'text!templates/resultados_lista.html'
-], function ($,_,Backbone,resultadosListaTemplate) {
+], function (resultadosListaTemplate) {
 	
 	var ResultadosListaView = Backbone.View.extend({
 

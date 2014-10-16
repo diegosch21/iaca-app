@@ -1,9 +1,6 @@
 define([
-	'jquery',
-	'underscore',
-	'backbone',
 	'text!templates/datos.html'
-], function ($,_,Backbone,datosTemplate) {
+], function (datosTemplate) {
 	
 	var DatosView = Backbone.View.extend({
 

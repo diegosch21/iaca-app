@@ -28,6 +28,34 @@
 	}
 }
 
+@mixin header-banner-punta($height,$width){
+
+	.contenedor-con-punta {
+		@include x-rem(height,$height);
+		position: relative;
+		.punta--derecha{
+			position: absolute;
+			width: 0px;
+			height: 0px;
+			top: 0;
+			border-style: solid;
+			@include x-rem(border-top-width,$height/2);
+			@include x-rem(border-bottom-width,$height/2);
+			@include x-rem(border-left-width,$height/4);
+			@include x-rem(right,-$height/4-0.2);
+			border-right-color: transparent;
+			border-top-color: transparent;
+			border-bottom-color: transparent;
+		}
+	}
+
+    .header--banner{
+      	width: $width;
+      	@include x-rem(margin-right, 1.5);
+      	@include x-rem(padding, 1.25 0);
+    }
+}
+
 @mixin boton-activo($color) {
 	&.activo, 
 	html.no-touch &:hover {

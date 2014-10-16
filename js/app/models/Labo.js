@@ -1,14 +1,10 @@
-define([
-    'jquery',
-    'underscore',
-    'backbone'
-], function($, _, Backbone) {
+define(function() {
 
-    var mapModel = Backbone.Model.extend({
+    var laboModel = Backbone.Model.extend({
         defaults:{
 
         }
     });
-    return mapModel;
+    return laboModel;
 
 });

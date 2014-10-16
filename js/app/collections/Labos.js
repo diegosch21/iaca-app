@@ -1,10 +1,7 @@
 define([
-    'jquery',
-    'underscore',
-    'backbone',
     'models/Labo'
-], function($, _, Backbone, laboModel){
-    var mapCollection = Backbone.Collection.extend({
+], function(laboModel){
+    var labosCollection = Backbone.Collection.extend({
         initialize: function(){
         
         },
@@ -15,5 +12,5 @@ define([
         
     });
 
-    return mapCollection;
+    return labosCollection;
 });

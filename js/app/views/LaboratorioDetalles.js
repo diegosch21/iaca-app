@@ -1,10 +1,7 @@
 define([
-	'jquery',
-	'underscore',
-	'backbone',
 	'text!templates/laboratorio_detalles.html',
 	//'lib/gmaps'
-], function ($,_,Backbone,laboTemplate) {
+], function (laboTemplate) {
 	
 	var LaboratoriosView = Backbone.View.extend({
 
