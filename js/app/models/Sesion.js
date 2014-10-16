@@ -20,8 +20,8 @@ define([
         },
 
         urls: {
-        	login: 'http://jsonp.nodejitsu.com/?url=http://iaca3.web.vianetcon.com.ar/ws.json!login!',
-        	results: 'http://jsonp.nodejitsu.com/?url=http://iaca3.web.vianetcon.com.ar/ws.json!list-results!'
+        	//login: 'http://iaca3.web.vianetcon.com.ar/ws.json!login!',
+        	//results: 'http://iaca3.web.vianetcon.com.ar/ws.json!list-results!'
         },
 
         localStorage: new Backbone.LocalStorage('iaca-session'),
