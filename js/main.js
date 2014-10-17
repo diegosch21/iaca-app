@@ -42,16 +42,16 @@ require.config({
 	waitSeconds: 20
 });
 
-require(['jquery', 'underscore', 'backbone', 'app/router', 'models/sesion', 'modernizr', 'bootstrap'], 
+require(['jquery', 'underscore', 'backbone', 'app/router', 'modernizr', 'bootstrap'], 
 	function ($,_, Backbone, Router) {
 
 	   	var router = new Router();
 
 	    $('body').on("touchend", function (event) {
-		     console.log("touchend "+event.target.tagName +' '+event.target.id +' '+ event.target.className);    
+		    // console.log("touchend "+event.target.tagName +' '+event.target.id +' '+ event.target.className);    
 		 })
 	    $('body').on("click", function (event) {
-		     console.log("click "+event.target.tagName +' '+event.target.id +' '+ event.target.className);    
+		    // console.log("click "+event.target.tagName +' '+event.target.id +' '+ event.target.className);    
 		 })
 		Backbone.history.start();
 
@@ -66,13 +66,13 @@ function eventHandlersGenerales() {
 	//$('body').on("touchstart",'.boton', function (e) {
 		$(e.currentTarget).addClass('activo');
 		e.stopPropagation();
-		console.log("activo "+e.target.tagName +' '+e.target.id +' '+ e.target.className);    
+		//console.log("activo "+e.target.tagName +' '+e.target.id +' '+ e.target.className);    
 	});
 	$('body').on("mouseup touchend",'.boton', function (e) {
 	// $('body').on("touchend",'.boton', function (e) {
 		$('.boton').removeClass('activo');
 		e.stopPropagation();
-		console.log("desactivo "+e.target.tagName +' '+e.target.id +' '+ e.target.className);    
+		//console.log("desactivo "+e.target.tagName +' '+e.target.id +' '+ e.target.className);    
 	});	
 	$('body').on('mouseup touchend touchmove', function(e) {
 	// $('body').on('touchend touchmove', function(e) {

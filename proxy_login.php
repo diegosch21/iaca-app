@@ -5,9 +5,11 @@ $pass = $_GET['password'];
 
 $url = "http://iaca3.web.vianetcon.com.ar/ws.json!login!username=".$user."&password=".$pass;
 
-$resp =  file_get_contents($url);
-$array = json_decode($resp,true);
+$json =  file_get_contents($url);
 
+/* 
+// Agrego PHPSESSID al JSON
+$array = json_decode($json,true);
 
 $phpsessid = "";
 
@@ -20,6 +22,7 @@ foreach ($http_response_header as $hdr) {
 $array['PHPSESSID'] = $phpsessid;
 
 $json = json_encode($array);
+*/
 
 echo $json;
 

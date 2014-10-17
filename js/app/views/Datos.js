@@ -1,3 +1,7 @@
+/* 
+*	VISTA NO USADA POR EL MOMENTO
+*/
+
 define([
 	'text!templates/datos.html'
 ], function (datosTemplate) {

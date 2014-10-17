@@ -1,14 +1,15 @@
 define([
     'models/Usuario',
     'localstorage'
-], function(usuarioModel){
+], function(usuarioModel,Store){
     var usuariosCollection = Backbone.Collection.extend({
         initialize: function(){
-        
+            console.log("Init usuariosCollection: fetch");
+            this.fetch();
         },
         model: usuarioModel,
 
-        localStorage: new Backbone.LocalStorage('iaca-usuarios')
+        localStorage: new Store('iaca-usuarios')
 
         
     });

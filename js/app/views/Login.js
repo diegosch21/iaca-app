@@ -11,12 +11,17 @@ define([
 		template: _.template(loginTemplate),
 		templateAlert: _.template(alertTemplate),
 
-		initialize: function() {
+		initialize: function(options) {
+			if(options && options['redireccion'])
+				this.redireccion  = options['redireccion'];
+			else
+				this.redireccion = 'home';
+			this.options = options || {};
 			_.bindAll(this,'login');
 		},
 
 		events: {
-			'submit form#login'			: 'login'
+			'submit form#login'	: 'login'
 		},
 
 		render: function() {
@@ -36,13 +41,13 @@ define([
 				this.loading(true);
 				Sesion.login(username,password,{
 					success: function(data) {
-						console.log("login OK");
+						console.log("Logueado: "+Sesion.get("logueado")+" Redirecciona a: "+self.redireccion);
+						Backbone.history.navigate(self.redireccion,true);
 					},
 					error: function(error) {
 						self.$('.mensaje--alerta').html(self.templateAlert({msj: error}));
 					},
 					complete: function() {
-						console.log(self);
 						self.loading(false);
 					}
 				});

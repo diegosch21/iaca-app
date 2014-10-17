@@ -1,12 +1,14 @@
 <?PHP 
 
 $token = $_GET['token'];
-$cookie = $_GET['cookie'];
 
 $url = "http://iaca3.web.vianetcon.com.ar/ws.json!list-results!token=".$token;
 
-echo file_get_contents_curl($url,$cookie); 
+echo file_get_contents($url);
 
+
+//$cookie = $_GET['cookie'];
+//echo file_get_contents_curl($url,$cookie); 
 
 function file_get_contents_curl($url,$cookie)
 {

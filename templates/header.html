@@ -29,12 +29,12 @@
 
 								<% if (logueado) { %>
 								<ul class="list-unstyled dropdown-menu pull-right" role="menu" aria-labelledby="menuUserLogueado">
-									<li role="presentation"><a role="menuitem" href="#datos"><strong>Mis datos</strong></a></li>
+									<!-- <li role="presentation"><a role="menuitem" href="#datos"><strong>Mis datos</strong></a></li> -->
 									<li role="presentation"><a role="menuitem" href="#configuracion"><strong>Configuración</strong></a></li>
 									<!-- ToDo: Submenu cambiar usuario -->
 									<li role="presentation"><a role="menuitem" href="#"><strong>Cambiar usuario</strong></a></li>
 									<li role="presentation" class="divider"></li>
-									<li role="presentation"><a role="menuitem" href="#logout"><i class="fa fa-lg fa-sign-out texto-azul">&nbsp;&nbsp;</i><strong class="texto-azul">Cerrar Sesión</strong></a></li>
+									<li role="presentation"><a role="menuitem" id="logout" href="#logout"><i class="fa fa-lg fa-sign-out texto-azul">&nbsp;&nbsp;</i><strong class="texto-azul">Cerrar Sesión</strong></a></li>
 								</ul>
 								<% } else { %>
 								<ul class="list-unstyled dropdown-menu pull-right" role="menu" aria-labelledby="menuUserDeslogueado">

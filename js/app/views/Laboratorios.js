@@ -1,7 +1,7 @@
 define([
 	'text!templates/laboratorios.html',
 	//'lib/gmaps',
-	'collections/Labos'
+	'collections/Labos',
 ], function (laboratoriosTemplate,labosCollection) {
 	
 	var LaboratoriosView = Backbone.View.extend({
@@ -17,12 +17,12 @@ define([
 		},
 
 		initialize: function(options) {
-			console.log(3);
+			//console.log(3);
 			this.dragging = false;
 			//this.mapa = options['mapa'];
         },
 		render: function() {
-			console.log(5);
+			//console.log(5);
 			this.$el.html(this.template());
 			// self = this;
 			// setTimeout(function() {
@@ -32,11 +32,11 @@ define([
             return this;
 		},
 		mapaTodos: function() {
-			console.log(6);
+			//console.log(6);
 			self = this;
 			require(['lib/gmaps'], function(mapa) {
 				$('#reload').hide();
-				console.log(7);
+				//console.log(7);
 				mapa.setCenter(-38.717607, -62.265389);  //Bahia Blanca
 				mapa.setZoom(13);
 				mapa.render(self.$('#map_canvas')[0]);

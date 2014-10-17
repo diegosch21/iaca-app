@@ -1,6 +1,7 @@
 define([
-	'text!templates/home.html'
-], function (homeTemplate) {
+	'text!templates/home.html',
+	'models/Sesion'
+], function (homeTemplate,Sesion) {
 	
 	var HomeView = Backbone.View.extend({
 

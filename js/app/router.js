@@ -1,7 +1,8 @@
 define([
+	'models/Sesion', 
 	'app/views/Header',
 	'iscroll'
-], function (HeaderView,IScroll) {
+], function (Sesion,HeaderView,IScroll) {
 	
 	var appRouter = Backbone.Router.extend({
 		routes: {
@@ -10,18 +11,23 @@ define([
 			"resultados"		: "resultados",
 			"configuracion"		: "configuracion",
 			"laboratorios"		: "laboratorios",
-			"laboratorios/*lab"	: "verLabo",
+			"laboratorios/:lab"	: "verLabo",
 			"info"				: "info",
-			"datos"				: "datos",
-			"login"				: "login"
+		//	"datos"				: "datos",
+			"login"				: "login",
+			"login/:page"		: "login"
+		//	"logout"			: "logout",
+		//	"logout/:page"		: "logout"
 		},
 
 		initialize: function(){
+
 			this.headerView = new HeaderView();
         	$('#header').html(this.headerView.el);
         	this.cambiarPagina = _.bind(cambiarPagina,this);        	
         	this.getLabos = _.bind(getLabos,this);
         	this.loading = _.bind(loading,this);
+
 		},
 
 		home: function(){
@@ -50,7 +56,7 @@ define([
 			this.loading(true);
 			//require(['views/Laboratorios','lib/gmaps'], function(LaboratoriosView,Mapa) {
 			require(['views/Laboratorios'], function(LaboratoriosView) {
-				console.log(1);	
+				//console.log(1);	
 				self.getLabos(function() {
 					// if(!self.mapa)
 					//   	self.mapa = new Mapa();
@@ -84,6 +90,7 @@ define([
 				self.cambiarPagina(new InfoView(),'info');	
 			});
 		},
+		/*	Vista no usada
 		datos: function(){
 			var self = this;
 			this.loading(true);
@@ -92,17 +99,31 @@ define([
 				self.cambiarPagina(new DatosView(),'configuracion');	
 			});
 		},
-		login: function() {
-			var self = this;
-			this.loading(true);
-			require(['views/Login'], function(LoginView) {
-				//self.loginView = new view();
-				self.cambiarPagina(new LoginView(),'inicio');	
-			});
+		*/
+		login: function(page) {
+			if(Sesion.get("logueado"))
+				Backbone.history.navigate("home",true);
+			else {
+				var self = this;
+				this.loading(true);
+				require(['views/Login'], function(LoginView) {
+					if(page) {
+						self.cambiarPagina(new LoginView({"redireccion": page}),'resultados');
+					}
+					else 	
+						self.cambiarPagina(new LoginView(),'inicio');	
+				});
+			}
 		}
+		// HECHO EN HEADERVIEW
+		// logout: function(page) {
+		// 	if(Sesion.get("logueado"))
+		// 		Sesion.logout();
+		// }
 	});
 
 	function cambiarPagina(view,menuitem) {
+
 		this.headerView.selectMenuItem(menuitem);
 		if (this.currentView)
 			this.currentView.remove();
@@ -146,14 +167,14 @@ define([
 		var self = this;
 		require(['collections/Labos'], function(LabosCollection) {
 			if (self.labosCollection) {
-				console.log(21);
+				//console.log(21);
 	        	if (callback) callback();
 	    	}
 	    	else {
 	    		self.labosCollection = new LabosCollection();
 	            self.labosCollection.fetch({
 	            	success:function () {
-	            		console.log(22);
+	            		//console.log(22);
 	            		if (callback) callback();
 	        		}
 	        	});
