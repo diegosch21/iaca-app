@@ -1,9 +1,10 @@
 define([
 	'text!templates/login.html',
 	'models/Sesion',
-	'text!templates/alert.html'
+	'text!templates/alert.html',
+	'collections/Usuarios'
 
-], function (loginTemplate,Sesion,alertTemplate) {
+], function (loginTemplate,Sesion,alertTemplate,Usuarios) {
 	
 	var LoginView = Backbone.View.extend({
 
@@ -17,15 +18,28 @@ define([
 			else
 				this.redireccion = 'home';
 			this.options = options || {};
-			_.bindAll(this,'login');
+			_.bindAll(this,'login','loginGuardado','deleteGuardado');
 		},
 
 		events: {
-			'submit form#login'	: 'login'
+			'submit form#login'	: 'login',
+			'click a.usuario-guardado' : 'loginGuardado',
+			'click span.delete-guardado' : 'deleteGuardado',
 		},
 
 		render: function() {
-			this.$el.html(this.template());
+			var logueado = Sesion.get("logueado");
+			if(Usuarios.length > 0) {
+				var users = [];
+				Usuarios.each(function(user, index){
+					users[index] = {"id": user.get("id"), "name": user.get("name")};
+				})
+				this.$el.html(this.template({"logueado": logueado, "guardados":true, "usuarios": users}));
+			}
+			else {
+				this.$el.html(this.template({"logueado": logueado, "guardados":false}));	
+			}
+			
 			return this;
 		},
 
@@ -54,6 +68,34 @@ define([
 			}
 		},
 
+		loginGuardado: function(evt) {
+
+			var id = $(evt.target).data("id");
+			var user = Usuarios.get(id);
+			var self = this;
+			if(user)
+			{
+				var pass = user.get("pass");
+				this.loading(true);
+				Sesion.login(id,pass,{
+					success: function(data) {
+						console.log("Usuario guardado Logueado: "+Sesion.get("logueado")+" Redirecciona a: "+self.redireccion);
+						Backbone.history.navigate(self.redireccion,true);
+					},
+					error: function(error) {
+						self.$("#error-login-guardado").html(self.templateAlert({msj: error}));
+					},
+					complete: function() {
+						self.loading(false);
+					}
+				});
+			}
+			else
+				this.$("#error-login-guardado").html(this.templateAlert({msj: "Información guardada inválida"}))
+			
+
+		},
+
 		loading: function(loading) {
 			if(loading) {
 				$('#page-loading').show();
@@ -62,6 +104,12 @@ define([
 				$('#page-loading').hide();
 			}
 		},
+		deleteGuardado: function(evt) {
+			evt.stopPropagation();
+			var id = $(evt.currentTarget).data("id");
+			Usuarios.get(id).destroy();
+			this.render();
+		}
 
 
 

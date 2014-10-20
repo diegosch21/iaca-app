@@ -11,7 +11,6 @@ define([
 
         localStorage: new Store('iaca-usuarios')
 
-        
     });
 
     //SINGLETON

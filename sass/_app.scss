@@ -52,6 +52,12 @@ a {
 	max-width: 980px;
 }
 
+.alert-warning {
+	background-color: $primario-violeta_oscuro;
+	border-color: transparent;
+	color: $alt-blanco;
+}
+
 /** Page loading **/
 
 #page-loading {
@@ -606,16 +612,31 @@ a {
 
 /** Login **/
 #app-login {
-
-	@include header-banner-punta(5,60%);
+	.acceso_login {
+		@include header-banner-punta(5,60%);	
+	}
+	.usuarios-guardados{
+		@include header-banner-punta(4,60%);
+		@include x-rem(padding-bottom,1);
+		.list-group {
+			@include x-rem(margin,1);
+		}
+		#error-login-guardado {
+			@include x-rem(margin,1);
+		}
+	}
 	.contenedor-con-punta {
 		@extend %fix-border-derecha;
 
-		.h3{
+		.h3, .h4{
 			margin: 0;
 			@include x-rem(margin-left,1); 
 		}
 		@include x-rem(margin-bottom,2);
+		.h4 {
+			line-height: 1.2;
+			white-space: nowrap;
+		}
 
 	}
 

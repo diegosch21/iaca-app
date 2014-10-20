@@ -15,7 +15,9 @@ define([
 			"info"				: "info",
 		//	"datos"				: "datos",
 			"login"				: "login",
-			"login/:page"		: "login"
+			"login/:page"		: "login",
+			"changeuser"		: "login",
+			"changeuser/:page"	: "login"
 		//	"logout"			: "logout",
 		//	"logout/:page"		: "logout"
 		},
@@ -101,19 +103,19 @@ define([
 		},
 		*/
 		login: function(page) {
-			if(Sesion.get("logueado"))
-				Backbone.history.navigate("home",true);
-			else {
-				var self = this;
-				this.loading(true);
-				require(['views/Login'], function(LoginView) {
-					if(page) {
-						self.cambiarPagina(new LoginView({"redireccion": page}),'resultados');
-					}
-					else 	
-						self.cambiarPagina(new LoginView(),'inicio');	
-				});
-			}
+			//if(Sesion.get("logueado"))
+			//	Backbone.history.navigate("home",true);
+			//else {
+			var self = this;
+			this.loading(true);
+			require(['views/Login'], function(LoginView) {
+				if(page) {
+					self.cambiarPagina(new LoginView({"redireccion": page}),'resultados');
+				}
+				else 	
+					self.cambiarPagina(new LoginView(),'inicio');	
+			});
+			//}
 		}
 		// HECHO EN HEADERVIEW
 		// logout: function(page) {

@@ -23,23 +23,29 @@ define([
         urls: {
         	//login: 'http://iaca3.web.vianetcon.com.ar/ws.json!login!',
         	//login: 'http://localhost/iaca/iaca-www/proxy_login.php?',
-            login: 'http://192.168.1.100/iaca/iaca-www/proxy_login.php?',
+            login: 'proxy_login.php?',
         	//results: 'http://iaca3.web.vianetcon.com.ar/ws.json!list-results!'
         	//results: 'http://localhost/iaca/iaca-www/proxy_results.php?',
-            results: 'http://192.168.1.100/iaca/iaca-www/proxy_results.php?'
+            results: 'proxy_results.php?'
         },
 
         localStorage: new Store('iaca-session'),
 
         initialize: function() {
-
+            
         	console.log("Initialize Sesion");
-        	_.bindAll(this,'getAuth','login','crearUsuario','setUsuario');
+        	_.bindAll(this,'getAuth','login','crearUsuario','setUsuario',"relogin");
+            var self = this;
 
         	if(localStorage.getItem('iaca-session-unic')) {
         		console.log("Init: Fetch sesion")
-        		this.fetch();	
-                //relogin
+        		this.fetch({
+                    success: function(){
+                        if(self.get("logueado"))
+                            self.relogin();
+                    }
+                });	
+
         	}
         	else {
         		console.log("Init: Save sesion")
@@ -49,6 +55,9 @@ define([
 
         login: function(user,pass,callback) {
         	var self = this;
+            if(this.get("logueado")) {
+                this.logout();
+            }
         	this.getAuth(user,pass,{
         		success: function(data) {
                     console.log("Login OK");
@@ -74,8 +83,12 @@ define([
         },
 
         relogin: function() {
-
-        }
+            console.log("Relogin");
+            var userGuardado = Usuarios.get(this.get("userID"));
+            if(userGuardado) {
+                this.login(userGuardado.get("id"),userGuardado.get("pass"));
+            }
+        },
 
 
 
