@@ -4961,7 +4961,7 @@ a:active {
 }
 
 /** Page loading **/
-#page-loading {
+#page-loading, #loading-results {
   display: none;
   position: fixed;
   z-index: 1000;

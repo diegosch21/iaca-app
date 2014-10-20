@@ -59,6 +59,7 @@ define([
 						Backbone.history.navigate(self.redireccion,true);
 					},
 					error: function(error) {
+						console.log(error);
 						self.$('.mensaje--alerta').html(self.templateAlert({msj: error}));
 					},
 					complete: function() {

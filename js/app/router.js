@@ -36,21 +36,33 @@ define([
 			var self = this;
 			this.loading(true);
 			require(['views/Home'], function(HomeView) {
-				self.cambiarPagina(new HomeView(),'inicio');	
+				if(!self.homeView)
+					self.homeView = new HomeView();
+				self.cambiarPagina(self.homeView,'inicio');	
 			});
 		},
 		resultados: function(){
 			var self = this;
-			this.loading(true);
-			require(['views/ResultadosLista'], function(ResultadosView) {
-				self.cambiarPagina(new ResultadosView(),'resultados');	
-			});
+			if(!Sesion.get("logueado")) {
+				console.log("Resultados - No logueado, redireccion a login");
+				Backbone.history.navigate("login/resultados",true);
+			}
+			else {
+				this.loading(true);
+				require(['views/ResultadosLista'], function(ResultadosView) {
+					if(!self.resultadosView)
+						self.resultadosView = new ResultadosView();
+					self.cambiarPagina(self.resultadosView,'resultados');	
+				});
+			}
 		},
 		configuracion: function(){
 			var self = this;
 			this.loading(true);
 			require(['views/Config'], function(ConfigView) {
-				self.cambiarPagina(new ConfigView(),'configuracion');	
+				if(!self.configView)
+					self.configView = new ConfigView();
+				self.cambiarPagina(self.configView,'configuracion');	
 			});
 		},
 		laboratorios: function(){
@@ -58,15 +70,21 @@ define([
 			this.loading(true);
 			//require(['views/Laboratorios','lib/gmaps'], function(LaboratoriosView,Mapa) {
 			require(['views/Laboratorios'], function(LaboratoriosView) {
-				//console.log(1);	
-				self.getLabos(function() {
-					// if(!self.mapa)
-					//   	self.mapa = new Mapa();
-					self.cambiarPagina(new LaboratoriosView({
-							//mapa: self.mapa,
-							collection: self.labosCollection
-						}),'laboratorios');	
-				});
+				//console.log(1);
+				if (self.laboratoriosView) {
+					self.cambiarPagina(self.laboratoriosView,'laboratorios');
+				}
+				else {
+					self.getLabos(function() {
+						// if(!self.mapa)
+						//   	self.mapa = new Mapa();
+						self.laboratoriosView = new LaboratoriosView({
+								//mapa: self.mapa,
+								collection: self.labosCollection
+							})
+						self.cambiarPagina(self.laboratoriosView,'laboratorios');	
+					});	
+				}
 			});
 		},
 		verLabo: function(lab){
@@ -89,7 +107,9 @@ define([
 			var self = this;
 			this.loading(true);
 			require(['views/Info'], function(InfoView) {
-				self.cambiarPagina(new InfoView(),'info');	
+				if(!self.infoView)
+					self.infoView = new InfoView();
+				self.cambiarPagina(self.infoView,'info');	
 			});
 		},
 		/*	Vista no usada
@@ -128,11 +148,12 @@ define([
 
 		this.headerView.selectMenuItem(menuitem);
 		if (this.currentView)
-			this.currentView.remove();
+			this.currentView.undelegateEvents();
 		//console.log(4);
 
 		$('#content').html(view.render().el);
 		this.currentView = view;
+		view.delegateEvents();
 		//console.log(8);
 		if(this.scroller)
 			this.scroller.destroy();				

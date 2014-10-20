@@ -1,7 +1,10 @@
 define([
+    'jquery',
+    'underscore',
+    'backbone',
     'models/Usuario',
     'localstorage'
-], function(usuarioModel,Store){
+], function($,_,Backbone,usuarioModel,Store){
     var usuariosCollection = Backbone.Collection.extend({
         initialize: function(){
             console.log("Init usuariosCollection: fetch");

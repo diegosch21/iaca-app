@@ -1,5 +1,8 @@
 /*
 *	Guarda el token del usuario actual
+*   
+*   Se encarga de las operaciones de login, relogin y logout
+*   Realiza el get de los resultados    
 *  SINGLETON
 */
 define([
@@ -37,12 +40,15 @@ define([
         	_.bindAll(this,'getAuth','login','crearUsuario','setUsuario',"relogin");
             var self = this;
 
-        	if(localStorage.getItem('iaca-session-unic')) {
+            if(localStorage.getItem('iaca-session-unic')) {
         		console.log("Init: Fetch sesion")
         		this.fetch({
                     success: function(){
                         if(self.get("logueado"))
-                            self.relogin();
+                            self.relogin({success: function() {
+                                console.log("Relogin inicial - Redirecciono a home");
+                                Backbone.history.navigate(self.redireccion,true);
+                            }});
                     }
                 });	
 
@@ -55,7 +61,7 @@ define([
 
         login: function(user,pass,callback) {
         	var self = this;
-            if(this.get("logueado")) {
+            if(this.get("logueado")) {    
                 this.logout();
             }
         	this.getAuth(user,pass,{
@@ -82,11 +88,11 @@ define([
         	});
         },
 
-        relogin: function() {
+        relogin: function(callback) {
             console.log("Relogin");
             var userGuardado = Usuarios.get(this.get("userID"));
             if(userGuardado) {
-                this.login(userGuardado.get("id"),userGuardado.get("pass"));
+                this.login(userGuardado.get("id"),userGuardado.get("pass"),callback);
             }
         },
 
@@ -162,9 +168,61 @@ define([
         crearUsuario: function(id,name,pass) {
             console.log("Creo usuario id:"+id);
             Usuarios.create({id: id, name: name, pass: pass})
+        },
+
+        reintentoResultados: false, // para controlar un solo reintento
+
+        getResultados: function(callback) {
+            var token = this.get("token");
+            var self = this;
+            console.log("Obtener lista resultados... Token: "+token+" Reintento: "+this.reintentoResultados);
+            // if token mayor a 30 minutos 
+            //  relogin
+            //else
+            $.ajax({
+                url: this.urls.results+"token="+token,
+                dataType: 'json',
+                type: 'GET'
+            }).done(function(data, textStatus, jqXHR){
+                console.log(data);
+                if(data.result) {
+                    console.log("Get Resultados OK");
+                    if (callback && 'success' in callback) {
+                        callback.success(data);
+                        self.reintentoResultados = false;
+                    }
+                }
+                else {
+                    console.log("Get resultados - Errorcode: "+data.errorcode)
+                    if(data.errorcode == 2 && !self.reintentoResultados) {
+                        self.reintentoResultados = true;
+                        console.log("Reintento obtener resultados...");
+                        self.relogin({complete: function() {
+                            console.log("Vuelvo a obtener resultados...");
+                            self.getResultados(callback);
+                        }});
+                    }
+                    else {
+                        if (callback && 'error' in callback) {
+                            callback.error("No se pueden obtener los resultados");
+                            self.reintentoResultados = false;
+                        }
+                    }
+                }
+            }).fail(function( jqXHR, textStatus, errorThrown ) {
+                console.log(jqXHR + textStatus + errorThrown);
+                if (callback && 'error' in callback) {
+                    callback.error('No se pudo comunicar con el servidor. Intente de nuevo');
+                    self.reintentoResultados = false;
+                } 
+            }).always(function(){
+                if (callback && 'complete' in callback) {
+                    callback.complete();
+                }
+            });
+
+
         }
-
-
 
         
 
