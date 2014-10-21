@@ -6,7 +6,7 @@ define([
 
     var userModel = Backbone.Model.extend({
         defaults:{
-        	id: "0",
+        	id: 0,
         	name: "",
         	pass: ""
         }

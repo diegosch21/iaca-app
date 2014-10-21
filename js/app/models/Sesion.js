@@ -20,7 +20,8 @@ define([
         	logueado: false,
         	userID: -1,
         	username: "",
-        	token: ""
+        	token: "",
+            timestamp: -1
         },
 
         urls: {
@@ -39,6 +40,7 @@ define([
         	console.log("Initialize Sesion");
         	_.bindAll(this,'getAuth','login','crearUsuario','setUsuario',"relogin");
             var self = this;
+            this.set("timestamp",new Date().getTime());
 
             if(localStorage.getItem('iaca-session-unic')) {
         		console.log("Init: Fetch sesion")
@@ -61,9 +63,6 @@ define([
 
         login: function(user,pass,callback) {
         	var self = this;
-            if(this.get("logueado")) {    
-                this.logout();
-            }
         	this.getAuth(user,pass,{
         		success: function(data) {
                     console.log("Login OK");
@@ -72,10 +71,11 @@ define([
         				callback.success(data);
         			}
         		},
-        		error: function(error) {
+        		error: function(error,errorcode) {
         			console.log('Error: ' + error);
         			console.log("CantLogin");
-        			self.logout();
+                    if(errorcode == 1)
+        			    self.logout();   // Si el error fue por user/pass invalid, desloguea
         			if (callback && 'error' in callback) {
         				callback.error(error);
         			}
@@ -118,20 +118,20 @@ define([
         			if (callback && 'error' in callback) {
         				switch(data.errorcode) {
         					case 1: 
-        						callback.error('Usuario o clave inválidos');
+        						callback.error('Usuario o clave inválidos',1);
         						break;
         					case -1: 
-        						callback.error('Ocurrió un error en la base de datos. Intente de nuevo.')	
+        						callback.error('Ocurrió un error en la base de datos. Intente de nuevo.',-1)	
         						break;
         					default:
-        						callback.error("Error desconocido. Intente de nuevo.")	
+        						callback.error("Error desconocido. Intente de nuevo.",-2)	
         				}
         			} 
         		}
         	}).fail(function( jqXHR, textStatus, errorThrown ) {
-        		console.log(jqXHR + textStatus + errorThrown);
+        		console.log(jqXHR +" "+ textStatus +" "+ errorThrown);
         		if (callback && 'error' in callback) {
-        			callback.error('No se pudo comunicar con el servidor. Intente de nuevo');
+        			callback.error('No se pudo comunicar con el servidor. Intente de nuevo',0);
         		} 
         	}).always(function(){
         		if (callback && 'complete' in callback) {
@@ -153,6 +153,7 @@ define([
 			this.set("username",data.name);
 			this.set("token",data.token);
 			this.set("logueado",true);
+            this.set("timestamp",new Date().getTime());
         	this.save();
         },
 
@@ -161,6 +162,7 @@ define([
         	this.set("userID",-1);
 			this.set("username","");
 			this.set("logueado",false);
+            this.set("timestamp",new Date().getTime());
         	this.save();
         	console.log("Logueado: "+false);
         },
@@ -194,6 +196,7 @@ define([
                 }
                 else {
                     console.log("Get resultados - Errorcode: "+data.errorcode)
+                    // ERROR DE TOKEN: Reintento (Relogin y otra vez getResultados)
                     if(data.errorcode == 2 && !self.reintentoResultados) {
                         self.reintentoResultados = true;
                         console.log("Reintento obtener resultados...");
@@ -202,18 +205,28 @@ define([
                             self.getResultados(callback);
                         }});
                     }
+                    // OTRO ERROR o reintento fallido: devuelvo error (callback error)
                     else {
                         if (callback && 'error' in callback) {
-                            callback.error("No se pueden obtener los resultados");
+                            callback.error("No se puede actualizar la lista de resultados");
                             self.reintentoResultados = false;
                         }
                     }
                 }
             }).fail(function( jqXHR, textStatus, errorThrown ) {
                 console.log(jqXHR + textStatus + errorThrown);
-                if (callback && 'error' in callback) {
-                    callback.error('No se pudo comunicar con el servidor. Intente de nuevo');
+                // ERROR DE AJAX: reintento una vez, si no devuelvo error (callback error)
+                if(!self.reintentoResultados) {
+                    console.log("Reintento obtener resultados...");
+                    self.reintentoResultados = true;
+                    self.getResultados(callback);
+                }
+                else {
                     self.reintentoResultados = false;
+                    if (callback && 'error' in callback) {
+                        callback.error('Error al actualizar lista de resultados: No se pudo comunicar con el servidor. Intente de nuevo');
+                    }
+                    
                 } 
             }).always(function(){
                 if (callback && 'complete' in callback) {

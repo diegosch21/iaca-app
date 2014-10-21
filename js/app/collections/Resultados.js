@@ -3,18 +3,20 @@ define([
     'underscore',
     'backbone',
     'models/Usuario',
-    'localstorage'
-], function($,_,Backbone,usuarioModel,Store){
-    var usuariosCollection = Backbone.Collection.extend({
+    'localstorage',
+    'models/Resultado'
+], function($,_,Backbone,usuarioModel,Store,resultadoModel){
+    var resultadosCollection = Backbone.Collection.extend({
         
-        initialize: function(options){
+        initialize: function(models,options){
             this.userID = options["userID"];
             console.log("Init resultadosCollection - userID: "+this.userID);
-            this.fetch();
+            this.localStorage = new Store('iaca-resultados-user_'+this.userID)
+          
         },
-        model: resultadoModel,
+        model: resultadoModel
 
-        localStorage: new Store('iaca-resultados-user'+this.userID)
+
 
     });
 

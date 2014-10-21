@@ -4958,6 +4958,7 @@ a:active {
   background-color: #523f89;
   border-color: transparent;
   color: #eef3fa;
+  border-radius: 0;
 }
 
 /** Page loading **/

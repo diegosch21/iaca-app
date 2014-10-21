@@ -1,1 +1,11 @@
-CONSULTAR RESULTADOS
+<div id="error-get-results" class="mensaje--alerta">
+</div>
+
+
+<% if(lista.length>0) { %>
+<ul>
+	<% for(var i = 0; i< lista.length; i++) { %>
+		<li>Protocolo: <%= lista[i].id %> Fecha: <%= lista[i].fecha %> pdf: <%= lista[i].pdf %></li>
+	<% } %>
+</ul>
+<% } %>
