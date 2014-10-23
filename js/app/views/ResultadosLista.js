@@ -66,7 +66,7 @@ define([
 			});
 
 		},
-		updateLista: function(render) {
+		updateLista: function() {
 			console.log("Actualizo lista de resultados...")
 			this.loading(true);
 			var self = this;
