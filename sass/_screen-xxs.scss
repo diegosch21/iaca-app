@@ -9,6 +9,42 @@
 .visible-xxs-inline-block {
 	display: inline-block !important;
 }
+.visible-xxs {
+	display: block !important;
+}
+
+%col-xxs {
+	float: left;
+}
+
+.col-xxs-1 {
+	width: 8.33333%!important;
+	@extend %col-xxs;
+} 
+.col-xxs-2 {
+	width: 16.66667%!important;
+	@extend %col-xxs;
+} 
+.col-xxs-3 {
+	width:  25%!important;
+	@extend %col-xxs;
+} 
+.col-xxs-5 {
+	width: 41.66667%!important;
+	@extend %col-xxs;
+}
+.col-xxs-4 {
+	width: 33.33333%!important;
+	@extend %col-xxs;
+} 
+.col-xxs-6 {
+	width: 50%!important;
+	@extend %col-xxs;
+} 
+
+.col-xxs-offset-1 {
+	margin-left: 8.33333%!important;
+}
 
 //*Header */
 #app-header-menu {
@@ -32,7 +68,7 @@
 .home-boton {
 	.banner-horizontal {
 		@include x-rem(height,4);
-		@include boton-punta(4);
+		@include boton-punta-correccion-alto(4);
 		.header--banner {
 			padding: 0;
 			span {
@@ -52,7 +88,7 @@
 	@include x-rem(padding, 0.5);
 }
 .labos-boton {
-	@include boton-punta(4);
+	@include boton-punta-correccion-alto(4);
 	.banner-horizontal {
 		.texto--banner {
 			h5 {
@@ -122,6 +158,63 @@
 			@include x-rem(margin-top,-1)
 		}	
 	}
-	
+}
 
+
+//** Resultados **/
+#app-resultados {
+	.header-resultados {
+		.h3 {
+			@include x-rem(font-size, $h4);
+			font-weight: 500;
+		}
+	}
+}
+.barra-tabla {
+	>div {
+		padding: 0;
+	}
+}
+.columna-tabla {
+	line-height: 2;
+	a,span {
+		white-space: nowrap;
+	}
+	&.doble-linea {
+		line-height: 4;
+		
+		&.doble-renglon {
+			a,span {
+				white-space: normal;
+				line-height: 2;	
+			}
+			line-height: 2;
+		}
+	}
+}
+ul.lista_resultados{
+	.item--resultado_paciente{
+
+		.boton_img {
+			@include x-rem(padding-right, 1);
+		}
+		.info--resultado{
+			line-height: 2;
+		}
+		.doble-linea {
+			line-height: 4;
+		}
+		@include boton-punta(4);
+		.contenedor-con-punta {
+			.punta--izquierda {
+				@include x-rem(border-right-width,1);
+				@include x-rem(left,-1.1);
+			}
+		}
+
+		.boton_img, .boton_pdf, .leido {
+			line-height: 4;
+			height: 100%;
+		}
+	}
 }

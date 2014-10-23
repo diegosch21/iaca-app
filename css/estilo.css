@@ -3634,7 +3634,7 @@ p, span.texto--normal {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-h1, .h1, h2, .h2, h5, .h5, p, span.texto--normal {
+h1, .h1, h2, .h2, h5, .h5, p, span.texto--normal, #app-resultados .header-resultados .h3 {
   font-weight: 400;
 }
 
@@ -4029,11 +4029,11 @@ Browse Happy prompt
   border-color: #657bc3;
 }
 
-.punta--gris, .home-boton .banner-horizontal.activo .header--banner .punta--izquierda, .home-boton .banner-horizontal.activo .header--banner .punta--derecha, html.no-touch .home-boton .banner-horizontal:hover .header--banner .punta--izquierda, html.no-touch .home-boton .banner-horizontal:hover .header--banner .punta--derecha {
+.punta--gris, .home-boton .banner-horizontal.activo .header--banner .punta--izquierda, .home-boton .banner-horizontal.activo .header--banner .punta--derecha, .home-boton .banner-horizontal.activo .contenedor-con-punta .punta--izquierda, .home-boton .banner-horizontal.activo .contenedor-con-punta .punta--derecha, html.no-touch .home-boton .banner-horizontal:hover .header--banner .punta--izquierda, html.no-touch .home-boton .banner-horizontal:hover .header--banner .punta--derecha, html.no-touch .home-boton .banner-horizontal:hover .contenedor-con-punta .punta--izquierda, html.no-touch .home-boton .banner-horizontal:hover .contenedor-con-punta .punta--derecha {
   border-color: #8fa9ce;
 }
 
-.punta--gris_claro, .labos-boton .banner-horizontal.activo .header--banner .punta--izquierda, .labos-boton .banner-horizontal.activo .header--banner .punta--derecha, html.no-touch .labos-boton .banner-horizontal:hover .header--banner .punta--izquierda, html.no-touch .labos-boton .banner-horizontal:hover .header--banner .punta--derecha {
+.punta--gris_claro, .labos-boton .banner-horizontal.activo .header--banner .punta--izquierda, .labos-boton .banner-horizontal.activo .header--banner .punta--derecha, .labos-boton .banner-horizontal.activo .contenedor-con-punta .punta--izquierda, .labos-boton .banner-horizontal.activo .contenedor-con-punta .punta--derecha, html.no-touch .labos-boton .banner-horizontal:hover .header--banner .punta--izquierda, html.no-touch .labos-boton .banner-horizontal:hover .header--banner .punta--derecha, html.no-touch .labos-boton .banner-horizontal:hover .contenedor-con-punta .punta--izquierda, html.no-touch .labos-boton .banner-horizontal:hover .contenedor-con-punta .punta--derecha {
   border-color: #dadeec;
 }
 
@@ -4073,12 +4073,12 @@ Browse Happy prompt
   border-color: #eef3fa;
 }
 
-.contenedor--gris_claro, .labos-boton .banner-horizontal.activo .header--banner, html.no-touch .labos-boton .banner-horizontal:hover .header--banner, .fondo-gris_claro {
+.contenedor--gris_claro, .labos-boton .banner-horizontal.activo .header--banner, .labos-boton .banner-horizontal.activo .contenedor-con-punta, html.no-touch .labos-boton .banner-horizontal:hover .header--banner, html.no-touch .labos-boton .banner-horizontal:hover .contenedor-con-punta, .fondo-gris_claro {
   background-color: #dadeec;
   border-color: #dadeec;
 }
 
-.contenedor--gris, .home-boton .banner-horizontal.activo .header--banner, html.no-touch .home-boton .banner-horizontal:hover .header--banner, .fondo-gris {
+.contenedor--gris, .home-boton .banner-horizontal.activo .header--banner, .home-boton .banner-horizontal.activo .contenedor-con-punta, html.no-touch .home-boton .banner-horizontal:hover .header--banner, html.no-touch .home-boton .banner-horizontal:hover .contenedor-con-punta, .fondo-gris {
   background-color: #8fa9ce;
   border-color: #8fa9ce;
 }
@@ -4373,139 +4373,6 @@ main.max_480 {
   padding: 1.5em;
 }
 
-/** Acordion **/
-.accordion {
-  margin-top: 24px;
-  margin-top: 1.5rem;
-}
-.accordion dt a,
-.accordion .item--resultado_paciente a {
-  display: block;
-  position: relative;
-  margin: 0;
-  background-color: #dadeec;
-}
-.accordion dt a .accordion_titulo,
-.accordion .item--resultado_paciente a .accordion_titulo {
-  display: inline-block;
-  width: 75%;
-  padding: 12px 16px;
-  padding: 0.75rem 1rem;
-  background-color: #0056a0;
-  color: #eef3fa;
-  z-index: 500;
-}
-.accordion dt a .h5,
-.accordion dt a .h4,
-.accordion .item--resultado_paciente a .h5,
-.accordion .item--resultado_paciente a .h4 {
-  margin: 0;
-  padding: 0;
-}
-.accordion dt a .accordion_btn,
-.accordion .item--resultado_paciente a .accordion_btn {
-  width: 25%;
-  vertical-align: middle;
-  text-align: center;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  margin-top: -12px;
-  margin-top: -0.75rem;
-  font-weight: 400;
-}
-.accordion dt a .btn_abrir,
-.accordion .item--resultado_paciente a .btn_abrir {
-  display: inline-block;
-}
-.accordion dt a .btn_cerrar,
-.accordion .item--resultado_paciente a .btn_cerrar {
-  display: none;
-}
-.accordion dt a:hover,
-.accordion .item--resultado_paciente a:hover {
-  background-color: #8fa9ce;
-}
-.accordion dt a.active,
-.accordion .item--resultado_paciente a.active {
-  background-color: #28427e !important;
-}
-.accordion dt a.active .accordion_titulo,
-.accordion .item--resultado_paciente a.active .accordion_titulo {
-  background-color: #28427e !important;
-  color: #eef3fa !important;
-}
-.accordion dt a.active .accordion_titulo .punta--right,
-.accordion .item--resultado_paciente a.active .accordion_titulo .punta--right {
-  display: none;
-}
-.accordion dt a.active .accordion_btn,
-.accordion .item--resultado_paciente a.active .accordion_btn {
-  color: #eef3fa !important;
-}
-.accordion dt a.active .btn_abrir,
-.accordion .item--resultado_paciente a.active .btn_abrir {
-  display: none;
-}
-.accordion dt a.active .btn_cerrar,
-.accordion .item--resultado_paciente a.active .btn_cerrar {
-  display: inline-block;
-}
-.accordion dt:nth-of-type(even) a,
-.accordion .item--resultado_paciente:nth-of-type(even) a {
-  background-color: #eef3fa;
-}
-.accordion dt:nth-of-type(even) a .accordion_titulo,
-.accordion .item--resultado_paciente:nth-of-type(even) a .accordion_titulo {
-  background-color: #76b5e6;
-  color: #112535;
-}
-.accordion dt:nth-of-type(even) a .accordion_titulo svg,
-.accordion .item--resultado_paciente:nth-of-type(even) a .accordion_titulo svg {
-  fill: #76b5e6;
-}
-.accordion dt:nth-of-type(even) a:hover,
-.accordion .item--resultado_paciente:nth-of-type(even) a:hover {
-  background-color: #8fa9ce;
-}
-.accordion dd {
-  padding: 32px 16px 0 32px;
-  padding: 2rem 1rem 0 2rem;
-  position: relative;
-}
-.accordion dd .btn-impresion {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 25%;
-  text-align: center;
-  color: #28427e;
-}
-.accordion dd .btn-impresion .contenedor-con-punta {
-  padding: 12px 0;
-  padding: 0.75rem 0;
-}
-.accordion .btn_xs {
-  display: inline-block;
-}
-.accordion .btn_md {
-  display: none;
-}
-
-.accordion_interior dt a {
-  color: #0056a0;
-  background-color: transparent !important;
-  padding: 8px 0;
-  padding: 0.5rem 0;
-}
-.accordion_interior dt a:hover, .accordion_interior dt a.active {
-  color: #657bc3;
-  background-color: transparent !important;
-}
-.accordion_interior dt a .h6 {
-  margin-top: 0;
-}
-
 .pagination a {
   font-weight: bold;
 }
@@ -4621,275 +4488,6 @@ footer {
   color: #657bc3;
 }
 
-/****************************************************
-*****************************************************
-******  ESTILOS AREA DE ACCESO PROFESIONAL  *********
-*****************************************************
-****************************************************/
-/*** Lista de resultados de protocolos ***/
-.barra--acciones {
-  text-align: center;
-  margin-top: 48px;
-  margin-top: 3rem;
-}
-
-.btn_accion {
-  display: inline-block;
-  padding: 16px;
-  padding: 1rem;
-  color: #28427e;
-}
-.btn_accion svg {
-  width: 32px;
-  width: 2rem;
-  height: 32px;
-  height: 2rem;
-  fill: #28427e;
-}
-.btn_accion:hover {
-  background-color: #76b5e6;
-  color: #eef3fa;
-}
-.btn_accion:hover svg {
-  fill: #eef3fa;
-}
-.btn_accion.accion_desactivada {
-  cursor: default;
-  color: #54676d;
-}
-.btn_accion.accion_desactivada svg {
-  fill: #54676d;
-}
-.btn_accion.accion_desactivada:hover {
-  background-color: transparent;
-}
-
-.item--sort {
-  padding: 0;
-  margin: 0;
-  text-align: center;
-}
-.item--sort a {
-  font-size: 14px;
-  padding: 1em 0 1em 1em;
-  display: inline-block;
-}
-.item--sort a:hover {
-  color: #76b5e6;
-}
-.item--sort a i.fa {
-  font-size: 0.9em;
-}
-
-.resultados {
-  margin-top: -24px;
-  margin-top: -1.5rem;
-}
-
-.lista_resultados dt .lista_resultados--btn,
-.lista_resultados .item--resultado_paciente .lista_resultados--btn {
-  padding: 40px 0 40px 16px;
-  padding: 2.5rem 0 2.5rem 1rem;
-  width: 100%;
-  background-color: #0056a0;
-}
-.lista_resultados dt .lista_resultados--btn.btn_xs,
-.lista_resultados .item--resultado_paciente .lista_resultados--btn.btn_xs {
-  text-align: center;
-}
-.lista_resultados dt:nth-of-type(even) .lista_resultados--btn,
-.lista_resultados .item--resultado_paciente:nth-of-type(even) .lista_resultados--btn {
-  background-color: #76b5e6;
-}
-.lista_resultados dt:nth-of-type(even) svg,
-.lista_resultados .item--resultado_paciente:nth-of-type(even) svg {
-  fill: #76b5e6;
-}
-.lista_resultados dt .outter-svg-container,
-.lista_resultados .item--resultado_paciente .outter-svg-container {
-  z-index: 500;
-}
-.lista_resultados dt .outter-svg-container svg,
-.lista_resultados .item--resultado_paciente .outter-svg-container svg {
-  width: 16px;
-  width: 1rem;
-}
-.lista_resultados dt .check_protocolo,
-.lista_resultados .item--resultado_paciente .check_protocolo {
-  position: absolute;
-  padding: 16px 0 0 16px;
-  padding: 1rem 0 0 1rem;
-  z-index: 600;
-}
-.lista_resultados dt .info--resultado,
-.lista_resultados .item--resultado_paciente .info--resultado {
-  padding: 16px 0;
-  padding: 1rem 0;
-  text-align: center;
-}
-.lista_resultados dt .nombre_paciente,
-.lista_resultados .item--resultado_paciente .nombre_paciente {
-  text-transform: uppercase;
-}
-.lista_resultados dt .estado_leido--no,
-.lista_resultados .item--resultado_paciente .estado_leido--no {
-  display: inline-block;
-}
-.lista_resultados dt .estado_leido--si,
-.lista_resultados .item--resultado_paciente .estado_leido--si {
-  display: none;
-}
-.lista_resultados dt .consulta_procesando,
-.lista_resultados .item--resultado_paciente .consulta_procesando {
-  display: none;
-}
-.lista_resultados dt .consulta_lista,
-.lista_resultados .item--resultado_paciente .consulta_lista {
-  display: inline-block;
-}
-.lista_resultados dt .info--resultado,
-.lista_resultados .item--resultado_paciente .info--resultado {
-  font-weight: 700;
-}
-.lista_resultados dt.estado_procesando .consulta_procesando,
-.lista_resultados .item--resultado_paciente.estado_procesando .consulta_procesando {
-  display: inline-block;
-}
-.lista_resultados dt.estado_procesando .consulta_lista,
-.lista_resultados .item--resultado_paciente.estado_procesando .consulta_lista {
-  display: none;
-}
-.lista_resultados dt.estado_procesando .info--resultado,
-.lista_resultados .item--resultado_paciente.estado_procesando .info--resultado {
-  font-weight: 400;
-}
-.lista_resultados dt.leido_si .estado_leido--si,
-.lista_resultados .item--resultado_paciente.leido_si .estado_leido--si {
-  display: inline-block;
-}
-.lista_resultados dt.leido_si .estado_leido--no,
-.lista_resultados .item--resultado_paciente.leido_si .estado_leido--no {
-  display: none;
-}
-.lista_resultados dt.leido_si .info--resultado,
-.lista_resultados .item--resultado_paciente.leido_si .info--resultado {
-  font-weight: 400;
-}
-.lista_resultados dt .protocolo_desactivado,
-.lista_resultados .item--resultado_paciente .protocolo_desactivado {
-  background-color: #dadeec;
-  display: block;
-  position: relative;
-  margin: 0;
-}
-.lista_resultados dt .protocolo_desactivado .lista_resultados--btn,
-.lista_resultados .item--resultado_paciente .protocolo_desactivado .lista_resultados--btn {
-  background-color: #eef3fa;
-  text-align: center;
-}
-.lista_resultados dt .protocolo_desactivado svg,
-.lista_resultados .item--resultado_paciente .protocolo_desactivado svg {
-  fill: #eef3fa;
-}
-.lista_resultados dt a.active,
-.lista_resultados .item--resultado_paciente a.active {
-  background-color: #8fa9ce !important;
-}
-.lista_resultados dt a.active span.texto-negro,
-.lista_resultados dt a.active i.fa-check-circle-o,
-.lista_resultados .item--resultado_paciente a.active span.texto-negro,
-.lista_resultados .item--resultado_paciente a.active i.fa-check-circle-o {
-  color: #eef3fa;
-}
-.lista_resultados dt a.active .lista_resultados--btn,
-.lista_resultados .item--resultado_paciente a.active .lista_resultados--btn {
-  background-color: #28427e;
-}
-.lista_resultados dt a.active .punta--left,
-.lista_resultados .item--resultado_paciente a.active .punta--left {
-  display: none;
-}
-
-.resultados_pacientes .check_protocolo {
-  display: none;
-}
-
-.menu--interior_protocolo {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 25%;
-  padding-left: 24px;
-  padding-left: 1.5rem;
-}
-.menu--interior_protocolo .contenedor-con-punta {
-  padding-top: 16px;
-  padding-top: 1rem;
-}
-.menu--interior_protocolo .svg-down {
-  fill: #dadeec;
-}
-.menu--interior_protocolo .icono--svg svg {
-  width: 32px;
-  width: 2rem;
-  height: 32px;
-  height: 2rem;
-  fill: #28427e;
-}
-.menu--interior_protocolo a {
-  display: block;
-  padding: 16px;
-  padding: 1rem;
-  text-align: center;
-  color: #28427e;
-}
-.menu--interior_protocolo a:hover {
-  color: #657bc3;
-}
-.menu--interior_protocolo a:hover .icono--svg svg {
-  fill: #657bc3;
-}
-
-.texto--resultado {
-  padding-bottom: 42px;
-}
-.texto--resultado p,
-.texto--resultado a,
-.texto--resultado h3,
-.texto--resultado .h3 {
-  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
-  color: #000;
-  line-height: 1.5;
-  margin: 0;
-  font-weight: bold;
-  font-size: 14px;
-}
-.texto--resultado h3, .texto--resultado .h3 {
-  font-size: 21px;
-  margin-top: 14px;
-}
-
-.detalle--protocolo {
-  margin-top: 14px;
-}
-.detalle--protocolo li {
-  padding: 0.5em 1em;
-}
-
-dt.leido_si + dd .icn_marcar-leido {
-  display: none;
-}
-dt.leido_si + dd .icn_marcar-no_leido {
-  display: block;
-}
-
-dt.leido_no + dd .icn_marcar-leido {
-  display: block;
-}
-dt.leido_no + dd .icn_marcar-no_leido {
-  display: none;
-}
-
 /**  Acceso  **/
 #login input, #login textarea,
 #solicitar_clave input,
@@ -4911,6 +4509,10 @@ html {
   font-size: 16px;
   margin-top: 0;
   padding-top: 0;
+}
+
+.visible-xxs {
+  display: none;
 }
 
 .visible-xxs-block {
@@ -5238,13 +4840,12 @@ a:active {
   position: absolute;
   width: 0px;
   height: 0px;
-  top: -8px;
-  top: -0.5rem;
+  top: 0;
   border-style: solid;
-  border-top-width: 56px;
-  border-top-width: 3.5rem;
-  border-bottom-width: 56px;
-  border-bottom-width: 3.5rem;
+  border-top-width: 48px;
+  border-top-width: 3rem;
+  border-bottom-width: 48px;
+  border-bottom-width: 3rem;
   border-top-color: transparent;
   border-bottom-color: transparent;
 }
@@ -5262,14 +4863,22 @@ a:active {
   left: -2rem;
   border-left-color: transparent;
 }
-.home-boton .banner-horizontal.activo .header--banner .punta--izquierda, .home-boton .banner-horizontal.activo .header--banner .punta--derecha, html.no-touch .home-boton .banner-horizontal:hover .header--banner .punta--izquierda, html.no-touch .home-boton .banner-horizontal:hover .header--banner .punta--derecha {
+.home-boton .banner-horizontal .contenedor-con-punta .punta--derecha, .home-boton .banner-horizontal .contenedor-con-punta .punta--izquierda {
+  top: -8px;
+  top: -0.5rem;
+  border-top-width: 56px;
+  border-top-width: 3.5rem;
+  border-bottom-width: 56px;
+  border-bottom-width: 3.5rem;
+}
+.home-boton .banner-horizontal.activo .header--banner .punta--izquierda, .home-boton .banner-horizontal.activo .header--banner .punta--derecha, .home-boton .banner-horizontal.activo .contenedor-con-punta .punta--izquierda, .home-boton .banner-horizontal.activo .contenedor-con-punta .punta--derecha, html.no-touch .home-boton .banner-horizontal:hover .header--banner .punta--izquierda, html.no-touch .home-boton .banner-horizontal:hover .header--banner .punta--derecha, html.no-touch .home-boton .banner-horizontal:hover .contenedor-con-punta .punta--izquierda, html.no-touch .home-boton .banner-horizontal:hover .contenedor-con-punta .punta--derecha {
   border-top-color: transparent;
   border-bottom-color: transparent;
 }
-.home-boton .banner-horizontal.activo .header--banner .punta--izquierda, html.no-touch .home-boton .banner-horizontal:hover .header--banner .punta--izquierda {
+.home-boton .banner-horizontal.activo .header--banner .punta--izquierda, .home-boton .banner-horizontal.activo .contenedor-con-punta .punta--izquierda, html.no-touch .home-boton .banner-horizontal:hover .header--banner .punta--izquierda, html.no-touch .home-boton .banner-horizontal:hover .contenedor-con-punta .punta--izquierda {
   border-left-color: transparent;
 }
-.home-boton .banner-horizontal.activo .header--banner .punta--derecha, html.no-touch .home-boton .banner-horizontal:hover .header--banner .punta--derecha {
+.home-boton .banner-horizontal.activo .header--banner .punta--derecha, .home-boton .banner-horizontal.activo .contenedor-con-punta .punta--derecha, html.no-touch .home-boton .banner-horizontal:hover .header--banner .punta--derecha, html.no-touch .home-boton .banner-horizontal:hover .contenedor-con-punta .punta--derecha {
   border-right-color: transparent;
 }
 
@@ -5287,14 +4896,14 @@ a:active {
   height: 96px;
   height: 6rem;
 }
-.labos-boton .banner-horizontal.activo .header--banner .punta--izquierda, .labos-boton .banner-horizontal.activo .header--banner .punta--derecha, html.no-touch .labos-boton .banner-horizontal:hover .header--banner .punta--izquierda, html.no-touch .labos-boton .banner-horizontal:hover .header--banner .punta--derecha {
+.labos-boton .banner-horizontal.activo .header--banner .punta--izquierda, .labos-boton .banner-horizontal.activo .header--banner .punta--derecha, .labos-boton .banner-horizontal.activo .contenedor-con-punta .punta--izquierda, .labos-boton .banner-horizontal.activo .contenedor-con-punta .punta--derecha, html.no-touch .labos-boton .banner-horizontal:hover .header--banner .punta--izquierda, html.no-touch .labos-boton .banner-horizontal:hover .header--banner .punta--derecha, html.no-touch .labos-boton .banner-horizontal:hover .contenedor-con-punta .punta--izquierda, html.no-touch .labos-boton .banner-horizontal:hover .contenedor-con-punta .punta--derecha {
   border-top-color: transparent;
   border-bottom-color: transparent;
 }
-.labos-boton .banner-horizontal.activo .header--banner .punta--izquierda, html.no-touch .labos-boton .banner-horizontal:hover .header--banner .punta--izquierda {
+.labos-boton .banner-horizontal.activo .header--banner .punta--izquierda, .labos-boton .banner-horizontal.activo .contenedor-con-punta .punta--izquierda, html.no-touch .labos-boton .banner-horizontal:hover .header--banner .punta--izquierda, html.no-touch .labos-boton .banner-horizontal:hover .contenedor-con-punta .punta--izquierda {
   border-left-color: transparent;
 }
-.labos-boton .banner-horizontal.activo .header--banner .punta--derecha, html.no-touch .labos-boton .banner-horizontal:hover .header--banner .punta--derecha {
+.labos-boton .banner-horizontal.activo .header--banner .punta--derecha, .labos-boton .banner-horizontal.activo .contenedor-con-punta .punta--derecha, html.no-touch .labos-boton .banner-horizontal:hover .header--banner .punta--derecha, html.no-touch .labos-boton .banner-horizontal:hover .contenedor-con-punta .punta--derecha {
   border-right-color: transparent;
 }
 .labos-boton .banner-horizontal .contenedor-con-punta {
@@ -5306,13 +4915,12 @@ a:active {
   position: absolute;
   width: 0px;
   height: 0px;
-  top: -8px;
-  top: -0.5rem;
+  top: 0;
   border-style: solid;
-  border-top-width: 56px;
-  border-top-width: 3.5rem;
-  border-bottom-width: 56px;
-  border-bottom-width: 3.5rem;
+  border-top-width: 48px;
+  border-top-width: 3rem;
+  border-bottom-width: 48px;
+  border-bottom-width: 3rem;
   border-top-color: transparent;
   border-bottom-color: transparent;
 }
@@ -5329,6 +4937,14 @@ a:active {
   left: -32px;
   left: -2rem;
   border-left-color: transparent;
+}
+.labos-boton .banner-horizontal .contenedor-con-punta .punta--derecha, .labos-boton .banner-horizontal .contenedor-con-punta .punta--izquierda {
+  top: -8px;
+  top: -0.5rem;
+  border-top-width: 56px;
+  border-top-width: 3.5rem;
+  border-bottom-width: 56px;
+  border-bottom-width: 3.5rem;
 }
 .labos-boton .banner-horizontal .header--banner {
   padding: 0;
@@ -5438,12 +5054,7 @@ a:active {
 }
 
 /****** Fin laboratorios_detalles **********/
-#app-login .contenedor-con-punta {
-  border-right-style: solid;
-  border-right-width: thin;
-}
-
-/********* Info & Contacto  *********/
+/********* Template Info & Contacto  *********/
 .app-info_contacto .banner_contacto {
   margin: 16px auto;
   margin: 1rem auto;
@@ -5517,7 +5128,13 @@ a:active {
   display: block;
 }
 
-/** Login **/
+/****** Fin info **********/
+#app-login .contenedor-con-punta {
+  border-right-style: solid;
+  border-right-width: thin;
+}
+
+/******** Template Login ********/
 #app-login .acceso_login .contenedor-con-punta {
   height: 80px;
   height: 5rem;
@@ -5659,6 +5276,162 @@ a:active {
   transform: translate3d(0, 10000px, 0);
 }
 
+/****** Fin login **********/
+/******** Template resultados ********/
+#app-resultados .header-resultados {
+  margin: 16px;
+  margin: 1rem;
+}
+#app-resultados .header-resultados span {
+  display: inline-block;
+  margin: 0;
+  margin-right: 16px;
+  margin-right: 1rem;
+}
+
+.columna-tabla {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  height: 100%;
+  line-height: 3;
+}
+.columna-tabla a, .columna-tabla span {
+  line-height: 1;
+  font-size: 14px;
+  padding: 8px 0;
+  padding: 0.5rem 0;
+  display: inline-block;
+}
+.columna-tabla a i.fa, .columna-tabla span i.fa {
+  font-size: 14px;
+  font-size: 0.9rem;
+}
+.columna-tabla a:hover {
+  color: #76b5e6;
+}
+
+ul.lista_resultados {
+  padding: 0;
+}
+ul.lista_resultados .item--resultado_paciente {
+  padding-top: 1px;
+  display: block;
+  position: relative;
+  margin: 0;
+  background-color: #dadeec;
+  /*
+  		&:nth-of-type(even){
+  			.boton_pdf {
+  				.punta--izquierda {
+  					border-color: $primario-violeta_oscuro;
+  				}
+  				background-color: $primario-violeta_oscuro;
+  			}
+  			.boton_img {
+  				background-color: $primario-violeta;
+  				.punta--izquierda {
+  					border-color: $primario-violeta;
+  				}
+  			}
+  			@include boton-punta-correccion-costado(3);
+  		}
+  */
+}
+ul.lista_resultados .item--resultado_paciente:nth-of-type(even) {
+  background-color: #eef3fa;
+}
+ul.lista_resultados .item--resultado_paciente.active, ul.lista_resultados .item--resultado_paciente:hover {
+  background-color: #8fa9ce !important;
+}
+ul.lista_resultados .item--resultado_paciente .info--resultado {
+  line-height: 4;
+  text-align: center;
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+}
+ul.lista_resultados .item--resultado_paciente .estado_leido--no {
+  display: inline-block;
+}
+ul.lista_resultados .item--resultado_paciente .estado_leido--si {
+  display: none;
+}
+ul.lista_resultados .item--resultado_paciente.leido_si .estado_leido--si {
+  display: inline-block;
+}
+ul.lista_resultados .item--resultado_paciente.leido_si .estado_leido--no {
+  display: none;
+}
+ul.lista_resultados .item--resultado_paciente.leido_si .info--resultado {
+  font-weight: 400;
+}
+ul.lista_resultados .item--resultado_paciente .boton_pdf {
+  background-color: #0056a0;
+}
+ul.lista_resultados .item--resultado_paciente .boton_pdf .punta--izquierda {
+  border-color: #0056a0;
+}
+ul.lista_resultados .item--resultado_paciente .boton_img {
+  padding-right: 16px;
+  padding-right: 1rem;
+  background-color: #76b5e6;
+}
+ul.lista_resultados .item--resultado_paciente .boton_img .punta--izquierda {
+  border-color: #76b5e6;
+}
+ul.lista_resultados .item--resultado_paciente .contenedor-con-punta {
+  height: 64px;
+  height: 4rem;
+  position: relative;
+}
+ul.lista_resultados .item--resultado_paciente .contenedor-con-punta .punta--derecha, ul.lista_resultados .item--resultado_paciente .contenedor-con-punta .punta--izquierda {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  top: 0;
+  border-style: solid;
+  border-top-width: 32px;
+  border-top-width: 2rem;
+  border-bottom-width: 32px;
+  border-bottom-width: 2rem;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+ul.lista_resultados .item--resultado_paciente .contenedor-con-punta .punta--derecha {
+  border-left-width: 21px;
+  border-left-width: 1.33333rem;
+  right: -21px;
+  right: -1.33333rem;
+  border-right-color: transparent;
+}
+ul.lista_resultados .item--resultado_paciente .contenedor-con-punta .punta--izquierda {
+  border-right-width: 21px;
+  border-right-width: 1.33333rem;
+  left: -21px;
+  left: -1.33333rem;
+  border-left-color: transparent;
+}
+ul.lista_resultados .item--resultado_paciente .contenedor-con-punta .punta--derecha {
+  right: -23px;
+  right: -1.43333rem;
+}
+ul.lista_resultados .item--resultado_paciente .contenedor-con-punta .punta--izquierda {
+  left: -23px;
+  left: -1.43333rem;
+}
+ul.lista_resultados .item--resultado_paciente .boton_pdf, ul.lista_resultados .item--resultado_paciente .boton_img {
+  cursor: pointer;
+  white-space: nowrap;
+}
+ul.lista_resultados .item--resultado_paciente .boton_pdf:hover, ul.lista_resultados .item--resultado_paciente .boton_pdf.active, ul.lista_resultados .item--resultado_paciente .boton_img:hover, ul.lista_resultados .item--resultado_paciente .boton_img.active {
+  background-color: #28427e !important;
+}
+ul.lista_resultados .item--resultado_paciente .boton_pdf:hover .punta--izquierda, ul.lista_resultados .item--resultado_paciente .boton_pdf.active .punta--izquierda, ul.lista_resultados .item--resultado_paciente .boton_img:hover .punta--izquierda, ul.lista_resultados .item--resultado_paciente .boton_img.active .punta--izquierda {
+  border-right-color: #28427e !important;
+}
+
+/****** Fin resultados **********/
 /*********************** Fin app.scss ************************/
 /*********************************************************************
 ***** Estilos para dispositivos de  360px de ancho, ├│ superior *******
@@ -5674,6 +5447,42 @@ a:active {
 
   .visible-xxs-inline-block {
     display: inline-block !important;
+  }
+
+  .visible-xxs {
+    display: block !important;
+  }
+
+  .col-xxs-1, .col-xxs-2, .col-xxs-3, .col-xxs-5, .col-xxs-4, .col-xxs-6 {
+    float: left;
+  }
+
+  .col-xxs-1 {
+    width: 8.33333% !important;
+  }
+
+  .col-xxs-2 {
+    width: 16.66667% !important;
+  }
+
+  .col-xxs-3 {
+    width: 25% !important;
+  }
+
+  .col-xxs-5 {
+    width: 41.66667% !important;
+  }
+
+  .col-xxs-4 {
+    width: 33.33333% !important;
+  }
+
+  .col-xxs-6 {
+    width: 50% !important;
+  }
+
+  .col-xxs-offset-1 {
+    margin-left: 8.33333% !important;
   }
 
   #app-header-menu .dropdown #menu-principal-xs {
@@ -5705,13 +5514,12 @@ a:active {
     position: absolute;
     width: 0px;
     height: 0px;
-    top: -8px;
-    top: -0.5rem;
+    top: 0;
     border-style: solid;
-    border-top-width: 40px;
-    border-top-width: 2.5rem;
-    border-bottom-width: 40px;
-    border-bottom-width: 2.5rem;
+    border-top-width: 32px;
+    border-top-width: 2rem;
+    border-bottom-width: 32px;
+    border-bottom-width: 2rem;
     border-top-color: transparent;
     border-bottom-color: transparent;
   }
@@ -5728,6 +5536,14 @@ a:active {
     left: -21px;
     left: -1.33333rem;
     border-left-color: transparent;
+  }
+  .home-boton .banner-horizontal .contenedor-con-punta .punta--derecha, .home-boton .banner-horizontal .contenedor-con-punta .punta--izquierda {
+    top: -8px;
+    top: -0.5rem;
+    border-top-width: 40px;
+    border-top-width: 2.5rem;
+    border-bottom-width: 40px;
+    border-bottom-width: 2.5rem;
   }
   .home-boton .banner-horizontal .header--banner {
     padding: 0;
@@ -5755,13 +5571,12 @@ a:active {
     position: absolute;
     width: 0px;
     height: 0px;
-    top: -8px;
-    top: -0.5rem;
+    top: 0;
     border-style: solid;
-    border-top-width: 40px;
-    border-top-width: 2.5rem;
-    border-bottom-width: 40px;
-    border-bottom-width: 2.5rem;
+    border-top-width: 32px;
+    border-top-width: 2rem;
+    border-bottom-width: 32px;
+    border-bottom-width: 2rem;
     border-top-color: transparent;
     border-bottom-color: transparent;
   }
@@ -5778,6 +5593,14 @@ a:active {
     left: -21px;
     left: -1.33333rem;
     border-left-color: transparent;
+  }
+  .labos-boton .contenedor-con-punta .punta--derecha, .labos-boton .contenedor-con-punta .punta--izquierda {
+    top: -8px;
+    top: -0.5rem;
+    border-top-width: 40px;
+    border-top-width: 2.5rem;
+    border-bottom-width: 40px;
+    border-bottom-width: 2.5rem;
   }
   .labos-boton .banner-horizontal .texto--banner h5 {
     line-height: 1.2;
@@ -5825,6 +5648,86 @@ a:active {
     margin-top: -16px;
     margin-top: -1rem;
   }
+
+  #app-resultados .header-resultados .h3 {
+    font-size: 21px;
+    font-size: 1.3125rem;
+    font-weight: 500;
+  }
+
+  .barra-tabla > div {
+    padding: 0;
+  }
+
+  .columna-tabla {
+    line-height: 2;
+  }
+  .columna-tabla a, .columna-tabla span {
+    white-space: nowrap;
+  }
+  .columna-tabla.doble-linea {
+    line-height: 4;
+  }
+  .columna-tabla.doble-linea.doble-renglon {
+    line-height: 2;
+  }
+  .columna-tabla.doble-linea.doble-renglon a, .columna-tabla.doble-linea.doble-renglon span {
+    white-space: normal;
+    line-height: 2;
+  }
+
+  ul.lista_resultados .item--resultado_paciente .boton_img {
+    padding-right: 16px;
+    padding-right: 1rem;
+  }
+  ul.lista_resultados .item--resultado_paciente .info--resultado {
+    line-height: 2;
+  }
+  ul.lista_resultados .item--resultado_paciente .doble-linea {
+    line-height: 4;
+  }
+  ul.lista_resultados .item--resultado_paciente .contenedor-con-punta {
+    height: 64px;
+    height: 4rem;
+    position: relative;
+  }
+  ul.lista_resultados .item--resultado_paciente .contenedor-con-punta .punta--derecha, ul.lista_resultados .item--resultado_paciente .contenedor-con-punta .punta--izquierda {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    top: 0;
+    border-style: solid;
+    border-top-width: 32px;
+    border-top-width: 2rem;
+    border-bottom-width: 32px;
+    border-bottom-width: 2rem;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+  }
+  ul.lista_resultados .item--resultado_paciente .contenedor-con-punta .punta--derecha {
+    border-left-width: 21px;
+    border-left-width: 1.33333rem;
+    right: -21px;
+    right: -1.33333rem;
+    border-right-color: transparent;
+  }
+  ul.lista_resultados .item--resultado_paciente .contenedor-con-punta .punta--izquierda {
+    border-right-width: 21px;
+    border-right-width: 1.33333rem;
+    left: -21px;
+    left: -1.33333rem;
+    border-left-color: transparent;
+  }
+  ul.lista_resultados .item--resultado_paciente .contenedor-con-punta .punta--izquierda {
+    border-right-width: 16px;
+    border-right-width: 1rem;
+    left: -18px;
+    left: -1.1rem;
+  }
+  ul.lista_resultados .item--resultado_paciente .boton_img, ul.lista_resultados .item--resultado_paciente .boton_pdf, ul.lista_resultados .item--resultado_paciente .leido {
+    line-height: 4;
+    height: 100%;
+  }
 }
 /*********************************************************************
 ****** Estilos para dispositivos de  768px de ancho, ├│ superior ******
@@ -5854,13 +5757,12 @@ a:active {
     position: absolute;
     width: 0px;
     height: 0px;
-    top: -8px;
-    top: -0.5rem;
+    top: 0;
     border-style: solid;
-    border-top-width: 72px;
-    border-top-width: 4.5rem;
-    border-bottom-width: 72px;
-    border-bottom-width: 4.5rem;
+    border-top-width: 64px;
+    border-top-width: 4rem;
+    border-bottom-width: 64px;
+    border-bottom-width: 4rem;
     border-top-color: transparent;
     border-bottom-color: transparent;
   }
@@ -5877,6 +5779,14 @@ a:active {
     left: -43px;
     left: -2.66667rem;
     border-left-color: transparent;
+  }
+  .labos-boton .banner-horizontal .contenedor-con-punta .punta--derecha, .labos-boton .banner-horizontal .contenedor-con-punta .punta--izquierda {
+    top: -8px;
+    top: -0.5rem;
+    border-top-width: 72px;
+    border-top-width: 4.5rem;
+    border-bottom-width: 72px;
+    border-bottom-width: 4.5rem;
   }
 
   #map_canvas {
@@ -6056,13 +5966,12 @@ a:active {
     position: absolute;
     width: 0px;
     height: 0px;
-    top: -8px;
-    top: -0.5rem;
+    top: 0;
     border-style: solid;
-    border-top-width: 72px;
-    border-top-width: 4.5rem;
-    border-bottom-width: 72px;
-    border-bottom-width: 4.5rem;
+    border-top-width: 64px;
+    border-top-width: 4rem;
+    border-bottom-width: 64px;
+    border-bottom-width: 4rem;
     border-top-color: transparent;
     border-bottom-color: transparent;
   }
@@ -6079,6 +5988,14 @@ a:active {
     left: -43px;
     left: -2.66667rem;
     border-left-color: transparent;
+  }
+  .labos-boton .banner-horizontal .contenedor-con-punta .punta--derecha, .labos-boton .banner-horizontal .contenedor-con-punta .punta--izquierda {
+    top: -8px;
+    top: -0.5rem;
+    border-top-width: 72px;
+    border-top-width: 4.5rem;
+    border-bottom-width: 72px;
+    border-bottom-width: 4.5rem;
   }
 
   #labo-contacto, #labo-horarios, #labo-info, #labo-link {

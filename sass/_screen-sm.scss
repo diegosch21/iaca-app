@@ -14,7 +14,7 @@
 .labos-boton {
   .banner-horizontal {
     @include x-rem(height,8);
-    @include boton-punta(8);  
+    @include boton-punta-correccion-alto(8);  
   }
    
   

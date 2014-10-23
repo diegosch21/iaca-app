@@ -6,10 +6,10 @@
 			position: absolute;
 			width: 0px;
 			height: 0px;
-			@include x-rem(top,-0.5);
+			top: 0;
 			border-style: solid;
-			@include x-rem(border-top-width,$height/2 + 0.5);
-			@include x-rem(border-bottom-width,$height/2 + 0.5);
+			@include x-rem(border-top-width,$height/2);
+			@include x-rem(border-bottom-width,$height/2);
 			border-top-color: transparent;
 			border-bottom-color: transparent;
 		}
@@ -24,6 +24,27 @@
 			@include x-rem(left,-$height/3);
 			border-left-color: transparent;
 			//color de la punta: border right con el color definido en _base.scss
+		}
+	}
+}
+@mixin boton-punta-correccion-alto($height) {
+	@include boton-punta($height);
+	.contenedor-con-punta {
+		.punta--derecha, .punta--izquierda {
+			@include x-rem(top,-0.5);
+			@include x-rem(border-top-width,$height/2 + 0.5);
+			@include x-rem(border-bottom-width,$height/2 + 0.5);
+		}
+	}
+}
+@mixin boton-punta-correccion-costado($height) {
+	@include boton-punta($height);
+	.contenedor-con-punta {
+		.punta--derecha {
+			@include x-rem(right,-$height/3 - 0.1);
+		}
+		.punta--izquierda {
+			@include x-rem(left,-$height/3 - 0.1);
 		}
 	}
 }
@@ -59,7 +80,7 @@
 @mixin boton-activo($color) {
 	&.activo, 
 	html.no-touch &:hover {
-		.header--banner {
+		.header--banner, .contenedor-con-punta {
 			@extend .contenedor--#{$color};
 			.punta--izquierda, .punta--derecha {
 				@extend .punta--#{$color};

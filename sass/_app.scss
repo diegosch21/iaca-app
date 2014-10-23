@@ -9,13 +9,16 @@ html {
 body { 
 	//padding-top: 115px;
 }
-
+.visible-xxs {
+	display: none;
+}
 .visible-xxs-block {
 	display: none;
 }
 .visible-xxs-inline-block {
 	display: none;
 }
+
 
 a {
   outline: none;
@@ -411,7 +414,7 @@ a {
 	max-width: 450px;
 	.banner-horizontal {
 		@include x-rem(height,6);	
-		@include boton-punta(6);
+		@include boton-punta-correccion-alto(6);
 		@include boton-activo(gris);
 	}
 	
@@ -431,7 +434,7 @@ a {
 	.banner-horizontal {
 		@include x-rem(height,6);
 		@include boton-activo(gris_claro);
-		@include boton-punta(6);
+		@include boton-punta-correccion-alto(6);
 		.header--banner {
 			@extend .col-xs-7, .col-md-6; 
 			padding: 0;
@@ -546,13 +549,7 @@ a {
 /****** Fin laboratorios_detalles **********/
 
 
-
-%fix-border-derecha {
-	border-right-style: solid;
-	border-right-width: thin;
-}
-
-/********* Info & Contacto  *********/
+/********* Template Info & Contacto  *********/
 
 .app-info_contacto{
 
@@ -608,10 +605,14 @@ a {
   }
 }
 
+/****** Fin info **********/
 
+%fix-border-derecha {
+	border-right-style: solid;
+	border-right-width: thin;
+}
 
-
-/** Login **/
+/******** Template Login ********/
 #app-login {
 	.acceso_login {
 		@include header-banner-punta(5,60%);	
@@ -673,7 +674,144 @@ a {
 
 
 }
+/****** Fin login **********/
+
+/******** Template resultados ********/
+#app-resultados {
+	.header-resultados {
+		@include x-rem(margin,1);
+		.h3 {
+			@extend %texto-regular;
+		}
+		span {
+			display: inline-block;
+			margin: 0;
+			@include x-rem(margin-right ,1);
+		}
+	}
+}
+
+.columna-tabla{
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	height: 100%;
+	line-height: 3;
+
+	a, span{
+		line-height: 1;
+		font-size: 14px;
+		@include x-rem(padding, 0.5 0);
+		display: inline-block;
+
+		i.fa{
+			@include x-rem(font-size, 0.9);
+		}
+	}
+	a:hover{
+		color: $primario-celeste;
+	}
+}
 
 
+ul.lista_resultados{
+
+	padding: 0;
+
+
+	.item--resultado_paciente{
+		padding-top: 1px;
+		display: block;
+		position: relative;
+		margin: 0;
+		background-color: $alt-gris_claro;
+
+		&:nth-of-type(even){
+			background-color: $alt-blanco;
+		}
+
+		&.active, &:hover{
+			background-color: $alt-gris !important;
+		}
+
+		.info--resultado{
+			line-height: 4;
+			text-align: center;
+			font-weight: 700;
+			padding: 0;
+			margin: 0;
+		}
+		.estado_leido--no{
+			display: inline-block;
+		}
+		.estado_leido--si{
+			display: none;
+		}
+
+		&.leido_si{
+			.estado_leido--si{
+				display: inline-block;
+			}
+			.estado_leido--no{
+				display: none;
+			}
+
+			.info--resultado{
+				font-weight: 400;
+			}
+		}
+
+		.boton_pdf {
+
+			background-color: $primario-azul;
+			.punta--izquierda {
+				border-color: $primario-azul;
+			}	
+		}
+		.boton_img {
+			@include x-rem(padding-right,1);
+			background-color: $primario-celeste;
+			.punta--izquierda {
+				border-color: $primario-celeste;
+			}	
+		}
+		@include boton-punta-correccion-costado(4);
+/*
+		&:nth-of-type(even){
+			.boton_pdf {
+				.punta--izquierda {
+					border-color: $primario-violeta_oscuro;
+				}
+				background-color: $primario-violeta_oscuro;
+			}
+			.boton_img {
+				background-color: $primario-violeta;
+				.punta--izquierda {
+					border-color: $primario-violeta;
+				}
+			}
+			@include boton-punta-correccion-costado(3);
+		}
+*/
+		.boton_pdf, .boton_img {
+			cursor: pointer;
+			white-space: nowrap;
+
+			&:hover, &.active {
+				background-color: $primario-azul_oscuro!important;
+				.punta--izquierda {
+					border-right-color: $primario-azul_oscuro!important;
+
+				}
+			}
+		}		
+
+	}
+
+
+}
+
+
+/****** Fin resultados **********/
 
 /*********************** Fin app.scss ************************/

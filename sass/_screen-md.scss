@@ -34,7 +34,7 @@ html {
   max-width: 380px;
   .banner-horizontal {
     @include x-rem(height,8);
-    @include boton-punta(8);  
+    @include boton-punta-correccion-alto(8);  
   }
 }  
 

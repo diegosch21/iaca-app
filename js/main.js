@@ -49,6 +49,7 @@ require(['jquery', 'underscore', 'backbone', 'app/router', 'modernizr', 'bootstr
 
 	    $('body').on("touchend", function (event) {
 		    // console.log("touchend "+event.target.tagName +' '+event.target.id +' '+ event.target.className);    
+		    event.preventDefault();
 		 })
 	    $('body').on("click", function (event) {
 		    // console.log("click "+event.target.tagName +' '+event.target.id +' '+ event.target.className);    
@@ -66,12 +67,14 @@ function eventHandlersGenerales() {
 	//$('body').on("touchstart",'.boton', function (e) {
 		$(e.currentTarget).addClass('activo');
 		e.stopPropagation();
+		e.preventDefault();
 		//console.log("activo "+e.target.tagName +' '+e.target.id +' '+ e.target.className);    
 	});
 	$('body').on("mouseup touchend",'.boton', function (e) {
 	// $('body').on("touchend",'.boton', function (e) {
 		$('.boton').removeClass('activo');
 		e.stopPropagation();
+		e.preventDefault();
 		//console.log("desactivo "+e.target.tagName +' '+e.target.id +' '+ e.target.className);    
 	});	
 	$('body').on('mouseup touchend touchmove', function(e) {

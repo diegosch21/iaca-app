@@ -15,20 +15,21 @@ define([
 			_.bindAll(this,"render");
 			
 			this.resultadosGuardados = new ResultadosCollection([],{userID: Sesion.get('userID')});
+			this.listenTo(this.resultadosGuardados, 'add', this.addResultado);
 
 			this.getListaGuardada();
 
 			Sesion.on("change:timestamp",this.getListaGuardada,this);
-			//this.listenTo(this.resultadosGuardados, 'add', this.addResultado);
+			
 			
 		},
 
 		render: function(fetched) {
 			// CAMBIAR POR VISTA INDEPTE PARA CADA RESULT
 			if(fetched)
-				this.$el.html(this.template({lista: this.resultadosGuardados.toJSON()}));	
+				this.$el.html(this.template({nombre: Sesion.get("username"), lista: this.resultadosGuardados.toJSON()}));	
 			else if(!Sesion.get("logueado")) {
-				this.$el.html(this.template({lista: []}));	
+				this.$el.html(this.template({nombre: "", lista: []}));	
 			}
 		
 			return this;
@@ -36,7 +37,7 @@ define([
 		getListaGuardada: function() {
 			if(!Sesion.get("logueado")) {
 				console.log("Deslogueado - lista resultados vacía")
-				this.render();
+				Backbone.history.navigate("home",true);
 			}
 			else {
 				var self = this;
@@ -93,6 +94,9 @@ define([
 			else {
 				$('#loading-results').hide();
 			}
+		},
+		addResultado: function(result) {
+			
 		}
 		
 	});
