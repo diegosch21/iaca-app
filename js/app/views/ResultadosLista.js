@@ -12,14 +12,11 @@ define([
 		templateAlert: _.template(alertTemplate),
 
 		initialize: function() {
-			_.bindAll(this,"render");
-			
-			this.resultadosGuardados = new ResultadosCollection([],{userID: Sesion.get('userID')});
-			this.listenTo(this.resultadosGuardados, 'add', this.addResultado);
+			_.bindAll(this,"render","updateLista","getListaGuardada");
+			this.actualUserID = -1;
+			this.updateUsuario();
 
-			this.getListaGuardada();
-
-			Sesion.on("change:timestamp",this.getListaGuardada,this);
+			Sesion.on("change:timestamp",this.updateUsuario,this);
 			
 			
 		},
@@ -34,24 +31,42 @@ define([
 		
 			return this;
 		},
-		getListaGuardada: function() {
-			if(!Sesion.get("logueado")) {
-				console.log("Deslogueado - lista resultados vacía")
-				Backbone.history.navigate("home",true);
+		updateUsuario: function() {
+			if(Sesion.get("logueado")) {
+				var id = Sesion.get('userID');
+				if(this.actualUserID != id) {
+					this.actualUserID = id;
+					this.resultadosGuardados = new ResultadosCollection([],{userID: Sesion.get('userID')}); 
+					this.getListaGuardada();
+				}
+				else {
+					this.updateLista();
+				}
 			}
 			else {
-				var self = this;
-				console.log("Obtengo resultados guardados...")
-				this.resultadosGuardados.fetch({
-					success: function() {
-						self.render(true);
-						self.updateLista();
-					},
-					error: function(collection, response, options) { console.log(response)}
-				});
+				console.log("Deslogueado - lista resultados vacía");
+				this.resultadosGuardados = null;
+				this.actualUserID = -1;
+				this.render();
+				Backbone.history.navigate("home",true);
 			}
+			
+			//this.listenTo(this.resultadosGuardados, 'add', this.addResultado);
+			
 		},
-		updateLista: function() {
+		getListaGuardada: function() {
+			var self = this;
+			console.log("Obtengo resultados guardados...")
+			this.resultadosGuardados.fetch({
+				success: function() {
+					self.render(true);
+					self.updateLista();
+				},
+				error: function(collection, response, options) { console.log(response)}
+			});
+
+		},
+		updateLista: function(render) {
 			console.log("Actualizo lista de resultados...")
 			this.loading(true);
 			var self = this;
@@ -67,6 +82,8 @@ define([
 							    key = self.mapKeysResultado[key] || key;
 							    result[key] = value;
 							});
+							var fecha = (result['fecha'].replace(/(\d{2})(\d{2})(\d{2})/,'$1-$2-$3'));
+							result['fecha'] = fecha;
 							console.log("Nuevo resultado: ")
 							console.log(result);
 							self.resultadosGuardados.create(result);
