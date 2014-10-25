@@ -16,7 +16,7 @@ define([
 			this.checkUser();
 			this.render();
 
-			Sesion.on("change:logueado",this.updateUser,this);
+			Sesion.on("change:timestamp",this.updateUser,this);
 		},
 
 		events: {
@@ -59,6 +59,7 @@ define([
     		if(evt)
     			evt.preventDefault();
     		Sesion.logout();
+    		Backbone.history.navigate("home",true);
     	}
 
 	});

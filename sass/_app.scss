@@ -683,6 +683,7 @@ a {
 /******** Template resultados ********/
 #app-resultados {
 	.header-resultados {
+		position: relative;
 		@include x-rem(margin,1);
 		.h3 {
 			@extend %texto-regular;
@@ -692,6 +693,16 @@ a {
 			margin: 0;
 			@include x-rem(margin-right ,1);
 		}
+		#update {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			color: $alt-gris_oscuro;
+			@include x-rem(padding,0.5);
+			cursor: pointer;
+
+		}
+	
 	}
 	#updating-results {
 		line-height: 4;

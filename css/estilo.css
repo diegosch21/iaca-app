@@ -5286,6 +5286,7 @@ a:active {
 /****** Fin login **********/
 /******** Template resultados ********/
 #app-resultados .header-resultados {
+  position: relative;
   margin: 16px;
   margin: 1rem;
 }
@@ -5294,6 +5295,15 @@ a:active {
   margin: 0;
   margin-right: 16px;
   margin-right: 1rem;
+}
+#app-resultados .header-resultados #update {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: #54676d;
+  padding: 8px;
+  padding: 0.5rem;
+  cursor: pointer;
 }
 #app-resultados #updating-results {
   line-height: 4;

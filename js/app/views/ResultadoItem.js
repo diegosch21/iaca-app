@@ -1,6 +1,7 @@
 define([
 	'text!templates/resultado_item.html',
-], function (resultadoItemTemplate) {
+	'models/Sesion'
+], function (resultadoItemTemplate,Sesion) {
 	
 	var ResultadoItemView = Backbone.View.extend({
 
@@ -14,7 +15,8 @@ define([
 
 		},
 		events: {
-			'click .leido i' : 	'changeLeido'
+			'click .leido i' : 	'changeLeido',
+			'click .boton_pdf': 'openPDF'
 		},
 
 		render: function() {
@@ -29,6 +31,11 @@ define([
 			console.log("changeLeido: "+this.model.get('leido'));
 			this.marcarLeido();
 		},
+		setLeido: function() {
+			this.model.save({'leido': true});
+			console.log("setLeido: "+this.model.get('leido'));
+			this.marcarLeido();
+		},
 		marcarLeido: function() {
 			if(this.model.get("leido")) {
 				this.$el.addClass('leido_si');
@@ -38,6 +45,18 @@ define([
 				this.$el.addClass('leido_no');	
 				this.$el.removeClass('leido_si');
 			}
+		},
+		openPDF: function(event) {
+			var url= ($(event.currentTarget).data('href'));
+			var url_sintoken = url.substring(0,url.lastIndexOf('=')+1);
+			var url_contoken = url_sintoken + Sesion.get('token');
+			console.log("Open PDF - url token actualizado: "+url_contoken);
+			window.open(url_contoken, '_system');
+			event.preventDefault();
+
+			// SI NO ABRE, HACER RELOGIN
+			
+			this.setLeido();
 		}
 		
 	});

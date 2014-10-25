@@ -4,7 +4,7 @@ $token = $_GET['token'];
 
 $url = "http://iaca3.web.vianetcon.com.ar/ws.json!list-results!token=".$token;
 
-$url = 'proxy/results_18277932.json';
+//$url = 'proxy/results_18277932.json';
 
 if($token=='xxxxxxxxxxxxxxx') {
 	$url = 'proxy/results_112233.json';	

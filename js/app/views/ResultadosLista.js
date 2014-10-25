@@ -13,15 +13,17 @@ define([
 		templateAlert: _.template(alertTemplate),
 
 		initialize: function() {
-			_.bindAll(this,"render","updateLista","getListaGuardada","renderList","removeItems","verMas");
+			_.bindAll(this,"render","updateLista","getListaGuardada","renderList","removeItems","verMas","updateLogout");
 			this.actualUserID = -1;
 			this.actualItem = -1;
 			this.$el.html(this.template());
 			
-			Sesion.on("change:timestamp",this.updateUsuario,this);
+			//Sesion.on("change:timestamp",this.updateUsuario,this);
+			Sesion.on("change:timestamp",this.updateLogout,this);
 		},
 		events: {
-			'click #ver-mas' : 	'verMas'
+			'click #ver-mas' : 	'verMas',
+			'click #update' : 'updateUsuario'
 		},
 
 		render: function() {
@@ -107,7 +109,6 @@ define([
 				// Si cambio el usuario, creo coleccion y escucho eventos
 				if(this.actualUserID != id) {
 					console.log("Cambió usuario: render ResultadosLista de "+Sesion.get("username"));
-					this.removeItems();
 					this.actualUserID = id;
 					this.resultadosGuardados = new ResultadosCollection([],{userID: Sesion.get('userID')}); 
 					//this.listenTo(this.resultadosGuardados, 'add', this.addResultado);
@@ -119,16 +120,18 @@ define([
 				}
 			}
 			else {
-				console.log("Deslogueado - lista resultados vacía - stopListening resultadosGuardados");
-				this.stopListening(this.resultadosGuardados);
+				this.updateLogout();
+			}
+		},
+		updateLogout: function() {
+			if(!Sesion.get("logueado") || this.actualUserID != Sesion.get('userID')) {
+				console.log("Deslogueado - lista resultados vacía");
+					//this.stopListening(this.resultadosGuardados);
 				this.resultadosGuardados = null;
 				this.actualUserID = -1;
 				this.removeItems();
 				this.$el.find('#nombre-paciente').html("");
-				if(this.showing)
-					Backbone.history.navigate("home",true);
 			}
-			
 		},
 		getListaGuardada: function() {
 			var self = this;
@@ -142,7 +145,7 @@ define([
 					self.updateLista();
 				},
 				error: function(collection, response, options) {
-					console.log(response)
+					console.log(response);
 				},
 				complete: function() {
 					self.loading(false);
@@ -160,10 +163,11 @@ define([
 					var result = {}; 
 					var hayNuevo = false;  //si no hay nuevo no vuelvo a hacer renderList 
 					for (var i = data.list.length - 1; i >= 0; i--) {
+						var elem = data.list[i];
 						// Si en la colecc no está el result de ese protocolo (id) lo creo y guardo en storage
-						if(!self.resultadosGuardados.get(data.list[i]['protocolo'])) {
+						if(!self.resultadosGuardados.get(elem['protocolo'])) {
 							// cambio nombres de algunas keys
-							_.each(data.list[i], function(value, key) {
+							_.each(elem, function(value, key) {
 							    key = self.mapKeysResultado[key] || key;
 							    result[key] = value;
 							});
@@ -174,9 +178,17 @@ define([
 							self.resultadosGuardados.create(result);
 							hayNuevo = true;
 						}
+						// Si ya estaba actualizo direccion pdf e imgs
+						else {
+							self.resultadosGuardados.get(elem['protocolo']).save({
+								pdf: elem['pdf'],
+								jpg: elem['jpg']
+							});
+						}
+						
 					};
-					if(hayNuevo)
-						self.renderList(true,9);
+					//if(hayNuevo)
+					self.renderList(true,9);
 				},
 				error: function(error) {
 					console.log(error);
