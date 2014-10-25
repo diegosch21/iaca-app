@@ -11,6 +11,7 @@ define([
 		events: {
 			'touchend #back' : 'botonBack',
 			'click #back' : 'botonBack',
+			'click .external-link' : 'externalLink',
 			'click #reload' : 'mapaLabo',
 		},
 
@@ -38,6 +39,10 @@ define([
 		},
 		botonBack: function(e) {
 			Backbone.history.navigate('laboratorios',true);
+		},
+		externalLink: function(event) {
+			var url= ($(event.currentTarget).data('href'));
+			window.open(url, '_system');
 		}
 
 	});

@@ -65,6 +65,7 @@ define([
         	var self = this;
         	this.getAuth(user,pass,{
         		success: function(data) {
+                    self.logout();
                     console.log("Login OK");
         			self.setUsuario(user,pass,data);
         			if (callback && 'success' in callback) {

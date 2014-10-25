@@ -54,7 +54,7 @@ define([
 			this.dragging = true;
 		},
 		reloadMapa: function() {
-			console.log("lalal");
+			console.log("ReloadMapa");
 			requirejs.undef('lib/gmaps');
 			this.mapaTodos();
 		}

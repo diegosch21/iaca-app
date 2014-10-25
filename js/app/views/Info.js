@@ -7,6 +7,10 @@ define([
 		//precompilo el template
 		template: _.template(infoTemplate),
 
+		events: {
+			'click .external-link' : 'externalLink',
+		},
+
 		initialize: function() {
 			
 		},
@@ -15,6 +19,11 @@ define([
 			this.$el.html(this.template());
 			return this;
 		},
+		externalLink: function(event) {
+			var url= ($(event.currentTarget).data('href'));
+			window.open(url, '_system');
+			event.preventDefault();
+		}
 		
 	});
 

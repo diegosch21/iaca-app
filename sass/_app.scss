@@ -446,6 +446,10 @@ a {
 
 }
 #map {
+	text-align: center;
+	#reload {
+		padding-top: 20px;
+	}
 	position: relative;
 	@include x-rem(margin-top, 1);
 	@include x-rem(margin-bottom, 1);
@@ -689,6 +693,22 @@ a {
 			@include x-rem(margin-right ,1);
 		}
 	}
+	#updating-results {
+		line-height: 4;
+		text-align: center;
+		i {
+			color: $alt-gris_oscuro;
+		}
+	
+	}
+	#ver-mas-results {
+		text-align: center;
+		@include x-rem(padding-bottom ,2);
+
+		a {
+			text-transform: uppercase;
+		}	
+	}
 }
 
 .columna-tabla{
@@ -740,6 +760,12 @@ ul.lista_resultados{
 			font-weight: 700;
 			padding: 0;
 			margin: 0;
+		}
+		.leido {
+			i {
+				@include x-rem(padding,1);
+				cursor: pointer;
+			}
 		}
 		.estado_leido--no{
 			display: inline-block;

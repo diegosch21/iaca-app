@@ -2,8 +2,9 @@ define([
 	'text!templates/resultados_lista.html',
 	'models/Sesion',
 	'text!templates/alert.html',
-	'collections/Resultados'
-], function (resultadosListaTemplate,Sesion,alertTemplate,ResultadosCollection) {
+	'collections/Resultados',
+	'views/ResultadoItem'
+], function (resultadosListaTemplate,Sesion,alertTemplate,ResultadosCollection,ResultadoItem) {
 	
 	var ResultadosListaView = Backbone.View.extend({
 
@@ -12,31 +13,105 @@ define([
 		templateAlert: _.template(alertTemplate),
 
 		initialize: function() {
-			_.bindAll(this,"render","updateLista","getListaGuardada");
+			_.bindAll(this,"render","updateLista","getListaGuardada","renderList","removeItems","verMas");
 			this.actualUserID = -1;
-			this.updateUsuario();
-
+			this.actualItem = -1;
+			this.$el.html(this.template());
+			
 			Sesion.on("change:timestamp",this.updateUsuario,this);
-			
-			
+		},
+		events: {
+			'click #ver-mas' : 	'verMas'
 		},
 
-		render: function(fetched) {
-			// CAMBIAR POR VISTA INDEPTE PARA CADA RESULT
-			if(fetched)
-				this.$el.html(this.template({nombre: Sesion.get("username"), lista: this.resultadosGuardados.toJSON()}));	
-			else if(!Sesion.get("logueado")) {
-				this.$el.html(this.template({nombre: "", lista: []}));	
-			}
-		
+		render: function() {
+			console.log("Render ResultadosListaView");
+			this.updateUsuario();
+			// El template se renderiza en initialize. Cada item se renderiza en addResultados
+			$.each(this.itemsViews, function(index, item) {
+				item.delegateEvents();
+			});
 			return this;
 		},
+
+		itemsViews: {},
+
+		renderList: function(reset,fin) {
+			console.log("Render list...");
+			if(reset)
+				this.removeItems();
+			var ult = this.resultadosGuardados.length-1;
+			if(fin && fin < ult)
+				ult = fin;
+			var pri = this.actualItem +1;
+			console.log("Primer item: #"+pri+" Último item: #"+ult);
+			for (var i = pri; i <=ult; i++) {
+				var result = this.resultadosGuardados.at(i);
+				console.log("Creo view resultado, id: "+result.id);
+				var view = new ResultadoItem({model: result});
+				this.$el.find('#lista-resultados').append(view.render().el);
+				this.itemsViews[result.id] = view;
+				this.actualItem = i;
+			};
+			if(this.resultadosGuardados.length>0) 
+				this.$el.find('#no-results').hide();
+			else
+				this.$el.find('#no-results').show();
+
+			if(fin && fin < this.resultadosGuardados.length-1) {
+				this.$el.find("#ver-mas-results").show();
+			}
+			else
+				this.$el.find("#ver-mas-results").hide();
+			var self = this;
+			setTimeout(function() {
+				if(self.scroller)
+					self.scroller.refresh();
+			}, 1000);
+			
+		},
+	/*	addResultado: function(result) {
+			console.log("Creo view resultado, id: "+result.id);
+			var view = new ResultadoItem({model: result});
+			
+			this.$el.find('#lista-resultados').prepend(view.render().el);
+
+			// Resize scroll
+			this.itemsViews[result.id] = view;
+			this.$el.find('#mensaje_no-results').hide();
+
+
+		},
+	*/	removeItems: function() {
+			console.log("Elimino itemsViews");
+			$.each(this.itemsViews, function(index, item) {
+				item.remove();
+			});
+			this.itemsViews = {};
+			this.actualItem = -1;
+		},
+		/*	UPDATE USUARIO
+		*	Si se desloguea usuario: 
+		*		elimina coleccion resultadosGuardados, 
+		*		remove itemsViews, render sin nombre y redirecciona
+		*	Si hay nuevo usuario logueado (cambia actualUserID):
+		*		crea coleccion resultadosGuardados
+		*		render con nombre, llama a getListaGuardada (fetch de resultadosGuardados), 
+		*	Si no cambió el usuario
+		*		sólo actualiza lista					
+		*/
 		updateUsuario: function() {
+			console.log("Update usuario...")
 			if(Sesion.get("logueado")) {
 				var id = Sesion.get('userID');
+				// Si cambio el usuario, creo coleccion y escucho eventos
 				if(this.actualUserID != id) {
+					console.log("Cambió usuario: render ResultadosLista de "+Sesion.get("username"));
+					this.removeItems();
 					this.actualUserID = id;
 					this.resultadosGuardados = new ResultadosCollection([],{userID: Sesion.get('userID')}); 
+					//this.listenTo(this.resultadosGuardados, 'add', this.addResultado);
+					this.$el.find('#nombre-paciente').html(Sesion.get("username"));
 					this.getListaGuardada();
 				}
 				else {
@@ -44,41 +119,51 @@ define([
 				}
 			}
 			else {
-				console.log("Deslogueado - lista resultados vacía");
+				console.log("Deslogueado - lista resultados vacía - stopListening resultadosGuardados");
+				this.stopListening(this.resultadosGuardados);
 				this.resultadosGuardados = null;
 				this.actualUserID = -1;
-				this.render();
-				Backbone.history.navigate("home",true);
+				this.removeItems();
+				this.$el.find('#nombre-paciente').html("");
+				if(this.showing)
+					Backbone.history.navigate("home",true);
 			}
-			
-			//this.listenTo(this.resultadosGuardados, 'add', this.addResultado);
 			
 		},
 		getListaGuardada: function() {
 			var self = this;
 			console.log("Obtengo resultados guardados...")
+			if(this.showing)
+				this.loading(true);
 			this.resultadosGuardados.fetch({
 				success: function() {
-					self.render(true);
+					self.renderList(true,9);
+					self.loading(false);
 					self.updateLista();
 				},
-				error: function(collection, response, options) { console.log(response)}
+				error: function(collection, response, options) {
+					console.log(response)
+				},
+				complete: function() {
+					self.loading(false);
+				}
 			});
 
 		},
 		updateLista: function() {
 			console.log("Actualizo lista de resultados...")
-			this.loading(true);
+			this.updating(true);
 			var self = this;
 			Sesion.getResultados({
 				success: function(data) {
 					console.log("Cantidad resultados: "+data.list.length);
-					var result = {};  
-					_.each(data.list,function(element,index) {
+					var result = {}; 
+					var hayNuevo = false;  //si no hay nuevo no vuelvo a hacer renderList 
+					for (var i = data.list.length - 1; i >= 0; i--) {
 						// Si en la colecc no está el result de ese protocolo (id) lo creo y guardo en storage
-						if(!self.resultadosGuardados.get(element['protocolo'])) {
+						if(!self.resultadosGuardados.get(data.list[i]['protocolo'])) {
 							// cambio nombres de algunas keys
-							_.each(element, function(value, key) {
+							_.each(data.list[i], function(value, key) {
 							    key = self.mapKeysResultado[key] || key;
 							    result[key] = value;
 							});
@@ -87,16 +172,18 @@ define([
 							console.log("Nuevo resultado: ")
 							console.log(result);
 							self.resultadosGuardados.create(result);
+							hayNuevo = true;
 						}
-					});
-					self.render(true);
+					};
+					if(hayNuevo)
+						self.renderList(true,9);
 				},
 				error: function(error) {
 					console.log(error);
-					self.$('#error-get-results').html(self.templateAlert({msj: error}));
+					self.$el.find('#error-get-results').html(self.templateAlert({msj: error}));
 				},
 				complete: function() {
-					self.loading(false);
+					self.updating(false);
 				}
 			});
 		},
@@ -106,14 +193,23 @@ define([
 		},
 		loading: function(loading) {
 			if(loading) {
-				$('#loading-results').show();
+				this.$el.find('#loading-results').show();
 			}
 			else {
-				$('#loading-results').hide();
+				this.$el.find('#loading-results').hide();
 			}
 		},
-		addResultado: function(result) {
-			
+		updating: function(updating) {
+			if(updating) {
+				this.$el.find('#updating-results').slideDown('fast');
+			}
+			else {
+				this.$el.find('#updating-results').slideUp('slow');
+			}
+		},
+
+		verMas: function() {
+			this.renderList(false,this.actualItem+10);
 		}
 		
 	});

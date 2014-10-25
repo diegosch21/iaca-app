@@ -40,6 +40,7 @@ define([
 		},
 
 		updateUser: function() {
+			console.log("Update User..")
 			this.checkUser();
 			this.render();
 			this.selectMenuItem(this.menuItem);

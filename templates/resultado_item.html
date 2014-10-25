@@ -1,2 +1,29 @@
-<!-- TEMPLATE NO USADO POR EL MOMENTO -->
-ITEM RESULTADO
+<div class="col-xs-3 hidden-xxs info--resultado">
+	<span class=" fecha texto-negro"><%= fecha %></span>
+</div>
+<div class="col-xs-3 hidden-xxs info--resultado">
+	<span class="protocolo texto-negro"><%= id %></span>
+</div>
+<div class="col-xxs-5 visible-xxs">
+	<div class="row info--resultado">
+		<span class="fecha texto-negro"><%= fecha %></span>
+	</div>
+	<div class="row info--resultado">
+		<span class="protocolo texto-negro"><%= id %></span>
+	</div>
+</div>
+<div class="col-xs-2 col-xxs-1 info--resultado leido">
+	<i class="estado_leido--si fa fa-lg fa-check-circle-o texto-azul"></i>
+	<i class="estado_leido--no fa fa-lg fa-envelope texto-gris_oscuro"></i>
+</div>
+
+<div class="col-xs-2 col-xxs-3 col-xxs-offset-1 info--resultado boton_img contenedor-con-punta">
+	<i class="texto-invertido fa fa-lg fa-search fa-flip-horizontal"></i>
+	<i class="texto-invertido fa fa-lg fa-file-text"></i>
+	<div class="punta--izquierda"></div>
+</div>
+<div data-href="<%= pdf %>" class="col-xs-2 info--resultado boton_pdf contenedor-con-punta">
+	<i class="texto-invertido fa fa-lg fa-download"></i>
+	<i class="texto-invertido fa fa-lg fa-file-pdf-o"></i>
+	<div class="punta--izquierda"></div>
+</div>

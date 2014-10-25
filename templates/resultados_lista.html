@@ -2,14 +2,14 @@
 
 	<div class="row header-resultados">
 		<span class="h3 texto-azul">Resultados de análisis </span>
-		<span class="texto-gris_oscuro"> <%= nombre %></span>
+		<span id="nombre-paciente" class="texto-gris_oscuro"></span>
 	</div>
 	
 
 	<div id="error-get-results" class="mensaje--alerta">
 	</div>
 
-	<% if(lista.length>0) { %>
+
 	<!--Header tabla min-xs-->
 	<div class="contenedor--azul_oscuro hidden-xxs row barra-tabla">
         <div class="col-xs-3 columna-tabla">
@@ -55,54 +55,29 @@
 			</div>        	
         </div>
 	</div> <!--/Header tabla xxs-->
+	
 
 	<!--Div lista resultados-->
 	<div class="resultados row">
+
+		<div id="updating-results">
+			<i class="fa fa-spinner fa-2x fa-spin"></i>
+		</div>
 		<ul id="lista-resultados" class="lista_resultados list-unstyled col-xs-12">
-
-		<% for(var i = 0; i< lista.length; i++) { %>
-			<li class="item--resultado_paciente 
-			<% if(lista[i].leido) { %>
-				leido_si 
-			<% } else { %>	
-				leido_no
-			<% } %>		
-			row">
-				<div class="col-xs-3 hidden-xxs info--resultado">
-					<span class=" fecha texto-negro"><%= lista[i].fecha %></span>
-				</div>
-				<div class="col-xs-3 hidden-xxs info--resultado">
-					<span class="protocolo texto-negro"><%= lista[i].id %></span>
-				</div>
-				<div class="col-xxs-5 visible-xxs">
-					<div class="row info--resultado">
-						<span class="fecha texto-negro"><%= lista[i].fecha %></span>
-					</div>
-					<div class="row info--resultado">
-						<span class="protocolo texto-negro"><%= lista[i].id %></span>
-					</div>
-				</div>
-				<div class="col-xs-2 col-xxs-1 info--resultado leido">
-					<i class="estado_leido--si fa fa-lg fa-check-circle-o texto-azul"></i>
-					<i class="estado_leido--no fa fa-lg fa-envelope texto-gris_oscuro"></i>
-				</div>
-
-				<div class="col-xs-2 col-xxs-3 col-xxs-offset-1 info--resultado boton_img contenedor-con-punta">
-					<i class="texto-invertido fa fa-lg fa-search fa-flip-horizontal"></i>
-					<i class="texto-invertido fa fa-lg fa-file-text"></i>
-					<div class="punta--izquierda"></div>
-				</div>
-				<div data-href="<%= lista[i].pdf %>" class="col-xs-2 info--resultado boton_pdf contenedor-con-punta">
-					<i class="texto-invertido fa fa-lg fa-download"></i>
-					<i class="texto-invertido fa fa-lg fa-file-pdf-o"></i>
-					<div class="punta--izquierda"></div>
-				</div>
-			</li> <!--/.item--resultado_paciente-->
-		<% } %>
-
+			
 		</ul>
+		<div id="ver-mas-results">
+			<a id="ver-mas">Ver más</a>
+		</div>
+		<div id="no-results" class="mensaje--alerta">
+			<div class="alert alert-warning alert-dismissable">
+				<p id="mensaje_no-results">No hay resultados de análisis de este paciente</p>
+			</div>
+		</div>
 	</div>
 	
-	<% } %>
+
+
+
 
 </div>

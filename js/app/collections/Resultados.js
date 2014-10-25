@@ -14,7 +14,11 @@ define([
             this.localStorage = new Store('iaca-resultados-user_'+this.userID)
           
         },
-        model: resultadoModel
+        model: resultadoModel,
+
+        comparator: function(model) {
+            return -model.get("id"); 
+        }
 
 
 

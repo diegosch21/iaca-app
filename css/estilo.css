@@ -3,7 +3,6 @@
 /** Fuentes usadas  **/
 @import url(mavenpro-sourcesanspro.css);
 @import url(font-awesome.min.css);
-@import url(icomoon.css);
 @import url(octicons.css);
 /*************************** BOOTSTRAP *************************/
 /*Bootstrap grid*/
@@ -4951,6 +4950,7 @@ a:active {
 }
 
 #map {
+  text-align: center;
   position: relative;
   margin-top: 16px;
   margin-top: 1rem;
@@ -4958,6 +4958,9 @@ a:active {
   margin-bottom: 1rem;
   padding: 0 8px;
   padding: 0 0.5rem;
+}
+#map #reload {
+  padding-top: 20px;
 }
 
 #map_canvas {
@@ -5089,6 +5092,7 @@ a:active {
 }
 .app-info_contacto .banner_contacto .header--banner {
   width: 30%;
+  width: 30%;
   margin-right: 24px;
   margin-right: 1.5rem;
   padding: 20px 0;
@@ -5160,6 +5164,7 @@ a:active {
 }
 #app-login .acceso_login .header--banner {
   width: 60%;
+  width: 60%;
   margin-right: 24px;
   margin-right: 1.5rem;
   padding: 20px 0;
@@ -5193,6 +5198,7 @@ a:active {
   border-bottom-color: transparent;
 }
 #app-login .usuarios-guardados .header--banner {
+  width: 60%;
   width: 60%;
   margin-right: 24px;
   margin-right: 1.5rem;
@@ -5249,6 +5255,7 @@ a:active {
 }
 #app-login li.input-login .header--banner {
   width: 100%;
+  width: 100%;
   margin-right: 24px;
   margin-right: 1.5rem;
   padding: 20px 0;
@@ -5287,6 +5294,21 @@ a:active {
   margin: 0;
   margin-right: 16px;
   margin-right: 1rem;
+}
+#app-resultados #updating-results {
+  line-height: 4;
+  text-align: center;
+}
+#app-resultados #updating-results i {
+  color: #54676d;
+}
+#app-resultados #ver-mas-results {
+  text-align: center;
+  padding-bottom: 32px;
+  padding-bottom: 2rem;
+}
+#app-resultados #ver-mas-results a {
+  text-transform: uppercase;
 }
 
 .columna-tabla {
@@ -5350,6 +5372,11 @@ ul.lista_resultados .item--resultado_paciente .info--resultado {
   font-weight: 700;
   padding: 0;
   margin: 0;
+}
+ul.lista_resultados .item--resultado_paciente .leido i {
+  padding: 16px;
+  padding: 1rem;
+  cursor: pointer;
 }
 ul.lista_resultados .item--resultado_paciente .estado_leido--no {
   display: inline-block;
@@ -5728,6 +5755,9 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf:hover .punta--izquierda
     line-height: 4;
     height: 100%;
   }
+  ul.lista_resultados .item--resultado_paciente .leido i {
+    padding-left: 0;
+  }
 }
 /*********************************************************************
 ****** Estilos para dispositivos de  768px de ancho, ├│ superior ******
@@ -6003,39 +6033,6 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf:hover .punta--izquierda
     margin-top: 1rem;
   }
 
-  /** Breadcrumb **/
-  .breadcrumb-nav {
-    margin-top: 48px;
-    margin-top: 3rem;
-  }
-
-  /** Acordion **/
-  .accordion .btn_md {
-    display: inline-block;
-  }
-  .accordion .btn_xs {
-    display: none;
-  }
-
-  /** Buscar practica **/
-  #buscar_practica .busqueda_inline input[type="text"] {
-    width: 80%;
-  }
-
-  /** La empresa **/
-  .empresa--intro {
-    padding: 16px;
-    padding: 1rem;
-  }
-
-  /** Laboratorios **/
-  .lista-laboratorios dt a .accordion_titulo {
-    width: 65%;
-  }
-  .lista-laboratorios dt a .accordion_btn {
-    width: 30%;
-  }
-
   .laboratorios .labo-intro {
     padding-top: 2em;
     padding-left: 2em;
@@ -6044,34 +6041,6 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf:hover .punta--izquierda
     margin-top: 0;
   }
 
-  /** Profesionales **/
-  .foto--profesional {
-    max-width: 220px;
-  }
-  .foto--profesional img {
-    width: 100%;
-    height: auto;
-  }
-
-  #direccion_general .foto--profesional {
-    max-width: 100%;
-  }
-
-  /** Pacientes **/
-  .pacientes--intro {
-    padding: 2em;
-  }
-
-  /** Noticias **/
-  .nota {
-    padding-bottom: 0;
-  }
-  .nota figure {
-    margin: 0 0 0 -16px;
-    margin: 0 0 0 -1rem;
-  }
-
-  /** Contacto **/
   .mapa-contacto .flex-video {
     padding-bottom: 50%;
   }
@@ -6084,7 +6053,6 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf:hover .punta--izquierda
     padding: 0.5rem 1.5rem;
   }
 
-  /** Footer **/
   .certificaciones--footer .contenedor-con-punta {
     z-index: 250;
     margin-top: -80px;
@@ -6092,58 +6060,19 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf:hover .punta--izquierda
     margin-right: -43px;
     margin-right: -2.7rem;
   }
-  .certificaciones--footer .outter-svg-container {
-    display: block;
-  }
-
-  /****************************************************
-  *****************************************************
-  ******  ESTILOS AREA DE ACCESO PROFESIONAL  *********
-  *****************************************************
-  ****************************************************/
-  /** Carga de muestras **/
-  .label-seccion {
-    width: 65%;
-  }
-
-  .btn_contenedor--movil {
-    display: none;
-  }
-
-  .btn_contenedor--pantalla {
-    display: block;
-  }
-
-  /*** Lista de resultados de protocolos ***/
-  .item--sort a {
-    padding-left: 0;
-  }
-
-  .lista_resultados dt .lista_resultados--btn,
-  .lista_resultados .item--resultado_paciente .lista_resultados--btn {
-    padding: 16px 0 16px 16px;
-    padding: 1rem 0 1rem 1rem;
-  }
-
-  .menu--interior_protocolo {
-    width: 16.66667%;
-  }
-  .menu--interior_protocolo .icono--svg svg {
-    width: 20px;
-    width: 1.25rem;
-    height: 20px;
-    height: 1.25rem;
-    vertical-align: text-bottom;
-  }
-  .menu--interior_protocolo a {
-    text-align: left;
-    line-height: 1.25em;
-  }
 }
 /*********************************************************************
 ****** Estilos para dispositivos de  1200px de ancho, ├│ superior *****
 **********************************************************************/
 @media (min-width: 1200px) {
+  html {
+    font-size: 18px;
+  }
+
+  #content-wrapper {
+    top: 150px;
+  }
+
   #map_canvas {
     height: 500px;
   }

@@ -147,12 +147,15 @@ define([
 	function cambiarPagina(view,menuitem) {
 
 		this.headerView.selectMenuItem(menuitem);
-		if (this.currentView)
+		if (this.currentView) {
 			this.currentView.undelegateEvents();
+			this.currentView.showing = false;
+		}
 		//console.log(4);
 
 		$('#content').html(view.render().el);
 		this.currentView = view;
+		this.currentView.showing = true;
 		view.delegateEvents();
 		//console.log(8);
 		if(this.scroller)
@@ -165,6 +168,7 @@ define([
 			bounce: false,
 			checkDOMChanges:true
 		});	
+		this.currentView.scroller = this.scroller;
 		//console.log(9);
 		var self = this;
 		$('.loading').on('load',function(){
