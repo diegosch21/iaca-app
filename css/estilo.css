@@ -4595,7 +4595,7 @@ a:active {
   width: 100%;
 }
 
-#content-wrapper, #imgs-wrapper {
+#content-wrapper {
   position: absolute;
   top: 110px;
   padding-top: 5px;
@@ -5478,9 +5478,17 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf:hover .punta--izquierda
 /****** Fin resultados **********/
 /****** Imgs results (scroller) ******/
 #imgs-wrapper {
+  position: fixed;
   display: none;
-  z-index: 1000;
   background-color: rgba(64, 64, 64, 0.8);
+  z-index: 10000;
+  top: 0;
+  padding-top: 10px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
 }
 #imgs-wrapper .scroller {
   width: 400%;

@@ -66,7 +66,8 @@ define([
 				divImgs.append("<div class='result-img'><img src='"+value+"' alt='Imagen del resultado de análisis'/></div>");
 			});
 			$('#imgs-wrapper').show();
-
+			// CREAR VIEW Y SCROLLER. DESP DESTRUIR
+			
 		}
 		
 	});

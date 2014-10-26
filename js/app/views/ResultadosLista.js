@@ -141,7 +141,6 @@ define([
 			this.resultadosGuardados.fetch({
 				success: function() {
 					self.renderList(true,9);
-					self.loading(false);
 					self.updateLista();
 				},
 				error: function(collection, response, options) {
@@ -204,11 +203,12 @@ define([
 		    protocolo: "id"
 		},
 		loading: function(loading) {
+
 			if(loading) {
-				this.$el.find('#loading-results').show();
+				$('#loading-results').show();
 			}
 			else {
-				this.$el.find('#loading-results').hide();
+				$('#loading-results').hide();
 			}
 		},
 		updating: function(updating) {

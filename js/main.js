@@ -65,7 +65,7 @@ require(['jquery', 'underscore', 'backbone', 'app/router', 'iscroll','modernizr'
 			router.scroller = scrollerContent;
 			
 			Backbone.history.start();
-
+/*
 			var scrollerImgs = new IScroll('#imgs-wrapper', {
 				zoom: true,
 				scrollX: true,
@@ -80,6 +80,7 @@ require(['jquery', 'underscore', 'backbone', 'app/router', 'iscroll','modernizr'
 			});	
 
 			router.scrollerImgs = scrollerImgs;
+			*/
 		})
 		
 	}	

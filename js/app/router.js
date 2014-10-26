@@ -151,10 +151,10 @@ define([
 			this.currentView.showing = false;
 		}
 		//console.log(4);
-
-		$('#content').html(view.render().el);
 		this.currentView = view;
 		this.currentView.showing = true;
+		$('#content').html(view.render().el);
+				
 		view.delegateEvents();
 		//console.log(8);
 		this.scroller.refresh();
