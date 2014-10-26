@@ -16,7 +16,8 @@ define([
 		},
 		events: {
 			'click .leido i' : 	'changeLeido',
-			'click .boton_pdf': 'openPDF'
+			'click .boton_pdf': 'openPDF',
+			'click .boton_img': 'verImgs'
 		},
 
 		render: function() {
@@ -46,8 +47,8 @@ define([
 				this.$el.removeClass('leido_si');
 			}
 		},
-		openPDF: function(event) {
-			var url= ($(event.currentTarget).data('href'));
+		openPDF: function() {
+			var url= this.model.get("pdf");
 			var url_sintoken = url.substring(0,url.lastIndexOf('=')+1);
 			var url_contoken = url_sintoken + Sesion.get('token');
 			console.log("Open PDF - url token actualizado: "+url_contoken);
@@ -57,6 +58,15 @@ define([
 			// SI NO ABRE, HACER RELOGIN
 			
 			this.setLeido();
+		},
+		verImgs: function() {
+			console.log("Ver imagenes");
+			var divImgs = $('#results-imgs').html('');
+			_.each(this.model.get("jpg"), function(value, key) {
+				divImgs.append("<div class='result-img'><img src='"+value+"' alt='Imagen del resultado de análisis'/></div>");
+			});
+			$('#imgs-wrapper').show();
+
 		}
 		
 	});

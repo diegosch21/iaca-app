@@ -18,7 +18,7 @@ require.config({
         localstorage: 'backbone.localStorage-min',
         modernizr: 'modernizr-2.8.0.min',
         bootstrap: 'bootstrap-3.2.0.min',
-        iscroll: 'iscroll'
+        iscroll: 'iscroll-zoom'
     }, 
 	shim: {
 		underscore: {
@@ -42,27 +42,59 @@ require.config({
 	waitSeconds: 20
 });
 
-require(['jquery', 'underscore', 'backbone', 'app/router', 'modernizr', 'bootstrap'], 
-	function ($,_, Backbone, Router) {
+require(['jquery', 'underscore', 'backbone', 'app/router', 'iscroll','modernizr', 'bootstrap'], 
+	function ($,_, Backbone, Router,IScroll) {
 
-	   	var router = new Router();
+	   	/* Document ready */
+		$(function(){
+			eventHandlersGenerales();
 
-	    $('body').on("touchend", function (event) {
-		    // console.log("touchend "+event.target.tagName +' '+event.target.id +' '+ event.target.className);    
-		    event.preventDefault();
-		 })
-	    $('body').on("click", function (event) {
-		    // console.log("click "+event.target.tagName +' '+event.target.id +' '+ event.target.className);    
-		 })
-		Backbone.history.start();
+			var scrollerContent = new IScroll('#content-wrapper', {
+			    mouseWheel: true,
+			    scrollbars: true,
+			    interactiveScrollbars: true,
+				fadeScrollbars: true,
+				bounce: false,
+				checkDOMChanges:true
+			});	
 
-		eventHandlersGenerales();
+			
+
+			var router = new Router();
+
+			router.scroller = scrollerContent;
+			
+			Backbone.history.start();
+
+			var scrollerImgs = new IScroll('#imgs-wrapper', {
+				zoom: true,
+				scrollX: true,
+				scrollY: true,
+				mouseWheel: true,
+				wheelAction: 'zoom',
+			    scrollbars: true,
+			    interactiveScrollbars: true,
+				fadeScrollbars: true,
+				zoomMin: 0.25
+				//zoomMax: 2
+			});	
+
+			router.scrollerImgs = scrollerImgs;
+		})
 		
 	}	
 );
 
 function eventHandlersGenerales() {
 	$(document).on('touchmove', function (e) { e.preventDefault(); });
+
+	$('body').on("touchend", function (event) {
+		// console.log("touchend "+event.target.tagName +' '+event.target.id +' '+ event.target.className);    
+		//event.preventDefault();
+	});
+    $('body').on("click", function (event) {
+	    // console.log("click "+event.target.tagName +' '+event.target.id +' '+ event.target.className);    
+	});
 	$('body').on("mousedown touchstart",'.boton', function (e) {
 	//$('body').on("touchstart",'.boton', function (e) {
 		$(e.currentTarget).addClass('activo');
@@ -73,8 +105,8 @@ function eventHandlersGenerales() {
 	$('body').on("mouseup touchend",'.boton', function (e) {
 	// $('body').on("touchend",'.boton', function (e) {
 		$('.boton').removeClass('activo');
-		e.stopPropagation();
-		e.preventDefault();
+		//e.stopPropagation();
+		//e.preventDefault();
 		//console.log("desactivo "+e.target.tagName +' '+e.target.id +' '+ e.target.className);    
 	});	
 	$('body').on('mouseup touchend touchmove', function(e) {

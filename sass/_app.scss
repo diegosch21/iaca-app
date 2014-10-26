@@ -105,7 +105,7 @@ a {
 	width: 100%;
 }
 
-#content-wrapper {	
+#content-wrapper, #imgs-wrapper {	
 	position:absolute;
 	top: 110px;
 	padding-top: 5px;
@@ -850,5 +850,18 @@ ul.lista_resultados{
 
 
 /****** Fin resultados **********/
+
+
+/****** Imgs results (scroller) ******/
+#imgs-wrapper {
+	display: none;
+	z-index: 1000;
+	.scroller{
+		width: 400% //cambiar de acuerdo al tamaño de pantalla
+	}
+}
+
+
+
 
 /*********************** Fin app.scss ************************/

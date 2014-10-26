@@ -1,8 +1,7 @@
 define([
 	'models/Sesion', 
-	'app/views/Header',
-	'iscroll'
-], function (Sesion,HeaderView,IScroll) {
+	'app/views/Header'
+], function (Sesion,HeaderView) {
 	
 	var appRouter = Backbone.Router.extend({
 		routes: {
@@ -158,16 +157,8 @@ define([
 		this.currentView.showing = true;
 		view.delegateEvents();
 		//console.log(8);
-		if(this.scroller)
-			this.scroller.destroy();				
-		this.scroller = new IScroll('#content-wrapper', {
-		    mouseWheel: true,
-		    scrollbars: true,
-		    interactiveScrollbars: true,
-			fadeScrollbars: true,
-			bounce: false,
-			checkDOMChanges:true
-		});	
+		this.scroller.refresh();
+
 		this.currentView.scroller = this.scroller;
 		//console.log(9);
 		var self = this;

@@ -4595,7 +4595,7 @@ a:active {
   width: 100%;
 }
 
-#content-wrapper {
+#content-wrapper, #imgs-wrapper {
   position: absolute;
   top: 110px;
   padding-top: 5px;
@@ -5469,6 +5469,15 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf:hover .punta--izquierda
 }
 
 /****** Fin resultados **********/
+/****** Imgs results (scroller) ******/
+#imgs-wrapper {
+  display: none;
+  z-index: 1000;
+}
+#imgs-wrapper .scroller {
+  width: 400%;
+}
+
 /*********************** Fin app.scss ************************/
 /*********************************************************************
 ***** Estilos para dispositivos de  360px de ancho, ├│ superior *******
