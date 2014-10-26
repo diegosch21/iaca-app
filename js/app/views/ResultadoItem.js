@@ -47,7 +47,7 @@ define([
 				this.$el.removeClass('leido_si');
 			}
 		},
-		openPDF: function() {
+		openPDF: function(event) {
 			var url= this.model.get("pdf");
 			var url_sintoken = url.substring(0,url.lastIndexOf('=')+1);
 			var url_contoken = url_sintoken + Sesion.get('token');

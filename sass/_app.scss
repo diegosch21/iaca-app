@@ -555,9 +555,14 @@ a {
 
 /********* Template Info & Contacto  *********/
 
+#app-info {
+	padding-bottom: 150px;
+}
+
 .app-info_contacto{
 
   //@include x-rem(margin-bottom, 1);
+  
 
   .banner_contacto{
     //max-width: 480px;
@@ -682,6 +687,7 @@ a {
 
 /******** Template resultados ********/
 #app-resultados {
+	 padding-bottom: 50px;
 	.header-resultados {
 		position: relative;
 		@include x-rem(margin,1);
@@ -856,6 +862,8 @@ ul.lista_resultados{
 #imgs-wrapper {
 	display: none;
 	z-index: 1000;
+	background-color: rgba( 64,64,64, .8 );
+
 	.scroller{
 		width: 400% //cambiar de acuerdo al tamaño de pantalla
 	}

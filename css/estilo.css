@@ -5058,6 +5058,10 @@ a:active {
 
 /****** Fin laboratorios_detalles **********/
 /********* Template Info & Contacto  *********/
+#app-info {
+  padding-bottom: 150px;
+}
+
 .app-info_contacto .banner_contacto {
   margin: 16px auto;
   margin: 1rem auto;
@@ -5285,6 +5289,9 @@ a:active {
 
 /****** Fin login **********/
 /******** Template resultados ********/
+#app-resultados {
+  padding-bottom: 50px;
+}
 #app-resultados .header-resultados {
   position: relative;
   margin: 16px;
@@ -5473,6 +5480,7 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf:hover .punta--izquierda
 #imgs-wrapper {
   display: none;
   z-index: 1000;
+  background-color: rgba(64, 64, 64, 0.8);
 }
 #imgs-wrapper .scroller {
   width: 400%;
