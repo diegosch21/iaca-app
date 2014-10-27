@@ -220,3 +220,44 @@ section.acceso{
     display: block;
   }
 }
+
+//** Lista resultados **/
+#app-resultados {
+  .header-resultados {
+    max-width: 750px;
+    #update {
+      @include x-rem(padding-bottom,0.25); 
+    }
+  }
+  .barra-tabla {
+    max-width: 750px;
+  }
+  div.resultados {
+    max-width: 750px;
+  }
+}
+
+
+.columna-tabla{
+
+  &.text-left-xs {
+    text-align: center;
+    padding-left: 0;
+  }
+}
+
+
+ul.lista_resultados{
+
+  .item--resultado_paciente{
+    .info--resultado{
+      &.text-left-xs {
+        text-align: center;
+        padding-left: 0;
+        i.fa {
+          @include x-rem(padding-left,1);
+        }
+      }
+    }
+  }
+}

@@ -47,6 +47,12 @@
 }
 
 //*Header */
+#app-header {
+	.app-header-top {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
 #app-header-menu {
 	.dropdown {
 		#menu-principal-xs {
@@ -55,6 +61,13 @@
 		}
 		.dropdown-menu {
 			@include x-rem(font-size, 1);
+		}
+	}
+	#nav-top {
+		.menu-profesional {
+			div.dropdown  {
+				font-size: 14px;
+			}
 		}
 	}
 
@@ -218,7 +231,7 @@ ul.lista_resultados{
 		}
 		.leido {
 			i {
-				padding-left: 0;
+				//padding-left: 0;
 			}
 		}
 	}

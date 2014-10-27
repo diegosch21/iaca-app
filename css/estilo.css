@@ -4693,6 +4693,9 @@ a:active {
 }
 
 /**Barra superior azul **/
+#nav-top .menu-profesional div.dropdown {
+  overflow: hidden;
+}
 #nav-top > li {
   white-space: nowrap;
 }
@@ -5291,11 +5294,11 @@ a:active {
 /******** Template resultados ********/
 #app-resultados {
   padding-bottom: 50px;
+  padding-left: 0;
+  padding-right: 0;
 }
 #app-resultados .header-resultados {
   position: relative;
-  margin: 16px;
-  margin: 1rem;
 }
 #app-resultados .header-resultados span {
   display: inline-block;
@@ -5308,8 +5311,8 @@ a:active {
   right: 0;
   bottom: 0;
   color: #54676d;
-  padding: 8px;
-  padding: 0.5rem;
+  padding: 16px;
+  padding: 1rem;
   cursor: pointer;
 }
 #app-resultados #updating-results {
@@ -5327,6 +5330,26 @@ a:active {
 #app-resultados #ver-mas-results a {
   text-transform: uppercase;
 }
+#app-resultados .header-resultados {
+  max-width: 600px;
+  margin: auto;
+  margin-top: 16px;
+  margin-top: 1rem;
+  margin-bottom: 16px;
+  margin-bottom: 1rem;
+  padding-left: 16px;
+  padding-left: 1rem;
+  padding-right: 16px;
+  padding-right: 1rem;
+}
+#app-resultados .barra-tabla {
+  max-width: 600px;
+  margin: auto;
+}
+#app-resultados div.resultados {
+  max-width: 600px;
+  margin: auto;
+}
 
 .columna-tabla {
   padding: 0;
@@ -5334,6 +5357,11 @@ a:active {
   text-align: center;
   height: 100%;
   line-height: 3;
+}
+.columna-tabla.text-left-xs {
+  text-align: left;
+  padding-left: 8px;
+  padding-left: 0.5rem;
 }
 .columna-tabla a, .columna-tabla span {
   line-height: 1;
@@ -5389,6 +5417,15 @@ ul.lista_resultados .item--resultado_paciente .info--resultado {
   font-weight: 700;
   padding: 0;
   margin: 0;
+}
+ul.lista_resultados .item--resultado_paciente .info--resultado.text-left-xs {
+  text-align: left;
+  padding-left: 8px;
+  padding-left: 0.5rem;
+}
+ul.lista_resultados .item--resultado_paciente .info--resultado.text-left-xs i.fa {
+  padding-left: 8px;
+  padding-left: 0.5rem;
 }
 ul.lista_resultados .item--resultado_paciente .leido i {
   padding: 16px;
@@ -5501,7 +5538,8 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf:hover .punta--izquierda
   text-align: right;
 }
 #imgs-wrapper #close-imgs-wrapper #close-imgs {
-  color: #dadeec;
+  text-shadow: 1px 1px 1px #dadeec;
+  color: #54676d;
   padding: 16px;
   padding: 1rem;
 }
@@ -5563,6 +5601,11 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf:hover .punta--izquierda
     margin-left: 8.33333% !important;
   }
 
+  #app-header .app-header-top {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   #app-header-menu .dropdown #menu-principal-xs {
     font-size: 16px;
     font-size: 1rem;
@@ -5571,6 +5614,9 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf:hover .punta--izquierda
   #app-header-menu .dropdown .dropdown-menu {
     font-size: 16px;
     font-size: 1rem;
+  }
+  #app-header-menu #nav-top .menu-profesional div.dropdown {
+    font-size: 14px;
   }
 
   .home-item {
@@ -5806,9 +5852,6 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf:hover .punta--izquierda
     line-height: 4;
     height: 100%;
   }
-  ul.lista_resultados .item--resultado_paciente .leido i {
-    padding-left: 0;
-  }
 }
 /*********************************************************************
 ****** Estilos para dispositivos de  768px de ancho, ├│ superior ******
@@ -6002,6 +6045,34 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf:hover .punta--izquierda
   /*** Lista de resultados de protocolos ***/
   .resultados_pacientes .check_protocolo {
     display: block;
+  }
+
+  #app-resultados .header-resultados {
+    max-width: 750px;
+  }
+  #app-resultados .header-resultados #update {
+    padding-bottom: 4px;
+    padding-bottom: 0.25rem;
+  }
+  #app-resultados .barra-tabla {
+    max-width: 750px;
+  }
+  #app-resultados div.resultados {
+    max-width: 750px;
+  }
+
+  .columna-tabla.text-left-xs {
+    text-align: center;
+    padding-left: 0;
+  }
+
+  ul.lista_resultados .item--resultado_paciente .info--resultado.text-left-xs {
+    text-align: center;
+    padding-left: 0;
+  }
+  ul.lista_resultados .item--resultado_paciente .info--resultado.text-left-xs i.fa {
+    padding-left: 16px;
+    padding-left: 1rem;
   }
 }
 /*********************************************************************

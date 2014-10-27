@@ -244,6 +244,12 @@ a {
 /**Barra superior azul **/
 #nav-top{
 
+	.menu-profesional {
+		div.dropdown  {
+			overflow: hidden;
+		}
+	}
+
 	>li{
 		
 		white-space: nowrap;
@@ -688,9 +694,10 @@ a {
 /******** Template resultados ********/
 #app-resultados {
 	 padding-bottom: 50px;
+	 padding-left: 0;
+	 padding-right: 0;
 	.header-resultados {
 		position: relative;
-		@include x-rem(margin,1);
 		.h3 {
 			@extend %texto-regular;
 		}
@@ -704,7 +711,7 @@ a {
 			right: 0;
 			bottom: 0;
 			color: $alt-gris_oscuro;
-			@include x-rem(padding,0.5);
+			@include x-rem(padding,1);
 			cursor: pointer;
 
 		}
@@ -726,6 +733,22 @@ a {
 			text-transform: uppercase;
 		}	
 	}
+	.header-resultados {
+		max-width: 600px;
+		margin: auto;
+		@include x-rem(margin-top,1);
+		@include x-rem(margin-bottom,1);
+		@include x-rem(padding-left,1);
+		@include x-rem(padding-right,1);
+	}
+	.barra-tabla {
+		max-width: 600px;
+		margin: auto;
+	}
+	div.resultados {
+		max-width: 600px;
+		margin: auto;
+	}
 }
 
 .columna-tabla{
@@ -734,6 +757,11 @@ a {
 	text-align: center;
 	height: 100%;
 	line-height: 3;
+
+	&.text-left-xs {
+		text-align: left;
+		@include x-rem(padding-left,0.5);
+	}
 
 	a, span{
 		line-height: 1;
@@ -777,6 +805,13 @@ ul.lista_resultados{
 			font-weight: 700;
 			padding: 0;
 			margin: 0;
+			&.text-left-xs {
+				text-align: left;
+				@include x-rem(padding-left,0.5);
+				i.fa {
+					@include x-rem(padding-left,0.5);
+				}
+			}
 		}
 		.leido {
 			i {
@@ -884,7 +919,8 @@ ul.lista_resultados{
 		right: 0;
 		text-align: right;
 		#close-imgs {
-			color: $alt-gris_claro;
+			text-shadow: 1px 1px 1px $alt-gris_claro;
+			color: $alt-gris_oscuro;
 			@include x-rem(padding,1);
 		}
 	}
