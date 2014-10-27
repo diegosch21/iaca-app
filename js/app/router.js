@@ -8,7 +8,7 @@ define([
 			""					: "home",
 			"home"				: "home",
 			"resultados"		: "resultados",
-			"configuracion"		: "configuracion",
+		//	"configuracion"		: "configuracion",
 			"laboratorios"		: "laboratorios",
 			"laboratorios/:lab"	: "verLabo",
 			"info"				: "info",

@@ -10,8 +10,8 @@ define([
 
 		events: {
 			'touchend #back' : 'botonBack',
-			'click #back' : 'botonBack',
-			'click .external-link' : 'externalLink',
+			//'click #back' : 'botonBack',
+			'touchstart .external-link' : 'externalLink',
 			'click #reload' : 'mapaLabo',
 		},
 

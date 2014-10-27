@@ -37,14 +37,16 @@
 		}
 	}
 }
-@mixin boton-punta-correccion-costado($height) {
+@mixin boton-punta-correccion-costado($height,$width) {
 	@include boton-punta($height);
 	.contenedor-con-punta {
 		.punta--derecha {
-			@include x-rem(right,-$height/3 - 0.1);
+			@include x-rem(border-left-width,$width);
+			@include x-rem(right,-$width - 0.1);
 		}
 		.punta--izquierda {
-			@include x-rem(left,-$height/3 - 0.1);
+			@include x-rem(border-right-width,$width);
+			@include x-rem(left,-$width - 0.1);
 		}
 	}
 }

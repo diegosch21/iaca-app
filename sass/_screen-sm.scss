@@ -24,49 +24,7 @@
 }
 
 
-
-
-
-
-/** Breadcrumb **/
-
-.breadcrumb-nav{
-  @include x-rem(margin-top, 5);
-}
-
-
-/** Ancho maximo dispositivos moviles **/
-
-main{
-  &.max_480{
-    max-width: 100%;
-    margin: 0;
-  }
-}
-
-/** Banners **/
-
-.banner--vertical{
-  max-width: auto;
-}
-
-.banner-horizontal{
-  &.banner--full{
-    .texto--banner{
-      width: 40%;
-      @include x-rem(padding, 3 1.5 1.5 3);
-    }
-  }
-}
-
-/** slider **/
-
-.slider-control{
-  padding-top: 0;
-}
-
-
-/** Formularios **/
+//** Formularios **/
 
 form{
   label{
@@ -74,160 +32,10 @@ form{
   }
 }
 
-
-
-/*** Página de inicio ***/
-
-.front_page{
-  .banner_contacto{
-    max-width: 100%;
-
-    .header--banner{
-      width: 30%;
-      @include x-rem(margin-right, 1.5);
-    }
-
-    .contenedor_sede{
-      display: inline-block;
-    }
-  }
-}
-
-
-/** Directorio Analisis **/
-
-.lista_directorio dt a{
-
-  .codigo-analisis{
-    width: 15%;
-  }
-
-  .nombre-analisis{
-    @include x-rem(margin-left, 1.5);
-
-  }
-
-  &.analisis--con_precio{
-    .nombre-analisis{
-      width: 60%;
-    }
-
-    .precio-analisis{
-      width: 15%;
-      //color: $alt-negro;
-    }
-  }
-}
-
-.descripcion-analisis{
-  dt{
-    margin-top: 0;
-  }
-}
-
-
-/** Profesionales **/
-
-.contenedor--profesionales{
-  max-width: 100%;
-}
-
-
-/** Publicaciones **/
-
-.lista-publicaciones{
- margin: 0;
-}
-
-
-/** Contacto **/
-.mapa-contacto{
-  .flex-video{
-    @include x-rem(margin-bottom, 1.5);
-  }
-}
-
-.info-contacto{
-  width: 32%;
-  @include x-rem(bottom, 1);
-
-}
-
-/** Footer **/
-
-footer{
-  @include x-rem(margin-bottom, 1.5);
-}
-
-.certificaciones--footer{
-
-  .outter-svg-container{
-    display: none;
-
-  }
-
-}
-
-
-
-/****************************************************
-*****************************************************
-******  ESTILOS AREA DE ACCESO PROFESIONAL  *********
-*****************************************************
-****************************************************/
-
-/** Carga de muestras **/
-.carga_muestra--seccion,
-.acceso{
-  max-width: 100%;
-
-  /*&:last-of-type{
-    margin-bottom: 0;
-  }*/
-}
-
-.pacietnes-cargados {
-  #pedido{
-    height: 36em;
-  }
-}
-
-.label-seccion{
-  width: 90%;
-}
-
-/** Acceso **/
-section.acceso{
-  .label-seccion{
-    width: 60%;
-  }
-}
-
-
-/*** Lista de resultados de protocolos ***/
-
-// .lista_resultados{
-//
-//   dt{
-//     .nombre_paciente{
-//       //text-align: left;
-//     }
-//   }
-// }
-
-.resultados_pacientes{
-  .check_protocolo{
-    display: block;
-  }
-}
-
 //** Lista resultados **/
 #app-resultados {
   .header-resultados {
     max-width: 750px;
-    #update {
-      @include x-rem(padding-bottom,0.25); 
-    }
   }
   .barra-tabla {
     max-width: 750px;
@@ -236,7 +44,6 @@ section.acceso{
     max-width: 750px;
   }
 }
-
 
 .columna-tabla{
 
@@ -259,5 +66,6 @@ ul.lista_resultados{
         }
       }
     }
+    @include boton-punta-correccion-costado(4,1.5);
   }
 }

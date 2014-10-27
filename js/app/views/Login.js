@@ -23,8 +23,8 @@ define([
 
 		events: {
 			'submit form#login'	: 'login',
-			'click a.usuario-guardado' : 'loginGuardado',
-			'click span.delete-guardado' : 'deleteGuardado',
+			'touchend a.usuario-guardado' : 'loginGuardado',
+			'touchend span.delete-guardado' : 'deleteGuardado',
 		},
 
 		render: function() {

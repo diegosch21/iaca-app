@@ -11,14 +11,13 @@ define([
 
 		events: {
 			'touchend .labos-boton' : 'pressBoton',
-			'click .labos-boton' : 'pressBoton',
-			'touchmove .labos-boton' : 'touchMove',
+			//'click .labos-boton' : 'pressBoton',
+			//'touchmove .labos-boton' : 'touchMove',
 			'click #reload' : 'reloadMapa',
 		},
 
 		initialize: function(options) {
 			//console.log(3);
-			this.dragging = false;
 			//this.mapa = options['mapa'];
         },
 		render: function() {
@@ -44,14 +43,9 @@ define([
 			});	
 		},
 		pressBoton: function(e) {
-			console.log('pressBoton (dragging: '+this.dragging);
-			if(this.dragging)
-				this.dragging = false;
-			else 
+			console.log('pressBoton (dragging: '+window.dragging+')');
+			if(!window.dragging)
 				Backbone.history.navigate('laboratorios/'+$(e.currentTarget).data('lab'),true);
-		},
-		touchMove: function() {
-			this.dragging = true;
 		},
 		reloadMapa: function() {
 			console.log("ReloadMapa");

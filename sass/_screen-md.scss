@@ -41,58 +41,10 @@ html {
 //#map_canvas {
 //  width: 80%;
 //}
+
 //* Labo detalles */
 #labo-contacto, #labo-horarios, #labo-info, #labo-link {
   @include x-rem(margin-top, 1);
 }
-
-
-.laboratorios{
-
-  .labo-intro{
-    padding-top: 2em;
-    padding-left: 2em;
-  }
-
-  .labo_foto--interior:first-of-type{
-    margin-top: 0;
-  }
-}
-
-
-
-//** Contacto **/
-.mapa-contacto{
-  .flex-video{
-    padding-bottom: 50%;
-  }
-}
-
-.info-contacto{
-  width: 34.9%;
-
-  p{
-    @include x-rem(padding, 0.5 1.5);
-  }
-}
-
-
-//** Footer **/
-
-.certificaciones--footer{
-  //margin: 0;
-
-  .contenedor-con-punta{
-    z-index: 250;
-    @include x-rem(margin-top, -5);
-    @include x-rem(margin-right, -2.7);
-  }
-
-}
-
-
-
-
-
 
 

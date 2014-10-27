@@ -8,7 +8,7 @@ define([
 		template: _.template(infoTemplate),
 
 		events: {
-			'click .external-link' : 'externalLink',
+			'touchend .external-link' : 'externalLink',
 		},
 
 		initialize: function() {
@@ -20,9 +20,11 @@ define([
 			return this;
 		},
 		externalLink: function(event) {
-			var url= ($(event.currentTarget).data('href'));
-			window.open(url, '_system');
-			event.preventDefault();
+			console.log('pressBoton (dragging: '+window.dragging+')');
+			if(!window.dragging) {
+				var url= ($(event.currentTarget).data('href'));
+				window.open(url, '_system');
+			}
 		}
 		
 	});

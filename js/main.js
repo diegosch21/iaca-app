@@ -42,8 +42,8 @@ require.config({
 	waitSeconds: 20
 });
 
-require(['jquery', 'underscore', 'backbone', 'app/router', 'iscroll','modernizr', 'bootstrap'], 
-	function ($,_, Backbone, Router,IScroll) {
+require(['jquery', 'underscore', 'backbone', 'iscroll','modernizr', 'bootstrap'], 
+	function ($,_, Backbone, IScroll) {
 
 	   	/* Document ready */
 		$(function(){
@@ -59,14 +59,14 @@ require(['jquery', 'underscore', 'backbone', 'app/router', 'iscroll','modernizr'
 				checkDOMChanges:true
 			});	
 
-			var router = new Router();
-
-			router.scroller = scrollerContent;
-			
-			Backbone.history.start();
+			require(['app/router'], function(Router) {
+				var router = new Router();
+				router.scroller = scrollerContent;
+				Backbone.history.start();
+			});
 
 		});
-		
+
 		/* Device ready */
 		if(window.deviceready) {
 			// ya se lanzo el evento deviceready
@@ -83,31 +83,38 @@ require(['jquery', 'underscore', 'backbone', 'app/router', 'iscroll','modernizr'
 );
 
 function eventHandlersGenerales() {
-	$(document).on('touchmove', function (e) { e.preventDefault(); });
+	window.dragging = false;
+	$('body').on('touchmove', function (e) {
+		window.dragging = true;
+		// console.log("touchmove "+event.target.tagName +' '+event.target.id +' '+ event.target.className);
+	});
+	$('body').on('touchstart', function(e){
+    	window.dragging = false;
+    	// console.log("touchstart "+event.target.tagName +' '+event.target.id +' '+ event.target.className);
+	});
 
 	$('body').on("touchend", function (event) {
 		// console.log("touchend "+event.target.tagName +' '+event.target.id +' '+ event.target.className);    
-		//event.preventDefault();
 	});
     $('body').on("click", function (event) {
 	    // console.log("click "+event.target.tagName +' '+event.target.id +' '+ event.target.className);    
 	});
-	$('body').on("mousedown touchstart",'.boton', function (e) {
-	//$('body').on("touchstart",'.boton', function (e) {
+	//$('body').on("mousedown touchstart",'.boton', function (e) {
+	$('body').on("touchstart",'.boton', function (e) {
 		$(e.currentTarget).addClass('activo');
-		e.stopPropagation();
-		e.preventDefault();
-		//console.log("activo "+e.target.tagName +' '+e.target.id +' '+ e.target.className);    
+		//	e.stopPropagation();
+		//	e.preventDefault();
+		//	console.log("activo "+e.target.tagName +' '+e.target.id +' '+ e.target.className);    
 	});
-	$('body').on("mouseup touchend",'.boton', function (e) {
-	// $('body').on("touchend",'.boton', function (e) {
+	// $('body').on("mouseup touchend",'.boton', function (e) {
+	$('body').on("touchend",'.boton', function (e) {
 		$('.boton').removeClass('activo');
-		//e.stopPropagation();
-		//e.preventDefault();
-		//console.log("desactivo "+e.target.tagName +' '+e.target.id +' '+ e.target.className);    
+		// e.stopPropagation();
+		// e.preventDefault();
+		// console.log("desactivo "+e.target.tagName +' '+e.target.id +' '+ e.target.className);    
 	});	
-	$('body').on('mouseup touchend touchmove', function(e) {
-	// $('body').on('touchend touchmove', function(e) {
+	//$('body').on('mouseup touchend touchmove', function(e) {
+	$('body').on('touchend touchmove', function(e) {
 		$('.boton').removeClass('activo');
 	});
 
@@ -122,8 +129,18 @@ function eventHandlersPhoneGap() {
 			$('#imgs-wrapper').hide(); 
 		}
 		else {
-			// CONTROLAR DISTINTOS URL A DONDE VAN
-			Backbone.history.navigate('home',true);
+			var actualURL = Backbone.history.fragment;
+			console.log('actualURL: '+actualURL);
+			if (actualURL == 'laboratorios') {
+				console.log('Go to home');
+				Backbone.history.navigate("home",true);
+			}
+			else if (actualURL != 'home' && actualURL != '' ) {
+				console.log('window.history.back()');
+				window.history.back();
+			}
+			else
+				console.log('Stay here');
 		}
 	});
 }

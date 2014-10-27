@@ -26,8 +26,8 @@ define([
 
 		},
 		events: {
-			'click #ver-mas' : 	'verMas',
-			'click #update' : 'updateUsuario'
+			'touchstart #ver-mas' : 	'verMas',
+			'touchstart #update' : 'updateUsuario'
 		},
 
 		render: function() {
@@ -223,7 +223,7 @@ define([
 
 		crearScrollerImgs: function() {
 
-			$('#close-imgs').on('click',function() {
+			$('#close-imgs').on('touchstart',function() {
 				$('#imgs-wrapper').fadeOut();
 			});
 

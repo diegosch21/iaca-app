@@ -332,20 +332,20 @@ a {
 
 			  //&:active,
 			 // html.no-touch &:hover
-			 &:hover{
-			  //  li:active,
-			    //html.no-touch &:hover
-			    &:hover{
-			      z-index: 100
-			  	}
-			  }
-			  &.activo{
-			  //  li:active,
-			    //html.no-touch &:hover
-			    &:hover{
-			      z-index: 50
-			  	}
-			  }
+			 // &:hover{
+			 //  //  li:active,
+			 //    //html.no-touch &:hover
+			 //    &:hover{
+			 //      z-index: 100
+			 //  	}
+			 //  }
+			  // &.activo{
+			  // //  li:active,
+			  //   //html.no-touch &:hover
+			  //   &:hover{
+			  //     z-index: 50
+			  // 	}
+			  // }
 		}
 
 		ul {
@@ -373,10 +373,10 @@ a {
 
 		//	&:active,
 			//html.no-touch &:hover
-			&:hover{
-			  	color: $alt-negro;
-		        background-color: #F5F5F5;
-  			};
+		//	&:hover{
+		//	  	color: $alt-negro;
+		//        background-color: #F5F5F5;
+  		//	};
 			padding: 0.5em 0.5em;
 		}
 		.dropdown-menu {
@@ -448,6 +448,7 @@ a {
 	text-align: center;
 	#reload {
 		padding-top: 20px;
+		font-size: 18px;
 	}
 	position: relative;
 	@include x-rem(margin-top, 1);
@@ -705,6 +706,7 @@ a {
 			bottom: 0;
 			color: $alt-gris_oscuro;
 			@include x-rem(padding,1);
+			@include x-rem(padding-bottom,0.25);
 			cursor: pointer;
 
 		}
@@ -769,9 +771,9 @@ a {
 			@include x-rem(font-size, 0.9);
 		}
 	}
-	a:hover{
-		color: $primario-celeste;
-	}
+	// a:hover{
+	// 	color: $primario-celeste;
+	// }
 }
 
 
@@ -791,7 +793,8 @@ ul.lista_resultados{
 			background-color: $alt-blanco;
 		}
 
-		&.active, &:hover{
+		//&:hover,
+		&.active {
 			background-color: $alt-gris !important;
 		}
 
@@ -849,7 +852,7 @@ ul.lista_resultados{
 				border-color: $primario-celeste;
 			}	
 		}
-		@include boton-punta-correccion-costado(4);
+		@include boton-punta-correccion-costado(4,0.75);
 /*
 		&:nth-of-type(even){
 			.boton_pdf {
@@ -871,7 +874,8 @@ ul.lista_resultados{
 			cursor: pointer;
 			white-space: nowrap;
 
-			&:hover, &.active {
+			//&:hover, 
+			&.active {
 				background-color: $primario-azul_oscuro!important;
 				.punta--izquierda {
 					border-right-color: $primario-azul_oscuro!important;

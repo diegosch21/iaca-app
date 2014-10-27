@@ -16,9 +16,12 @@ define([
 			_.bindAll(this,'_verImgs','_openPDF');
 		},
 		events: {
-			'click .leido i' : 	'changeLeido',
-			'click .boton_pdf': 'openPDF',
-			'click .boton_img': 'verImgs'
+			'touchend .leido i' : 	'changeLeido',
+			'touchend .boton_pdf': 'openPDF',
+			'touchend .boton_img': 'verImgs'
+		//	'click .leido i' : 	'changeLeido',
+		//	'click .boton_pdf': 'openPDF',
+		//	'click .boton_img': 'verImgs'
 		},
 
 		render: function() {
@@ -29,9 +32,12 @@ define([
 		},
 
 		changeLeido: function() {
-			this.model.save({'leido': !this.model.get('leido')});
-			console.log("changeLeido: "+this.model.get('leido'));
-			this.marcarLeido();
+			console.log('pressBoton (dragging: '+window.dragging+')');
+			if(!window.dragging) {
+				this.model.save({'leido': !this.model.get('leido')});
+				console.log("changeLeido: "+this.model.get('leido'));
+				this.marcarLeido();
+			}
 		},
 		setLeido: function() {
 			this.model.save({'leido': true});
@@ -49,8 +55,9 @@ define([
 			}
 		},
 		openPDF: function() {
-			event.preventDefault();
-			Sesion.checkTimestamp({ complete: this._openPDF});
+			console.log('pressBoton (dragging: '+window.dragging+')');
+			if(!window.dragging)
+				Sesion.checkTimestamp({ complete: this._openPDF});
 		},
 		_openPDF: function(event) {
 			//CAMBIA EL TOKEN DEL URL POR EL ACTUAL
@@ -66,8 +73,9 @@ define([
 			this.setLeido();
 		},
 		verImgs: function(event) {
-			event.preventDefault();
-			Sesion.checkTimestamp({ complete: this._verImgs } );
+			console.log('pressBoton (dragging: '+window.dragging+')');
+			if(!window.dragging)
+				Sesion.checkTimestamp({ complete: this._verImgs } );
 		},
 		_verImgs: function() {
 			console.log("Ver imagenes");
@@ -91,7 +99,8 @@ define([
 				self.scrollerImgs.refresh();
 			});
 			this.setLeido();
-		}	
+		}
+	
 		
 	});
 
