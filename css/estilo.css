@@ -4693,9 +4693,6 @@ a:active {
 }
 
 /**Barra superior azul **/
-#nav-top .menu-profesional div.dropdown {
-  overflow: hidden;
-}
 #nav-top > li {
   white-space: nowrap;
 }
@@ -5601,9 +5598,8 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf:hover .punta--izquierda
     margin-left: 8.33333% !important;
   }
 
-  #app-header .app-header-top {
-    padding-left: 0;
-    padding-right: 0;
+  #nav-top .menu-profesional div.dropdown {
+    font-size: 14px;
   }
 
   #app-header-menu .dropdown #menu-principal-xs {
@@ -5614,9 +5610,6 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf:hover .punta--izquierda
   #app-header-menu .dropdown .dropdown-menu {
     font-size: 16px;
     font-size: 1rem;
-  }
-  #app-header-menu #nav-top .menu-profesional div.dropdown {
-    font-size: 14px;
   }
 
   .home-item {
