@@ -32,12 +32,10 @@ define([
 
 		render: function() {
 			console.log("Render ResultadosListaView");
+			//console.log(this.itemsViews);
 			this.updateUsuario();
-			$.each(this.itemsViews, function(index, item) {
-				item.delegateEvents();
-			});
 			// El template se renderiza en initialize. 
-		
+
 			return this;
 		},
 
@@ -178,8 +176,7 @@ define([
 								jpg: elem['jpg']
 							});
 						}
-						
-					};
+					}
 					if(hayNuevo)
 						self.renderList(true,9);
 				},
@@ -189,7 +186,13 @@ define([
 				},
 				complete: function() {
 					self.updating(false);
+					//console.log(self.itemsViews);
+					_.each(self.itemsViews, function(item, key) {
+						item.delegateEvents();
+					//	console.log("delegateEvents "+item);
+					});
 				}
+					
 			});
 		},
 		mapKeysResultado: {

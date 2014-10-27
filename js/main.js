@@ -47,8 +47,9 @@ require(['jquery', 'underscore', 'backbone', 'app/router', 'iscroll','modernizr'
 
 	   	/* Document ready */
 		$(function(){
+			console.log('documentready');
 			eventHandlersGenerales();
-
+					
 			var scrollerContent = new IScroll('#content-wrapper', {
 			    mouseWheel: true,
 			    scrollbars: true,
@@ -64,7 +65,19 @@ require(['jquery', 'underscore', 'backbone', 'app/router', 'iscroll','modernizr'
 			
 			Backbone.history.start();
 
-		})
+		});
+		
+		/* Device ready */
+		if(window.deviceready) {
+			// ya se lanzo el evento deviceready
+			eventHandlersPhoneGap();
+		}
+		else {
+			$(document).on('deviceready',function() {
+				console.log('deviceready en main.js');
+				eventHandlersPhoneGap();
+			})
+		}
 		
 	}	
 );
@@ -98,5 +111,20 @@ function eventHandlersGenerales() {
 		$('.boton').removeClass('activo');
 	});
 
+}
+
+function eventHandlersPhoneGap() {
+	console.log('eventHandlersPhoneGap');
+	$(document).on('backbutton',function(e) {
+		console.log('backbutton');
+		if($('#imgs-wrapper').is(":visible")) {
+			console.log("Viendo imgs");
+			$('#imgs-wrapper').hide(); 
+		}
+		else {
+			// CONTROLAR DISTINTOS URL A DONDE VAN
+			Backbone.history.navigate('home',true);
+		}
+	});
 }
 

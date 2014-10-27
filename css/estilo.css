@@ -5327,6 +5327,9 @@ a:active {
 #app-resultados #ver-mas-results a {
   text-transform: uppercase;
 }
+#app-resultados #no-results {
+  display: none;
+}
 #app-resultados .header-resultados {
   max-width: 600px;
   margin: auto;

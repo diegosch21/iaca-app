@@ -726,6 +726,9 @@ a {
 			text-transform: uppercase;
 		}	
 	}
+	#no-results {
+		display: none;
+	}
 	.header-resultados {
 		max-width: 600px;
 		margin: auto;

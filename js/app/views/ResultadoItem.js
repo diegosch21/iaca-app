@@ -82,9 +82,10 @@ define([
 				}
 				divImgs.append("<div class='result-img'><img src='"+url+"' class='imagen-result' alt='Imagen del resultado de análisis'/></div>");
 			});
+
 			$('#imgs-wrapper').fadeIn('slow');
-			this.scrollerImgs.scrollTo(0,0);
 			this.scrollerImgs.zoom(1);
+			this.scrollerImgs.scrollTo(0,0);
 			var self = this;
 			$('.imagen-result').on('load',function(){
 				self.scrollerImgs.refresh();

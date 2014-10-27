@@ -33,6 +33,7 @@ define([
         	//results: 'http://localhost/iaca/iaca-www/proxy_results.php?'
             results: 'proxy_results.php?'
             //results: 'proxy/results_18277932_2.json?'
+            //results: 'proxy/results_vacio.json?'
         },
 
         localStorage: new Store('iaca-session'),

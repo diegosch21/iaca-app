@@ -144,7 +144,7 @@ define([
 	});
 
 	function cambiarPagina(view,menuitem) {
-
+		$('#imgs-wrapper').hide();
 		this.headerView.selectMenuItem(menuitem);
 		if (this.currentView) {
 			this.currentView.undelegateEvents();
@@ -158,8 +158,9 @@ define([
 		view.delegateEvents();
 		//console.log(8);
 		this.scroller.refresh();
-
+		this.scroller.scrollTo(0,0);
 		this.currentView.scroller = this.scroller;
+
 		//console.log(9);
 		var self = this;
 		$('.loading').on('load',function(){
