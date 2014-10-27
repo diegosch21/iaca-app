@@ -11,8 +11,9 @@ define([
 		tagName: 'li',
 		className: "item--resultado_paciente row",
 
-		initialize: function() {
-
+		initialize: function(options) {
+			this.scrollerImgs = options.scrollerImgs;
+			_.bindAll(this,'_verImgs','_openPDF');
 		},
 		events: {
 			'click .leido i' : 	'changeLeido',
@@ -47,28 +48,49 @@ define([
 				this.$el.removeClass('leido_si');
 			}
 		},
-		openPDF: function(event) {
-			var url= this.model.get("pdf");
-			var url_sintoken = url.substring(0,url.lastIndexOf('=')+1);
-			var url_contoken = url_sintoken + Sesion.get('token');
-			console.log("Open PDF - url token actualizado: "+url_contoken);
-			window.open(url_contoken, '_system');
+		openPDF: function() {
 			event.preventDefault();
-
-			// SI NO ABRE, HACER RELOGIN
+			Sesion.checkTimestamp({ complete: this._openPDF});
+		},
+		_openPDF: function(event) {
+			//CAMBIA EL TOKEN DEL URL POR EL ACTUAL
+			var url= this.model.get("pdf");
+			var i = url.lastIndexOf('token=');
+			if(i>0) {
+				var url_sintoken = url.substring(0,i);
+				var url = url_sintoken + 'token=' + Sesion.get('token');
+			}
+			console.log("Open PDF - url token actualizado: "+url);
+			window.open(url, '_system');
 			
 			this.setLeido();
 		},
-		verImgs: function() {
+		verImgs: function(event) {
+			event.preventDefault();
+			Sesion.checkTimestamp({ complete: this._verImgs } );
+		},
+		_verImgs: function() {
 			console.log("Ver imagenes");
 			var divImgs = $('#results-imgs').html('');
 			_.each(this.model.get("jpg"), function(value, key) {
-				divImgs.append("<div class='result-img'><img src='"+value+"' alt='Imagen del resultado de análisis'/></div>");
+				//CAMBIA EL TOKEN DEL URL POR EL ACTUAL
+				var url= value;
+				var i = url.lastIndexOf('token=');
+				if(i>0) {
+					var url_sintoken = url.substring(0,i);
+					var url = url_sintoken + 'token=' + Sesion.get('token');
+				}
+				divImgs.append("<div class='result-img'><img src='"+url+"' class='imagen-result' alt='Imagen del resultado de análisis'/></div>");
 			});
-			$('#imgs-wrapper').show();
-			// CREAR VIEW Y SCROLLER. DESP DESTRUIR
-			
-		}
+			$('#imgs-wrapper').fadeIn('slow');
+			this.scrollerImgs.scrollTo(0,0);
+			this.scrollerImgs.zoom(1);
+			var self = this;
+			$('.imagen-result').on('load',function(){
+				self.scrollerImgs.refresh();
+			});
+			this.setLeido();
+		}	
 		
 	});
 

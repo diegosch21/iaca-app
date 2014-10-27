@@ -3,8 +3,9 @@ define([
 	'models/Sesion',
 	'text!templates/alert.html',
 	'collections/Resultados',
-	'views/ResultadoItem'
-], function (resultadosListaTemplate,Sesion,alertTemplate,ResultadosCollection,ResultadoItem) {
+	'views/ResultadoItem',
+	'iscroll'
+], function (resultadosListaTemplate,Sesion,alertTemplate,ResultadosCollection,ResultadoItem,IScroll) {
 	
 	var ResultadosListaView = Backbone.View.extend({
 
@@ -20,6 +21,9 @@ define([
 			
 			//Sesion.on("change:timestamp",this.updateUsuario,this);
 			Sesion.on("change:timestamp",this.updateLogout,this);
+			// Creo scroller para mostrar las imagenes	
+			this.crearScrollerImgs();
+
 		},
 		events: {
 			'click #ver-mas' : 	'verMas',
@@ -29,10 +33,11 @@ define([
 		render: function() {
 			console.log("Render ResultadosListaView");
 			this.updateUsuario();
-			// El template se renderiza en initialize. Cada item se renderiza en addResultados
 			$.each(this.itemsViews, function(index, item) {
 				item.delegateEvents();
 			});
+			// El template se renderiza en initialize. 
+		
 			return this;
 		},
 
@@ -47,10 +52,11 @@ define([
 				ult = fin;
 			var pri = this.actualItem +1;
 			console.log("Primer item: #"+pri+" Último item: #"+ult);
+
 			for (var i = pri; i <=ult; i++) {
 				var result = this.resultadosGuardados.at(i);
-				console.log("Creo view resultado, id: "+result.id);
-				var view = new ResultadoItem({model: result});
+				//console.log("Creo view resultado, id: "+result.id);
+				var view = new ResultadoItem({model: result, scrollerImgs: this.scrollerImgs});
 				this.$el.find('#lista-resultados').append(view.render().el);
 				this.itemsViews[result.id] = view;
 				this.actualItem = i;
@@ -72,19 +78,7 @@ define([
 			}, 1000);
 			
 		},
-	/*	addResultado: function(result) {
-			console.log("Creo view resultado, id: "+result.id);
-			var view = new ResultadoItem({model: result});
-			
-			this.$el.find('#lista-resultados').prepend(view.render().el);
-
-			// Resize scroll
-			this.itemsViews[result.id] = view;
-			this.$el.find('#mensaje_no-results').hide();
-
-
-		},
-	*/	removeItems: function() {
+		removeItems: function() {
 			console.log("Elimino itemsViews");
 			$.each(this.itemsViews, function(index, item) {
 				item.remove();
@@ -186,8 +180,8 @@ define([
 						}
 						
 					};
-					//if(hayNuevo)
-					self.renderList(true,9);
+					if(hayNuevo)
+						self.renderList(true,9);
 				},
 				error: function(error) {
 					console.log(error);
@@ -222,6 +216,30 @@ define([
 
 		verMas: function() {
 			this.renderList(false,this.actualItem+10);
+		},
+
+		crearScrollerImgs: function() {
+
+			$('#close-imgs').on('click',function() {
+				$('#imgs-wrapper').fadeOut();
+			});
+
+			if(this.scrollerImgs)
+				this.scrollerImgs.destroy();
+
+			this.scrollerImgs = new IScroll('#imgs-wrapper', {
+				zoom: true,
+				scrollX: true,
+				scrollY: true,
+				mouseWheel: true,
+				wheelAction: 'zoom',
+			    scrollbars: true,
+			    interactiveScrollbars: true,
+				fadeScrollbars: true,
+				zoomMin: 0.25
+				//zoomMax: 2
+			});	
+			
 		}
 		
 	});

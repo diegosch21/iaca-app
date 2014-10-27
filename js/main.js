@@ -58,29 +58,12 @@ require(['jquery', 'underscore', 'backbone', 'app/router', 'iscroll','modernizr'
 				checkDOMChanges:true
 			});	
 
-			
-
 			var router = new Router();
 
 			router.scroller = scrollerContent;
 			
 			Backbone.history.start();
-/*
-			var scrollerImgs = new IScroll('#imgs-wrapper', {
-				zoom: true,
-				scrollX: true,
-				scrollY: true,
-				mouseWheel: true,
-				wheelAction: 'zoom',
-			    scrollbars: true,
-			    interactiveScrollbars: true,
-				fadeScrollbars: true,
-				zoomMin: 0.25
-				//zoomMax: 2
-			});	
 
-			router.scrollerImgs = scrollerImgs;
-			*/
 		})
 		
 	}	

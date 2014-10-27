@@ -865,7 +865,6 @@ ul.lista_resultados{
 	background-color: rgba( 64,64,64, .8 );
 	z-index: 10000;
 	top: 0;
-	padding-top: 10px;
     left:0;
     right:0;
     bottom:0;
@@ -874,7 +873,24 @@ ul.lista_resultados{
 	overflow: hidden;
 
 	.scroller{
-		width: 400% //cambiar de acuerdo al tamaño de pantalla
+		min-width: 650px; 
+	}
+
+	#close-imgs-wrapper {
+		position: fixed;
+		width: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		text-align: right;
+		#close-imgs {
+			color: $alt-gris_claro;
+			@include x-rem(padding,1);
+		}
+	}
+	.result-img {
+		text-align: center;
+		padding: 20px;
 	}
 }
 

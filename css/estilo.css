@@ -5483,7 +5483,6 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf:hover .punta--izquierda
   background-color: rgba(64, 64, 64, 0.8);
   z-index: 10000;
   top: 0;
-  padding-top: 10px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -5491,7 +5490,24 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf:hover .punta--izquierda
   overflow: hidden;
 }
 #imgs-wrapper .scroller {
-  width: 400%;
+  min-width: 650px;
+}
+#imgs-wrapper #close-imgs-wrapper {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: right;
+}
+#imgs-wrapper #close-imgs-wrapper #close-imgs {
+  color: #dadeec;
+  padding: 16px;
+  padding: 1rem;
+}
+#imgs-wrapper .result-img {
+  text-align: center;
+  padding: 20px;
 }
 
 /*********************** Fin app.scss ************************/

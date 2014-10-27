@@ -38,7 +38,7 @@ define([
         initialize: function() {
             
         	console.log("Initialize Sesion");
-        	_.bindAll(this,'getAuth','login','crearUsuario','setUsuario',"relogin");
+        	_.bindAll(this,'getAuth','login','crearUsuario','setUsuario',"relogin",'checkTimestamp');
             var self = this;
             this.set("timestamp",new Date().getTime());
 
@@ -233,8 +233,26 @@ define([
                     callback.complete();
                 }
             });
+        },
 
-
+        // Verifica que el token sea valido (timestamp < 30 min)
+        // Si es menor ejecuta callback
+        // Si es mayor relogin y luego callback
+        checkTimestamp: function(callback) {
+            var diferencia_segs = (new Date().getTime() - this.get('timestamp'))/1000;
+            var diferencia_mins = diferencia_segs/60;
+            console.log("checkTimestamp - diferencia en minutos: "+diferencia_mins);
+            if (diferencia_mins < 30) {
+                if (callback && 'success' in callback) {
+                    callback.success();
+                }
+                if (callback && 'complete' in callback) {
+                    callback.complete();
+                }
+            }
+            else {
+                this.relogin(callback);
+            }
         }
 
         
