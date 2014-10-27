@@ -4693,9 +4693,6 @@ a:active {
 }
 
 /**Barra superior azul **/
-#nav-top .menu-profesional div.dropdown {
-  overflow: hidden;
-}
 #nav-top > li {
   white-space: nowrap;
 }
