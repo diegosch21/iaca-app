@@ -332,20 +332,20 @@ a {
 
 			  //&:active,
 			 // html.no-touch &:hover
-			 // &:hover{
-			 //  //  li:active,
-			 //    //html.no-touch &:hover
-			 //    &:hover{
-			 //      z-index: 100
-			 //  	}
-			 //  }
-			  // &.activo{
-			  // //  li:active,
-			  //   //html.no-touch &:hover
-			  //   &:hover{
-			  //     z-index: 50
-			  // 	}
-			  // }
+			 &:hover{
+			  //  li:active,
+			    //html.no-touch &:hover
+			    &:hover{
+			      z-index: 100
+			  	}
+			  }
+			  &.activo{
+			  //  li:active,
+			    //html.no-touch &:hover
+			    &:hover{
+			      z-index: 50
+			  	}
+			  }
 		}
 
 		ul {
@@ -373,10 +373,10 @@ a {
 
 		//	&:active,
 			//html.no-touch &:hover
-		//	&:hover{
-		//	  	color: $alt-negro;
-		//        background-color: #F5F5F5;
-  		//	};
+			&:hover{
+			  	color: $alt-negro;
+		       background-color: #F5F5F5;
+  			};
 			padding: 0.5em 0.5em;
 		}
 		.dropdown-menu {
@@ -771,9 +771,9 @@ a {
 			@include x-rem(font-size, 0.9);
 		}
 	}
-	// a:hover{
-	// 	color: $primario-celeste;
-	// }
+	a:hover{
+		color: $primario-celeste;
+	}
 }
 
 
@@ -793,8 +793,8 @@ ul.lista_resultados{
 			background-color: $alt-blanco;
 		}
 
-		//&:hover,
-		&.active {
+		&:hover,
+		&.activo {
 			background-color: $alt-gris !important;
 		}
 
@@ -875,7 +875,7 @@ ul.lista_resultados{
 			white-space: nowrap;
 
 			//&:hover, 
-			&.active {
+			&.activo {
 				background-color: $primario-azul_oscuro!important;
 				.punta--izquierda {
 					border-right-color: $primario-azul_oscuro!important;

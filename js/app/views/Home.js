@@ -9,8 +9,8 @@ define([
 		template: _.template(homeTemplate),
 
 		events: {
-			'touchend .home-boton' : 'pressBoton'
-			//'click .home-boton' : 'pressBoton'
+			// 'touchend .home-boton' : 'pressBoton'
+			'click .home-boton' : 'pressBoton'
 		},
 
 		initialize: function() {

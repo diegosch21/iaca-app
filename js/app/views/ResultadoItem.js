@@ -16,12 +16,12 @@ define([
 			_.bindAll(this,'_verImgs','_openPDF');
 		},
 		events: {
-			'touchend .leido i' : 	'changeLeido',
-			'touchend .boton_pdf': 'openPDF',
-			'touchend .boton_img': 'verImgs'
-		//	'click .leido i' : 	'changeLeido',
-		//	'click .boton_pdf': 'openPDF',
-		//	'click .boton_img': 'verImgs'
+			// 'touchend .leido i' : 	'changeLeido',
+			// 'touchend .boton_pdf': 'openPDF',
+			// 'touchend .boton_img': 'verImgs'
+			'click .leido i' : 	'changeLeido',
+			'click .boton_pdf': 'openPDF',
+			'click .boton_img': 'verImgs'
 		},
 
 		render: function() {
