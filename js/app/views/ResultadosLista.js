@@ -225,7 +225,8 @@ define([
 
 		crearScrollerImgs: function() {
 
-			$('#close-imgs').on('touchstart',function() {
+			// $('#close-imgs').on('touchstart',function() {
+			$('#close-imgs').on('click',function() {
 				$('#imgs-wrapper').fadeOut();
 			});
 
