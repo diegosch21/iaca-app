@@ -26,10 +26,10 @@ define([
 
 		},
 		events: {
-			// 'touchstart #ver-mas' : 	'verMas',
-			// 'touchstart #update' : 'updateUsuario'
-			'click #ver-mas' : 	'verMas',
-			'click #update' : 'updateUsuario'
+			'touchstart #ver-mas' : 	'verMas',
+			'touchstart #update' : 'updateUsuario'
+			// 'click #ver-mas' : 	'verMas',
+			// 'click #update' : 'updateUsuario'
 		},
 
 		render: function() {

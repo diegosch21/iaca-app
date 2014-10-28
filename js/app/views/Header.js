@@ -20,8 +20,8 @@ define([
 		},
 
 		events: {
-			// 'touchstart #logout' 	: 'logout'
-			'click #logout' 	: 'logout',
+			'touchstart #logout' 	: 'logout'
+			// 'click #logout' 	: 'logout'
 		},
 
 

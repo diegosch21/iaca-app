@@ -3771,7 +3771,7 @@ a {
   color: #657bc3;
   text-decoration: none;
 }
-a:hover, a:focus {
+a:focus {
   color: #523f89;
 }
 a:focus {
@@ -4014,10 +4014,6 @@ Browse Happy prompt
 }
 .menu-top a {
   color: #eef3fa;
-}
-.menu-top a:hover {
-  color: #eef3fa;
-  background-color: #0056a0;
 }
 
 #nav-top {
@@ -4470,12 +4466,6 @@ a:active {
 #app-header-menu .menu-principal #main-nav > li a {
   white-space: nowrap;
 }
-#app-header-menu .menu-principal #main-nav:hover:hover {
-  z-index: 100;
-}
-#app-header-menu .menu-principal #main-nav.activo:hover {
-  z-index: 50;
-}
 #app-header-menu .menu-principal ul li a {
   padding-top: 0.75em;
   padding-bottom: 0.75em;
@@ -4493,10 +4483,6 @@ a:active {
   font-weight: 500;
   white-space: nowrap;
   padding: 0.5em 0.5em;
-}
-#app-header-menu .dropdown #menu-principal-xs:hover {
-  color: #112535;
-  background-color: #F5F5F5;
 }
 #app-header-menu .dropdown .dropdown-menu {
   font-size: 19px;

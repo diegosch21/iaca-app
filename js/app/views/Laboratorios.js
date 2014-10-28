@@ -10,9 +10,9 @@ define([
 		template: _.template(laboratoriosTemplate),
 
 		events: {
-			// 'touchend .labos-boton' : 'pressBoton',
-			'click .labos-boton' : 'pressBoton',
-			'click #reload' : 'reloadMapa',
+			'touchend .labos-boton' : 'pressBoton',
+			// 'click .labos-boton' : 'pressBoton',
+			'click #reload' : 'reloadMapa'
 		},
 
 		initialize: function(options) {
