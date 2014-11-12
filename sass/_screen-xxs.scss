@@ -165,6 +165,11 @@
 			@include x-rem(margin-top,-1)
 		}	
 	}
+	li.input-login {
+		input {
+			width: 70%;
+		}
+	}
 }
 
 
