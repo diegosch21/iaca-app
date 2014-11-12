@@ -134,8 +134,8 @@ function eventHandlersPhoneGap() {
 			var actualURL = Backbone.history.fragment;
 			console.log('actualURL: '+actualURL);
 			// Desde laboratorios siempre voy a home (para evitar que si vi vengo de un lab vuelva a ese)
-			//// Desde login también va a home
-			if (actualURL == 'laboratorios') { //|| actualURL.substring(0, 5) == 'login') {
+			// Desde login también va a home
+			if (actualURL == 'laboratorios' || actualURL.substring(0, 5) == 'login') {
 				console.log('Go to home');
 				Backbone.history.navigate("home",true);
 			}
