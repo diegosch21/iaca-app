@@ -245,7 +245,7 @@ define([
             var diferencia_segs = (new Date().getTime() - this.get('timestamp'))/1000;
             var diferencia_mins = diferencia_segs/60;
             console.log("checkTimestamp - diferencia en minutos: "+diferencia_mins);
-            if (diferencia_mins < 30) {
+            if (diferencia_mins < 60) {     // VALIDEZ TOKEN: 1 HORA
                 if (callback && 'success' in callback) {
                     callback.success();
                 }
