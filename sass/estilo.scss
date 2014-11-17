@@ -9,7 +9,6 @@
 
 
 //Variables
-@import "variables-app";
 @import "bootstrap/variables";
 @import "variables";
 
@@ -44,6 +43,18 @@
 //@import "bootstrap/responsive-embed";
 
 /**** Fin bootstrap *****/
+
+/************************** FOUNDATION *****************************/
+/*Foundation Block Grid*/
+@import "foundation/components/block-grid"; 
+/* Foundation Flex-video*/
+//@import "foundation/components/flex-video";
+/* Foundation Pagination*/
+//@import "foundation/components/pagination";
+/* Foundation accordion*/
+//@import "foundation/components/_accordion";
+
+/**** Fin foundation ****/
 
 
 /*********************************************************************
