@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.imotionconsulting.iacalaboratorios" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>IACA Laboratorios</name>
+    <description>
+        IACA Laboratorios - Consulta de resultados de análisis de pacientes
+    </description>
+    <author email="info@imotionconsulting.com.ar" href="http://imotionconsulting.com.ar">
+        IMotion Consulting
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+	
+	<preference name="SplashScreen" value="screen"/>
+	<preference name="SplashScreenDelay" value="3000" />
+    <platform name="android">
+    	<!-- Icon -->
+		<icon src="res/icon/android/icon-ldpi.png" density="ldpi" />
+        <icon src="res/icon/android/icon-mdpi.png" density="mdpi" />
+        <icon src="res/icon/android/icon-hdpi.png" density="hdpi" />
+        <icon src="res/icon/android/icon-xhdpi.png" density="xhdpi" />
+        <icon src="res/icon/android/icon-xxhdpi.png" density="xxhdpi" />
+        <icon src="res/icon/android/icon-xxxhdpi.png" density="xxxhdpi" />
+
+		<!-- Splash screen -->
+        <splash src="res/screen/android/land-320x200.9.png" density="land-ldpi"/>
+        <splash src="res/screen/android/land-480x320.9.png" density="land-mdpi"/>
+        <splash src="res/screen/android/land-800x480.9.png" density="land-hdpi"/>
+        <splash src="res/screen/android/land-1280x720.9.png" density="land-xhdpi"/>
+        <splash src="res/screen/android/port-200x320.9.png" density="port-ldpi"/>
+        <splash src="res/screen/android/port-320x480.9.png" density="port-mdpi"/>
+        <splash src="res/screen/android/port-480x800.9.png" density="port-hdpi"/>
+        <splash src="res/screen/android/port-720x1280.9.png" density="port-xhdpi"/>
+    </platform>
+</widget>
