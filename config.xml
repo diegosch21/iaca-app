@@ -19,6 +19,7 @@
     <preference name="permissions" value="none"/>
 
 	<!-- Icons Android -->
+    <icon src="icon.png" />
 	<icon src="res/icon/android/icon-ldpi.png"   gap:platform="android"    gap:qualifier="ldpi" />
     <icon src="res/icon/android/icon-mdpi.png"   gap:platform="android"    gap:qualifier="mdpi" />
     <icon src="res/icon/android/icon-hdpi.png"   gap:platform="android"    gap:qualifier="hdpi" />
@@ -45,6 +46,7 @@
 	<icon src="res/icon/winphone/tileicon-110.png" gap:platform="winphone" gap:role="background" />
 
 	<!-- Splash screen Android -->
+    <gap:splash src="splash.png" />
 	<gap:splash src="res/screen/android/land-320x200.9.png"  gap:platform="android" gap:qualifier="land-ldpi"/>
 	<gap:splash src="res/screen/android/land-480x320.9.png"  gap:platform="android" gap:qualifier="land-mdpi"/>
 	<gap:splash src="res/screen/android/land-800x480.9.png"  gap:platform="android" gap:qualifier="land-hdpi"/>
