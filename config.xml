@@ -2,6 +2,7 @@
 
     <widget xmlns=	"http://www.w3.org/ns/widgets"
         xmlns:gap=	"http://phonegap.com/ns/1.0"
+        xmlns:android= "http://schemas.android.com/apk/res/android"
         id=			"com.imotionconsulting.iacalaboratorios"
         version=	"1.0.1" >
 
@@ -88,7 +89,8 @@
     <access origin="*" />
 
     <gap:config-file platform="android" parent="/manifest">
-        <application android:theme="@android:style/Theme.NoTitleBar"></application>
+        <application android:theme="@android:style/Theme.NoTitleBar">
+        </application>
     </gap:config-file>
 	
 	
