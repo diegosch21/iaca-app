@@ -15,7 +15,10 @@
         IMotion Consulting
     </author>
 
-	<preference name="splash-screen-duration" value="4000"/>
+    <!-- Sólo Android -->
+    <gap:platform name="android" />
+
+	<preference name="splash-screen-duration" value="10000"/>
     <preference name="permissions" value="none"/>
 
 	<!-- Icons Android -->
@@ -79,10 +82,14 @@
 	<!-- PLUGINS -->
 	<gap:plugin name="org.apache.cordova.inappbrowser" version="0.5.2" />
 	<gap:plugin name="org.apache.cordova.dialogs" version="0.2.10" />
-	<gap:plugin name="org.apache.cordova.splashscreen" version="0.3.4" />
+
     
 
     <access origin="*" />
+
+    <gap:config-file platform="android" parent="/manifest">
+        <application android:theme="@android:style/Theme.NoTitleBar"></application>
+    </gap:config-file>
 	
 	
 </widget>
