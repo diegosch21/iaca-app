@@ -16,7 +16,7 @@
     </author>
 
 	<preference name="splash-screen-duration" value="4000"/>
-
+    <preference name="permissions" value="none"/>
 
 	<!-- Icons Android -->
 	<icon src="res/icon/android/icon-ldpi.png"   gap:platform="android"    gap:qualifier="ldpi" />
