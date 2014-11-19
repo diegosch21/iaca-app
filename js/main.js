@@ -16,7 +16,7 @@ require.config({
         underscore: 'underscore-1.6.0.min',
         backbone: 'backbone-1.1.2.min',
         localstorage: 'backbone.localStorage-min',
-        modernizr: 'modernizr-2.8.0.min',
+        //modernizr: 'modernizr-2.8.0.min',
         bootstrap: 'bootstrap-3.2.0.min',
         iscroll: 'iscroll-zoom'
     }, 
@@ -33,16 +33,21 @@ require.config({
 			exports: 'Store'
 		},
 		bootstrap: {
-			deps: ['jquery']
+			deps: ['jquery'],
+			exports: '$.fn.dropdown'
 		},
 		iscroll: {
 			exports: 'IScroll'
 		}
+		// modernizr: {
+		// 	exports: 'Modernizr'
+		// }
 	},
-	waitSeconds: 20
+	waitSeconds: 20,
+	enforceDefine: true
 });
 
-require(['jquery', 'underscore', 'backbone', 'iscroll','modernizr', 'bootstrap'], 
+define(['jquery', 'underscore', 'backbone', 'iscroll','bootstrap'], //'modernizr'
 	function ($,_, Backbone, IScroll) {
 
 	   	/* Document ready */
@@ -69,6 +74,8 @@ require(['jquery', 'underscore', 'backbone', 'iscroll','modernizr', 'bootstrap']
 
 		/* Device ready */
 		document.addEventListener("deviceready", eventHandlersPhoneGap, false);
+
+
 		
 	}	
 );

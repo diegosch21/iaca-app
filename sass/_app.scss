@@ -452,6 +452,11 @@ a {
 		padding-top: 20px;
 		font-size: 18px;
 	}
+	#loading-map {
+		padding-top: 20px;
+		text-align: center;
+		display: none;
+	} 
 	position: relative;
 	@include x-rem(margin-top, 1);
 	@include x-rem(margin-bottom, 1);
