@@ -165,8 +165,8 @@
 			@include x-rem(margin-top,-1)
 		}	
 	}
-	li.input-login {
-		input {
+	.input-login {
+		input[type="password"], input[type="text"]{
 			width: 70%;
 		}
 	}
