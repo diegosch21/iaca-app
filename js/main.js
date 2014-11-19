@@ -68,16 +68,7 @@ require(['jquery', 'underscore', 'backbone', 'iscroll','modernizr', 'bootstrap']
 		});
 
 		/* Device ready */
-		if(window.deviceready) {
-			// ya se lanzo el evento deviceready
-			eventHandlersPhoneGap();
-		}
-		else {
-			$(document).on('deviceready',function() {
-				console.log('deviceready en main.js');
-				eventHandlersPhoneGap();
-			})
-		}
+		document.addEventListener("deviceready", eventHandlersPhoneGap, false);
 		
 	}	
 );
@@ -123,6 +114,7 @@ function eventHandlersGenerales() {
 
 function eventHandlersPhoneGap() {
 	console.log('eventHandlersPhoneGap');
+	window.deviceready = true;
 	
 	// Evento boton atrás celu
 	$(document).on('backbutton',function(e) {
