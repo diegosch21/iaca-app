@@ -45,7 +45,7 @@ define([
 				},
 				function(err) {
 					self.$el.find('#loading-map').hide();
-					if (window.deviceready) { 
+					if (window.deviceready && window.plugins && window.plugins.toast) { 
     					window.plugins.toast.showLongBottom('No se puede cargar el mapa: verifique la conexión a internet');
     				}
 				}

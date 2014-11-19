@@ -5149,6 +5149,13 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf.activo .punta--izquierd
   padding: 16px;
   padding: 1rem;
 }
+#imgs-wrapper #loading-img {
+  position: fixed;
+  width: 100%;
+  top: 40%;
+  text-align: center;
+  color: #dadeec;
+}
 #imgs-wrapper .result-img {
   text-align: center;
   padding: 20px;

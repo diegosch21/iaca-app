@@ -78,7 +78,7 @@ define([
 			}
 		},
 		alerta: function(msj,selector,long) {
-			if (window.deviceready) { 
+			if (window.deviceready && window.plugins && window.plugins.toast) { 
 				if(long)
 					window.plugins.toast.showLongCenter(msj);
 				else

@@ -929,6 +929,13 @@ ul.lista_resultados{
 			@include x-rem(padding,1);
 		}
 	}
+	#loading-img {
+		position: fixed;
+		width: 100%;
+		top: 40%;
+		text-align: center;
+		color: $alt-gris_claro;
+	}
 	.result-img {
 		text-align: center;
 		padding: 20px;

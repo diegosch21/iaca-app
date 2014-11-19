@@ -42,7 +42,7 @@ define([
 					mapa.setMarkers([self.model.toJSON()]);
 				},
 				function(err) {
-					if (window.deviceready) { 
+					if (window.deviceready && window.plugins && window.plugins.toast) { 
     					window.plugins.toast.showLongBottom('No se puede cargar el mapa: verifique la conexión a internet');
     				}
     				self.$el.find('#loading-map').hide();
