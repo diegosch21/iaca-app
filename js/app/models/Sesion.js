@@ -158,6 +158,8 @@ define([
 			this.set("logueado",true);
             this.set("timestamp",new Date().getTime());
         	this.save();
+
+            //SI HAY NOTIF: ENVIAR TIPO DISPOSITIVO Y TOKEN (PARA NOTIFICACION) AL SERVER
         },
 
         logout: function() {
@@ -168,6 +170,8 @@ define([
             this.set("timestamp",new Date().getTime());
         	this.save();
         	console.log("Logueado: "+false);
+
+            //SI HAY NOTIF: ENVIAR AL SERVER DESLOGIN DE LAS NOTIF
         },
 
         crearUsuario: function(id,name,pass) {
@@ -261,6 +265,6 @@ define([
         
 
     });
-    return new sesionModel;
+    return new sesionModel; //SINGLETON
 
 });
