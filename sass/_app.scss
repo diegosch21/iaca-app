@@ -422,6 +422,9 @@ a {
 	padding-left: 0;
 	padding-right: 0;
 	@include x-rem(margin, 1 0);
+	span {
+		@include x-rem(padding, 0 0.5);
+	}
 }
 .home-boton {
 	@extend .row;

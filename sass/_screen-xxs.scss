@@ -76,9 +76,7 @@
 .home-item {
 	@include x-rem(padding, 1 0.5);
     margin: 0;
-    &.destacado {
-    	@include x-rem(padding-bottom, 2);
-    }
+
 }
 #app-home {
 	.home-item {
