@@ -74,9 +74,27 @@
 
 //* Home */
 .home-item {
-	@include x-rem(padding, 0.5);
+	@include x-rem(padding, 1 0.5);
     margin: 0;
+    &.destacado {
+    	@include x-rem(padding-bottom, 2);
+    }
 }
+#app-home {
+	.home-item {
+		@include x-rem(margin, 0.5 0);
+		&.destacado{
+			@include x-rem(margin, 0.5 0);
+		}
+	}
+}
+
+#app-info {
+	.home-item {
+		@include x-rem(padding, 0.5 0.5);
+	}
+}
+
 .home-boton {
 	.banner-horizontal {
 		@include x-rem(height,4);
@@ -90,6 +108,24 @@
 		.contenido--banner {
 			span {
 				@include x-rem(font-size,2);
+			}
+		}
+	}
+
+	&.destacado {
+		.banner-horizontal {
+			@include x-rem(height,6);
+			@include boton-punta-correccion-costado(6,1.25);
+			.header--banner {
+
+				span {
+					@include x-rem(font-size,1.3);
+				}
+			}
+			.contenido--banner {
+				span {
+					@include x-rem(font-size,2.5);
+				}
 			}
 		}
 	}
@@ -148,8 +184,9 @@
     .header--banner{
       width: 100%;
       //@include x-rem(margin-right, 1.5);
-      //@include x-rem(padding, 1.5 0);
+      @include x-rem(padding, 1 0);
       text-align: center;
+      @include x-rem(height,2);
     }
 
     .contenedor_sede{
@@ -158,6 +195,10 @@
       //@include x-rem(padding, 0.5 1);
       //width: 30%;
 
+    }
+
+    .h3 {
+    	margin: 0;
     }
   }
 }

@@ -282,6 +282,10 @@ a {
 		}
 		
 	}
+
+	.header-login {
+		@include x-rem(padding-right,1.5);
+	}
 }
 
 /** Logo y menu principal **/
@@ -402,13 +406,22 @@ a {
 	//position: absolute;
 	//height: 95%; //para que el contenido se estire a lo alto (en combinación con height 25% de home item)
 	width: 100%;
+
+	.home-item {
+		@include x-rem(margin, 2 0);
+		&.destacado {
+			@include x-rem(margin-top, 3);
+			@include x-rem(margin-bottom, 4);
+		}
+	}
 }
+
 .home-item {/** Clase usada tambien para los botones de la sección información **/
 	//@include x-rem(min-height,5);
 	//height: 25%;
 	padding-left: 0;
 	padding-right: 0;
-	@include x-rem(margin, 1 0 0.5);
+	@include x-rem(margin, 1 0);
 }
 .home-boton {
 	@extend .row;
@@ -417,6 +430,28 @@ a {
 		@include x-rem(height,6);	
 		@include boton-punta-correccion-alto(6);
 		@include boton-activo(gris);
+		.header--banner {
+			span {
+				@include x-rem(font-size,1.3);
+			}
+		}
+	}
+	&.destacado {
+		.banner-horizontal {
+			@include x-rem(height,10);	
+			@include boton-punta-correccion-costado(10,2);
+			@include boton-activo(gris);
+			.header--banner {
+				span {
+					@include x-rem(font-size,1.5);
+				}
+			}
+			.contenido--banner {
+				span {
+					@include x-rem(font-size,5);
+				}
+			}
+		}
 	}
 	
 }
@@ -566,19 +601,26 @@ a {
 	padding-bottom: 150px;
 }
 
-.app-info_contacto{
-
-  //@include x-rem(margin-bottom, 1);
+.app-info_contacto {
+	@include x-rem(margin-top, 3);
+}
+.app-info_contacto, .app-wrapper-certificaciones{
+	text-align: center;
   
+  padding-left: 0;
+  padding-right: 0;
+ 
 
-  .banner_contacto{
-    //max-width: 480px;
+  .banner_contacto, .app_certificaciones{
+	  max-width: 450px;    
     @include x-rem(margin, 1 auto);
 
-	@include header-banner-punta(8,30%);
+	.header--banner {
+		width: 100%;
+	}
 
 	.h3 {
-		@include x-rem(margin, 1.5 0);
+		@include x-rem(margin, 0.5 0);
 	}	
     /*.contenido--banner{
       width: 73%;
@@ -587,6 +629,7 @@ a {
     }*/
 
     .contenedor_sede{
+    	text-align: left;
       display: inline-block;
       vertical-align: top;
       @include x-rem(padding, 0.5 1);

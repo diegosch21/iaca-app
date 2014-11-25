@@ -169,7 +169,7 @@ function eventHandlersPhoneGap() {
 	// se oculta desp de 3 segs
 
 	// registro dispositivo para push notifications
-	console.log(device.platform);
+	console.log("device.platform: "+device.platform);
 	registrarPushNotification(device.platform);
 }
 

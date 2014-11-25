@@ -29,6 +29,31 @@ html {
   }
 }
 
+.home-item {
+	@include x-rem(padding,0 2);
+}
+
+.home-boton {
+	max-width: 600px;
+	.banner-horizontal {
+		.header--banner {
+			span {
+				@include x-rem(font-size,1.5);
+			}
+		}
+	}
+	&.destacado {
+		.banner-horizontal {
+			.header--banner {
+				span {
+					@include x-rem(font-size,1.8);
+				}
+			}
+		}
+	}
+	
+}
+
 //* Labos */
 .labos-boton {
   max-width: 380px;
