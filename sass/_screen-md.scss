@@ -30,7 +30,7 @@ html {
 }
 #app-home {
   .home-item, div.botones-social {
-    @include x-rem(margin,5 0);
+    @include x-rem(margin,4 0);
     &.destacado {
       @include x-rem(margin-top, 5);
       @include x-rem(margin-bottom, 3);

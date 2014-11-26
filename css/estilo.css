@@ -5926,8 +5926,8 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf.activo .punta--izquierd
   }
 
   #app-home .home-item, #app-home div.botones-social {
-    margin: 80px 0;
-    margin: 5rem 0;
+    margin: 64px 0;
+    margin: 4rem 0;
   }
   #app-home .home-item.destacado, #app-home div.botones-social.destacado {
     margin-top: 80px;
