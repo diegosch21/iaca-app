@@ -21,7 +21,7 @@ define([
 
 		events: {
 			//'touchstart #logout' 	: 'logout',
-			 'click #logout' 	: 'logout'
+			 'click #logout' 	: 'logout',
 			//'click a' : 'disableClick',
 			//'touchstart a.toggle-dropdown'	: 'dropdownMenu',
 			//'touchstart a.classic-link' : 	'classicLink',
