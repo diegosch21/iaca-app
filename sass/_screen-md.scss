@@ -2,7 +2,7 @@ html {
   
 }
 #content-wrapper {
-  top: 137px;
+  top: 145px;
 }
 
 //** Header **/
@@ -28,7 +28,17 @@ html {
     }
   }
 }
+#app-home {
+  .home-item, div.botones-social {
+    @include x-rem(margin,5 0);
+    &.destacado {
+      @include x-rem(margin-top, 5);
+      @include x-rem(margin-bottom, 3);
+    }
+  }
+  
 
+}
 .home-item {
 	@include x-rem(padding,0 2);
 }

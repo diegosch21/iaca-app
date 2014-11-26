@@ -46,6 +46,10 @@
 	width: 50%!important;
 	@extend %col-xxs;
 } 
+.col-xxs-12 {
+	width: 100%!important;
+	@extend %col-xxs;
+} 
 
 .col-xxs-offset-1 {
 	margin-left: 8.33333%!important;
@@ -54,9 +58,12 @@
 //*Header */
 
 #nav-top {
-	.menu-profesional {
-		div.dropdown  {
-			font-size: 14px;
+	>li {
+		&.menu-profesional {
+			line-height: 1.5;
+			div.dropdown  {
+				font-size: 14px;
+			}
 		}
 	}
 }
@@ -86,7 +93,18 @@
 		}
 	}
 }
+div.botones-social {
+	@include x-rem(margin, 1 0);
+	div.redes-sociales {	
+	
+    	a {
 
+    		padding: 5px;
+    	}
+
+
+	}
+}
 #app-info {
 	.home-item {
 		@include x-rem(padding, 0.5 0.5);
@@ -203,6 +221,10 @@
 
 //** Login **/
 #app-login {
+	.acceso_login {
+
+		@include x-rem(margin-top,2);
+	}
 	.contenedor-con-punta {
 		.h4 {
 			white-space: normal;

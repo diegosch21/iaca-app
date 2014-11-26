@@ -1,21 +1,29 @@
 #content-wrapper {
   padding-top: 10px;    
-  top: 115px;
+  top: 123px;
 }
 
 
 //* Home */
-.home-item {
-  @include x-rem(height,7);
-  padding-left: 20px;
-  padding-right: 20px;
-
-}
-
 #app-home {
   .home-item {
-    @include x-rem(margin,5 0);
+    &.destacado {
+      @include x-rem(height,10);
+      @include x-rem(margin-top, 4);
+    }
+
   }
+}
+
+.home-item {
+    @include x-rem(height,6);
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+div.botones-social {
+  @include x-rem(margin, 3 0);
+
 }
 
 //* Labos */
@@ -103,5 +111,12 @@ ul.lista_resultados{
     }*/
 
     
+  }
+}
+
+#app-login {
+  .acceso_login {
+
+    @include x-rem(margin-top,4);
   }
 }

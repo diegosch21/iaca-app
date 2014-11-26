@@ -109,7 +109,7 @@ a {
 
 #content-wrapper {	
 	position:absolute;
-	top: 109px;
+	top: 117px;
 	padding-top: 5px;
     left:0px;
     right:0px;
@@ -262,12 +262,28 @@ a {
       		margin-right: 0.5em;
     	}
 
+    	&.back {
+    		text-align: left;
+    		margin: 0;
+    		padding: 0;
+    		i.fa {
+    			padding-left: 5px;
+    			padding-right: 5px;
+    			font-weight: 500;
+    			margin: 0;
+    		}
+    	}
+
 		&.redes-sociales {
 			text-align: left;
 			a{
 				padding-top: 0.5em;
 				padding-bottom: 0.5em;
 			}
+		}
+
+		&.menu-profesional {
+			line-height: 2;
 		}
 	}
 
@@ -321,15 +337,17 @@ a {
 		@include x-rem(margin-top, 0);
 		#main-nav {
 			  display: block;
-			  display: -webkit-box;
-			  display: -moz-box;
-			  display: -ms-flexbox;
-			  display: -webkit-flex;
-			  display: flex;
-			  justify-content: space-between;
-			  position: relative;
+			  margin-right: 10px;
+			  // display: -webkit-box;
+			  // display: -moz-box;
+			  // display: -ms-flexbox;
+			  // display: -webkit-flex;
+			  // display: flex;
+			  // justify-content: space-between;
+			  // position: relative;
 
 			  >li{
+			  	text-align: center;
 			    a {
 					white-space: nowrap;
 				}
@@ -457,6 +475,29 @@ a {
 		}
 	}
 	
+}
+
+div.botones-social {
+	@include x-rem(margin, 2 0);
+	text-align: center;
+	div.redes-sociales {	
+
+		
+		max-width: 450px;
+	    margin: 0 auto;
+    	a {
+    		color: $alt-blanco;
+    		i {
+    			line-height: 2;
+    		}
+    		&.activo {
+    			color: $alt-gris;
+    		}
+    		padding: 20px;
+    	}
+
+
+	}
 }
 /***** Fin home *****/
 
@@ -679,6 +720,7 @@ a {
 	.acceso_login {
 		@include header-banner-punta(5,60%);
 		@include x-rem(margin-bottom,1);	
+		@include x-rem(margin-top,3);
 	}
 	.usuarios-guardados{
 		@include header-banner-punta(4,60%);
