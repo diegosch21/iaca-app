@@ -18,10 +18,14 @@
 
     
     <gap:platform name="android" />
-    <gap:platform name="ios" />
-
-	<preference name="splash-screen-duration" value="10000"/>
+    <preference name="splash-screen-duration" value="10000"/>
     <preference name="permissions" value="none"/>
+    
+    <gap:platform name="ios" />
+    
+    <gap:platform name="winphone" />
+
+
 
 	<!-- Icons Android -->
     <icon src="icon.png" />
