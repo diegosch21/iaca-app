@@ -5017,6 +5017,11 @@ div.botones-social div.redes-sociales a.activo {
   -webkit-transform: translate3d(0, 10000px, 0);
   transform: translate3d(0, 10000px, 0);
 }
+#app-login input[type='submit'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
 
 /****** Fin login **********/
 /******** Template resultados ********/

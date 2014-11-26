@@ -789,6 +789,12 @@ div.botones-social {
   		transform: translate3d(0, 10000px, 0);
   		
 	}
+	input[type='submit']
+	{
+   		-webkit-appearance: none;
+   		-moz-appearance: none;
+   		appearance: none;  
+	}
 
 
 }
