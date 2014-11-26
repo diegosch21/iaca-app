@@ -65,7 +65,7 @@
 			@include x-rem(border-top-width,$height/2);
 			@include x-rem(border-bottom-width,$height/2);
 			@include x-rem(border-left-width,$height/4);
-			@include x-rem(right,-$height/4-0.2);
+			@include x-rem(right,-$height/4-0.15);
 			border-right-color: transparent;
 			border-top-color: transparent;
 			border-bottom-color: transparent;

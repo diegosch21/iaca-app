@@ -88,26 +88,28 @@ a {
 }
 
 #header {
-	//position: fixed;
-	padding: 0;	
-  	right: 0;
-  	left: 0;
-  	top: 0;
+	// -webkit-transform: translateZ(0);
+	// -webkit-backface-visibility: hidden;
+	// //position: fixed;
+	// padding: 0;	
+ //  	right: 0;
+ //  	left: 0;
+ //  	top: 0;
   	border-width: 0 0 1px;
-  	//height: 120px;
-  	z-index: 9999;
-  	background-color: #FFF;
+ //  	//height: 120px;
+ //  	z-index: 9999;
+ //  	background-color: #FFF;
   	margin-bottom: 0;
   	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
 	
-	//iScroll: 		
-  	position: absolute;
-	width: 100%;
+	// //iScroll: 		
+ //  	position: absolute;
+	// width: 100%;
 }
 
 #content-wrapper {	
 	position:absolute;
-	top: 110px;
+	top: 117px;
 	padding-top: 5px;
     left:0px;
     right:0px;
@@ -260,12 +262,28 @@ a {
       		margin-right: 0.5em;
     	}
 
+    	&.back {
+    		text-align: left;
+    		margin: 0;
+    		padding: 0;
+    		i.fa {
+    			padding-left: 5px;
+    			padding-right: 5px;
+    			font-weight: 500;
+    			margin: 0;
+    		}
+    	}
+
 		&.redes-sociales {
 			text-align: left;
 			a{
 				padding-top: 0.5em;
 				padding-bottom: 0.5em;
 			}
+		}
+
+		&.menu-profesional {
+			line-height: 2;
 		}
 	}
 
@@ -279,6 +297,10 @@ a {
 			}
 		}
 		
+	}
+
+	.header-login {
+		@include x-rem(padding-right,1.5);
 	}
 }
 
@@ -315,37 +337,39 @@ a {
 		@include x-rem(margin-top, 0);
 		#main-nav {
 			  display: block;
-			  display: -webkit-box;
-			  display: -moz-box;
-			  display: -ms-flexbox;
-			  display: -webkit-flex;
-			  display: flex;
-			  justify-content: space-between;
-			  position: relative;
+			  margin-right: 10px;
+			  // display: -webkit-box;
+			  // display: -moz-box;
+			  // display: -ms-flexbox;
+			  // display: -webkit-flex;
+			  // display: flex;
+			  // justify-content: space-between;
+			  // position: relative;
 
 			  >li{
+			  	text-align: center;
 			    a {
 					white-space: nowrap;
 				}
 
 			  }
 
-			  //&:active,
-			 // html.no-touch &:hover
-			 &:hover{
-			  //  li:active,
-			    //html.no-touch &:hover
-			    &:hover{
-			      z-index: 100
-			  	}
-			  }
-			  &.activo{
-			  //  li:active,
-			    //html.no-touch &:hover
-			    &:hover{
-			      z-index: 50
-			  	}
-			  }
+			 //  //&:active,
+			 // // html.no-touch &:hover
+			 // &:hover{
+			 //  //  li:active,
+			 //    //html.no-touch &:hover
+			 //    &:hover{
+			 //      z-index: 100
+			 //  	}
+			 //  }
+			 //  &.activo{
+			 //  //  li:active,
+			 //    //html.no-touch &:hover
+			 //    &:hover{
+			 //      z-index: 50
+			 //  	}
+			 //  }
 		}
 
 		ul {
@@ -373,10 +397,10 @@ a {
 
 		//	&:active,
 			//html.no-touch &:hover
-			&:hover{
-			  	color: $alt-negro;
-		       background-color: #F5F5F5;
-  			};
+			// &:hover{
+			// 	color: $alt-negro;
+			// 	background-color: #F5F5F5;
+			// };
 			padding: 0.5em 0.5em;
 		}
 		.dropdown-menu {
@@ -400,13 +424,25 @@ a {
 	//position: absolute;
 	//height: 95%; //para que el contenido se estire a lo alto (en combinación con height 25% de home item)
 	width: 100%;
+
+	.home-item {
+		@include x-rem(margin, 2 0);
+		&.destacado {
+			@include x-rem(margin-top, 3);
+			@include x-rem(margin-bottom, 4);
+		}
+	}
 }
+
 .home-item {/** Clase usada tambien para los botones de la sección información **/
 	//@include x-rem(min-height,5);
 	//height: 25%;
 	padding-left: 0;
 	padding-right: 0;
-	@include x-rem(margin, 1 0 0.5);
+	@include x-rem(margin, 1 0);
+	span {
+		@include x-rem(padding, 0 0.5);
+	}
 }
 .home-boton {
 	@extend .row;
@@ -415,8 +451,53 @@ a {
 		@include x-rem(height,6);	
 		@include boton-punta-correccion-alto(6);
 		@include boton-activo(gris);
+		.header--banner {
+			span {
+				@include x-rem(font-size,1.3);
+			}
+		}
+	}
+	&.destacado {
+		.banner-horizontal {
+			@include x-rem(height,10);	
+			@include boton-punta-correccion-costado(10,2);
+			@include boton-activo(gris);
+			.header--banner {
+				span {
+					@include x-rem(font-size,1.5);
+				}
+			}
+			.contenido--banner {
+				span {
+					@include x-rem(font-size,5);
+				}
+			}
+		}
 	}
 	
+}
+
+div.botones-social {
+	@include x-rem(margin, 2 0);
+	text-align: center;
+	div.redes-sociales {	
+
+		
+		max-width: 450px;
+	    margin: 0 auto;
+    	a {
+    		color: $alt-blanco;
+    		i {
+    			line-height: 2;
+    		}
+    		&.activo {
+    			color: $alt-gris;
+    		}
+    		padding: 20px;
+    	}
+
+
+	}
 }
 /***** Fin home *****/
 
@@ -450,6 +531,11 @@ a {
 		padding-top: 20px;
 		font-size: 18px;
 	}
+	#loading-map {
+		padding-top: 20px;
+		text-align: center;
+		display: none;
+	} 
 	position: relative;
 	@include x-rem(margin-top, 1);
 	@include x-rem(margin-bottom, 1);
@@ -559,19 +645,26 @@ a {
 	padding-bottom: 150px;
 }
 
-.app-info_contacto{
-
-  //@include x-rem(margin-bottom, 1);
+.app-info_contacto {
+	@include x-rem(margin-top, 3);
+}
+.app-info_contacto, .app-wrapper-certificaciones{
+	text-align: center;
   
+  padding-left: 0;
+  padding-right: 0;
+ 
 
-  .banner_contacto{
-    //max-width: 480px;
+  .banner_contacto, .app_certificaciones{
+	  max-width: 450px;    
     @include x-rem(margin, 1 auto);
 
-	@include header-banner-punta(8,30%);
+	.header--banner {
+		width: 100%;
+	}
 
 	.h3 {
-		@include x-rem(margin, 1.5 0);
+		@include x-rem(margin, 0.5 0);
 	}	
     /*.contenido--banner{
       width: 73%;
@@ -580,6 +673,7 @@ a {
     }*/
 
     .contenedor_sede{
+    	text-align: left;
       display: inline-block;
       vertical-align: top;
       @include x-rem(padding, 0.5 1);
@@ -624,7 +718,9 @@ a {
 /******** Template Login ********/
 #app-login {
 	.acceso_login {
-		@include header-banner-punta(5,60%);	
+		@include header-banner-punta(5,60%);
+		@include x-rem(margin-bottom,1);	
+		@include x-rem(margin-top,3);
 	}
 	.usuarios-guardados{
 		@include header-banner-punta(4,60%);
@@ -634,6 +730,11 @@ a {
 		}
 		#error-login-guardado {
 			@include x-rem(margin,1);
+		}
+		span.delete-guardado {
+			position: absolute;
+			right: 15px;
+			top: 10px;
 		}
 	}
 	.contenedor-con-punta {
@@ -651,25 +752,33 @@ a {
 
 	}
 
-	ul.row {
-		margin-left: 0;
-		margin-right: 0;
+	form {
+		@include x-rem(padding, 1);
 	}
 
-	li.input-login {
-		
+	.input-login {
+		text-align: center;
 		@include header-banner-punta(3,100%);
 		label {
 			display: inline;
 			i {
 				@include x-rem(width, 2);
 			}
-			@include x-rem(padding-left, 1.5);
+			@include x-rem(padding-left, 0.75);
 
 		}
-		input {
-			@include x-rem(height, 3);
-			@include x-rem(padding, 0.5 1.5)
+		input[type="password"], input[type="text"] {
+			@include x-rem(height, 2.5);
+			@include x-rem(padding-left, 1.5);
+			padding-bottom: 0px;
+			padding-top: 0px;
+			@include x-rem(margin-left, -0.5);
+			width: 80%;
+			@include x-rem(max-width,24);
+			display: inline-block;
+		}
+		.boton--enviar {
+			margin: 0;
 		}
 	}
 
@@ -679,6 +788,12 @@ a {
   		-webkit-transform: translate3d(0, 10000px, 0);
   		transform: translate3d(0, 10000px, 0);
   		
+	}
+	input[type='submit']
+	{
+   		-webkit-appearance: none;
+   		-moz-appearance: none;
+   		appearance: none;  
 	}
 
 
@@ -771,9 +886,9 @@ a {
 			@include x-rem(font-size, 0.9);
 		}
 	}
-	a:hover{
-		color: $primario-celeste;
-	}
+	//a:hover{
+	//	color: $primario-celeste;
+//	}
 }
 
 
@@ -793,7 +908,7 @@ ul.lista_resultados{
 			background-color: $alt-blanco;
 		}
 
-		&:hover,
+	//	&:hover,
 		&.activo {
 			background-color: $alt-gris !important;
 		}
@@ -874,12 +989,10 @@ ul.lista_resultados{
 			cursor: pointer;
 			white-space: nowrap;
 
-			//&:hover, 
 			&.activo {
 				background-color: $primario-azul_oscuro!important;
 				.punta--izquierda {
 					border-right-color: $primario-azul_oscuro!important;
-
 				}
 			}
 		}		
@@ -911,18 +1024,30 @@ ul.lista_resultados{
 		min-width: 650px; 
 	}
 
-	#close-imgs-wrapper {
+	#close-imgs-wrapper, #back-imgs-wrapper {
 		position: fixed;
-		width: 100%;
+		width: 50%;
 		top: 0;
-		left: 0;
+		#close-imgs, #back-imgs {
+			text-shadow: 1px 1px 1px $alt-gris_oscuro;
+			color: $alt-gris_claro;
+			@include x-rem(padding,0 1);
+		}
+	}
+	#close-imgs-wrapper {
 		right: 0;
 		text-align: right;
-		#close-imgs {
-			text-shadow: 1px 1px 1px $alt-gris_claro;
-			color: $alt-gris_oscuro;
-			@include x-rem(padding,1);
-		}
+	}
+	#back-imgs-wrapper {
+		left: 0;
+		text-align: left;
+	}
+	#loading-img {
+		position: fixed;
+		width: 100%;
+		top: 40%;
+		text-align: center;
+		color: $alt-gris_claro;
 	}
 	.result-img {
 		text-align: center;

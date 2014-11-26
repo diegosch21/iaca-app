@@ -8,7 +8,7 @@ define([
 		template: _.template(infoTemplate),
 
 		events: {
-			// 'touchend .external-link' : 'externalLink'
+			//'touchend .external-link' : 'externalLink'
 			'click .external-link' : 'externalLink'
 		},
 

@@ -1,13 +1,29 @@
 #content-wrapper {
   padding-top: 10px;    
+  top: 123px;
 }
 
 
 //* Home */
+#app-home {
+  .home-item {
+    &.destacado {
+      @include x-rem(height,10);
+      @include x-rem(margin-top, 4);
+    }
+
+  }
+}
+
 .home-item {
-  @include x-rem(height,7);
-  padding-left: 20px;
-  padding-right: 20px;
+    @include x-rem(height,6);
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+div.botones-social {
+  @include x-rem(margin-top, 8);
+
 }
 
 //* Labos */
@@ -67,5 +83,40 @@ ul.lista_resultados{
       }
     }
     @include boton-punta-correccion-costado(4,1.5);
+  }
+}
+
+
+.app-info_contacto, .app-wrapper-certificaciones{
+
+  //@include x-rem(margin-bottom, 1);
+ 
+  padding-left: 15px;
+  padding-right: 15px;
+
+  .banner_contacto, .app_certificaciones{
+    //max-width: 480px;
+     max-width: 100%;
+    @include x-rem(margin, 1 auto);
+
+    @include header-banner-punta(8,30%);
+
+    .h3 {
+      @include x-rem(margin, 1.5 0);
+    } 
+    /*.contenido--banner{
+      width: 73%;
+      padding-top: 0;
+      padding-bottom: 0;
+    }*/
+
+    
+  }
+}
+
+#app-login {
+  .acceso_login {
+
+    @include x-rem(margin-top,4);
   }
 }
