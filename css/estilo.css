@@ -5722,8 +5722,8 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf.activo .punta--izquierd
   }
 
   div.botones-social {
-    margin: 48px 0;
-    margin: 3rem 0;
+    margin-top: 128px;
+    margin-top: 8rem;
   }
 
   .labos-boton .banner-horizontal {
@@ -5931,12 +5931,12 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf.activo .punta--izquierd
   }
 
   #app-home .home-item, #app-home div.botones-social {
-    margin: 64px 0;
-    margin: 4rem 0;
+    margin: 48px 0;
+    margin: 3rem 0;
   }
   #app-home .home-item.destacado, #app-home div.botones-social.destacado {
-    margin-top: 80px;
-    margin-top: 5rem;
+    margin-top: 64px;
+    margin-top: 4rem;
     margin-bottom: 48px;
     margin-bottom: 3rem;
   }
