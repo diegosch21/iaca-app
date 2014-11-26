@@ -5268,19 +5268,24 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf.activo .punta--izquierd
 #imgs-wrapper .scroller {
   min-width: 650px;
 }
-#imgs-wrapper #close-imgs-wrapper {
+#imgs-wrapper #close-imgs-wrapper, #imgs-wrapper #back-imgs-wrapper {
   position: fixed;
-  width: 100%;
+  width: 50%;
   top: 0;
-  left: 0;
+}
+#imgs-wrapper #close-imgs-wrapper #close-imgs, #imgs-wrapper #close-imgs-wrapper #back-imgs, #imgs-wrapper #back-imgs-wrapper #close-imgs, #imgs-wrapper #back-imgs-wrapper #back-imgs {
+  text-shadow: 1px 1px 1px #54676d;
+  color: #dadeec;
+  padding: 0 16px;
+  padding: 0 1rem;
+}
+#imgs-wrapper #close-imgs-wrapper {
   right: 0;
   text-align: right;
 }
-#imgs-wrapper #close-imgs-wrapper #close-imgs {
-  text-shadow: 1px 1px 1px #dadeec;
-  color: #54676d;
-  padding: 16px;
-  padding: 1rem;
+#imgs-wrapper #back-imgs-wrapper {
+  left: 0;
+  text-align: left;
 }
 #imgs-wrapper #loading-img {
   position: fixed;

@@ -1024,18 +1024,23 @@ ul.lista_resultados{
 		min-width: 650px; 
 	}
 
-	#close-imgs-wrapper {
+	#close-imgs-wrapper, #back-imgs-wrapper {
 		position: fixed;
-		width: 100%;
+		width: 50%;
 		top: 0;
-		left: 0;
+		#close-imgs, #back-imgs {
+			text-shadow: 1px 1px 1px $alt-gris_oscuro;
+			color: $alt-gris_claro;
+			@include x-rem(padding,0 1);
+		}
+	}
+	#close-imgs-wrapper {
 		right: 0;
 		text-align: right;
-		#close-imgs {
-			text-shadow: 1px 1px 1px $alt-gris_claro;
-			color: $alt-gris_oscuro;
-			@include x-rem(padding,1);
-		}
+	}
+	#back-imgs-wrapper {
+		left: 0;
+		text-align: left;
 	}
 	#loading-img {
 		position: fixed;
