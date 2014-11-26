@@ -9,12 +9,14 @@ define([
 		template: _.template(laboTemplate),
 
 		events: {
-			'touchend #back' : 'botonBack',
-			// 'click #back' : 'botonBack',
-			'touchstart .external-link' : 'externalLink',
-			// 'click .external-link' : 'externalLink',
-			'touchstart #reload' : 'mapaLabo',
-			'touchstart #reload' : 'reloadMapa'
+			// 'touchend #back' : 'botonBack',
+			'click #back' : 'botonBack',
+			// 'touchstart .external-link' : 'externalLink',
+			'click .external-link' : 'externalLink',
+			// 'touchstart #reload' : 'mapaLabo',
+			// 'touchstart #reload' : 'reloadMapa'
+			'click #reload' : 'mapaLabo',
+			'click #reload' : 'reloadMapa'
 		},
 
 		initialize: function(options) {

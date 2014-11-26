@@ -20,14 +20,19 @@ define([
 		},
 
 		events: {
-			'touchstart #logout' 	: 'logout',
-			// 'click #logout' 	: 'logout'
-			'click a' : 'disableClick',
+			//'touchstart #logout' 	: 'logout',
+			 'click #logout' 	: 'logout'
+			//'click a' : 'disableClick',
 			//'touchstart a.toggle-dropdown'	: 'dropdownMenu',
-			'touchstart a.classic-link' : 	'classicLink',
-			'touchend ul.dropdown-menu' : 'closeDropdown',
-			'touchstart .external-link' : 'externalLink',
-			'touchstart .header-back' : 'back'
+			//'touchstart a.classic-link' : 	'classicLink',
+			'click a.classic-link' : 	'classicLink',
+
+			// 'touchend ul.dropdown-menu' : 'closeDropdown',
+			// 'touchstart .external-link' : 'externalLink',
+			// 'touchstart .header-back' : 'back'
+			'click ul.dropdown-menu' : 'closeDropdown',
+			'click .external-link' : 'externalLink',
+			'click .header-back' : 'back'
 		},
 
 

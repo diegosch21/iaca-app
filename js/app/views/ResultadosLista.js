@@ -26,10 +26,10 @@ define([
 
 		},
 		events: {
-			'touchstart #ver-mas' : 	'verMas',
-			'touchstart #update' : 'updateUsuario'
-			// 'click #ver-mas' : 	'verMas',
-			// 'click #update' : 'updateUsuario'
+			// 'touchstart #ver-mas' : 	'verMas',
+			// 'touchstart #update' : 'updateUsuario'
+			'click #ver-mas' : 	'verMas',
+			'click #update' : 'updateUsuario'
 		},
 
 		// AGREGAR EVENTO A CHECKBOX NOTIFICACIONES
@@ -238,8 +238,8 @@ define([
 
 		crearScrollerImgs: function() {
 
-			$('#close-imgs, #back-imgs').on('touchstart',function() {
-
+			// $('#close-imgs, #back-imgs').on('touchstart',function() {
+			$('#close-imgs, #back-imgs').on('click',function() {	
 				$('#imgs-wrapper').fadeOut();
 			});
 
