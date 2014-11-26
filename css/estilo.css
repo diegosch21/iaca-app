@@ -3504,89 +3504,7 @@ select {
   }
 }
 /* Foundation Flex-video*/
-.flex-video {
-  position: relative;
-  padding-top: 1.5625rem;
-  padding-bottom: 67.5%;
-  height: 0;
-  margin-bottom: 1rem;
-  overflow: hidden;
-}
-.flex-video.widescreen {
-  padding-bottom: 56.34%;
-}
-.flex-video.vimeo {
-  padding-top: 0;
-}
-.flex-video iframe,
-.flex-video object,
-.flex-video embed,
-.flex-video video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
 /* Foundation Pagination*/
-ul.pagination {
-  display: block;
-  min-height: 24px;
-  margin-left: -7px;
-}
-ul.pagination li {
-  height: 0;
-  color: #112535;
-  font-size: rem-calc(16);
-  margin-left: 0;
-}
-ul.pagination li a, ul.pagination li button {
-  display: block;
-  padding: 7px 14px;
-  color: #0056a0;
-  background: none;
-  border-radius: 0;
-  font-weight: normal;
-  font-size: 1em;
-  line-height: inherit;
-  transition: background-color 300ms ease-out;
-}
-ul.pagination li:hover a,
-ul.pagination li a:focus, ul.pagination li:hover button,
-ul.pagination li button:focus {
-  background: #dadeec;
-}
-ul.pagination li.unavailable a, ul.pagination li.unavailable button {
-  cursor: default;
-  color: #8fa9ce;
-}
-ul.pagination li.unavailable:hover a, ul.pagination li.unavailable a:focus, ul.pagination li.unavailable:hover button, ul.pagination li.unavailable button:focus {
-  background: #eef3fa;
-}
-ul.pagination li.current a, ul.pagination li.current button {
-  background: #76b5e6;
-  color: #fff;
-  font-weight: bold;
-  cursor: default;
-}
-ul.pagination li.current a:hover, ul.pagination li.current a:focus, ul.pagination li.current button:hover, ul.pagination li.current button:focus {
-  background: #76b5e6;
-}
-ul.pagination li {
-  float: left;
-  display: block;
-}
-
-/* Pagination centred wrapper */
-.pagination-centered {
-  text-align: center;
-}
-.pagination-centered ul.pagination li {
-  float: none;
-  display: inline-block;
-}
-
 /* Foundation accordion*/
 /**** Fin foundation ****/
 /*********************************************************************
@@ -3720,7 +3638,7 @@ span.texto--normal {
   color: #54676d;
 }
 
-.texto-gris, .home-boton .banner-horizontal.activo .contenido--banner span, html.no-touch .home-boton .banner-horizontal:hover .contenido--banner span {
+.texto-gris, .home-boton .banner-horizontal.activo .contenido--banner span, html.no-touch .home-boton .banner-horizontal:hover .contenido--banner span, .home-boton.destacado .banner-horizontal.activo .contenido--banner span, html.no-touch .home-boton.destacado .banner-horizontal:hover .contenido--banner span {
   color: #8fa9ce;
 }
 
@@ -3771,7 +3689,7 @@ a {
   color: #657bc3;
   text-decoration: none;
 }
-a:hover, a:focus {
+a:focus {
   color: #523f89;
 }
 a:focus {
@@ -3946,7 +3864,7 @@ Browse Happy prompt
   border-color: #657bc3;
 }
 
-.punta--gris, .home-boton .banner-horizontal.activo .header--banner .punta--izquierda, .home-boton .banner-horizontal.activo .header--banner .punta--derecha, .home-boton .banner-horizontal.activo .contenedor-con-punta .punta--izquierda, .home-boton .banner-horizontal.activo .contenedor-con-punta .punta--derecha, html.no-touch .home-boton .banner-horizontal:hover .header--banner .punta--izquierda, html.no-touch .home-boton .banner-horizontal:hover .header--banner .punta--derecha, html.no-touch .home-boton .banner-horizontal:hover .contenedor-con-punta .punta--izquierda, html.no-touch .home-boton .banner-horizontal:hover .contenedor-con-punta .punta--derecha {
+.punta--gris, .home-boton .banner-horizontal.activo .header--banner .punta--izquierda, .home-boton .banner-horizontal.activo .header--banner .punta--derecha, .home-boton .banner-horizontal.activo .contenedor-con-punta .punta--izquierda, .home-boton .banner-horizontal.activo .contenedor-con-punta .punta--derecha, html.no-touch .home-boton .banner-horizontal:hover .header--banner .punta--izquierda, html.no-touch .home-boton .banner-horizontal:hover .header--banner .punta--derecha, html.no-touch .home-boton .banner-horizontal:hover .contenedor-con-punta .punta--izquierda, html.no-touch .home-boton .banner-horizontal:hover .contenedor-con-punta .punta--derecha, .home-boton.destacado .banner-horizontal.activo .header--banner .punta--izquierda, .home-boton.destacado .banner-horizontal.activo .header--banner .punta--derecha, .home-boton.destacado .banner-horizontal.activo .contenedor-con-punta .punta--izquierda, .home-boton.destacado .banner-horizontal.activo .contenedor-con-punta .punta--derecha, html.no-touch .home-boton.destacado .banner-horizontal:hover .header--banner .punta--izquierda, html.no-touch .home-boton.destacado .banner-horizontal:hover .header--banner .punta--derecha, html.no-touch .home-boton.destacado .banner-horizontal:hover .contenedor-con-punta .punta--izquierda, html.no-touch .home-boton.destacado .banner-horizontal:hover .contenedor-con-punta .punta--derecha {
   border-color: #8fa9ce;
 }
 
@@ -3995,7 +3913,7 @@ Browse Happy prompt
   border-color: #dadeec;
 }
 
-.contenedor--gris, .home-boton .banner-horizontal.activo .header--banner, .home-boton .banner-horizontal.activo .contenedor-con-punta, html.no-touch .home-boton .banner-horizontal:hover .header--banner, html.no-touch .home-boton .banner-horizontal:hover .contenedor-con-punta, .fondo-gris {
+.contenedor--gris, .home-boton .banner-horizontal.activo .header--banner, .home-boton .banner-horizontal.activo .contenedor-con-punta, html.no-touch .home-boton .banner-horizontal:hover .header--banner, html.no-touch .home-boton .banner-horizontal:hover .contenedor-con-punta, .home-boton.destacado .banner-horizontal.activo .header--banner, .home-boton.destacado .banner-horizontal.activo .contenedor-con-punta, html.no-touch .home-boton.destacado .banner-horizontal:hover .header--banner, html.no-touch .home-boton.destacado .banner-horizontal:hover .contenedor-con-punta, .fondo-gris {
   background-color: #8fa9ce;
   border-color: #8fa9ce;
 }
@@ -4014,10 +3932,6 @@ Browse Happy prompt
 }
 .menu-top a {
   color: #eef3fa;
-}
-.menu-top a:hover {
-  color: #eef3fa;
-  background-color: #0056a0;
 }
 
 #nav-top {
@@ -4283,22 +4197,14 @@ a:active {
 }
 
 #header {
-  padding: 0;
-  right: 0;
-  left: 0;
-  top: 0;
   border-width: 0 0 1px;
-  z-index: 9999;
-  background-color: #FFF;
   margin-bottom: 0;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
-  position: absolute;
-  width: 100%;
 }
 
 #content-wrapper {
   position: absolute;
-  top: 110px;
+  top: 117px;
   padding-top: 5px;
   left: 0px;
   right: 0px;
@@ -4409,12 +4315,26 @@ a:active {
   margin-left: 0.5em;
   margin-right: 0.5em;
 }
+#nav-top > li.back {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+#nav-top > li.back i.fa {
+  padding-left: 5px;
+  padding-right: 5px;
+  font-weight: 500;
+  margin: 0;
+}
 #nav-top > li.redes-sociales {
   text-align: left;
 }
 #nav-top > li.redes-sociales a {
   padding-top: 0.5em;
   padding-bottom: 0.5em;
+}
+#nav-top > li.menu-profesional {
+  line-height: 2;
 }
 #nav-top .dropdown-menu {
   margin-right: 1em;
@@ -4426,6 +4346,10 @@ a:active {
 }
 #nav-top .dropdown-menu li > a {
   display: block;
+}
+#nav-top .header-login {
+  padding-right: 24px;
+  padding-right: 1.5rem;
 }
 
 /** Logo y menu principal **/
@@ -4459,22 +4383,13 @@ a:active {
 }
 #app-header-menu .menu-principal #main-nav {
   display: block;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  justify-content: space-between;
-  position: relative;
+  margin-right: 10px;
+}
+#app-header-menu .menu-principal #main-nav > li {
+  text-align: center;
 }
 #app-header-menu .menu-principal #main-nav > li a {
   white-space: nowrap;
-}
-#app-header-menu .menu-principal #main-nav:hover:hover {
-  z-index: 100;
-}
-#app-header-menu .menu-principal #main-nav.activo:hover {
-  z-index: 50;
 }
 #app-header-menu .menu-principal ul li a {
   padding-top: 0.75em;
@@ -4494,10 +4409,6 @@ a:active {
   white-space: nowrap;
   padding: 0.5em 0.5em;
 }
-#app-header-menu .dropdown #menu-principal-xs:hover {
-  color: #112535;
-  background-color: #F5F5F5;
-}
 #app-header-menu .dropdown .dropdown-menu {
   font-size: 19px;
   font-size: 1.2rem;
@@ -4515,13 +4426,27 @@ a:active {
 #app-home {
   width: 100%;
 }
+#app-home .home-item {
+  margin: 32px 0;
+  margin: 2rem 0;
+}
+#app-home .home-item.destacado {
+  margin-top: 48px;
+  margin-top: 3rem;
+  margin-bottom: 64px;
+  margin-bottom: 4rem;
+}
 
 .home-item {
   /** Clase usada tambien para los botones de la secci├│n informaci├│n **/
   padding-left: 0;
   padding-right: 0;
-  margin: 16px 0 8px;
-  margin: 1rem 0 0.5rem;
+  margin: 16px 0;
+  margin: 1rem 0;
+}
+.home-item span {
+  padding: 0 8px;
+  padding: 0 0.5rem;
 }
 
 .home-boton {
@@ -4580,6 +4505,96 @@ a:active {
 }
 .home-boton .banner-horizontal.activo .header--banner .punta--derecha, .home-boton .banner-horizontal.activo .contenedor-con-punta .punta--derecha, html.no-touch .home-boton .banner-horizontal:hover .header--banner .punta--derecha, html.no-touch .home-boton .banner-horizontal:hover .contenedor-con-punta .punta--derecha {
   border-right-color: transparent;
+}
+.home-boton .banner-horizontal .header--banner span {
+  font-size: 21px;
+  font-size: 1.3rem;
+}
+.home-boton.destacado .banner-horizontal {
+  height: 160px;
+  height: 10rem;
+}
+.home-boton.destacado .banner-horizontal .contenedor-con-punta {
+  height: 160px;
+  height: 10rem;
+  position: relative;
+}
+.home-boton.destacado .banner-horizontal .contenedor-con-punta .punta--derecha, .home-boton.destacado .banner-horizontal .contenedor-con-punta .punta--izquierda {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  top: 0;
+  border-style: solid;
+  border-top-width: 80px;
+  border-top-width: 5rem;
+  border-bottom-width: 80px;
+  border-bottom-width: 5rem;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+.home-boton.destacado .banner-horizontal .contenedor-con-punta .punta--derecha {
+  border-left-width: 53px;
+  border-left-width: 3.33333rem;
+  right: -53px;
+  right: -3.33333rem;
+  border-right-color: transparent;
+}
+.home-boton.destacado .banner-horizontal .contenedor-con-punta .punta--izquierda {
+  border-right-width: 53px;
+  border-right-width: 3.33333rem;
+  left: -53px;
+  left: -3.33333rem;
+  border-left-color: transparent;
+}
+.home-boton.destacado .banner-horizontal .contenedor-con-punta .punta--derecha {
+  border-left-width: 32px;
+  border-left-width: 2rem;
+  right: -34px;
+  right: -2.1rem;
+}
+.home-boton.destacado .banner-horizontal .contenedor-con-punta .punta--izquierda {
+  border-right-width: 32px;
+  border-right-width: 2rem;
+  left: -34px;
+  left: -2.1rem;
+}
+.home-boton.destacado .banner-horizontal.activo .header--banner .punta--izquierda, .home-boton.destacado .banner-horizontal.activo .header--banner .punta--derecha, .home-boton.destacado .banner-horizontal.activo .contenedor-con-punta .punta--izquierda, .home-boton.destacado .banner-horizontal.activo .contenedor-con-punta .punta--derecha, html.no-touch .home-boton.destacado .banner-horizontal:hover .header--banner .punta--izquierda, html.no-touch .home-boton.destacado .banner-horizontal:hover .header--banner .punta--derecha, html.no-touch .home-boton.destacado .banner-horizontal:hover .contenedor-con-punta .punta--izquierda, html.no-touch .home-boton.destacado .banner-horizontal:hover .contenedor-con-punta .punta--derecha {
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+.home-boton.destacado .banner-horizontal.activo .header--banner .punta--izquierda, .home-boton.destacado .banner-horizontal.activo .contenedor-con-punta .punta--izquierda, html.no-touch .home-boton.destacado .banner-horizontal:hover .header--banner .punta--izquierda, html.no-touch .home-boton.destacado .banner-horizontal:hover .contenedor-con-punta .punta--izquierda {
+  border-left-color: transparent;
+}
+.home-boton.destacado .banner-horizontal.activo .header--banner .punta--derecha, .home-boton.destacado .banner-horizontal.activo .contenedor-con-punta .punta--derecha, html.no-touch .home-boton.destacado .banner-horizontal:hover .header--banner .punta--derecha, html.no-touch .home-boton.destacado .banner-horizontal:hover .contenedor-con-punta .punta--derecha {
+  border-right-color: transparent;
+}
+.home-boton.destacado .banner-horizontal .header--banner span {
+  font-size: 24px;
+  font-size: 1.5rem;
+}
+.home-boton.destacado .banner-horizontal .contenido--banner span {
+  font-size: 80px;
+  font-size: 5rem;
+}
+
+div.botones-social {
+  margin: 32px 0;
+  margin: 2rem 0;
+  text-align: center;
+}
+div.botones-social div.redes-sociales {
+  max-width: 450px;
+  margin: 0 auto;
+}
+div.botones-social div.redes-sociales a {
+  color: #eef3fa;
+  padding: 20px;
+}
+div.botones-social div.redes-sociales a i {
+  line-height: 2;
+}
+div.botones-social div.redes-sociales a.activo {
+  color: #8fa9ce;
 }
 
 /***** Fin home *****/
@@ -4663,6 +4678,11 @@ a:active {
 #map #reload {
   padding-top: 20px;
   font-size: 18px;
+}
+#map #loading-map {
+  padding-top: 20px;
+  text-align: center;
+  display: none;
 }
 
 #map_canvas {
@@ -4764,7 +4784,18 @@ a:active {
   padding-bottom: 150px;
 }
 
-.app-info_contacto .banner_contacto {
+.app-info_contacto {
+  margin-top: 48px;
+  margin-top: 3rem;
+}
+
+.app-info_contacto, .app-wrapper-certificaciones {
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+.app-info_contacto .banner_contacto, .app-info_contacto .app_certificaciones, .app-wrapper-certificaciones .banner_contacto, .app-wrapper-certificaciones .app_certificaciones {
+  max-width: 450px;
   margin: 16px auto;
   margin: 1rem auto;
   /*.contenido--banner{
@@ -4773,48 +4804,21 @@ a:active {
     padding-bottom: 0;
   }*/
 }
-.app-info_contacto .banner_contacto .contenedor-con-punta {
-  height: 128px;
-  height: 8rem;
-  position: relative;
+.app-info_contacto .banner_contacto .header--banner, .app-info_contacto .app_certificaciones .header--banner, .app-wrapper-certificaciones .banner_contacto .header--banner, .app-wrapper-certificaciones .app_certificaciones .header--banner {
+  width: 100%;
 }
-.app-info_contacto .banner_contacto .contenedor-con-punta .punta--derecha {
-  position: absolute;
-  width: 0px;
-  height: 0px;
-  top: 0;
-  border-style: solid;
-  border-top-width: 64px;
-  border-top-width: 4rem;
-  border-bottom-width: 64px;
-  border-bottom-width: 4rem;
-  border-left-width: 32px;
-  border-left-width: 2rem;
-  right: -35px;
-  right: -2.2rem;
-  border-right-color: transparent;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
+.app-info_contacto .banner_contacto .h3, .app-info_contacto .app_certificaciones .h3, .app-wrapper-certificaciones .banner_contacto .h3, .app-wrapper-certificaciones .app_certificaciones .h3 {
+  margin: 8px 0;
+  margin: 0.5rem 0;
 }
-.app-info_contacto .banner_contacto .header--banner {
-  width: 30%;
-  width: 30%;
-  margin-right: 24px;
-  margin-right: 1.5rem;
-  padding: 20px 0;
-  padding: 1.25rem 0;
-}
-.app-info_contacto .banner_contacto .h3 {
-  margin: 24px 0;
-  margin: 1.5rem 0;
-}
-.app-info_contacto .banner_contacto .contenedor_sede {
+.app-info_contacto .banner_contacto .contenedor_sede, .app-info_contacto .app_certificaciones .contenedor_sede, .app-wrapper-certificaciones .banner_contacto .contenedor_sede, .app-wrapper-certificaciones .app_certificaciones .contenedor_sede {
+  text-align: left;
   display: inline-block;
   vertical-align: top;
   padding: 8px 16px;
   padding: 0.5rem 1rem;
 }
-.app-info_contacto .banner_contacto .contenedor_sede p {
+.app-info_contacto .banner_contacto .contenedor_sede p, .app-info_contacto .app_certificaciones .contenedor_sede p, .app-wrapper-certificaciones .banner_contacto .contenedor_sede p, .app-wrapper-certificaciones .app_certificaciones .contenedor_sede p {
   margin: 0;
   padding: 0 0 0.5em 0;
 }
@@ -4845,6 +4849,12 @@ a:active {
 }
 
 /******** Template Login ********/
+#app-login .acceso_login {
+  margin-bottom: 16px;
+  margin-bottom: 1rem;
+  margin-top: 48px;
+  margin-top: 3rem;
+}
 #app-login .acceso_login .contenedor-con-punta {
   height: 80px;
   height: 5rem;
@@ -4862,8 +4872,8 @@ a:active {
   border-bottom-width: 2.5rem;
   border-left-width: 20px;
   border-left-width: 1.25rem;
-  right: -23px;
-  right: -1.45rem;
+  right: -22px;
+  right: -1.4rem;
   border-right-color: transparent;
   border-top-color: transparent;
   border-bottom-color: transparent;
@@ -4897,8 +4907,8 @@ a:active {
   border-bottom-width: 2rem;
   border-left-width: 16px;
   border-left-width: 1rem;
-  right: -19px;
-  right: -1.2rem;
+  right: -18px;
+  right: -1.15rem;
   border-right-color: transparent;
   border-top-color: transparent;
   border-bottom-color: transparent;
@@ -4919,6 +4929,11 @@ a:active {
   margin: 16px;
   margin: 1rem;
 }
+#app-login .usuarios-guardados span.delete-guardado {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+}
 #app-login .contenedor-con-punta {
   margin-bottom: 32px;
   margin-bottom: 2rem;
@@ -4932,16 +4947,19 @@ a:active {
   line-height: 1.2;
   white-space: nowrap;
 }
-#app-login ul.row, #app-login ul.banner-horizontal, #app-login ul.home-boton {
-  margin-left: 0;
-  margin-right: 0;
+#app-login form {
+  padding: 16px;
+  padding: 1rem;
 }
-#app-login li.input-login .contenedor-con-punta {
+#app-login .input-login {
+  text-align: center;
+}
+#app-login .input-login .contenedor-con-punta {
   height: 48px;
   height: 3rem;
   position: relative;
 }
-#app-login li.input-login .contenedor-con-punta .punta--derecha {
+#app-login .input-login .contenedor-con-punta .punta--derecha {
   position: absolute;
   width: 0px;
   height: 0px;
@@ -4953,13 +4971,13 @@ a:active {
   border-bottom-width: 1.5rem;
   border-left-width: 12px;
   border-left-width: 0.75rem;
-  right: -15px;
-  right: -0.95rem;
+  right: -14px;
+  right: -0.9rem;
   border-right-color: transparent;
   border-top-color: transparent;
   border-bottom-color: transparent;
 }
-#app-login li.input-login .header--banner {
+#app-login .input-login .header--banner {
   width: 100%;
   width: 100%;
   margin-right: 24px;
@@ -4967,26 +4985,42 @@ a:active {
   padding: 20px 0;
   padding: 1.25rem 0;
 }
-#app-login li.input-login label {
+#app-login .input-login label {
   display: inline;
-  padding-left: 24px;
-  padding-left: 1.5rem;
+  padding-left: 12px;
+  padding-left: 0.75rem;
 }
-#app-login li.input-login label i {
+#app-login .input-login label i {
   width: 32px;
   width: 2rem;
 }
-#app-login li.input-login input {
-  height: 48px;
-  height: 3rem;
-  padding: 8px 24px;
-  padding: 0.5rem 1.5rem;
+#app-login .input-login input[type="password"], #app-login .input-login input[type="text"] {
+  height: 40px;
+  height: 2.5rem;
+  padding-left: 24px;
+  padding-left: 1.5rem;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  margin-left: -8px;
+  margin-left: -0.5rem;
+  width: 80%;
+  max-width: 384px;
+  max-width: 24rem;
+  display: inline-block;
+}
+#app-login .input-login .boton--enviar {
+  margin: 0;
 }
 #app-login input[type="password"], #app-login input[type="text"] {
   position: relative;
   top: -10000px;
   -webkit-transform: translate3d(0, 10000px, 0);
   transform: translate3d(0, 10000px, 0);
+}
+#app-login input[type='submit'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 /****** Fin login **********/
@@ -5078,9 +5112,6 @@ a:active {
   font-size: 14px;
   font-size: 0.9rem;
 }
-.columna-tabla a:hover {
-  color: #76b5e6;
-}
 
 ul.lista_resultados {
   padding: 0;
@@ -5112,7 +5143,7 @@ ul.lista_resultados .item--resultado_paciente {
 ul.lista_resultados .item--resultado_paciente:nth-of-type(even) {
   background-color: #eef3fa;
 }
-ul.lista_resultados .item--resultado_paciente:hover, ul.lista_resultados .item--resultado_paciente.activo {
+ul.lista_resultados .item--resultado_paciente.activo {
   background-color: #8fa9ce !important;
 }
 ul.lista_resultados .item--resultado_paciente .info--resultado {
@@ -5237,19 +5268,31 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf.activo .punta--izquierd
 #imgs-wrapper .scroller {
   min-width: 650px;
 }
-#imgs-wrapper #close-imgs-wrapper {
+#imgs-wrapper #close-imgs-wrapper, #imgs-wrapper #back-imgs-wrapper {
   position: fixed;
-  width: 100%;
+  width: 50%;
   top: 0;
-  left: 0;
+}
+#imgs-wrapper #close-imgs-wrapper #close-imgs, #imgs-wrapper #close-imgs-wrapper #back-imgs, #imgs-wrapper #back-imgs-wrapper #close-imgs, #imgs-wrapper #back-imgs-wrapper #back-imgs {
+  text-shadow: 1px 1px 1px #54676d;
+  color: #dadeec;
+  padding: 0 16px;
+  padding: 0 1rem;
+}
+#imgs-wrapper #close-imgs-wrapper {
   right: 0;
   text-align: right;
 }
-#imgs-wrapper #close-imgs-wrapper #close-imgs {
-  text-shadow: 1px 1px 1px #dadeec;
-  color: #54676d;
-  padding: 16px;
-  padding: 1rem;
+#imgs-wrapper #back-imgs-wrapper {
+  left: 0;
+  text-align: left;
+}
+#imgs-wrapper #loading-img {
+  position: fixed;
+  width: 100%;
+  top: 40%;
+  text-align: center;
+  color: #dadeec;
 }
 #imgs-wrapper .result-img {
   text-align: center;
@@ -5258,9 +5301,13 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf.activo .punta--izquierd
 
 /*********************** Fin app.scss ************************/
 /*********************************************************************
-***** Estilos para dispositivos de  360px de ancho, ├│ superior *******
+***** Estilos para dispositivos de  359px de ancho, ├│ inferior *******
 **********************************************************************/
-@media (max-width: 360px) {
+@media (max-width: 359px) {
+  #content-wrapper {
+    top: 104px;
+  }
+
   .hidden-xxs {
     display: none !important;
   }
@@ -5277,7 +5324,7 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf.activo .punta--izquierd
     display: block !important;
   }
 
-  .col-xxs-1, .col-xxs-2, .col-xxs-3, .col-xxs-5, .col-xxs-4, .col-xxs-6 {
+  .col-xxs-1, .col-xxs-2, .col-xxs-3, .col-xxs-5, .col-xxs-4, .col-xxs-6, .col-xxs-12 {
     float: left;
   }
 
@@ -5305,11 +5352,18 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf.activo .punta--izquierd
     width: 50% !important;
   }
 
+  .col-xxs-12 {
+    width: 100% !important;
+  }
+
   .col-xxs-offset-1 {
     margin-left: 8.33333% !important;
   }
 
-  #nav-top .menu-profesional div.dropdown {
+  #nav-top > li.menu-profesional {
+    line-height: 1.5;
+  }
+  #nav-top > li.menu-profesional div.dropdown {
     font-size: 14px;
   }
 
@@ -5324,9 +5378,31 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf.activo .punta--izquierd
   }
 
   .home-item {
-    padding: 8px;
-    padding: 0.5rem;
+    padding: 16px 8px;
+    padding: 1rem 0.5rem;
     margin: 0;
+  }
+
+  #app-home .home-item {
+    margin: 8px 0;
+    margin: 0.5rem 0;
+  }
+  #app-home .home-item.destacado {
+    margin: 8px 0;
+    margin: 0.5rem 0;
+  }
+
+  div.botones-social {
+    margin: 16px 0;
+    margin: 1rem 0;
+  }
+  div.botones-social div.redes-sociales a {
+    padding: 5px;
+  }
+
+  #app-info .home-item {
+    padding: 8px 8px;
+    padding: 0.5rem 0.5rem;
   }
 
   .home-boton .banner-horizontal {
@@ -5383,6 +5459,62 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf.activo .punta--izquierd
   .home-boton .banner-horizontal .contenido--banner span {
     font-size: 32px;
     font-size: 2rem;
+  }
+  .home-boton.destacado .banner-horizontal {
+    height: 96px;
+    height: 6rem;
+  }
+  .home-boton.destacado .banner-horizontal .contenedor-con-punta {
+    height: 96px;
+    height: 6rem;
+    position: relative;
+  }
+  .home-boton.destacado .banner-horizontal .contenedor-con-punta .punta--derecha, .home-boton.destacado .banner-horizontal .contenedor-con-punta .punta--izquierda {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    top: 0;
+    border-style: solid;
+    border-top-width: 48px;
+    border-top-width: 3rem;
+    border-bottom-width: 48px;
+    border-bottom-width: 3rem;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+  }
+  .home-boton.destacado .banner-horizontal .contenedor-con-punta .punta--derecha {
+    border-left-width: 32px;
+    border-left-width: 2rem;
+    right: -32px;
+    right: -2rem;
+    border-right-color: transparent;
+  }
+  .home-boton.destacado .banner-horizontal .contenedor-con-punta .punta--izquierda {
+    border-right-width: 32px;
+    border-right-width: 2rem;
+    left: -32px;
+    left: -2rem;
+    border-left-color: transparent;
+  }
+  .home-boton.destacado .banner-horizontal .contenedor-con-punta .punta--derecha {
+    border-left-width: 20px;
+    border-left-width: 1.25rem;
+    right: -22px;
+    right: -1.35rem;
+  }
+  .home-boton.destacado .banner-horizontal .contenedor-con-punta .punta--izquierda {
+    border-right-width: 20px;
+    border-right-width: 1.25rem;
+    left: -22px;
+    left: -1.35rem;
+  }
+  .home-boton.destacado .banner-horizontal .header--banner span {
+    font-size: 21px;
+    font-size: 1.3rem;
+  }
+  .home-boton.destacado .banner-horizontal .contenido--banner span {
+    font-size: 40px;
+    font-size: 2.5rem;
   }
 
   .labos-item {
@@ -5465,16 +5597,30 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf.activo .punta--izquierd
 
   .app-info_contacto .banner_contacto .header--banner {
     width: 100%;
+    padding: 16px 0;
+    padding: 1rem 0;
     text-align: center;
+    height: 32px;
+    height: 2rem;
   }
   .app-info_contacto .banner_contacto .contenedor_sede {
     display: block;
   }
+  .app-info_contacto .banner_contacto .h3 {
+    margin: 0;
+  }
 
+  #app-login .acceso_login {
+    margin-top: 32px;
+    margin-top: 2rem;
+  }
   #app-login .contenedor-con-punta .h4 {
     white-space: normal;
     margin-top: -16px;
     margin-top: -1rem;
+  }
+  #app-login .input-login input[type="password"], #app-login .input-login input[type="text"] {
+    width: 70%;
   }
 
   #app-resultados .header-resultados .h3 {
@@ -5563,13 +5709,26 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf.activo .punta--izquierd
 @media (min-width: 768px) {
   #content-wrapper {
     padding-top: 10px;
+    top: 123px;
+  }
+
+  #app-home .home-item.destacado {
+    height: 160px;
+    height: 10rem;
+    margin-top: 64px;
+    margin-top: 4rem;
   }
 
   .home-item {
-    height: 112px;
-    height: 7rem;
+    height: 96px;
+    height: 6rem;
     padding-left: 20px;
     padding-right: 20px;
+  }
+
+  div.botones-social {
+    margin-top: 128px;
+    margin-top: 8rem;
   }
 
   .labos-boton .banner-horizontal {
@@ -5693,13 +5852,68 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf.activo .punta--izquierd
     left: -26px;
     left: -1.6rem;
   }
+
+  .app-info_contacto, .app-wrapper-certificaciones {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .app-info_contacto .banner_contacto, .app-info_contacto .app_certificaciones, .app-wrapper-certificaciones .banner_contacto, .app-wrapper-certificaciones .app_certificaciones {
+    max-width: 100%;
+    margin: 16px auto;
+    margin: 1rem auto;
+    /*.contenido--banner{
+      width: 73%;
+      padding-top: 0;
+      padding-bottom: 0;
+    }*/
+  }
+  .app-info_contacto .banner_contacto .contenedor-con-punta, .app-info_contacto .app_certificaciones .contenedor-con-punta, .app-wrapper-certificaciones .banner_contacto .contenedor-con-punta, .app-wrapper-certificaciones .app_certificaciones .contenedor-con-punta {
+    height: 128px;
+    height: 8rem;
+    position: relative;
+  }
+  .app-info_contacto .banner_contacto .contenedor-con-punta .punta--derecha, .app-info_contacto .app_certificaciones .contenedor-con-punta .punta--derecha, .app-wrapper-certificaciones .banner_contacto .contenedor-con-punta .punta--derecha, .app-wrapper-certificaciones .app_certificaciones .contenedor-con-punta .punta--derecha {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    top: 0;
+    border-style: solid;
+    border-top-width: 64px;
+    border-top-width: 4rem;
+    border-bottom-width: 64px;
+    border-bottom-width: 4rem;
+    border-left-width: 32px;
+    border-left-width: 2rem;
+    right: -34px;
+    right: -2.15rem;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+  }
+  .app-info_contacto .banner_contacto .header--banner, .app-info_contacto .app_certificaciones .header--banner, .app-wrapper-certificaciones .banner_contacto .header--banner, .app-wrapper-certificaciones .app_certificaciones .header--banner {
+    width: 30%;
+    width: 30%;
+    margin-right: 24px;
+    margin-right: 1.5rem;
+    padding: 20px 0;
+    padding: 1.25rem 0;
+  }
+  .app-info_contacto .banner_contacto .h3, .app-info_contacto .app_certificaciones .h3, .app-wrapper-certificaciones .banner_contacto .h3, .app-wrapper-certificaciones .app_certificaciones .h3 {
+    margin: 24px 0;
+    margin: 1.5rem 0;
+  }
+
+  #app-login .acceso_login {
+    margin-top: 64px;
+    margin-top: 4rem;
+  }
 }
 /*********************************************************************
 ****** Estilos para dispositivos de  990px de ancho, ├│ superior ******
 **********************************************************************/
 @media (min-width: 992px) {
   #content-wrapper {
-    top: 135px;
+    top: 145px;
   }
 
   #app-header {
@@ -5719,6 +5933,34 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf.activo .punta--izquierd
   #app-header #app-header-menu .menu-principal ul li a {
     font-size: 18px;
     font-size: 1.15rem;
+  }
+
+  #app-home .home-item, #app-home div.botones-social {
+    margin: 48px 0;
+    margin: 3rem 0;
+  }
+  #app-home .home-item.destacado, #app-home div.botones-social.destacado {
+    margin-top: 64px;
+    margin-top: 4rem;
+    margin-bottom: 48px;
+    margin-bottom: 3rem;
+  }
+
+  .home-item {
+    padding: 0 32px;
+    padding: 0 2rem;
+  }
+
+  .home-boton {
+    max-width: 600px;
+  }
+  .home-boton .banner-horizontal .header--banner span {
+    font-size: 24px;
+    font-size: 1.5rem;
+  }
+  .home-boton.destacado .banner-horizontal .header--banner span {
+    font-size: 29px;
+    font-size: 1.8rem;
   }
 
   .labos-boton {
@@ -5783,7 +6025,7 @@ ul.lista_resultados .item--resultado_paciente .boton_pdf.activo .punta--izquierd
   }
 
   #content-wrapper {
-    top: 150px;
+    top: 162px;
   }
 
   #map_canvas {

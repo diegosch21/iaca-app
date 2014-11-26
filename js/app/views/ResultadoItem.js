@@ -16,12 +16,12 @@ define([
 			_.bindAll(this,'_verImgs','_openPDF');
 		},
 		events: {
-			// 'touchend .leido i' : 	'changeLeido',
-			// 'touchend .boton_pdf': 'openPDF',
-			// 'touchend .boton_img': 'verImgs'
-			'click .leido i' : 	'changeLeido',
-			'click .boton_pdf': 'openPDF',
-			'click .boton_img': 'verImgs'
+			'touchend .leido i' : 	'changeLeido',
+			'touchend .boton_pdf': 'openPDF',
+			'touchend .boton_img': 'verImgs'
+			// 'click .leido i' : 	'changeLeido',
+			// 'click .boton_pdf': 'openPDF',
+			// 'click .boton_img': 'verImgs'
 		},
 
 		render: function() {
@@ -79,6 +79,7 @@ define([
 		},
 		_verImgs: function() {
 			console.log("Ver imagenes");
+			$('#loading-img').show();
 			var divImgs = $('#results-imgs').html('');
 			_.each(this.model.get("jpg"), function(value, key) {
 				//CAMBIA EL TOKEN DEL URL POR EL ACTUAL
@@ -96,6 +97,7 @@ define([
 			this.scrollerImgs.scrollTo(0,0);
 			var self = this;
 			$('.imagen-result').on('load',function(){
+				$('#loading-img').hide();
 				self.scrollerImgs.refresh();
 			});
 			this.setLeido();

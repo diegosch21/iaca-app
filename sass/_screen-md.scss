@@ -2,7 +2,7 @@ html {
   
 }
 #content-wrapper {
-  top: 135px;
+  top: 145px;
 }
 
 //** Header **/
@@ -27,6 +27,41 @@ html {
       }
     }
   }
+}
+#app-home {
+  .home-item, div.botones-social {
+    @include x-rem(margin,3 0);
+    &.destacado {
+      @include x-rem(margin-top, 4);
+      @include x-rem(margin-bottom, 3);
+    }
+  }
+  
+
+}
+.home-item {
+	@include x-rem(padding,0 2);
+}
+
+.home-boton {
+	max-width: 600px;
+	.banner-horizontal {
+		.header--banner {
+			span {
+				@include x-rem(font-size,1.5);
+			}
+		}
+	}
+	&.destacado {
+		.banner-horizontal {
+			.header--banner {
+				span {
+					@include x-rem(font-size,1.8);
+				}
+			}
+		}
+	}
+	
 }
 
 //* Labos */

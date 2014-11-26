@@ -9,7 +9,6 @@
 
 
 //Variables
-@import "variables-app";
 @import "bootstrap/variables";
 @import "variables";
 
@@ -47,11 +46,11 @@
 
 /************************** FOUNDATION *****************************/
 /*Foundation Block Grid*/
-@import "foundation/components/block-grid";
+@import "foundation/components/block-grid"; 
 /* Foundation Flex-video*/
-@import "foundation/components/flex-video";
+//@import "foundation/components/flex-video";
 /* Foundation Pagination*/
-@import "foundation/components/pagination";
+//@import "foundation/components/pagination";
 /* Foundation accordion*/
 //@import "foundation/components/_accordion";
 
@@ -70,9 +69,9 @@
 @import "app";
 
 /*********************************************************************
-***** Estilos para dispositivos de  360px de ancho, ó superior *******
+***** Estilos para dispositivos de  359px de ancho, ó inferior *******
 **********************************************************************/
-@media (max-width: 360px) {
+@media (max-width: 359px) {
   @import "screen-xxs";
 }
 /*********************************************************************
