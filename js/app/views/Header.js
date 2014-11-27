@@ -27,7 +27,7 @@ define([
 			'touchstart a.classic-link' : 	'classicLink',
 			'touchend ul.dropdown-menu' : 'closeDropdown',
 			'touchstart .external-link' : 'externalLink',
-			'touchstart .header-back' : 'back'
+			'touchstart .back' : 'back'
 		},
 
 
