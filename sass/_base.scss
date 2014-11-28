@@ -683,7 +683,9 @@ form{
   background-color: $primario-celeste !important;
   @include x-rem(margin-right, 1.5);
 
-  &:hover{
+  &:hover,
+  &.activo
+  {
     background-color: $primario-azul !important;
   }
 }

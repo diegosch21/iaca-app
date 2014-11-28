@@ -245,6 +245,7 @@ a {
 }	
 /**Barra superior azul **/
 #nav-top{
+	margin-left: -15px;
 	>li{
 		
 		white-space: nowrap;
@@ -266,11 +267,17 @@ a {
     		text-align: left;
     		margin: 0;
     		padding: 0;
+    		padding-left: 10px;
     		i.fa {
     			padding-left: 5px;
     			padding-right: 5px;
     			font-weight: 500;
     			margin: 0;
+    		}
+    		&.activo {
+    			i {
+    				background-color: $primario-azul;	
+    			}
     		}
     	}
 
@@ -301,6 +308,15 @@ a {
 
 	.header-login {
 		@include x-rem(padding-right,1.5);
+		&.activo {
+    		background-color: $primario-azul;
+    	}
+	}
+
+	a#menuUser{
+		&.activo {
+    		background-color: $primario-azul;
+    	}
 	}
 }
 
@@ -393,6 +409,10 @@ a {
 			color: $alt-negro;
 			font-weight: 500;
 			white-space: nowrap;
+
+			&.activo {
+				background-color: $alt-gris_claro;
+			}
 			
 
 		//	&:active,
@@ -722,9 +742,14 @@ div.botones-social {
 		@include x-rem(margin-bottom,1);	
 		@include x-rem(margin-top,3);
 	}
+	.logout {
+		@include x-rem(margin-top,2);
+		text-align: center;
+	}
 	.usuarios-guardados{
 		@include header-banner-punta(4,60%);
 		@include x-rem(padding-bottom,1);
+		@include x-rem(margin-top,3);
 		.list-group {
 			@include x-rem(margin,1);
 		}
@@ -796,6 +821,10 @@ div.botones-social {
    		appearance: none;  
 	}
 
+	.logout{
+
+	}
+
 
 }
 /****** Fin login **********/
@@ -821,8 +850,11 @@ div.botones-social {
 			bottom: 0;
 			color: $alt-gris_oscuro;
 			@include x-rem(padding,1);
-			@include x-rem(padding-bottom,0.25);
+			@include x-rem(padding-bottom,0.5);
 			cursor: pointer;
+			&.activo {
+				background-color: $alt-gris_claro;
+			}
 
 		}
 	
