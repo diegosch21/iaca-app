@@ -126,15 +126,15 @@ function eventHandlersGenerales() {
 	    // console.log("click "+event.target.tagName +' '+event.target.id +' '+ event.target.className);    
 	//});
 	// $('body').on("mousedown touchstart",'.boton', function (e) {
-	$('body').on("touchstart",'.boton', function (e) {
+	$('body').on("touchstart",'.boton,.activar', function (e) {
 		$(e.currentTarget).addClass('activo');
 		//	e.stopPropagation();
 		//	e.preventDefault();
 		//	console.log("activo "+e.target.tagName +' '+e.target.id +' '+ e.target.className);    
 	});
 	// $('body').on("mouseup touchend",'.boton', function (e) {
-	$('body').on("touchend",'.boton', function (e) {
-		$('.boton').removeClass('activo');
+	$('body').on("touchend",'.boton,.activar', function (e) {
+		$(e.currentTarget).removeClass('activo');
 		// e.stopPropagation();
 		// e.preventDefault();
 		// console.log("desactivo "+e.target.tagName +' '+e.target.id +' '+ e.target.className);    
