@@ -6,7 +6,7 @@
         id=			"com.imotionconsulting.iacalaboratorios"
         version=	"1.0.1" >
 
-    <name>IACA Laboratorios</name>
+    <name>IACA Lab</name>
 
     <description>
         IACA Laboratorios - Consulta de resultados de análisis de pacientes
@@ -58,11 +58,15 @@
     <gap:splash src="splash.png" />
 	<gap:splash src="res/screen/android/land-320x200.9.png"  gap:platform="android" gap:qualifier="land-ldpi"/>
 	<gap:splash src="res/screen/android/land-480x320.9.png"  gap:platform="android" gap:qualifier="land-mdpi"/>
+    <gap:splash src="res/screen/android/land-800x480.9.png"  gap:platform="android" gap:qualifier="land-mdpi-large"/>
+    <gap:splash src="res/screen/android/land-1280x720.9.png"  gap:platform="android" gap:qualifier="land-mdpi-xlarge"/>
 	<gap:splash src="res/screen/android/land-800x480.9.png"  gap:platform="android" gap:qualifier="land-hdpi"/>
 	<gap:splash src="res/screen/android/land-1280x720.9.png" gap:platform="android" gap:qualifier="land-xhdpi"/>
 	<gap:splash src="res/screen/android/land-1920x1080.9.png" gap:platform="android" gap:qualifier="land-xxhdpi"/>
 	<gap:splash src="res/screen/android/port-200x320.9.png"  gap:platform="android" gap:qualifier="port-ldpi"/>
 	<gap:splash src="res/screen/android/port-320x480.9.png"  gap:platform="android" gap:qualifier="port-mdpi"/>
+    <gap:splash src="res/screen/android/port-480x800.9.png"  gap:platform="android" gap:qualifier="port-mdpi-large"/>
+    <gap:splash src="res/screen/android/port-720x1280.9.png"  gap:platform="android" gap:qualifier="port-mdpi-xlarge"/>
 	<gap:splash src="res/screen/android/port-480x800.9.png"  gap:platform="android" gap:qualifier="port-hdpi"/>
 	<gap:splash src="res/screen/android/port-720x1280.9.png" gap:platform="android" gap:qualifier="port-xhdpi"/>
 	<gap:splash src="res/screen/android/port-1080x1920.9.png" gap:platform="android" gap:qualifier="port-xxhdpi"/>
