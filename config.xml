@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+    <widget xmlns=	"http://www.w3.org/ns/widgets"
+        xmlns:gap=	"http://phonegap.com/ns/1.0"
+        xmlns:android= "http://schemas.android.com/apk/res/android"
+        id=			"com.imotionconsulting.iacalaboratorios"
+        version=	"1.0.1",
+        versionCode="1" >
+
+    <name>IACA Lab</name>
+
+    <description>
+        IACA Laboratorios - Consulta de resultados de análisis de pacientes
+    </description>
+
+    <author email="info@imotionconsulting.com.ar" href="http://imotionconsulting.com.ar">
+        IMotion Consulting
+    </author>
+
+    
+    <gap:platform name="android" />
+    <preference name="splash-screen-duration" value="10000"/>
+    <preference name="permissions" value="none"/>
+    
+    <gap:platform name="ios" />
+    
+    <gap:platform name="winphone" />
+
+
+
+	<!-- Icons Android -->
+    <icon src="icon.png" />
+	<icon src="res/icon/android/icon-ldpi.png"   gap:platform="android"    gap:qualifier="ldpi" />
+    <icon src="res/icon/android/icon-mdpi.png"   gap:platform="android"    gap:qualifier="mdpi" />
+    <icon src="res/icon/android/icon-hdpi.png"   gap:platform="android"    gap:qualifier="hdpi" />
+    <icon src="res/icon/android/icon-xhdpi.png"  gap:platform="android"    gap:qualifier="xhdpi" />
+    <icon src="res/icon/android/icon-xxhdpi.png" gap:platform="android"    gap:qualifier="xxhdpi" />
+    <icon src="res/icon/android/icon-xxxhdpi.png" gap:platform="android"    gap:qualifier="xxxhdpi" />
+    <!-- iPhone icon (1x y 2x)  -->
+    <icon src="res/icon/ios/icon-60.png"          gap:platform="ios"  width="60" height="60" />
+    <icon src="res/icon/ios/icon-120.png"         gap:platform="ios"  width="120" height="120" />
+    <!-- iPhone 6 Plus icon (3x) -->
+    <icon src="res/icon/ios/icon-180.png"         gap:platform="ios"  width="180" height="180" />
+    <!-- iPad icon (1x y 2x) -->
+    <icon src="res/icon/ios/icon-76.png"          gap:platform="ios"  width="76" height="76" />
+    <icon src="res/icon/ios/icon-152.png"         gap:platform="ios"  width="152" height="152" />
+    <!--  iOS Setting icon -->
+    <icon src="res/icon/ios/icon-29.png"          gap:platform="ios"  width="29" height="29" />
+    <icon src="res/icon/ios/icon-58.png"          gap:platform="ios"  width="58" height="58" />
+	<!--  iOS Spotlight icon -->
+    <icon src="res/icon/ios/icon-40.png"          gap:platform="ios"  width="40" height="40" />
+    <icon src="res/icon/ios/icon-80.png"          gap:platform="ios"  width="80" height="80" />
+    <icon src="res/icon/ios/icon-87.png"          gap:platform="ios"  width="87" height="87" />
+    <!-- Windows Phone icons -->
+    <icon src="res/icon/winphone/icon-48.png" gap:platform="winphone" />
+	<icon src="res/icon/winphone/tileicon-110.png" gap:platform="winphone" gap:role="background" />
+
+	<!-- Splash screen Android -->
+    <gap:splash src="splash.png" />
+	<gap:splash src="res/screen/android/land-320x200.9.png"  gap:platform="android" gap:qualifier="land-ldpi"/>
+	<gap:splash src="res/screen/android/land-480x320.9.png"  gap:platform="android" gap:qualifier="land-mdpi"/>
+	<gap:splash src="res/screen/android/land-800x480.9.png"  gap:platform="android" gap:qualifier="land-hdpi"/>
+	<gap:splash src="res/screen/android/land-1280x720.9.png" gap:platform="android" gap:qualifier="land-xhdpi"/>
+	<gap:splash src="res/screen/android/land-1920x1080.9.png" gap:platform="android" gap:qualifier="land-xxhdpi"/>
+	<gap:splash src="res/screen/android/port-200x320.9.png"  gap:platform="android" gap:qualifier="port-ldpi"/>
+	<gap:splash src="res/screen/android/port-320x480.9.png"  gap:platform="android" gap:qualifier="port-mdpi"/>
+	<gap:splash src="res/screen/android/port-480x800.9.png"  gap:platform="android" gap:qualifier="port-hdpi"/>
+	<gap:splash src="res/screen/android/port-720x1280.9.png" gap:platform="android" gap:qualifier="port-xhdpi"/>
+	<gap:splash src="res/screen/android/port-1080x1920.9.png" gap:platform="android" gap:qualifier="port-xxhdpi"/>
+	<!-- Splash screen iOS -->
+	<gap:splash src="res/screen/ios/iphone-port.png"            gap:platform="ios"     width="320" height="480" />
+	<gap:splash src="res/screen/ios/iphone-land.png"            gap:platform="ios"     width="480" height="320" />
+    <gap:splash src="res/screen/ios/iphone-port-2x.png"         gap:platform="ios"     width="640" height="960" />
+    <gap:splash src="res/screen/ios/iphone-land-2x.png"         gap:platform="ios"     width="960" height="640" />
+    <gap:splash src="res/screen/ios/iphone5-port-retina-2x.png" gap:platform="ios"     width="640" height="1136" />
+    <gap:splash src="res/screen/ios/iphone5-land-retina-2x.png" gap:platform="ios"     width="1136" height="640" />
+    <gap:splash src="res/screen/ios/iphone6-port-2x.png"        gap:platform="ios"     width="750" height="1334" />
+    <gap:splash src="res/screen/ios/iphone6-land-2x.png"        gap:platform="ios"     width="1334" height="750" />
+    <gap:splash src="res/screen/ios/iphone6p-port-3x.png"       gap:platform="ios"     width="1242" height="2208" />
+    <gap:splash src="res/screen/ios/iphone6p-land-3x.png"       gap:platform="ios"     width="2208" height="1248" />
+    <gap:splash src="res/screen/ios/ipad-port.png"              gap:platform="ios"     width="768" height="1024" />
+    <gap:splash src="res/screen/ios/ipad-land.png"              gap:platform="ios"     width="1024" height="768" />
+    <gap:splash src="res/screen/ios/ipad-port-2x.png"           gap:platform="ios"     width="1536" height="2048" />
+    <gap:splash src="res/screen/ios/ipad-land-2x.png"           gap:platform="ios"     width="2048" height="1536" />
+	<!-- Splash screen Windows Phone -->
+    <gap:splash src="res/screen/win-phone/port-480x800.jpg"  gap:platform="winphone" />
+	
+
+	<!-- PLUGINS -->
+	<gap:plugin name="org.apache.cordova.inappbrowser" version="0.5.2" />
+	<gap:plugin name="org.apache.cordova.dialogs" version="0.2.10" />
+    <gap:plugin name="nl.x-services.plugins.toast" version="2.0.2" />
+    <gap:plugin name="com.phonegap.plugins.pushplugin" version="2.4.0" />
+    <gap:plugin name="org.apache.cordova.device" version="0.2.12" />
+    <gap:plugin name="com.phonegap.plugin.statusbar" version="1.1.0" />
+    <gap:plugin name="com.ohh2ahh.plugins.appavailability" version="0.3.1" />
+
+    <preference name="StatusBarOverlaysWebView" value="true" />
+    <preference name="StatusBarBackgroundColor" value="#28427e" />
+
+    
+
+    <access origin="*" />
+
+    <gap:config-file platform="android" parent="/manifest">
+        <application android:theme="@android:style/Theme.NoTitleBar">
+        </application>
+    </gap:config-file>
+	
+	
+</widget>
