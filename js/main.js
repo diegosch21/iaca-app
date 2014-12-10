@@ -74,8 +74,6 @@ define(['jquery', 'underscore', 'backbone', 'iscroll','bootstrap'], //'modernizr
 
 		/* Device ready */
 		document.addEventListener("deviceready", eventHandlersPhoneGap, false);
-
-
 		
 	}	
 );
