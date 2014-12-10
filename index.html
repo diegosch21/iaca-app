@@ -8,6 +8,15 @@
         <meta name="format-detection" content="telephone=no" />
             
         <link rel="stylesheet" href="css/estilo.css">
+
+        <script type="text/javascript"> 
+            var debug = true;
+            function log(mensaje,forzar) {
+                if (debug || forzar) {
+                    console.log(mensaje);
+                }
+            }
+        </script>
         
         <script type="text/javascript" src="phonegap.js"></script>
         <script data-main="js/main" src="js/vendor/requirejs-2.1.14.min.js"></script>
