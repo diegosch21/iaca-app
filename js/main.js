@@ -54,7 +54,7 @@ define(['jquery', 'underscore', 'backbone', 'iscroll','bootstrap'], //'modernizr
 		$(function(){
 			console.log('documentready');
 
-			//logger.disableLogger();   // NO DEBUG
+			logger.disableLogger();   // NO DEBUG
 			
 			eventHandlersGenerales();
 					
