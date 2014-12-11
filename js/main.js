@@ -53,6 +53,9 @@ define(['jquery', 'underscore', 'backbone', 'iscroll','bootstrap'], //'modernizr
 	   	/* Document ready */
 		$(function(){
 			console.log('documentready');
+
+			//logger.disableLogger();   // NO DEBUG
+			
 			eventHandlersGenerales();
 					
 			var scrollerContent = new IScroll('#content-wrapper', {
