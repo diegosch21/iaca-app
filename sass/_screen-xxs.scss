@@ -1,7 +1,7 @@
 //* MENOS DE 360PX DE ANCHO */
 
 #content-wrapper {
-  top: 78px;
+  top: 87px;
 }
 
 
@@ -64,14 +64,15 @@
 			div.dropdown  {
 				font-size: 14px;
 				a{
-					@include x-rem(padding, 0.25);
+					@include x-rem(padding, 0.5);
 				}
 			}
 		}
 		&.back {
 			i.fa {
     			font-weight: 700;
-    			@include x-rem(padding, 0.25);
+    			@include x-rem(padding, 0 0.5);
+    			@include x-rem(padding-left, 0.25);
     		}
 		}
 	}
