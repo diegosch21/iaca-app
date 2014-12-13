@@ -885,6 +885,9 @@ div.botones-social {
 		@include x-rem(margin-bottom,1);
 		@include x-rem(padding-left,1);
 		@include x-rem(padding-right,1);
+		span {
+			white-space: nowrap;
+		}
 	}
 	.barra-tabla {
 		max-width: 600px;
@@ -951,12 +954,13 @@ ul.lista_resultados{
 			font-weight: 700;
 			padding: 0;
 			margin: 0;
+			white-space: nowrap;
 			&.text-left-xs {
 				text-align: left;
-				@include x-rem(padding-left,0.5);
-				i.fa {
-					@include x-rem(padding-left,0.5);
-				}
+				//@include x-rem(padding-left,0.5);
+				// i.fa {
+				// 	@include x-rem(padding-left,0.5);
+				// }
 			}
 		}
 		.leido {
@@ -993,7 +997,7 @@ ul.lista_resultados{
 			}	
 		}
 		.boton_img {
-			@include x-rem(padding-right,1);
+			@include x-rem(padding-right,0.75);
 			background-color: $primario-celeste;
 			.punta--izquierda {
 				border-color: $primario-celeste;

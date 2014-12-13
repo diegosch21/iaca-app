@@ -1,7 +1,7 @@
 //* MENOS DE 360PX DE ANCHO */
 
 #content-wrapper {
-  top: 104px;
+  top: 78px;
 }
 
 
@@ -60,18 +60,29 @@
 #nav-top {
 	>li {
 		&.menu-profesional {
-			line-height: 1.5;
+			line-height: 1.25;
 			div.dropdown  {
 				font-size: 14px;
+				#menuUser{
+					@include x-rem(padding, 0.25);
+				}
 			}
+		}
+		&.back {
+			i.fa {
+    			font-weight: 700;
+    		}
 		}
 	}
 }
 #app-header-menu {
+	height: 45px;
+	max-height: 45px;
 	.dropdown {
 		#menu-principal-xs {
 			@include x-rem(font-size, 1);
-			padding: 0.75em 0.25em;
+			@include x-rem(padding,0.25 0.25);
+			
 		}
 		.dropdown-menu {
 			@include x-rem(font-size, 1);
@@ -282,6 +293,7 @@ ul.lista_resultados{
 		.doble-linea {
 			line-height: 4;
 		}
+		//@include boton-punta-correccion-costado(4,0.75);
 		@include boton-punta(4);
 		.contenedor-con-punta {
 			.punta--izquierda {
@@ -296,7 +308,7 @@ ul.lista_resultados{
 		}
 		.leido {
 			i {
-				//padding-left: 0;
+				@include x-rem(padding-left,0.75);
 			}
 		}
 	}
