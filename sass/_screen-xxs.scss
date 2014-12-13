@@ -71,6 +71,7 @@
 		&.back {
 			i.fa {
     			font-weight: 700;
+    			@include x-rem(padding, 0.25);
     		}
 		}
 	}
