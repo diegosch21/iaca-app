@@ -63,7 +63,7 @@
 			line-height: 1.25;
 			div.dropdown  {
 				font-size: 14px;
-				#menuUser{
+				a{
 					@include x-rem(padding, 0.25);
 				}
 			}
