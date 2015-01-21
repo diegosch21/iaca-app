@@ -267,10 +267,10 @@ a {
     		text-align: left;
     		margin: 0;
     		padding: 0;
-    		padding-left: 10px;
+    		padding-left: 5px;
     		i.fa {
-    			padding-left: 5px;
-    			padding-right: 5px;
+    			padding-left: 10px;
+    			padding-right: 10px;
     			font-weight: 500;
     			margin: 0;
     		}
@@ -885,6 +885,9 @@ div.botones-social {
 		@include x-rem(margin-bottom,1);
 		@include x-rem(padding-left,1);
 		@include x-rem(padding-right,1);
+		span {
+			white-space: nowrap;
+		}
 	}
 	.barra-tabla {
 		max-width: 600px;
@@ -945,17 +948,25 @@ ul.lista_resultados{
 			background-color: $alt-gris !important;
 		}
 
+		
 		.info--resultado{
 			line-height: 4;
 			text-align: center;
 			font-weight: 700;
 			padding: 0;
 			margin: 0;
+			white-space: nowrap;
 			&.text-left-xs {
 				text-align: left;
-				@include x-rem(padding-left,0.5);
-				i.fa {
-					@include x-rem(padding-left,0.5);
+				//@include x-rem(padding-left,0.5);
+				// i.fa {
+				// 	@include x-rem(padding-left,0.5);
+				// }
+			}
+			&.dont-show {
+				background-color: transparent;
+				> div,span,i {
+					display: none;
 				}
 			}
 		}
@@ -993,7 +1004,7 @@ ul.lista_resultados{
 			}	
 		}
 		.boton_img {
-			@include x-rem(padding-right,1);
+			@include x-rem(padding-right,0.75);
 			background-color: $primario-celeste;
 			.punta--izquierda {
 				border-color: $primario-celeste;
@@ -1025,6 +1036,9 @@ ul.lista_resultados{
 				background-color: $primario-azul_oscuro!important;
 				.punta--izquierda {
 					border-right-color: $primario-azul_oscuro!important;
+				}
+				&.dont-show {
+					background-color: transparent!important;
 				}
 			}
 		}		
