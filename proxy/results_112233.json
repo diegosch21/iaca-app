@@ -2,13 +2,18 @@
 	"result": true,
 	"list": [
 		{
-			"fecha": "24102014",
-			"protocolo": "516570567",
+			"fecha": "05102014",
+			"protocolo": "500000895",
 			"documento": "112233",
 			"jpg": [
-				"proxy/img1.jpg",
-				"proxy/img2.jpg"
+				"proxy/img1.jpg"
 			],
+			"pdf": "proxy/pdf1.pdf"
+		},
+		{
+			"fecha": "04102014",
+			"protocolo": "500000893",
+			"documento": "112233",
 			"pdf": "proxy/pdf1.pdf"
 		},
 		{
@@ -25,10 +30,6 @@
 			"fecha": "24102014",
 			"protocolo": "516570566",
 			"documento": "112233",
-			"jpg": [
-				"proxy/img1.jpg",
-				"proxy/img2.jpg"
-			],
 			"pdf": "proxy/pdf1.pdf"
 		},
 		{
@@ -36,8 +37,6 @@
 			"protocolo": "516570001",
 			"documento": "112233",
 			"jpg": [
-				"proxy/img1.jpg",
-				"proxy/img2.jpg"
 			],
 			"pdf": "proxy/pdf1.pdf"
 		},
@@ -51,14 +50,10 @@
 			],
 			"pdf": "proxy/pdf1.pdf"
 		},
-				{
+		{
 			"fecha": "22102014",
 			"protocolo": "506560567",
 			"documento": "112233",
-			"jpg": [
-				"proxy/img1.jpg",
-				"proxy/img2.jpg"
-			],
 			"pdf": "proxy/pdf1.pdf"
 		},
 		{
@@ -95,10 +90,6 @@
 			"fecha": "27012014",
 			"protocolo": "401270566",
 			"documento": "112233",
-			"jpg": [
-				"proxy/img1.jpg",
-				"proxy/img2.jpg"
-			],
 			"pdf": "proxy/pdf1.pdf"
 		},
 		{
@@ -116,8 +107,7 @@
 			"protocolo": "11112222",
 			"documento": "112233",
 			"jpg": [
-				"proxy/img1.jpg",
-				"proxy/img2.jpg"
+				
 			],
 			"pdf": "proxy/pdf1.pdf"
 		},

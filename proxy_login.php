@@ -3,7 +3,8 @@
 $user = $_GET['username'];
 $pass = $_GET['password'];
 
-$url = "http://iaca3.web.vianetcon.com.ar/ws.json!login!username=".$user."&password=".$pass;
+//$url = "http://iaca3.web.vianetcon.com.ar/ws.json!login!username=".$user."&password=".$pass;
+$url = "https://www.iaca.com.ar/ws.json!login!username=".$user."&password=".$pass;
 
 if($user == '112233')
 	$url = 'proxy/login_112233.json';

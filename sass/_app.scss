@@ -948,6 +948,7 @@ ul.lista_resultados{
 			background-color: $alt-gris !important;
 		}
 
+		
 		.info--resultado{
 			line-height: 4;
 			text-align: center;
@@ -961,6 +962,12 @@ ul.lista_resultados{
 				// i.fa {
 				// 	@include x-rem(padding-left,0.5);
 				// }
+			}
+			&.dont-show {
+				background-color: transparent;
+				> div,span,i {
+					display: none;
+				}
 			}
 		}
 		.leido {
@@ -1029,6 +1036,9 @@ ul.lista_resultados{
 				background-color: $primario-azul_oscuro!important;
 				.punta--izquierda {
 					border-right-color: $primario-azul_oscuro!important;
+				}
+				&.dont-show {
+					background-color: transparent!important;
 				}
 			}
 		}		
