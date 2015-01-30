@@ -29,7 +29,7 @@
 
 
 	<!-- Icons Android -->
-    <icon src="icon.png" />
+    <!-- <icon src="icon.png" /> -->
 	<icon src="res/icon/android/icon-ldpi.png"   gap:platform="android"    gap:qualifier="ldpi" />
     <icon src="res/icon/android/icon-mdpi.png"   gap:platform="android"    gap:qualifier="mdpi" />
     <icon src="res/icon/android/icon-hdpi.png"   gap:platform="android"    gap:qualifier="hdpi" />
