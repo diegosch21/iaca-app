@@ -1,3 +1,4 @@
+// Instalacion plugin: cordova plugin add phonegap-plugin-push --variable SENDER_ID="529178062856"
 define([
 	'models/Sesion'
 ],	function(Sesion) {

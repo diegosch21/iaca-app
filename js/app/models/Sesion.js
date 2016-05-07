@@ -134,7 +134,7 @@ define([
         			} 
         		}
         	}).fail(function( jqXHR, textStatus, errorThrown ) {
-        		console.log(jqXHR +" "+ textStatus +" "+ errorThrown);
+        		console.log(jqXHR.responseText +" "+ textStatus +" "+ errorThrown);
         		if (callback && 'error' in callback) {
         			callback.error('No se pudo comunicar con el servidor. Verifique su conexión a internet.',0);
         		} 

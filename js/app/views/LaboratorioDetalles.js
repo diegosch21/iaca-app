@@ -54,7 +54,12 @@ define([
 		},
 		externalLink: function(event) {
 			var url= ($(event.currentTarget).data('href'));
-			window.open(url, '_system');
+			if (typeof cordova !== 'undefined' && cordova.InAppBrowser) {
+				cordova.InAppBrowser.open(url, '_blank'); // usa plugin inAppBrowser
+			}
+			else {
+				window.open(url,'_system');
+			}
 		},
 		reloadMapa: function() {
 			console.log("ReloadMapa");

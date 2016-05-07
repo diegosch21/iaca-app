@@ -1,0 +1,10 @@
+<plugin name="cordova-plugin-device" spec="~1.1.2" />
+<plugin name="cordova-plugin-dialogs" spec="~1.2.1" />
+<plugin name="cordova-plugin-inappbrowser" spec="~1.4.0" />
+<plugin name="cordova-plugin-appavailability" spec="~0.4.2" />
+<plugin name="cordova-plugin-x-toast" spec="~2.5.1" />
+<plugin name="cordova-plugin-splashscreen" spec="~3.2.2" />
+<plugin name="cordova-plugin-whitelist" spec="~1.2.2" />
+
+NO USADOS:
+PushPlugin: cordova plugin add phonegap-plugin-push --variable SENDER_ID="529178062856"
