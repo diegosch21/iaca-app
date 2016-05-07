@@ -198,8 +198,11 @@ function eventHandlersPhoneGap() {
 	// se oculta desp de 3 segs
 
 	// registro dispositivo para push notifications
-	console.log("device.platform: "+device.platform);
-	registrarPushNotification(device.platform);
+	// NO IMPLEMENTADO
+	// Usa plugin PushPlugin
+	// Instalacion: cordova plugin add phonegap-plugin-push --variable SENDER_ID="529178062856"
+	// console.log("device.platform: "+device.platform);
+	// registrarPushNotification(device.platform);
 }
 
 function exitApp(buttonIndex) {
@@ -211,14 +214,14 @@ function exitApp(buttonIndex) {
 		
 }
 
-function registrarPushNotification(platform) {
-	require(['lib/notificaciones'], function(notif) {
-		if (platform == 'android' || platform == 'Android')
-			notif.registrarAndroid();
-		else if (platform == "iOS")
-			notif.registrarApple();
-		else if (platform == 'Win32NT' || platform == 'WinCE')
-			notif.registrarWin();
+// function registrarPushNotification(platform) {
+// 	require(['lib/notificaciones'], function(notif) {
+// 		if (platform == 'android' || platform == 'Android')
+// 			notif.registrarAndroid();
+// 		else if (platform == "iOS")
+// 			notif.registrarApple();
+// 		else if (platform == 'Win32NT' || platform == 'WinCE')
+// 			notif.registrarWin();
 			
-	});
-}
+// 	});
+// }

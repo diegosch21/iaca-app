@@ -26,10 +26,12 @@ define([
 
         urls: {
         	//login: 'http://iaca3.web.vianetcon.com.ar/ws.json!login!',
+            // login: 'https://www.iaca.com.ar/ws.json!login!',
         	login: 'http://imotion/iaca/iaca-www/proxy_login.php?',
             //login: 'proxy_login.php?',
             //login: 'proxy/login_18277932.json?',
         	//results: 'http://iaca3.web.vianetcon.com.ar/ws.json!list-results!'
+            // results: 'https://www.iaca.com.ar/ws.json!list-results!'
         	results: 'http://imotion/iaca/iaca-www/proxy_results.php?'
             //results: 'proxy_results.php?'
             //results: 'proxy/results_18277932_2.json?'
@@ -132,7 +134,7 @@ define([
         			} 
         		}
         	}).fail(function( jqXHR, textStatus, errorThrown ) {
-        		console.log(jqXHR +" "+ textStatus +" "+ errorThrown);
+        		console.log(jqXHR.responseText +" "+ textStatus +" "+ errorThrown);
         		if (callback && 'error' in callback) {
         			callback.error('No se pudo comunicar con el servidor. Verifique su conexión a internet.',0);
         		} 
@@ -196,7 +198,7 @@ define([
             	user.save({logueado: false});
 	            this.enviarNotifID(false,id,user.get('notifID'));  // aviso al server que estoy logout, para que no envie notificaciones
 	        }
-     
+
         	this.set("token","");
         	this.set("userID",-1);
 			this.set("username","");
