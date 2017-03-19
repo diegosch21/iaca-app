@@ -2,7 +2,7 @@ define([
 	'text!templates/resultado_item.html',
 	'models/Sesion'
 ], function (resultadoItemTemplate,Sesion) {
-	
+
 	var ResultadoItemView = Backbone.View.extend({
 
 		//precompilo el template
@@ -51,7 +51,7 @@ define([
 				this.$el.removeClass('leido_no');
 			}
 			else {
-				this.$el.addClass('leido_no');	
+				this.$el.addClass('leido_no');
 				this.$el.removeClass('leido_si');
 			}
 		},
@@ -98,7 +98,7 @@ define([
 					saveDirectory = cordova.file.dataDirectory;
 				}
 
-				window.resolveLocalFileSystemURL(saveDirectory, 
+				window.resolveLocalFileSystemURL(saveDirectory,
 				// success resolveLocalFileSystemURL
 				function (dir) {
 					dir.getDirectory("IACA",{create: true},
@@ -119,7 +119,7 @@ define([
 										function() {
 											console.log('PDF abierto');
 											$('#page-loading').hide();
-										}, 
+										},
 										function(error) {
 											errorDescarga(error,'fileTransfer.download',url);
 										});
@@ -153,7 +153,7 @@ define([
 					console.log("Error "+ tipo + " "+  error);
 					// error: intenta descargar con browser
 					window.open(url, '_system');
-					$('#page-loading').hide();			
+					$('#page-loading').hide();
 				}
 			}
 			else {
@@ -161,7 +161,7 @@ define([
 				$('#page-loading').hide();
 			}
 
-			
+
 			this.setLeido();
 		},
 		verImgs: function(event) {
@@ -194,8 +194,8 @@ define([
 			});
 			this.setLeido();
 		}
-	
-		
+
+
 	});
 
 	return ResultadoItemView;

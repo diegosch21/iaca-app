@@ -1,7 +1,7 @@
 define([
 	'text!templates/info.html'
 ], function (infoTemplate) {
-	
+
 	var InfoView = Backbone.View.extend({
 
 		//precompilo el template
@@ -13,7 +13,7 @@ define([
 		},
 
 		initialize: function() {
-			
+
 		},
 
 		render: function() {
@@ -32,7 +32,7 @@ define([
 				}
 			}
 		}
-		
+
 	});
 
 	return InfoView;

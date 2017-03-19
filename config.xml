@@ -1,41 +1,57 @@
 <?xml version='1.0' encoding='utf-8'?>
 
-    <widget xmlns=	"http://www.w3.org/ns/widgets"
-        xmlns:gap=	"http://phonegap.com/ns/1.0"
-        xmlns:android= "http://schemas.android.com/apk/res/android"
-        id=			"com.imotionconsulting.iacalaboratorios"
-        version=	"1.1.3"
-        versionCode="3" >
+<widget xmlns=	"http://www.w3.org/ns/widgets"
+    xmlns:gap=	"http://phonegap.com/ns/1.0"
+    xmlns:android= "http://schemas.android.com/apk/res/android"
+    id=			"com.imotionconsulting.iacalaboratorios"
+    version=	"1.1.6"
+    versionCode="6" >
 
     <name>IACA Lab</name>
-
     <description>
         IACA Laboratorios - Consulta de resultados de análisis de pacientes
     </description>
-
     <author email="info@imotionconsulting.com.ar" href="http://imotionconsulting.com.ar">
         IMotion Consulting
     </author>
+    <content src="index.html" />
 
-    
+    <access origin="*" />
+    <access origin="https://www.iaca.com.ar" />
+    <allow-navigation href="https://www.iaca.com.ar/*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+
     <gap:platform name="android" />
-    <preference name="splash-screen-duration" value="10000"/>
+    <preference name="splash-screen-duration" value="4000"/>
     <preference name="permissions" value="none"/>
-    
+    <gap:config-file platform="android" parent="/manifest">
+        <application android:theme="@android:style/Theme.NoTitleBar">
+        </application>
+    </gap:config-file>
+
+
     <gap:platform name="ios" />
-    
+    <preference name="StatusBarOverlaysWebView" value="true" />
+    <preference name="StatusBarBackgroundColor" value="#28427e" />
+
     <gap:platform name="winphone" />
 
-
+    <!-- <icon src="icon.png" /> -->
 
 	<!-- Icons Android -->
-    <!-- <icon src="icon.png" /> -->
 	<icon src="res/icon/android/icon-ldpi.png"   gap:platform="android"    gap:qualifier="ldpi" />
     <icon src="res/icon/android/icon-mdpi.png"   gap:platform="android"    gap:qualifier="mdpi" />
     <icon src="res/icon/android/icon-hdpi.png"   gap:platform="android"    gap:qualifier="hdpi" />
     <icon src="res/icon/android/icon-xhdpi.png"  gap:platform="android"    gap:qualifier="xhdpi" />
     <icon src="res/icon/android/icon-xxhdpi.png" gap:platform="android"    gap:qualifier="xxhdpi" />
     <icon src="res/icon/android/icon-xxxhdpi.png" gap:platform="android"    gap:qualifier="xxxhdpi" />
+
+    <!-- Icons iOS -->
     <!-- iPhone icon (1x y 2x)  -->
     <icon src="res/icon/ios/icon-60.png"          gap:platform="ios"  width="60" height="60" />
     <icon src="res/icon/ios/icon-120.png"         gap:platform="ios"  width="120" height="120" />
@@ -54,12 +70,14 @@
     <!-- iOS < 7 -->
     <icon src="res/icon/ios/icon-57.png"          gap:platform="ios"  width="57" height="57" />
     <icon src="res/icon/ios/icon-72.png"          gap:platform="ios"  width="72" height="72" />
-    <!-- Windows Phone icons -->
+
+    <!-- Icons Windows Phone -->
     <icon src="res/icon/winphone/icon-48.png" gap:platform="winphone" />
 	<icon src="res/icon/winphone/tileicon-110.png" gap:platform="winphone" gap:role="background" />
 
-	<!-- Splash screen Android -->
     <gap:splash src="splash.png" />
+
+    <!-- Splash screen Android -->
 	<gap:splash src="res/screen/android/land-320x200.9.png"  gap:platform="android" gap:qualifier="land-ldpi"/>
 	<gap:splash src="res/screen/android/land-480x320.9.png"  gap:platform="android" gap:qualifier="land-mdpi"/>
 	<gap:splash src="res/screen/android/land-800x480.9.png"  gap:platform="android" gap:qualifier="land-hdpi"/>
@@ -70,7 +88,8 @@
 	<gap:splash src="res/screen/android/port-480x800.9.png"  gap:platform="android" gap:qualifier="port-hdpi"/>
 	<gap:splash src="res/screen/android/port-720x1280.9.png" gap:platform="android" gap:qualifier="port-xhdpi"/>
 	<gap:splash src="res/screen/android/port-1080x1920.9.png" gap:platform="android" gap:qualifier="port-xxhdpi"/>
-	<!-- Splash screen iOS -->
+
+    <!-- Splash screen iOS -->
 	<gap:splash src="res/screen/ios/iphone-port.png"            gap:platform="ios"     width="320" height="480" />
 	<gap:splash src="res/screen/ios/iphone-land.png"            gap:platform="ios"     width="480" height="320" />
     <gap:splash src="res/screen/ios/iphone-port-2x.png"         gap:platform="ios"     width="640" height="960" />
@@ -85,9 +104,10 @@
     <gap:splash src="res/screen/ios/ipad-land.png"              gap:platform="ios"     width="1024" height="768" />
     <gap:splash src="res/screen/ios/ipad-port-2x.png"           gap:platform="ios"     width="1536" height="2048" />
     <gap:splash src="res/screen/ios/ipad-land-2x.png"           gap:platform="ios"     width="2048" height="1536" />
-	<!-- Splash screen Windows Phone -->
+
+    <!-- Splash screen Windows Phone -->
     <gap:splash src="res/screen/win-phone/port-480x800.jpg"  gap:platform="winphone" />
-	
+
 
 	<!-- PLUGINS -->
 	<gap:plugin name="org.apache.cordova.inappbrowser" version="0.5.2" />
@@ -98,17 +118,5 @@
     <gap:plugin name="com.phonegap.plugin.statusbar" version="1.1.0" />
     <gap:plugin name="com.ohh2ahh.plugins.appavailability" version="0.3.1" />
 
-    <preference name="StatusBarOverlaysWebView" value="true" />
-    <preference name="StatusBarBackgroundColor" value="#28427e" />
 
-    
-
-    <access origin="*" />
-
-    <gap:config-file platform="android" parent="/manifest">
-        <application android:theme="@android:style/Theme.NoTitleBar">
-        </application>
-    </gap:config-file>
-	
-	
 </widget>
