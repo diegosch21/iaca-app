@@ -12,12 +12,12 @@ require.config({
         collections: '../app/collections',
         text: 'requirejs-text',
         async: 'requirejs-async',
-        jquery: 'jquery-1.11.1.min',
-        underscore: 'underscore-1.6.0.min',
-        backbone: 'backbone-1.1.2.min',
+        jquery: 'jquery-1.12.4.min',
+        underscore: 'underscore-1.8.3.min',
+        backbone: 'backbone-1.3.3.min',
         localstorage: 'backbone.localStorage-min',
         //modernizr: 'modernizr-2.8.0.min',
-        bootstrap: 'bootstrap-3.2.0.min',
+        bootstrap: 'bootstrap-3.3.7.min',
         iscroll: 'iscroll-zoom'
     },
 	shim: {
