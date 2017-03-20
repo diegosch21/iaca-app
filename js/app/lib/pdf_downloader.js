@@ -2,8 +2,10 @@
 define([],function() {
 	var PDFDownloader = function() {
 
-		this.download = function(pdf_url,pdf_id,callback_exito,callback_error) {
-			if (window.deviceready) {
+		var self = this;
+
+		this.download = function(url,filename,callback_exito,callback_error) {
+			if (window.deviceready && typeof FileTransfer !== undefined) {
 				var platform = device.platform,
 					saveDirectory = "";
 				if (platform === "iOS") {
@@ -32,8 +34,8 @@ define([],function() {
 						function(finalDir){
 							var fileTransfer = new FileTransfer();
 							if (fileTransfer) {
-								var uri = encodeURI(pdf_url),
-									fileURL = finalDir.toURL() + 'resultado_analisis_'+pdf_id+'.pdf';
+								var uri = encodeURI(url),
+									fileURL = finalDir.toURL() + filename;
 								fileTransfer.download(
 									uri,
 									fileURL,
@@ -49,7 +51,7 @@ define([],function() {
 												}
 											},
 											function(error) {
-												errorDescarga(error,'fileTransfer.download',pdf_url);
+												errorDescarga(error,'fileTransfer.download',url);
 											});
 										}
 										else {
@@ -60,23 +62,23 @@ define([],function() {
 										}
 									},
 									function(error) {
-										errorDescarga(error,'fileTransfer.download',pdf_url);
+										errorDescarga(error,'fileTransfer.download',url);
 									},
 									true
 								);
 							}
 							else {
-								errorDescarga("",'fileTransfer',pdf_url);
+								errorDescarga("",'fileTransfer',url);
 							}
 						},
 						// error getDirectory
 						function(error) {
-							errorDescarga(error,'getDirectory',pdf_url);
+							errorDescarga(error,'getDirectory',url);
 						});
 					},
 					// error resolveLocalFileSystemURL
 					function(error){
-						errorDescarga(error,'resolveLocalFileSystemURL',pdf_url);
+						errorDescarga(error,'resolveLocalFileSystemURL',url);
 					}
 				);
 
@@ -90,7 +92,7 @@ define([],function() {
 				};
 			}
 			else {
-				window.open(pdf_url, '_blank');
+				window.open(url, '_blank');
 				if (callback_exito) {
 					callback_exito();
 				}

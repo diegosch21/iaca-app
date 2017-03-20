@@ -68,20 +68,20 @@ define([
 				Sesion.checkTimestamp({ success: this._openPDF});
 		},
 		_openPDF: function() { // param: event
-			$('#page-loading').show();
-			//CAMBIA EL TOKEN DEL URL POR EL ACTUAL
-			var url= this.model.get("pdf"),
-				id = this.model.get("id");
-			var i = url.lastIndexOf('token=');
-			if(i>0) {
-				var url_sintoken = url.substring(0,i);
-				url = url_sintoken + 'token=' + Sesion.get('token');
-			}
-			console.log("Open PDF - url token actualizado: "+url);
-
 			var self = this;
 			require(['lib/pdf_downloader'], function(PDFDownloader) {
-				PDFDownloader.download(url,id,
+				$('#page-loading').show();
+				//CAMBIA EL TOKEN DEL URL POR EL ACTUAL
+				var url= self.model.get("pdf"),
+					id = self.model.get("id"),
+					filename = 'resultado_analisis_'+id+'.pdf';
+				var i = url.lastIndexOf('token=');
+				if(i>0) {
+					var url_sintoken = url.substring(0,i);
+					url = url_sintoken + 'token=' + Sesion.get('token');
+				}
+				console.log("Open PDF - url token actualizado: "+url);
+				PDFDownloader.download(url,filename,
 					function(){ // Callback exito
 						$('#page-loading').hide();
 						self.setLeido();

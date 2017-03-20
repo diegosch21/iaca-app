@@ -27,11 +27,11 @@ define([
 			'touchend a.usuario-guardado' : 'loginGuardado',
 			'touchend span.delete-guardado' : 'deleteGuardado',
 			'touchend #content-logout' : 'logout',
-			'touchstart .external-link' : 'externalLink',
+			'touchstart #boton-acceso-resultados-anteriores.external-link' : 'openConsultaResultadosAnteriores'
 			// 'click a.usuario-guardado' : 'loginGuardado',
 			// 'click span.delete-guardado' : 'deleteGuardado',
 			// 'click #content-logout' : 'logout',
-			// 'click .external-link' : 'externalLink'
+			// 'click #boton-acceso-resultados-anteriores.external-link' : 'openConsultaResultadosAnteriores'
 		},
 
 		render: function() {
@@ -155,10 +155,14 @@ define([
     		}
     		this.render();
 		},
-		externalLink: function(event) {
+		// Abre link para consulta de resultados anteriores en browser
+		openConsultaResultadosAnteriores: function(event) {
 			var url= ($(event.currentTarget).data('href'));
 			if (typeof cordova !== 'undefined' && cordova.InAppBrowser) {
-				cordova.InAppBrowser.open(url, '_blank'); // usa plugin inAppBrowser
+				// Usa plugin inAppBrowser pero abre browser sistema.
+				// No uso el browser in-app porque no permite descargar PDF
+				// 	(y no puedo obtener link de descarga y usar método de lib/PDFDownloader, porque necesito la cookie)
+				cordova.InAppBrowser.open(url, '_system');
 			}
 			else {
 				window.open(url,'_system');
