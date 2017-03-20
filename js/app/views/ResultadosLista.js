@@ -59,7 +59,7 @@ define([
 			var pri = this.actualItem +1;
 			console.log("Primer item: #"+pri+" Último item: #"+ult);
 
-			var hayImagenes = false; // El server no entrega más link a imagenes
+			//var hayImagenes = false; // El server no entrega más link a imagenes
 
 			for (var i = pri; i <=ult; i++) {
 				var result = this.resultadosGuardados.at(i);
