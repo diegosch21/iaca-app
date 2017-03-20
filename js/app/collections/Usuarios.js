@@ -12,7 +12,7 @@ define([
         },
         model: usuarioModel,
 
-        localStorage: new Store('iaca-usuarios')
+        localStorage: new Store('iaca-shift-usuarios')
 
     });
 

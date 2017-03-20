@@ -52,9 +52,13 @@ define(['jquery', 'underscore', 'backbone', 'iscroll','bootstrap'], //'modernizr
 
 	   	/* Document ready */
 		$(function(){
-			console.log('documentready');
 
 			// logger.disableLogger();   // NO DEBUG
+
+			console.log('documentready');
+			// Retrocompatibilidad (sesión y usuarios previos a cambio de sistema Abril2017)
+			// Quito de localstorage toda la data previa
+			removeStoragePrevio();
 
 			eventHandlersGenerales();
 
@@ -81,6 +85,15 @@ define(['jquery', 'underscore', 'backbone', 'iscroll','bootstrap'], //'modernizr
 	}
 );
 
+// Retrocompatibilidad  - usos de app hasta version 1.1.6: se elimina toda la info guardada en storage
+function removeStoragePrevio() {
+	if (localStorage.getItem('iaca-session') || localStorage.getItem('iaca-usuarios')) {
+		console.log('Había sesión o usuarios sistema anterior: vacío storage');
+		// Vacío storage
+		window.localStorage.clear();
+	}
+}
+
 function eventHandlersGenerales() {
 	// variables para controlar distancia de touchmove
 	var startX = 0;	var startY = 0;
@@ -103,8 +116,6 @@ function eventHandlersGenerales() {
 			window.dragging = true;
 		//console.log("touchmove "+e.target.tagName +' '+e.target.id +' '+ e.target.className+' '+e.touches);
 	},false);
-
-
 
 	document.addEventListener('touchstart', function(e){
     	window.dragging = false;

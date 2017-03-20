@@ -9,7 +9,6 @@ define([
 
         url: 'data/labos.json',
 
-
     });
 
     return labosCollection;
