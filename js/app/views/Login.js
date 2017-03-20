@@ -1,3 +1,4 @@
+/* global cordova */
 define([
 	'text!templates/login.html',
 	'models/Sesion',
@@ -25,9 +26,12 @@ define([
 			'submit form#login'	: 'login',
 			'touchend a.usuario-guardado' : 'loginGuardado',
 			'touchend span.delete-guardado' : 'deleteGuardado',
-			'touchend #content-logout' : 'logout'
+			'touchend #content-logout' : 'logout',
+			'touchstart .external-link' : 'externalLink',
 			// 'click a.usuario-guardado' : 'loginGuardado',
-			// 'click span.delete-guardado' : 'deleteGuardado'
+			// 'click span.delete-guardado' : 'deleteGuardado',
+			// 'click #content-logout' : 'logout',
+			// 'click .external-link' : 'externalLink'
 		},
 
 		render: function() {
@@ -150,6 +154,15 @@ define([
     			}
     		}
     		this.render();
+		},
+		externalLink: function(event) {
+			var url= ($(event.currentTarget).data('href'));
+			if (typeof cordova !== 'undefined' && cordova.InAppBrowser) {
+				cordova.InAppBrowser.open(url, '_blank'); // usa plugin inAppBrowser
+			}
+			else {
+				window.open(url,'_system');
+			}
 		}
 	});
 

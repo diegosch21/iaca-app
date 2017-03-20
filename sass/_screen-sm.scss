@@ -1,5 +1,5 @@
 #content-wrapper {
-  padding-top: 10px;    
+  padding-top: 10px;
   top: 123px;
 }
 
@@ -30,10 +30,10 @@ div.botones-social {
 .labos-boton {
   .banner-horizontal {
     @include x-rem(height,8);
-    @include boton-punta-correccion-alto(8);  
+    @include boton-punta-correccion-alto(8);
   }
-   
-  
+
+
 }
 #map_canvas {
   height: 400px;
@@ -90,7 +90,7 @@ ul.lista_resultados{
 .app-info_contacto, .app-wrapper-certificaciones{
 
   //@include x-rem(margin-bottom, 1);
- 
+
   padding-left: 15px;
   padding-right: 15px;
 
@@ -102,15 +102,15 @@ ul.lista_resultados{
     @include header-banner-punta(8,30%);
 
     .h3 {
-      @include x-rem(margin, 1.5 0);
-    } 
+      margin: 36px 0;
+    }
     /*.contenido--banner{
       width: 73%;
       padding-top: 0;
       padding-bottom: 0;
     }*/
 
-    
+
   }
 }
 

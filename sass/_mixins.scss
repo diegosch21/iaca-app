@@ -75,7 +75,6 @@
     .header--banner{
       	@include x-rem(width, $width);
       	@include x-rem(margin-right, 1.5);
-      	@include x-rem(padding, 1.25 0);
     }
 }
 

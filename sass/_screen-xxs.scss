@@ -1,9 +1,8 @@
-//* MENOS DE 360PX DE ANCHO */
+//* MENOS DE 400PX DE ANCHO */
 
 #content-wrapper {
-  top: 87px;
+  top: 91px;
 }
-
 
 .hidden-xxs {
 	display: none !important;
@@ -25,15 +24,15 @@
 .col-xxs-1 {
 	width: 8.33333%!important;
 	@extend %col-xxs;
-} 
+}
 .col-xxs-2 {
 	width: 16.66667%!important;
 	@extend %col-xxs;
-} 
+}
 .col-xxs-3 {
 	width:  25%!important;
 	@extend %col-xxs;
-} 
+}
 .col-xxs-5 {
 	width: 41.66667%!important;
 	@extend %col-xxs;
@@ -41,15 +40,15 @@
 .col-xxs-4 {
 	width: 33.33333%!important;
 	@extend %col-xxs;
-} 
+}
 .col-xxs-6 {
 	width: 50%!important;
 	@extend %col-xxs;
-} 
+}
 .col-xxs-12 {
 	width: 100%!important;
 	@extend %col-xxs;
-} 
+}
 
 .col-xxs-offset-1 {
 	margin-left: 8.33333%!important;
@@ -63,7 +62,7 @@
 #nav-top {
 	>li {
 		&.menu-profesional {
-			line-height: 1.25;
+			line-height: 1.55;
 			div.dropdown  {
 				font-size: 14px;
 				a{
@@ -74,8 +73,7 @@
 		&.back {
 			i.fa {
     			font-weight: 700;
-    			@include x-rem(padding, 0 0.5);
-    			@include x-rem(padding-left, 0.25);
+    			padding: 2px 8px;
     		}
 		}
 	}
@@ -87,7 +85,7 @@
 		#menu-principal-xs {
 			@include x-rem(font-size, 1);
 			@include x-rem(padding,0.25 0.25);
-			
+
 		}
 		.dropdown-menu {
 			@include x-rem(font-size, 1);
@@ -103,16 +101,16 @@
 }
 #app-home {
 	.home-item {
-		@include x-rem(margin, 0.5 0);
+		@include x-rem(margin, 1 0);
 		&.destacado{
-			@include x-rem(margin, 0.5 0);
+			@include x-rem(margin, 1 0 1.5);
 		}
 	}
 }
 div.botones-social {
 	@include x-rem(margin, 1 0);
-	div.redes-sociales {	
-	
+	div.redes-sociales {
+
     	a {
 
     		padding: 5px;
@@ -129,8 +127,8 @@ div.botones-social {
 
 .home-boton {
 	.banner-horizontal {
-		@include x-rem(height,4);
-		@include boton-punta-correccion-alto(4);
+		@include x-rem(height,5);
+		@include boton-punta-correccion-alto(5);
 		.header--banner {
 			padding: 0;
 			span {
@@ -139,24 +137,23 @@ div.botones-social {
 		}
 		.contenido--banner {
 			span {
-				@include x-rem(font-size,2);
+				@include x-rem(font-size,2.5);
 			}
 		}
 	}
 
 	&.destacado {
 		.banner-horizontal {
-			@include x-rem(height,6);
-			@include boton-punta-correccion-costado(6,1.25);
+			@include x-rem(height,8);
+			@include boton-punta-correccion-costado(8,1.5);
 			.header--banner {
-
 				span {
 					@include x-rem(font-size,1.3);
 				}
 			}
 			.contenido--banner {
 				span {
-					@include x-rem(font-size,2.5);
+					@include x-rem(font-size,3.5);
 				}
 			}
 		}
@@ -191,14 +188,14 @@ div.botones-social {
 		@include x-rem(font-size, 3);
 	}
 	div {
-		@include x-rem(font-size, 0.8);	
+		@include x-rem(font-size, 0.8);
 	}
 	h5 {
 		@include x-rem(margin-top, 0.5);
 		@include x-rem(font-size, 1.2);
 	}
 	h6 {
-		@include x-rem(font-size, 1);	
+		@include x-rem(font-size, 1);
 	}
 }
 
@@ -238,18 +235,39 @@ div.botones-social {
 //** Login **/
 #app-login {
 	.acceso_login {
-
 		@include x-rem(margin-top,2);
 	}
 	.contenedor-con-punta {
 		.h4 {
 			white-space: normal;
-			@include x-rem(margin-top,-1)
-		}	
+			max-width: 180px;
+		}
 	}
 	.input-login {
 		input[type="password"], input[type="text"]{
 			width: 70%;
+		}
+	}
+	#content-logout {
+		line-height: 1;
+	}
+	.usuarios-guardados {
+		.header--banner .h4  {
+			line-height: 24px;
+			padding-top: 6px;
+		}
+	}
+}
+
+.acceso-web-resultados-anteriores {
+	.boton .banner-horizontal {
+		width: 100%;
+		max-width: 320px;
+		padding-left: 0;
+		padding-right: 30px;
+		i.fa {
+			font-size: 20px;
+			right: 10px;
 		}
 	}
 }
@@ -261,6 +279,7 @@ div.botones-social {
 		.h3 {
 			@include x-rem(font-size, $h4);
 			font-weight: 500;
+			display: block;
 		}
 	}
 }
@@ -270,33 +289,12 @@ div.botones-social {
 	}
 }
 .columna-tabla {
-	line-height: 2;
-	a,span {
-		white-space: nowrap;
-	}
-	&.doble-linea {
-		line-height: 4;
-		
-		&.doble-renglon {
-			a,span {
-				white-space: normal;
-				line-height: 2;	
-			}
-			line-height: 2;
-		}
-	}
+
 }
 ul.lista_resultados{
 	.item--resultado_paciente{
-
 		.boton_img {
 			@include x-rem(padding-right, 1);
-		}
-		.info--resultado{
-			line-height: 2;
-		}
-		.doble-linea {
-			line-height: 4;
 		}
 		//@include boton-punta-correccion-costado(4,0.75);
 		@include boton-punta(4);
@@ -314,6 +312,15 @@ ul.lista_resultados{
 		.leido {
 			i {
 				@include x-rem(padding-left,0.75);
+			}
+		}
+		@media (max-width: 340px) {
+ 			.info--resultado{
+ 				line-height: 48px;
+ 				font-size: 14px;
+ 			}
+ 			.contenedor-con-punta {
+				@include x-rem(height,3);
 			}
 		}
 	}
