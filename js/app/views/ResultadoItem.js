@@ -15,12 +15,13 @@ define([
 
 		initialize: function(options) {
 			this.scrollerImgs = options.scrollerImgs;
-			_.bindAll(this,'_verImgs','_openPDF');
+			// _.bindAll(this,'_verImgs','_openPDF');
+			_.bindAll(this,'_openPDF');
 		},
 		events: {
 			'touchend .leido i' : 	'changeLeido',
 			'touchend .boton_pdf:not(.dont-show)': 'openPDF',
-			'touchend .boton_img:not(.dont-show)': 'verImgs'
+			// 'touchend .boton_img:not(.dont-show)': 'verImgs'
 			// 'click .leido i' : 	'changeLeido',
 			// 'click .boton_pdf': 'openPDF',
 			// 'click .boton_img': 'verImgs'
@@ -167,36 +168,37 @@ define([
 
 			this.setLeido();
 		},
-		verImgs: function() { // param: event
-			console.log('pressBoton (dragging: '+window.dragging+')');
-			if(!window.dragging)
-				Sesion.checkTimestamp({ success: this._verImgs } );
-		},
-		_verImgs: function() {
-			console.log("Ver imagenes");
-			$('#loading-img').show();
-			var divImgs = $('#results-imgs').html('');
-			_.each(this.model.get("jpg"), function(value) { // otro param: key
-				//CAMBIA EL TOKEN DEL URL POR EL ACTUAL
-				var url= value;
-				var i = url.lastIndexOf('token=');
-				if(i>0) {
-					var url_sintoken = url.substring(0,i);
-					url = url_sintoken + 'token=' + Sesion.get('token');
-				}
-				divImgs.append("<div class='result-img'><img src='"+url+"' class='imagen-result' alt='Imagen del resultado de análisis'/></div>");
-			});
+		// El server no entrega más imagenes de los resultados
+		// verImgs: function() { // param: event
+		// 	console.log('pressBoton (dragging: '+window.dragging+')');
+		// 	if(!window.dragging)
+		// 		Sesion.checkTimestamp({ success: this._verImgs } );
+		// },
+		// _verImgs: function() {
+		// 	console.log("Ver imagenes");
+		// 	$('#loading-img').show();
+		// 	var divImgs = $('#results-imgs').html('');
+		// 	_.each(this.model.get("jpg"), function(value) { // otro param: key
+		// 		//CAMBIA EL TOKEN DEL URL POR EL ACTUAL
+		// 		var url= value;
+		// 		var i = url.lastIndexOf('token=');
+		// 		if(i>0) {
+		// 			var url_sintoken = url.substring(0,i);
+		// 			url = url_sintoken + 'token=' + Sesion.get('token');
+		// 		}
+		// 		divImgs.append("<div class='result-img'><img src='"+url+"' class='imagen-result' alt='Imagen del resultado de análisis'/></div>");
+		// 	});
 
-			$('#imgs-wrapper').fadeIn('slow');
-			this.scrollerImgs.zoom(1);
-			this.scrollerImgs.scrollTo(0,0);
-			var self = this;
-			$('.imagen-result').on('load',function(){
-				$('#loading-img').hide();
-				self.scrollerImgs.refresh();
-			});
-			this.setLeido();
-		}
+		// 	$('#imgs-wrapper').fadeIn('slow');
+		// 	this.scrollerImgs.zoom(1);
+		// 	this.scrollerImgs.scrollTo(0,0);
+		// 	var self = this;
+		// 	$('.imagen-result').on('load',function(){
+		// 		$('#loading-img').hide();
+		// 		self.scrollerImgs.refresh();
+		// 	});
+		// 	this.setLeido();
+		// }
 
 	});
 

@@ -1,3 +1,4 @@
+/* global cordova */
 define([
 	'text!templates/resultados_lista.html',
 	'models/Sesion',
@@ -28,9 +29,11 @@ define([
 		},
 		events: {
 			'touchstart #ver-mas' : 	'verMas',
-			'touchstart #update' : 'updateUsuario'
+			'touchstart #update' : 'updateUsuario',
+			'touchstart .external-link' : 'externalLink'
 			// 'click #ver-mas' : 	'verMas',
-			// 'click #update' : 'updateUsuario'
+			// 'click #update' : 'updateUsuario',
+			// 'click .external-link' : 'externalLink'
 		},
 
 		// AGREGAR EVENTO A CHECKBOX NOTIFICACIONES
@@ -56,7 +59,7 @@ define([
 			var pri = this.actualItem +1;
 			console.log("Primer item: #"+pri+" Último item: #"+ult);
 
-			var hayImagenes = false;
+			var hayImagenes = false; // El server no entrega más link a imagenes
 
 			for (var i = pri; i <=ult; i++) {
 				var result = this.resultadosGuardados.at(i);
@@ -65,14 +68,16 @@ define([
 				this.$el.find('#lista-resultados').append(view.render().el);
 				this.itemsViews[result.id] = view;
 				this.actualItem = i;
-				hayImagenes = hayImagenes || result.get("jpg").length > 0;
+				// El server no entrega más link a imagenes
+				//hayImagenes = hayImagenes || result.get("jpg").length > 0;
 			}
-			if(hayImagenes) {
-				this.$el.find('.ver-imagenes').show();
-			}
-			else {
-				this.$el.find('.ver-imagenes').hide();
-			}
+			 // El server no entrega más link a imagenes - en template no está más link a ver-imagenes
+			// if(hayImagenes) {
+			// 	this.$el.find('.ver-imagenes').show();
+			// }
+			// else {
+			// 	this.$el.find('.ver-imagenes').hide();
+			// }
 			if(this.resultadosGuardados.length>0)
 				this.$el.find('#no-results').hide();
 			else
@@ -271,6 +276,15 @@ define([
 				//zoomMax: 2
 			});
 
+		},
+		externalLink: function(event) {
+			var url= ($(event.currentTarget).data('href'));
+			if (typeof cordova !== 'undefined' && cordova.InAppBrowser) {
+				cordova.InAppBrowser.open(url, '_blank'); // usa plugin inAppBrowser
+			}
+			else {
+				window.open(url,'_system');
+			}
 		}
 	});
 
