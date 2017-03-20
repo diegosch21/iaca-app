@@ -17,5 +17,5 @@ define([
     });
 
     //SINGLETON
-    return new usuariosCollection;
+    return new usuariosCollection();
 });

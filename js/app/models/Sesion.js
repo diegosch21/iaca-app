@@ -17,7 +17,7 @@ define([
     var sesionModel = Backbone.Model.extend({
 
         defaults:{
-        	id: '1', // unica sesión (este modelo es un singleton)
+        	id: 'app', // unica sesión (este modelo es un singleton)
         	logueado: false,
         	userID: -1,
         	username: "",
@@ -48,7 +48,7 @@ define([
             var self = this;
             this.set("timestamp",new Date().getTime());
 
-            if(localStorage.getItem('iaca-session-shift-1')) { // Chequeo si había sesión previa
+            if(localStorage.getItem('iaca-shift-session-app')) { // Chequeo si había sesión previa
                 // ToDo - nuevo sistema login
         		console.log("Init: Fetch sesion");
         		this.fetch({
