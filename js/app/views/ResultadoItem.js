@@ -1,7 +1,9 @@
+/* global device, cordova, FileTransfer */
 define([
 	'text!templates/resultado_item.html',
-	'models/Sesion'
-], function (resultadoItemTemplate,Sesion) {
+	'models/Sesion',
+	'backbone'
+], function (resultadoItemTemplate,Sesion,Backbone) {
 
 	var ResultadoItemView = Backbone.View.extend({
 
@@ -56,7 +58,7 @@ define([
 			}
 		},
 		ocultarBotonImg: function() {
-			if(typeof this.model.get("jpg") == 'undefined' || this.model.get("jpg").length == 0) {
+			if(typeof this.model.get("jpg") == 'undefined' || !this.model.get("jpg").length) {
 				this.$el.find('.boton_img').addClass('dont-show');
 			}
 		},
@@ -65,7 +67,7 @@ define([
 			if(!window.dragging)
 				Sesion.checkTimestamp({ success: this._openPDF});
 		},
-		_openPDF: function(event) {
+		_openPDF: function() { // param: event
 			$('#page-loading').show();
 			//CAMBIA EL TOKEN DEL URL POR EL ACTUAL
 			var url= this.model.get("pdf"),
@@ -73,7 +75,7 @@ define([
 			var i = url.lastIndexOf('token=');
 			if(i>0) {
 				var url_sintoken = url.substring(0,i);
-				var url = url_sintoken + 'token=' + Sesion.get('token');
+				url = url_sintoken + 'token=' + Sesion.get('token');
 			}
 			console.log("Open PDF - url token actualizado: "+url);
 
@@ -99,62 +101,63 @@ define([
 				}
 
 				window.resolveLocalFileSystemURL(saveDirectory,
-				// success resolveLocalFileSystemURL
-				function (dir) {
-					dir.getDirectory("IACA",{create: true},
-					// success getDirectory
-					function(finalDir){
-						var fileTransfer = new FileTransfer();
-						if (fileTransfer) {
-							var uri = encodeURI(url),
-								fileURL = finalDir.toURL() + 'resultado_analisis_'+id+'.pdf';
-							fileTransfer.download(
-								uri,
-								fileURL,
-								function(entry) {
-									console.log("download complete: " + entry.toURL());
-									// muestra el PDF
-									if (platform == 'android' || platform == "Android" ) {
-										window.cordova.plugins.FileOpener.openFile(entry.toURL(),
-										function() {
-											console.log('PDF abierto');
+					// success resolveLocalFileSystemURL
+					function (dir) {
+						dir.getDirectory("IACA",{create: true},
+						// success getDirectory
+						function(finalDir){
+							var fileTransfer = new FileTransfer();
+							if (fileTransfer) {
+								var uri = encodeURI(url),
+									fileURL = finalDir.toURL() + 'resultado_analisis_'+id+'.pdf';
+								fileTransfer.download(
+									uri,
+									fileURL,
+									function(entry) {
+										console.log("download complete: " + entry.toURL());
+										// muestra el PDF
+										if (platform == 'android' || platform == "Android" ) {
+											window.cordova.plugins.FileOpener.openFile(entry.toURL(),
+											function() {
+												console.log('PDF abierto');
+												$('#page-loading').hide();
+											},
+											function(error) {
+												errorDescarga(error,'fileTransfer.download',url);
+											});
+										}
+										else {
+											window.open(entry.toURL(), '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
 											$('#page-loading').hide();
-										},
-										function(error) {
-											errorDescarga(error,'fileTransfer.download',url);
-										});
-									}
-									else {
-										window.open(entry.toURL(), '_blank', 'location=no,closebuttoncaption=Close,enableViewportScale=yes');
-										$('#page-loading').hide();
-									}
-								},
-								function(error) {
-									errorDescarga(error,'fileTransfer.download',url);
-								},
-								true
-							)
-						}
-						else {
-							errorDescarga(error,'fileTransfer',url);
-						}
+										}
+									},
+									function(error) {
+										errorDescarga(error,'fileTransfer.download',url);
+									},
+									true
+								);
+							}
+							else {
+								errorDescarga("",'fileTransfer',url);
+							}
+						},
+						// error getDirectory
+						function(error) {
+							errorDescarga(error,'getDirectory',url);
+						});
 					},
-					// error getDirectory
-					function(error) {
-						errorDescarga(error,'getDirectory',url);
-					});
-				},
-				// error resolveLocalFileSystemURL
-				function(error){
-					errorDescarga(error,'resolveLocalFileSystemURL',url);
-				});
+					// error resolveLocalFileSystemURL
+					function(error){
+						errorDescarga(error,'resolveLocalFileSystemURL',url);
+					}
+				);
 
-				function errorDescarga (error,tipo,url) {
+				var errorDescarga = function(error,tipo,url) {
 					console.log("Error "+ tipo + " "+  error);
 					// error: intenta descargar con browser
 					window.open(url, '_system');
 					$('#page-loading').hide();
-				}
+				};
 			}
 			else {
 				window.open(url, '_blank');
@@ -164,7 +167,7 @@ define([
 
 			this.setLeido();
 		},
-		verImgs: function(event) {
+		verImgs: function() { // param: event
 			console.log('pressBoton (dragging: '+window.dragging+')');
 			if(!window.dragging)
 				Sesion.checkTimestamp({ success: this._verImgs } );
@@ -173,13 +176,13 @@ define([
 			console.log("Ver imagenes");
 			$('#loading-img').show();
 			var divImgs = $('#results-imgs').html('');
-			_.each(this.model.get("jpg"), function(value, key) {
+			_.each(this.model.get("jpg"), function(value) { // otro param: key
 				//CAMBIA EL TOKEN DEL URL POR EL ACTUAL
 				var url= value;
 				var i = url.lastIndexOf('token=');
 				if(i>0) {
 					var url_sintoken = url.substring(0,i);
-					var url = url_sintoken + 'token=' + Sesion.get('token');
+					url = url_sintoken + 'token=' + Sesion.get('token');
 				}
 				divImgs.append("<div class='result-img'><img src='"+url+"' class='imagen-result' alt='Imagen del resultado de análisis'/></div>");
 			});
@@ -195,8 +198,7 @@ define([
 			this.setLeido();
 		}
 
-
 	});
 
 	return ResultadoItemView;
-})
+});

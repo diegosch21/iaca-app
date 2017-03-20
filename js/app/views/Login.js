@@ -2,9 +2,9 @@ define([
 	'text!templates/login.html',
 	'models/Sesion',
 	'text!templates/alert.html',
-	'collections/Usuarios'
-
-], function (loginTemplate,Sesion,alertTemplate,Usuarios) {
+	'collections/Usuarios',
+	'backbone'
+], function (loginTemplate,Sesion,alertTemplate,Usuarios,Backbone) {
 
 	var LoginView = Backbone.View.extend({
 
@@ -36,7 +36,7 @@ define([
 				var users = [];
 				Usuarios.each(function(user, index){
 					users[index] = {"id": user.get("id"), "name": user.get("name")};
-				})
+				});
 				this.$el.html(this.template({"logueado": logueado, "guardados":true, "usuarios": users}));
 			}
 			else {
@@ -54,16 +54,16 @@ define([
 			var password = this.$("#pass").val();
 			self.$('.mensaje--alerta').html('');
 
-			if(username=="" || username==" ") {
+			if(!username.trim) { // string vacío
 				this.alerta("Ingrese su número de usuario",'.mensaje--alerta');
 			}
-			else if (password=="" || password==" ") {
+			else if (!password.trim) { // string vacío
 				this.alerta("Ingrese su contraseña",'.mensaje--alerta');
 			}
 			else {
 				this.loading(true);
 				Sesion.login(username,password,{
-					success: function(data) {
+					success: function() { // param: data
 						console.log("Logueado: "+Sesion.get("logueado")+" Redirecciona a: "+self.redireccion);
 						self.alerta('Logueado correctamente');
 						Backbone.history.navigate(self.redireccion,true);
@@ -105,7 +105,7 @@ define([
 				var pass = user.get("pass");
 				this.loading(true);
 				Sesion.login(id,pass,{
-					success: function(data) {
+					success: function() { // param: data
 						console.log("Usuario guardado Logueado: "+Sesion.get("logueado")+" Redirecciona a: "+self.redireccion);
 						self.alerta('Logueado correctamente');
 						Backbone.history.navigate(self.redireccion,true);
@@ -151,11 +151,7 @@ define([
     		}
     		this.render();
 		}
-
-
-
-
 	});
 
 	return LoginView;
-})
+});
