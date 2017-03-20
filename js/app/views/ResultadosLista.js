@@ -30,10 +30,10 @@ define([
 		events: {
 			'touchstart #ver-mas' : 	'verMas',
 			'touchstart #update' : 'updateUsuario',
-			'touchstart .external-link' : 'externalLink'
+			'touchstart #boton-acceso-resultados-anteriores.external-link' : 'openConsultaResultadosAnteriores'
 			// 'click #ver-mas' : 	'verMas',
 			// 'click #update' : 'updateUsuario',
-			// 'click .external-link' : 'externalLink'
+			// 'click #boton-acceso-resultados-anteriores.external-link' : 'openConsultaResultadosAnteriores'
 		},
 
 		// AGREGAR EVENTO A CHECKBOX NOTIFICACIONES
@@ -59,7 +59,7 @@ define([
 			var pri = this.actualItem +1;
 			console.log("Primer item: #"+pri+" Último item: #"+ult);
 
-			var hayImagenes = false; // El server no entrega más link a imagenes
+			//var hayImagenes = false; // El server no entrega más link a imagenes
 
 			for (var i = pri; i <=ult; i++) {
 				var result = this.resultadosGuardados.at(i);
@@ -275,12 +275,15 @@ define([
 				zoomMin: 0.25
 				//zoomMax: 2
 			});
-
 		},
-		externalLink: function(event) {
+		// Abre link para consulta de resultados anteriores en browser
+		openConsultaResultadosAnteriores: function(event) {
 			var url= ($(event.currentTarget).data('href'));
 			if (typeof cordova !== 'undefined' && cordova.InAppBrowser) {
-				cordova.InAppBrowser.open(url, '_blank'); // usa plugin inAppBrowser
+				// Usa plugin inAppBrowser pero abre browser sistema. En Android, con boton back cierra el browser
+				// No uso el browser in-app porque no permite descargar PDF
+				// 	(y no puedo obtener link de descarga y usar método de lib/PDFDownloader, porque necesito la cookie)
+				cordova.InAppBrowser.open(url, '_system');
 			}
 			else {
 				window.open(url,'_system');
