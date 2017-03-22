@@ -1,18 +1,20 @@
 /*
-*	Guarda el token del usuario actual
+* SINGLETON
+* Guarda el usuario actual y se encarga de las operaciones que requieren credenciales de usuario:
+* - login, relogin y logout
+* - get de los resultados
 *
-*   Se encarga de las operaciones de login, relogin y logout
-*   Realiza el get de los resultados
-*  SINGLETON
+* Viejo sistema seteaba data para notificaciones
 */
-/* globals device */
+//* globals device */
 define([
  	'jquery',
  	'underscore',
  	'backbone',
  	'localstorage',
- 	'collections/Usuarios'
-], function ($,_,Backbone,Store,Usuarios) {
+ 	'collections/Usuarios',
+    'services/shift_webservice'
+], function ($,_,Backbone,Store,Usuarios,Shift) {
 
     var sesionModel = Backbone.Model.extend({
 
@@ -25,18 +27,20 @@ define([
             timestamp: -1
         },
 
+        /* URLs viejo sistema (VIANET)
+            (la URL del web service SOAP de Shift se define y usa en services/shift_webservice.js) */
         urls: {
-        	//login: 'http://iaca3.web.vianetcon.com.ar/ws.json!login!',
             login: 'https://www.iaca.com.ar/ws.json!login!',
-        	//login: 'http://imotion.local/iaca/iaca-www/proxy_login.php?',
-            //login: 'proxy_login.php?',
-            //login: 'proxy/login_18277932.json?',
-        	//results: 'http://iaca3.web.vianetcon.com.ar/ws.json!list-results!'
             results: 'https://www.iaca.com.ar/ws.json!list-results!'
-        	//results: 'http://imotion.local/iaca/iaca-www/proxy_results.php?'
-            //results: 'proxy_results.php?'
-            //results: 'proxy/results_18277932_2.json?'
-            //results: 'proxy/results_vacio.json?'
+
+            /* Proxy local a VIANET (para desarrollo, por same-origin-policy) */
+            // login: 'http://imotion.local/iaca/iaca-www/proxy/VIANET_login.php?',
+            // login: 'proxy/VIANET_login.php?',
+            // login: 'proxy/login_18277932.json?',
+            // results: 'http://imotion.local/iaca/iaca-www/proxy/VIANET_results.php?'
+            // results: 'proxy/VIANET_results.php?'
+            // results: 'proxy/results_18277932_2.json?'
+            // results: 'proxy/results_vacio.json?'
         },
 
         localStorage: new Store('iaca-shift-session'),
@@ -44,11 +48,15 @@ define([
         initialize: function() {
 
             console.log("Initialize Sesion");
-        	_.bindAll(this,'getAuth','login','crearUsuario','setUsuario',"relogin",'checkTimestamp','setNotificar','setNotifID','enviarNotifID');
+            _.bindAll(this,'login','relogin','getAuth','setUsuario','crearUsuario','logout','getResultados','checkTimestamp');
+            // Bind con métodos deshabilitados
+        	// _.bindAll(this,'setNotificar','setNotifID','enviarNotifID');
+
             var self = this;
             this.set("timestamp",new Date().getTime());
 
-            if(localStorage.getItem('iaca-shift-session-app')) { // Chequeo si había sesión previa
+            // Chequeo si había sesión previa para hacer "relogin"
+            if(localStorage.getItem('iaca-shift-session-app')) {
                 // ToDo - nuevo sistema login
         		console.log("Init: Fetch sesion");
         		this.fetch({
@@ -56,7 +64,7 @@ define([
                         if(self.get("logueado")) {
                             self.relogin({success: function() {
                                 console.log("Relogin inicial - Redirecciono a home");
-                                Backbone.history.navigate(self.redireccion,true);
+                                Backbone.history.navigate("",true);
                             }});
                         }
                     }
@@ -102,8 +110,6 @@ define([
                 this.login(userGuardado.get("id"),userGuardado.get("pass"),callback);
             }
         },
-
-
 
         getAuth: function(user,pass,callback) {
         	$.ajax({
@@ -165,31 +171,36 @@ define([
         	this.save();
 
             // Cambios en modelo usuario para actualizar estado notificacion en el server
-            var cambioLogin = false;
-            var user = Usuarios.get(id);
-            if (!user.get("logueado")) {
-                console.log("setUsuario: nuevo estado logueado usuario");
-                cambioLogin = true;
-                user.save({logueado: true});
-            }
+            /* Desactivado porque no se implementó en server */
+            // var cambioLogin = false;
+            // var user = Usuarios.get(id);
+            // if (!user.get("logueado")) {
+            //     console.log("setUsuario: nuevo estado logueado usuario");
+            //     cambioLogin = true;
+            //     user.save({logueado: true});
+            // }
 
-            var cambioID = false;
-            var actualID = user.get('notifID');
-            var notifID = "";
-            if (window.localStorage['iaca-notificationsID']) {
-                notifID = window.localStorage.getItem('iaca-notificationsID');
-            }
-            if (notifID !== "" && notifID != actualID) {
-                console.log("setUsuario: nuevo notifID");
-                user.save({'notifID': notifID});
-            }
+            // var cambioID = false;
+            // var actualID = user.get('notifID');
+            // var notifID = "";
+            // if (window.localStorage['iaca-notificationsID']) {
+            //     notifID = window.localStorage.getItem('iaca-notificationsID');
+            // }
+            // if (notifID !== "" && notifID != actualID) {
+            //     console.log("setUsuario: nuevo notifID");
+            //     user.save({'notifID': notifID});
+            // }
 
-            var notificar = user.get('notificar');
+            // var notificar = user.get('notificar');
+            // if (cambioLogin || cambioID) {
+            //     this.enviarNotifID(notificar,id,notifID); // actualizo estado en el server [no implemeentado]
+            // }
 
-            if (cambioLogin || cambioID) {
-                this.enviarNotifID(notificar,id,notifID); // actualizo estado en el server
-            }
+        },
 
+        crearUsuario: function(id,name,pass) {
+            console.log("Creo usuario id:"+id);
+            Usuarios.create({id: id, name: name, pass: pass});
         },
 
         logout: function() {
@@ -197,7 +208,8 @@ define([
             var user = Usuarios.get(id);
             if(user) {
             	user.save({logueado: false});
-	            this.enviarNotifID(false,id,user.get('notifID'));  // aviso al server que estoy logout, para que no envie notificaciones
+                // aviso al server que estoy logout, para que no envie notificaciones [no implementado]
+	            // this.enviarNotifID(false,id,user.get('notifID'));
 	        }
 
         	this.set("token","");
@@ -208,11 +220,6 @@ define([
         	this.save();
         	console.log("Logueado: "+false);
 
-        },
-
-        crearUsuario: function(id,name,pass) {
-            console.log("Creo usuario id:"+id);
-            Usuarios.create({id: id, name: name, pass: pass});
         },
 
         reintentoResultados: false, // para controlar un solo reintento
@@ -298,52 +305,50 @@ define([
             }
         },
 
-        setNotificar: function(notificar) { //param: boolean
-            var userID = this.get("userID");
-            if (userID != -1 && Usuarios.get(userID)) {
-                var user = Usuarios.get(userID);
-                var actualNotificar = user.get('notificar');
-                if (notificar != actualNotificar) {
-                    console.log('setNotificaciones: cambio opcion notificar');
-                    user.save({
-                        'notificar': notificar
-                    });
-                    this.enviarNotifID(notificar,userID,user.get("notifID"));  // Actualizo opcion en el server (si estoy logueado y cambió)
-                }
-            }
+        /* Opción para recibir notificaciones - no implementado en server */
+        // setNotificar: function(notificar) { //param: boolean
+        //     var userID = this.get("userID");
+        //     if (userID != -1 && Usuarios.get(userID)) {
+        //         var user = Usuarios.get(userID);
+        //         var actualNotificar = user.get('notificar');
+        //         if (notificar != actualNotificar) {
+        //             console.log('setNotificaciones: cambio opcion notificar');
+        //             user.save({
+        //                 'notificar': notificar
+        //             });
+        //             this.enviarNotifID(notificar,userID,user.get("notifID"));  // Actualizo opcion en el server (si estoy logueado y cambió)
+        //         }
+        //     }
+        // },
 
-        },
+        /* setea id para notificacion - no implementado en server */
+        // setNotifID: function(notifID) {
+        //     var userID = this.get("userID");
+        //     if (userID != -1 && Usuarios.get(userID)) {
+        //         var user = Usuarios.get(userID);
+        //         var actualID = user.get('notifID');
+        //         if (notifID != actualID) {
+        //             console.log("setNotifID: nuevo regID");
+        //             user.save({
+        //                 'notifID': notifID
+        //             });
+        //             this.enviarNotifID(user.get("notificar"),userID,notifID); // Actualizo id en el server (si estoy logueado y cambió)
+        //         }
+        //     }
+        // },
 
-        setNotifID: function(notifID) {
-            var userID = this.get("userID");
-            if (userID != -1 && Usuarios.get(userID)) {
-                var user = Usuarios.get(userID);
-                var actualID = user.get('notifID');
-                if (notifID != actualID) {
-                    console.log("setNotifID: nuevo regID");
-                    user.save({
-                        'notifID': notifID
-                    });
-
-                    this.enviarNotifID(user.get("notificar"),userID,notifID); // Actualizo id en el server (si estoy logueado y cambió)
-                }
-
-            }
-        },
-
-        enviarNotifID: function(notificar,userID,notifID) {
-            var platform = "";
-            var uuid = "";
-            if (window.device) {
-                platform = device.platform;
-                uuid = device.uuid;
-            }
-
-            console.log("enviarNotifID: notificar="+notificar+" userID="+userID+" platform="+platform+" uuid="+uuid+" regID="+notifID);
-            //TODO AJAX POST SERVER
-            //    data:  userID, platform, regID, notificar, uuid
-
-        }
+        /* Enviar a servidor id para notificar - no implementado en server */
+        // enviarNotifID: function(notificar,userID,notifID) {
+        //     var platform = "";
+        //     var uuid = "";
+        //     if (window.device) {
+        //         platform = device.platform;
+        //         uuid = device.uuid;
+        //     }
+        //     console.log("enviarNotifID: notificar="+notificar+" userID="+userID+" platform="+platform+" uuid="+uuid+" regID="+notifID);
+        //     //ToDo: AJAX POST SERVER
+        //     //    data:  userID, platform, regID, notificar, uuid
+        // }
 
     });
     return new sesionModel(); //SINGLETON

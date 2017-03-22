@@ -1,7 +1,6 @@
 /* global google */
 define(
     [ "async!http://maps.google.com/maps/api/js?sensor=false" ],
-    //[ "http://www.cualquiercosaaaaaa.com.ar" ],
     function() {
 
     	var Mapa = function() {

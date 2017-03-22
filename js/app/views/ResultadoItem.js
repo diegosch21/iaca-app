@@ -69,7 +69,7 @@ define([
 		},
 		_openPDF: function() { // param: event
 			var self = this;
-			require(['lib/pdf_downloader'], function(PDFDownloader) {
+			require(['services/pdf_downloader'], function(PDFDownloader) {
 				$('#page-loading').show();
 				//CAMBIA EL TOKEN DEL URL POR EL ACTUAL
 				var url= self.model.get("pdf"),
