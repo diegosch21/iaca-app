@@ -66,7 +66,7 @@ define([
 		laboratorios: function(){
 			var self = this;
 			this.loading(true);
-			//require(['views/Laboratorios','lib/gmaps'], function(LaboratoriosView,Mapa) {
+			//require(['views/Laboratorios','services/gmaps'], function(LaboratoriosView,Mapa) {
 			require(['views/Laboratorios'], function(LaboratoriosView) {
 				//console.log(1);
 				if (self.laboratoriosView) {
@@ -88,7 +88,7 @@ define([
 		verLabo: function(lab){
 			var self = this;
 			this.loading(true);
-			//require(['views/LaboratorioDetalles','lib/gmaps'], function(LaboView,Mapa) {
+			//require(['views/LaboratorioDetalles','services/gmaps'], function(LaboView,Mapa) {
 			require(['views/LaboratorioDetalles'], function(LaboView) {
 				self.getLabos(function() {
 					var labo = self.labosCollection.get(lab);

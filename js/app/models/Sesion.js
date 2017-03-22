@@ -6,14 +6,15 @@
 *
 * Viejo sistema seteaba data para notificaciones
 */
-/* globals device */
+//* globals device */
 define([
  	'jquery',
  	'underscore',
  	'backbone',
  	'localstorage',
- 	'collections/Usuarios'
-], function ($,_,Backbone,Store,Usuarios) {
+ 	'collections/Usuarios',
+    'services/shift_webservice'
+], function ($,_,Backbone,Store,Usuarios,Shift) {
 
     var sesionModel = Backbone.Model.extend({
 
@@ -26,12 +27,13 @@ define([
             timestamp: -1
         },
 
+        /* URLs viejo sistema (VIANET)
+            (la URL del web service SOAP de Shift se define y usa en services/shift_webservice.js) */
         urls: {
-            /* URLs viejo sistema (VIANET) */
             // login: 'https://www.iaca.com.ar/ws.json!login!',
             // results: 'https://www.iaca.com.ar/ws.json!list-results!'
 
-            /* URLs viejo sistema (Proxy local a VIANET) */
+            /* Proxy local a VIANET (para desarrollo, por same-origin-policy) */
             // login: 'http://imotion.local/iaca/iaca-www/proxy/VIANET_login.php?',
             login: 'proxy/VIANET_login.php?',
             // login: 'proxy/login_18277932.json?',
@@ -62,7 +64,7 @@ define([
                         if(self.get("logueado")) {
                             self.relogin({success: function() {
                                 console.log("Relogin inicial - Redirecciono a home");
-                                Backbone.history.navigate(self.redireccion,true);
+                                Backbone.history.navigate("",true);
                             }});
                         }
                     }

@@ -1,8 +1,4 @@
-define([
-	'jquery',
- 	'underscore',
- 	'backbone'
-],function($,_,Backbone) {
+define(['backbone'],function(Backbone) {
 
     var userModel = Backbone.Model.extend({
         defaults:{

@@ -4,7 +4,7 @@ require.config({
 
 	paths: {
         app: '../app',
-        lib: '../app/lib',
+        services: '../app/services',
         templates: '../../templates',
         data: '../../data',
         views: '../app/views',
@@ -228,7 +228,7 @@ function exitApp(buttonIndex) {
 
 /* Registrar app para recibir notificaciones - desactivado porque no fue implementado en server */
 // function registrarPushNotification(platform) {
-// 	require(['lib/notificaciones'], function(notif) {
+// 	require(['services/notificaciones'], function(notif) {
 // 		if (platform == 'android' || platform == 'Android')
 // 			notif.registrarAndroid();
 // 		else if (platform == "iOS")

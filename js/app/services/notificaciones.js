@@ -1,4 +1,4 @@
-/** Librería propia para configurar notificaciones de usuairo logueado, y recibirlas
+/** Configuración de notificaciones de usuario logueado (registro de dispositivo en Android, Apple, Win Phone)
 	Usa plugin PushPlugin
 	Instalacion plugin: cordova plugin add phonegap-plugin-push --variable SENDER_ID="529178062856"
 
