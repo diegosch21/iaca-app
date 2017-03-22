@@ -1,5 +1,10 @@
+/** Librería propia para configurar notificaciones de usuairo logueado, y recibirlas
+	Usa plugin PushPlugin
+	Instalacion plugin: cordova plugin add phonegap-plugin-push --variable SENDER_ID="529178062856"
+
+	NO USADA - no fue implementado en server
+*/
 /* global logger */
-// Instalacion plugin: cordova plugin add phonegap-plugin-push --variable SENDER_ID="529178062856"
 define([
 	'models/Sesion',
 	'backbone'
@@ -50,7 +55,7 @@ define([
 						{
 							console.log("PushPlugin: regID: " + e.regid);
 							localStorage.setItem("iaca-notificationID", e.regid);
-							Sesion.setNotifID(e.regid);
+							Sesion.setNotifID(e.regid); // método deshabilitado
 						}
 						break;
 					case 'message':
@@ -107,7 +112,7 @@ define([
 				//alert("PushPlugin: Success handler register en Apple. token: "+token);
 				addCallback('onNotificationAPN',onNotificationAPN);
 				localStorage.setItem("iaca-notificationID", token);
-				Sesion.setNotifID(token);
+				Sesion.setNotifID(token); // método deshabilitado
 				logger.toggleConsole(false);   // NO DEBUG
 			};
 			var errorHandlerApple = function(error) {

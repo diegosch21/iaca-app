@@ -23,13 +23,11 @@ define([
 		},
 
 		initialize: function(){
-
 			this.headerView = new HeaderView();
         	$('#header').html(this.headerView.el);
         	this.cambiarPagina = _.bind(cambiarPagina,this);
         	this.getLabos = _.bind(getLabos,this);
         	this.loading = _.bind(loading,this);
-
 		},
 
 		home: function(){

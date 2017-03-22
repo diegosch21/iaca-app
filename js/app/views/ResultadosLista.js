@@ -36,8 +36,6 @@ define([
 			// 'click #boton-acceso-resultados-anteriores.external-link' : 'openConsultaResultadosAnteriores'
 		},
 
-		// AGREGAR EVENTO A CHECKBOX NOTIFICACIONES
-
 		render: function() {
 			console.log("Render ResultadosListaView");
 			//console.log(this.itemsViews);
@@ -103,6 +101,7 @@ define([
 			this.itemsViews = {};
 			this.actualItem = -1;
 		},
+
 		/*	UPDATE USUARIO
 		*	Si se desloguea usuario:
 		*		elimina coleccion resultadosGuardados,

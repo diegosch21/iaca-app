@@ -1,4 +1,4 @@
-<?PHP 
+<?PHP
 
 $user = $_GET['username'];
 $pass = $_GET['password'];
@@ -7,11 +7,11 @@ $pass = $_GET['password'];
 $url = "https://www.iaca.com.ar/ws.json!login!username=".$user."&password=".$pass;
 
 if($user == '112233')
-	$url = 'proxy/login_112233.json';
+	$url = 'login_112233.json';
 
 $json =  file_get_contents($url);
 
-/* 
+/*
 // Agrego PHPSESSID al JSON
 $array = json_decode($json,true);
 
