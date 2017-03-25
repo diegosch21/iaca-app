@@ -16,7 +16,7 @@ define([
     // Defino métodos (SOAPAction)
     var ws_method = {
         login: 'http://www.shift.com.br/s01.util.b2b.integracaoMobile.Webserver.WsLogin',
-        resultado: 'http://www.shift.com.br/s01.util.b2b.integracaoMobile.Webserver.WsListaExPaciente'
+        resultados: 'http://www.shift.com.br/s01.util.b2b.integracaoMobile.Webserver.WsListaExPaciente'
     };
 
     // Defino request bodies, parametrizados con placeholders
@@ -30,17 +30,30 @@ define([
                         '<www:pSenha>%user_pass%</www:pSenha>'+
                         '<www:pTokenPN>%device_token%</www:pTokenPN>'+
                         '<www:pPlataforma>%platform%</www:pPlataforma>'+
-                        '<www:pEstado></www:pEstado>'+
                     '</www:WsLogin>'+
                 '</x:Body>'+
             '</x:Envelope>',
 
-        resultados: ''
+        resultados:
+            '<x:Envelope xmlns:x="http://schemas.xmlsoap.org/soap/envelope/" xmlns:www="http://www.shift.com.br">'+
+                '<x:Header/>'+
+                '<x:Body>'+
+                    '<www:WsLogin>'+
+                        '<www:pUserId>%user_id%</www:pUserId>'+
+                        '<www:pSenha>%user_pass%</www:pSenha>'+
+                    '</www:WsLogin>'+
+                '</x:Body>'+
+            '</x:Envelope>'
     };
 
 	var ShiftWS = function() {
 
         console.log("ShiftWS: Init service. WS URL: "+ws_url);
+
+        // Configuro objeto para poder lanzar y bindear eventos de backbone (capturados por Auth)
+        _.extend(this, Backbone.Events);
+
+        var _this = this;
 
         /**
          * Realiza el request al método wsLogin para credenciales validar usuario
@@ -55,7 +68,7 @@ define([
             if (!('success' in callbacks))
                 callbacks.success = function(data){ console.log('Success: ',data); };
             if (!('error' in callbacks))
-                callbacks.error = function(errormsj,errorcode){ console.log('Error: ',errormsj,errorcode); };
+                callbacks.error = function(errormsj,errorcode){ console.log('Error: '+errormsj+" "+errorcode); };
             if (!('complete' in callbacks))
                 callbacks.complete = function(){ console.log('Complete'); };
 
@@ -70,7 +83,7 @@ define([
                 }
             }
 
-            console.log('Shift WS: Login ',user_id,user_pass,device_token,platform);
+            console.log("Shift WS: Login... ["+user_id+" "+user_pass+" "+device_token+" "+platform+"]");
 
             var request_body = ws_request_body.login;
             // Reemplazo placeholders con parámetros
@@ -100,7 +113,7 @@ define([
             .done(function(resp_xml){
                 var $login_result = $(resp_xml).find('WsLoginResult');
                 if (!$login_result.length || !$login_result.find('sucesso').length) {
-                    callbacks.error('Error en el servidor, intente de nuevo más tarde.',-1);
+                    callbacks.error('Error en el servidor, intente de nuevo más tarde.',1);
                     return;
                 }
                 if ($login_result.find('sucesso').text() == 1) {
@@ -109,15 +122,15 @@ define([
                     }
                     else {
                         // El usuario no es un paciente
-                        callbacks.error('Tipo de usuario inválido para esta aplicación',1);
+                        callbacks.error('Tipo de usuario inválido para esta aplicación',3);
                     }
                 }
                 else {
-                    callbacks.error('Usuario o clave inválidos',1);
+                    callbacks.error('Usuario o clave inválidos',2);
                 }
             })
             .fail(function( jqXHR, textStatus, errorThrown ) {
-                console.log(jqXHR.responseText,textStatus,errorThrown);
+                console.log(jqXHR.responseText+" "+textStatus+" "+errorThrown);
                 callbacks.error('No se pudo comunicar con el servidor. Verifique su conexión a internet.',0);
             })
             .always(function(){
@@ -130,8 +143,78 @@ define([
          * @param object user model Usuario del que obtiene id y pass para hacer el reques
          * @param object callbacks { success, error, complete } funciones a ejecutar dependiendo del resultado de la ejecucion
          */
-        this.getResultados = function(callbacks) {
-            console.log('Shift WS: getResultados [ToDo]');
+        this.getResultados = function(user,callbacks) {
+            // Chequeo existencia de funciones callbacks (y las defino si alguna no está)
+            if (!callbacks) callbacks = {};
+            if (!('success' in callbacks))
+                callbacks.success = function(data){ console.log('Success: ',data); };
+            if (!('error' in callbacks))
+                callbacks.error = function(errormsj,errorcode){ console.log('Error: '+errormsj+" "+errorcode); };
+            if (!('complete' in callbacks))
+                callbacks.complete = function(){ console.log('Complete'); };
+
+            // Obtengo id y pass de usuario
+            user_id = user.get("id");
+            user_pass = user.get("pass");
+            if (!user_id || !user_pass) {
+                callbacks.error("Faltan credenciales de usuario",1);
+                return;
+            }
+
+            var request_body = ws_request_body.resultados;
+            // Reemplazo placeholders con parámetros
+            request_body = request_body.replace("%user_id%",user_id);
+            request_body = request_body.replace("%user_pass%",user_pass);
+
+            console.log('Shift WS: getResultados... ['+user_id+' '+user_pass+']');
+
+            // Realizo el request
+            $.ajax({
+                url: ws_url,
+                type: 'POST',
+                contentType: 'text/xml; charset=utf-8',
+                headers: {
+                    'SOAPAction': ws_method.resultados
+                },
+                data: request_body,
+                processData: false, // para que no modifique el request body
+                dataType: 'xml' // formato retornado: jQuery parsea el XML para poder manipularlo como DOM
+            })
+            .done(function(resp_xml){
+                var $result = $(resp_xml).find('WsListaExPacienteResult');
+                if (!$result.length || !$result.find('sucesso').length) {
+                    callbacks.error('Error en el servidor, intente de nuevo más tarde.',1);
+                    return;
+                }
+                if ($result.find('sucesso').text() == 1) {
+                    var $paciente = $result.find('paciente');
+                    if (!$paciente.length) {
+                        // No debería pasar (respuesta mal formada)
+                        callbacks.error('No se pudo obtener la lista de resultados actualizada',3);
+                        return;
+                    }
+                    // Obtengo username
+                    var $username = $paciente.find('nome');
+                    if ($username.length) {
+                        // Lanzo evento para setear nombre de usuario (capturado por service Auth)
+                        _this.trigger("get_username",$username.text(),"ShiftWS: Se obtuvo nombre de usuario");
+                    }
+                }
+                else {
+                    // Lanzo evento para logout (capturado por service Auth que realiza el logout)
+                    _this.trigger("invalid_user","ShiftWS: Credenciales inválidas al obtener resultado");
+                    // Error de credenciales de usuario
+                    callbacks.error('No se pudo obtener la lista de resultados actualizada: Vuelva a iniciar sesión',2);
+                    // ToDo: podría haber otros errores?
+                }
+            })
+            .fail(function( jqXHR, textStatus, errorThrown ) {
+                console.log(jqXHR.responseText+" "+textStatus+" "+errorThrown);
+                callbacks.error('No se pudo obtener la lista de resultados actualizada. Verifique su conexión a internet.',0);
+            })
+            .always(function(){
+                callbacks.complete();
+            });
         };
 
 	};

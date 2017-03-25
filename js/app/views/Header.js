@@ -16,7 +16,7 @@ define([
 			this.render();
 
             // Eventos en service Auth: al cambiar estado o nombre de usuario, se debe actualizar el header
-            Auth.on("login logout change:username",this.updateUser,this);
+            Auth.on("login logout change_username",this.updateUser,this);
 		},
 
 		events: {

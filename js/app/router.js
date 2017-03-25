@@ -127,11 +127,11 @@ define([
 			var self = this;
 			this.loading(true);
 			require(['views/Login'], function(LoginView) {
+				var menuitem = 'inicio';
 				if(page) {
-					self.cambiarPagina(new LoginView({"redireccion": page}),'resultados');
+					menuitem = page; // se usa para menu resultados
 				}
-				else
-					self.cambiarPagina(new LoginView(),'inicio');
+				self.cambiarPagina(new LoginView(),menuitem);
 			});
 			//}
 		}

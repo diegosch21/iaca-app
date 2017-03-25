@@ -21,7 +21,13 @@ define([
 			this.actualItem = -1;
 			this.$el.html(this.template());
 
-			Auth.on("change:logueado",this.updateLogout,this);
+			// Bind de eventos lanzados por service Auth
+			// Logout de usuario (se debe quitar lista de resultados guardados)
+			Auth.on("logout",this.updateLogout,this);
+			// Seteo de nombre de usuario (para mostrarlo)
+			Auth.on("change_username",function(){
+				this.$el.find('#nombre-paciente').html(Auth.username);
+			},this);
 			// Creo scroller para mostrar las imagenes [deshabilitado: no hay más imágenes]
 			// this.crearScrollerImgs();
 
@@ -38,6 +44,9 @@ define([
 		render: function() {
 			console.log("Render ResultadosListaView");
 			//console.log(this.itemsViews);
+
+			this.$el.find('#update').removeClass('hide');
+			this.$el.find('#error-get-results').html('');
 			this.updateUsuario();
 			// El template se renderiza en initialize.
 
@@ -122,6 +131,8 @@ define([
 			console.log("Update usuario...");
 			if(Auth.logueado) {
 				var user_id = Auth.getUserId();
+				// Si tiene nombre de usuario lo muestra
+				this.$el.find('#nombre-paciente').html(Auth.username);
 				// Si cambio el usuario, creo coleccion y escucho eventos
 				if(this.actualUserID != user_id) {
 					console.log("Cambió usuario: render ResultadosLista de user "+user_id);
@@ -129,8 +140,6 @@ define([
 					// Crea colección de resultados vacía
 					this.resultadosGuardados = new ResultadosCollection([],{userID: user_id});
 					//this.listenTo(this.resultadosGuardados, 'add', this.addResultado);
-					// ToDo modificar: mostrar nombre usuario luego de hacer el get
-					this.$el.find('#nombre-paciente').html(Auth.user.name);
 					// Intenta obtener resultados previamente guardados en local storage
 					this.getListaGuardada();
 				}
@@ -144,12 +153,12 @@ define([
 		},
 		updateLogout: function() {
 			if(!Auth.logueado || this.actualUserID != Auth.getUserId()) {
-				console.log("Deslogueado - lista resultados vacía");
-					//this.stopListening(this.resultadosGuardados);
+				console.log("ResultadosLista: Deslogueado - seteo lista resultados vacía");
 				this.resultadosGuardados = null;
 				this.actualUserID = -1;
 				this.removeItems();
 				this.$el.find('#nombre-paciente').html("");
+				this.$el.find('#update').addClass('hide');
 			}
 		},
 		getListaGuardada: function() {
@@ -177,8 +186,8 @@ define([
 			this.updating(true);
 			var self = this;
 			try {
-				// ToDo rehacer en función al nuevo método de Shift
-				ShiftWS.getResultados({
+				ShiftWS.getResultados(Auth.user,{
+					// Defino callbacks luego de obtener los resultados del server (o fallar)
 					success: function(data) {
 						if(data.list !== null) {
 							console.log("Cantidad resultados: "+data.list.length);
@@ -215,13 +224,13 @@ define([
 								self.renderList(true,9);
 						}
 					},
-					error: function(error) {
-						console.log(error);
+					error: function(errormsj,errorcode) {
+						console.log("Error getResultados: "+errormsj+" "+errorcode);
 						if (window.deviceready && window.plugins && window.plugins.toast) {
 							window.plugins.toast.showLongCenter(error);
 						}
 						else {
-							self.$el.find('#error-get-results').html(self.templateAlert({msj: error}));
+							self.$el.find('#error-get-results').html(self.templateAlert({msj: errormsj}));
 						}
 					},
 					complete: function() {
