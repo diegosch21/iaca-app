@@ -68,8 +68,9 @@ define([
 				this.loading(true);
 				Auth.login(username,password,{  // objeto callbacks, definiendo 3 funciones a ejecutar luego de login
 					success: function() { // param: data
-						console.log("Logueado: "+Auth.logueado+" Redirecciona a: "+self.redireccion);
+						console.log("Usuario logueado ",JSON.stringify(Auth.user));
 						self.alerta('Logueado correctamente');
+						console.log("Redirecciona a: "+self.redireccion);
 						Backbone.history.navigate(self.redireccion,true);
 					},
 					error: function(error) {

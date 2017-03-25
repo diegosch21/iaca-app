@@ -5,6 +5,7 @@
  *     - lista de resultados de usuario actual
  *     Define URLs, métodos, y bodies parametrizados para realizar los requests, y se encarga de parsear los responses
  */
+/* globals device */
 define([
     'jquery'
 ],function($) {
@@ -39,7 +40,7 @@ define([
 
 	var ShiftWS = function() {
 
-        console.log("Init ShiftWS service. WS URL: "+ws_url);
+        console.log("ShiftWS: Init service. WS URL: "+ws_url);
 
         /**
          * Realiza el request al método wsLogin para credenciales validar usuario
@@ -48,11 +49,43 @@ define([
          * @param  object callbacks { success, error, complete } funciones a ejecutar dependiendo del resultado de la ejecucion
          */
         this.login = function(user_id,user_pass,callbacks) {
-            console.log('Shift WS: login ',user_id,user_pass);
+
+            // Chequeo existencia de funciones callbacks (y las defino si alguna no está)
+            if (!callbacks) callbacks = {};
+            if (!('success' in callbacks))
+                callbacks.success = function(data){ console.log('Success: ',data); };
+            if (!('error' in callbacks))
+                callbacks.error = function(errormsj,errorcode){ console.log('Error: ',errormsj,errorcode); };
+            if (!('complete' in callbacks))
+                callbacks.complete = function(){ console.log('Complete'); };
+
+            // Obtengo platform y device token
+            var platform = false, device_token = '';
+            if (window.device) {
+                device_token = device.uuid;
+                platform = device.platform.toLowerCase();
+                // Controlo que platform sea android o ios, en otro caso no se indica
+                if (platform != 'android' && platform != 'ios') {
+                    platform = false;
+                }
+            }
+
+            console.log('Shift WS: Login ',user_id,user_pass,device_token,platform);
 
             var request_body = ws_request_body.login;
-            // ToDo reemplazar placeholders y agregar platform y tokens
+            // Reemplazo placeholders con parámetros
+            request_body = request_body.replace("%user_id%",user_id);
+            request_body = request_body.replace("%user_pass%",user_pass);
+            request_body = request_body.replace("%device_token%",device_token);
+            if (platform) {
+                request_body = request_body.replace("%platform%",platform);
+            }
+            else {
+                // Quito elemento plataforma (si lo dejo vacío, el login da error)
+                request_body = request_body.replace("<www:pPlataforma>%platform%</www:pPlataforma>",'');
+            }
 
+            // Realizo el request
             $.ajax({
                 url: ws_url,
                 type: 'POST',
@@ -62,21 +95,33 @@ define([
                 },
                 data: request_body,
                 processData: false, // para que no modifique el request body
-                dataType: 'xml' // formato retornado, para que jQuery lo parsee
+                dataType: 'xml' // formato retornado: jQuery parsea el XML para poder manipularlo como DOM
             })
-            .done(function(data){
-                console.log(data);
+            .done(function(resp_xml){
+                var $login_result = $(resp_xml).find('WsLoginResult');
+                if (!$login_result.length || !$login_result.find('sucesso').length) {
+                    callbacks.error('Error en el servidor, intente de nuevo más tarde.',-1);
+                    return;
+                }
+                if ($login_result.find('sucesso').text() == 1) {
+                    if ($login_result.find('tipo').text() == 'P') {
+                        callbacks.success();
+                    }
+                    else {
+                        // El usuario no es un paciente
+                        callbacks.error('Tipo de usuario inválido para esta aplicación',1);
+                    }
+                }
+                else {
+                    callbacks.error('Usuario o clave inválidos',1);
+                }
             })
             .fail(function( jqXHR, textStatus, errorThrown ) {
-                console.log(jqXHR.responseText +" "+ textStatus +" "+ errorThrown);
-                if (callbacks && 'error' in callbacks) {
-                    callbacks.error('No se pudo comunicar con el servidor. Verifique su conexión a internet.',0);
-                }
+                console.log(jqXHR.responseText,textStatus,errorThrown);
+                callbacks.error('No se pudo comunicar con el servidor. Verifique su conexión a internet.',0);
             })
             .always(function(){
-                if (callbacks && 'complete' in callbacks) {
-                    callbacks.complete();
-                }
+                callbacks.complete();
             });
         };
 
@@ -86,25 +131,10 @@ define([
          * @param object callbacks { success, error, complete } funciones a ejecutar dependiendo del resultado de la ejecucion
          */
         this.getResultados = function(callbacks) {
-            console.log('Shift WS: getResultados');
+            console.log('Shift WS: getResultados [ToDo]');
         };
 
 	};
 
 	return new ShiftWS();  //SINGLETON
 });
-
-/* URLs viejo sistema (VIANET) */
-// urls: {
-//     // login: 'https://www.iaca.com.ar/ws.json!login!',
-//     // results: 'https://www.iaca.com.ar/ws.json!list-results!'
-
-//     /* Proxy local a VIANET (para desarrollo, por same-origin-policy) */
-//     // login: 'http://imotion.local/iaca/iaca-www/proxy/VIANET_login.php?',
-//     login: 'proxy/VIANET_login.php?',
-//     // login: 'proxy/login_18277932.json?',
-//     // results: 'http://imotion.local/iaca/iaca-www/proxy/VIANET_results.php?'
-//     results: 'proxy/VIANET_results.php?'
-//     // results: 'proxy/results_18277932_2.json?'
-//     // results: 'proxy/results_vacio.json?'
-// }

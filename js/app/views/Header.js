@@ -13,10 +13,10 @@ define([
 
 		initialize: function() {
 			this.menuItem = "inicio";
-			this.checkUser();
 			this.render();
 
-			Auth.on("change:username",this.updateUser,this);
+            // Eventos en service Auth: al cambiar estado o nombre de usuario, se debe actualizar el header
+            Auth.on("login logout change:username",this.updateUser,this);
 		},
 
 		events: {
@@ -32,20 +32,12 @@ define([
 
 
 		render: function() {
-			this.$el.html(this.template({logueado: this.logueado, user: this.username}));
+			this.$el.html(this.template({logueado: Auth.logueado, username: Auth.username}));
 			return this;
 		},
 
-		checkUser: function() {
-			if(Auth.logueado)
-				this.username = Auth.username;
-			else
-				this.username = "";
-		},
-
-		updateUser: function() {
-			console.log("Update User..");
-			this.checkUser();
+		updateUser: function(eventName) {
+			console.log("Header: Update User... (evento: "+eventName+")");
 			this.render();
 			this.selectMenuItem(this.menuItem);
 		},
@@ -59,7 +51,7 @@ define([
 	            $('#menu-principal-xs-'+ menuItem).show();
         	}
         	var actualURL = Backbone.history.fragment;
-        	console.log(actualURL);
+        	console.log("selectMenuItem: "+actualURL);
         	if (actualURL == 'home' || actualURL === '' ) {
         		$('li.back').addClass('hidden');
         		$('li.menu-profesional').removeClass('col-xs-11').addClass('col-xs-12');

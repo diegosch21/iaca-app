@@ -1,5 +1,9 @@
 <?PHP
 
+// Para forzar login
+// echo file_get_contents('Shift_login_112233.xml'); exit;
+
+
 /* Proxy para invocación a webservice evitando error de same-origin-policy */
 // Se debe indicar SOAPAction en header
 

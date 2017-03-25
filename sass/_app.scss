@@ -60,6 +60,11 @@ a {
 	border-color: transparent;
 	color: $alt-blanco;
 	border-radius: 0;
+	padding: 12px;
+	padding-right: 30px;
+	> p {
+		font-size: 14px;
+	}
 }
 
 /** Page loading **/

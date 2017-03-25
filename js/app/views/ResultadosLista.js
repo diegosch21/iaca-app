@@ -50,41 +50,48 @@ define([
 			console.log("Render list...");
 			if(reset)
 				this.removeItems();
-			var ult = this.resultadosGuardados.length-1;
-			if(fin && fin < ult)
-				ult = fin;
-			var pri = this.actualItem +1;
-			console.log("Primer item: #"+pri+" Último item: #"+ult);
+			if (this.resultadosGuardados.length > 0) {
+				var ult = this.resultadosGuardados.length-1;
+				if(fin && fin < ult)
+					ult = fin;
+				var pri = this.actualItem +1;
+				console.log("Primer item: #"+pri+" Último item: #"+ult);
 
-			//var hayImagenes = false; // El server no entrega más link a imagenes
+				//var hayImagenes = false; // El server no entrega más link a imagenes
 
-			for (var i = pri; i <=ult; i++) {
-				var result = this.resultadosGuardados.at(i);
-				//console.log("Creo view resultado, id: "+result.id);
-				var view = new ResultadoItemView({model: result, scrollerImgs: this.scrollerImgs});
-				this.$el.find('#lista-resultados').append(view.render().el);
-				this.itemsViews[result.id] = view;
-				this.actualItem = i;
-				// El server no entrega más link a imagenes
-				//hayImagenes = hayImagenes || result.get("jpg").length > 0;
-			}
-			 // El server no entrega más link a imagenes - en template no está más link a ver-imagenes
-			// if(hayImagenes) {
-			// 	this.$el.find('.ver-imagenes').show();
-			// }
-			// else {
-			// 	this.$el.find('.ver-imagenes').hide();
-			// }
-			if(this.resultadosGuardados.length>0)
+				for (var i = pri; i <=ult; i++) {
+					var result = this.resultadosGuardados.at(i);
+					//console.log("Creo view resultado, id: "+result.id);
+					var view = new ResultadoItemView({model: result, scrollerImgs: this.scrollerImgs});
+					this.$el.find('#lista-resultados').append(view.render().el);
+					this.itemsViews[result.id] = view;
+					this.actualItem = i;
+					// El server no entrega más link a imagenes
+					//hayImagenes = hayImagenes || result.get("jpg").length > 0;
+				}
+				// El server no entrega más link a imagenes - en template no está más link a ver-imagenes
+				// if(hayImagenes) {
+				// 	this.$el.find('.ver-imagenes').show();
+				// }
+				// else {
+				// 	this.$el.find('.ver-imagenes').hide();
+				// }
+
+				// No muestra mensaje de no resultados
 				this.$el.find('#no-results').hide();
-			else
+			}
+			else {
+				console.log("No hay resultados");
 				this.$el.find('#no-results').show();
+			}
 
 			if(fin && fin < this.resultadosGuardados.length-1) {
 				this.$el.find("#ver-mas-results").show();
 			}
-			else
+			else {
 				this.$el.find("#ver-mas-results").hide();
+			}
+
 			var self = this;
 			setTimeout(function() {
 				if(self.scroller)
@@ -117,12 +124,14 @@ define([
 				var user_id = Auth.getUserId();
 				// Si cambio el usuario, creo coleccion y escucho eventos
 				if(this.actualUserID != user_id) {
-					console.log("Cambió usuario: render ResultadosLista de "+Auth.user.name);
+					console.log("Cambió usuario: render ResultadosLista de user "+user_id);
 					this.actualUserID = user_id;
+					// Crea colección de resultados vacía
 					this.resultadosGuardados = new ResultadosCollection([],{userID: user_id});
 					//this.listenTo(this.resultadosGuardados, 'add', this.addResultado);
 					// ToDo modificar: mostrar nombre usuario luego de hacer el get
 					this.$el.find('#nombre-paciente').html(Auth.user.name);
+					// Intenta obtener resultados previamente guardados en local storage
 					this.getListaGuardada();
 				}
 				else {
@@ -148,10 +157,11 @@ define([
 			console.log("Obtengo resultados guardados...");
 			if(this.showing)
 				this.loading(true);
+			// Intenta obtener resultados guardados en storage (si aún no hay, igual ejecuta callback success)
 			this.resultadosGuardados.fetch({
 				success: function() {
-					self.renderList(true,9);
-					self.updateLista();
+					self.renderList(true,9); // Renderiza los resultados que estaban guardados
+					self.updateLista(); // Hace request al server para obtener resultados
 				},
 				error: function(collection, response) { // otro param: options
 					console.log(response);
