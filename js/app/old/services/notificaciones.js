@@ -1,9 +1,11 @@
-/** Configuración de notificaciones de usuario logueado (registro de dispositivo en Android, Apple, Win Phone)
-	Usa plugin PushPlugin
-	Instalacion plugin: cordova plugin add phonegap-plugin-push --variable SENDER_ID="529178062856"
-
-	NO USADA - no fue implementado en server
-*/
+/**
+ * services/notificaciones
+ * Configuración de notificaciones de usuario logueado (registro de dispositivo en Android, Apple, Win Phone)
+ *	Usa plugin PushPlugin
+ *	Instalacion plugin: cordova plugin add phonegap-plugin-push --variable SENDER_ID="529178062856"
+ *
+ *	NO USADA - no fue implementado en server
+ */
 /* global logger */
 define([
 	'models/Sesion',

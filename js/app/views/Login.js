@@ -1,11 +1,11 @@
 /* global cordova */
 define([
 	'text!templates/login.html',
-	'models/Sesion',
 	'text!templates/alert.html',
+	'backbone',
+	'services/authentication',
 	'collections/Usuarios',
-	'backbone'
-], function (loginTemplate,Sesion,alertTemplate,Usuarios,Backbone) {
+], function (loginTemplate,alertTemplate,Backbone,Auth,Usuarios) {
 
 	var LoginView = Backbone.View.extend({
 
@@ -35,7 +35,7 @@ define([
 		},
 
 		render: function() {
-			var logueado = Sesion.get("logueado");
+			var logueado = Auth.logueado;
 			if(Usuarios.length > 0) {
 				var users = [];
 				Usuarios.each(function(user, index){
@@ -66,9 +66,9 @@ define([
 			}
 			else {
 				this.loading(true);
-				Sesion.login(username,password,{
+				Auth.login(username,password,{  // objeto callbacks, definiendo 3 funciones a ejecutar luego de login
 					success: function() { // param: data
-						console.log("Logueado: "+Sesion.get("logueado")+" Redirecciona a: "+self.redireccion);
+						console.log("Logueado: "+Auth.logueado+" Redirecciona a: "+self.redireccion);
 						self.alerta('Logueado correctamente');
 						Backbone.history.navigate(self.redireccion,true);
 					},
@@ -108,9 +108,9 @@ define([
 			{
 				var pass = user.get("pass");
 				this.loading(true);
-				Sesion.login(id,pass,{
+				Auth.login(id,pass,{ // objeto callbacks, definiendo 3 funciones a ejecutar luego de login
 					success: function() { // param: data
-						console.log("Usuario guardado Logueado: "+Sesion.get("logueado")+" Redirecciona a: "+self.redireccion);
+						console.log("Usuario guardado Logueado: "+Auth.logueado+" Redirecciona a: "+self.redireccion);
 						self.alerta('Logueado correctamente');
 						Backbone.history.navigate(self.redireccion,true);
 					},
@@ -144,7 +144,7 @@ define([
 			this.render();
 		},
 		logout: function() {
-			Sesion.logout();
+			Auth.logout();
     		if (window.deviceready) {
     			try {
     				window.plugins.toast.showShortCenter('Usuario deslogueado');

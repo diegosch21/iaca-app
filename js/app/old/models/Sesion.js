@@ -1,5 +1,7 @@
 /*
-* SINGLETON
+* models/Sesion
+* SINGLETON Model - Encargado de mantener info y estado de usuario logueado, y realizar request a sistema VIANET
+*
 * Guarda el usuario actual y se encarga de las operaciones que requieren credenciales de usuario:
 * - login, relogin y logout
 * - get de los resultados
@@ -13,8 +15,7 @@ define([
  	'backbone',
  	'localstorage',
  	'collections/Usuarios',
-    'services/shift_webservice'
-], function ($,_,Backbone,Store,Usuarios,Shift) {
+], function ($,_,Backbone,Store,Usuarios) {
 
     var sesionModel = Backbone.Model.extend({
 

@@ -2,9 +2,9 @@ define([
 	'text!templates/header.html',
 	'jquery',
 	'underscore',
-	'models/Sesion',
-	'backbone'
-], function (headerTemplate,$,_,Sesion,Backbone) {
+	'backbone',
+    'services/authentication',
+], function (headerTemplate,$,_,Backbone,Auth) {
 
 	var HeaderView = Backbone.View.extend({
 
@@ -16,7 +16,7 @@ define([
 			this.checkUser();
 			this.render();
 
-			Sesion.on("change:timestamp",this.updateUser,this);
+			Auth.on("change:username",this.updateUser,this);
 		},
 
 		events: {
@@ -37,9 +37,8 @@ define([
 		},
 
 		checkUser: function() {
-			this.logueado = Sesion.get("logueado");
-			if(this.logueado)
-				this.username = Sesion.get("username");
+			if(Auth.logueado)
+				this.username = Auth.username;
 			else
 				this.username = "";
 		},
@@ -73,7 +72,7 @@ define([
     	logout: function(evt) {
     		if(evt)
     			evt.preventDefault();
-    		Sesion.logout();
+    		Auth.logout();
     		if (window.deviceready) {
     			try {
     				window.plugins.toast.showShortCenter('Usuario deslogueado');
