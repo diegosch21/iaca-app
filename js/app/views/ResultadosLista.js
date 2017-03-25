@@ -1,13 +1,13 @@
 /* global cordova */
 define([
 	'text!templates/resultados_lista.html',
-	'models/Sesion',
 	'text!templates/alert.html',
+	'backbone',
+	'services/authentication',
+	'services/shift_webservice',
 	'collections/Resultados',
 	'views/ResultadoItem',
-	'backbone',
-	'iscroll'
-], function (resultadosListaTemplate,Sesion,alertTemplate,ResultadosCollection,ResultadoItem,Backbone,IScroll) {
+], function (resultadosListaTemplate,alertTemplate,Backbone,Auth,ShiftWS,ResultadosCollection,ResultadoItemView) {
 
 	var ResultadosListaView = Backbone.View.extend({
 
@@ -21,10 +21,9 @@ define([
 			this.actualItem = -1;
 			this.$el.html(this.template());
 
-			//Sesion.on("change:timestamp",this.updateUsuario,this);
-			Sesion.on("change:timestamp",this.updateLogout,this);
-			// Creo scroller para mostrar las imagenes
-			this.crearScrollerImgs();
+			Auth.on("change:logueado",this.updateLogout,this);
+			// Creo scroller para mostrar las imagenes [deshabilitado: no hay más imágenes]
+			// this.crearScrollerImgs();
 
 		},
 		events: {
@@ -62,7 +61,7 @@ define([
 			for (var i = pri; i <=ult; i++) {
 				var result = this.resultadosGuardados.at(i);
 				//console.log("Creo view resultado, id: "+result.id);
-				var view = new ResultadoItem({model: result, scrollerImgs: this.scrollerImgs});
+				var view = new ResultadoItemView({model: result, scrollerImgs: this.scrollerImgs});
 				this.$el.find('#lista-resultados').append(view.render().el);
 				this.itemsViews[result.id] = view;
 				this.actualItem = i;
@@ -114,15 +113,16 @@ define([
 		*/
 		updateUsuario: function() {
 			console.log("Update usuario...");
-			if(Sesion.get("logueado")) {
-				var id = Sesion.get('userID');
+			if(Auth.logueado) {
+				var user_id = Auth.getUserId();
 				// Si cambio el usuario, creo coleccion y escucho eventos
-				if(this.actualUserID != id) {
-					console.log("Cambió usuario: render ResultadosLista de "+Sesion.get("username"));
-					this.actualUserID = id;
-					this.resultadosGuardados = new ResultadosCollection([],{userID: Sesion.get('userID')});
+				if(this.actualUserID != user_id) {
+					console.log("Cambió usuario: render ResultadosLista de "+Auth.user.name);
+					this.actualUserID = user_id;
+					this.resultadosGuardados = new ResultadosCollection([],{userID: user_id});
 					//this.listenTo(this.resultadosGuardados, 'add', this.addResultado);
-					this.$el.find('#nombre-paciente').html(Sesion.get("username"));
+					// ToDo modificar: mostrar nombre usuario luego de hacer el get
+					this.$el.find('#nombre-paciente').html(Auth.user.name);
 					this.getListaGuardada();
 				}
 				else {
@@ -134,7 +134,7 @@ define([
 			}
 		},
 		updateLogout: function() {
-			if(!Sesion.get("logueado") || this.actualUserID != Sesion.get('userID')) {
+			if(!Auth.logueado || this.actualUserID != Auth.getUserId()) {
 				console.log("Deslogueado - lista resultados vacía");
 					//this.stopListening(this.resultadosGuardados);
 				this.resultadosGuardados = null;
@@ -167,7 +167,8 @@ define([
 			this.updating(true);
 			var self = this;
 			try {
-				Sesion.getResultados({
+				// ToDo rehacer en función al nuevo método de Shift
+				ShiftWS.getResultados({
 					success: function(data) {
 						if(data.list !== null) {
 							console.log("Cantidad resultados: "+data.list.length);
@@ -253,28 +254,6 @@ define([
 			this.renderList(false,this.actualItem+10);
 		},
 
-		crearScrollerImgs: function() {
-
-			$('#close-imgs, #back-imgs').on('touchstart',function() {
-				$('#imgs-wrapper').fadeOut();
-			});
-
-			if(this.scrollerImgs)
-				this.scrollerImgs.destroy();
-
-			this.scrollerImgs = new IScroll('#imgs-wrapper', {
-				zoom: true,
-				scrollX: true,
-				scrollY: true,
-				mouseWheel: true,
-				wheelAction: 'zoom',
-			    scrollbars: true,
-			    interactiveScrollbars: true,
-				fadeScrollbars: true,
-				zoomMin: 0.25
-				//zoomMax: 2
-			});
-		},
 		// Abre link para consulta de resultados anteriores en browser
 		openConsultaResultadosAnteriores: function(event) {
 			var url= ($(event.currentTarget).data('href'));
@@ -287,7 +266,29 @@ define([
 			else {
 				window.open(url,'_system');
 			}
-		}
+		},
+
+		/** Método para mostrar imagenes en un scroller - deshabilitado ya que no hay más img de resultados.
+		 *  Requiere dependencia iscroll */
+		// crearScrollerImgs: function() {
+		// 	$('#close-imgs, #back-imgs').on('touchstart',function() {
+		// 		$('#imgs-wrapper').fadeOut();
+		// 	});
+		// 	if(this.scrollerImgs)
+		// 		this.scrollerImgs.destroy();
+		// 	this.scrollerImgs = new IScroll('#imgs-wrapper', {
+		// 		zoom: true,
+		// 		scrollX: true,
+		// 		scrollY: true,
+		// 		mouseWheel: true,
+		// 		wheelAction: 'zoom',
+		// 	    scrollbars: true,
+		// 	    interactiveScrollbars: true,
+		// 		fadeScrollbars: true,
+		// 		zoomMin: 0.25
+		// 		//zoomMax: 2
+		// 	});
+		// },
 	});
 
 	return ResultadosListaView;

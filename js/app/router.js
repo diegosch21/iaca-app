@@ -1,8 +1,8 @@
 define([
 	'backbone',
-	'models/Sesion',
+	'services/authentication', // al inicializar, intenta obtener usuario previamente logueado
 	'app/views/Header',
-], function (Backbone,Sesion,HeaderView) {
+], function (Backbone,Auth,HeaderView) {
 
 	var appRouter = Backbone.Router.extend({
 		routes: {
@@ -41,7 +41,7 @@ define([
 		},
 		resultados: function(){
 			var self = this;
-			if(!Sesion.get("logueado")) {
+			if(!Auth.logueado) {
 				console.log("Resultados - No logueado, redireccion a login");
 				Backbone.history.navigate("login/resultados",true);
 			}
@@ -121,7 +121,7 @@ define([
 		},
 		*/
 		login: function(page) {
-			//if(Sesion.get("logueado"))
+			//if(Auth.logueado)
 			//	Backbone.history.navigate("home",true);
 			//else {
 			var self = this;
@@ -137,8 +137,8 @@ define([
 		}
 		// HECHO EN HEADERVIEW
 		// logout: function(page) {
-		// 	if(Sesion.get("logueado"))
-		// 		Sesion.logout();
+		// 	if(Auth.logueado)
+		// 		Auth.logout();
 		// }
 	});
 
