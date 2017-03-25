@@ -1,3 +1,7 @@
+/**
+ * [SINGLETON Service]
+ * Métodos para configurar y mostrar maps de Google
+ */
 /* global google */
 define([ "async!http://maps.google.com/maps/api/js?sensor=false" ],
 function() {
