@@ -200,7 +200,6 @@ define([
 					 * 		pdf: url pdf
 					 * 	}
 					 */
-					console.log("Cantidad resultados: "+resultados.length);
 					var hayNuevos = false, result_guardado, new_result;
 					resultados.forEach(function(resultado){
 						// Si en la colecc no está el result de ese protocolo (id) lo creo y guardo en storage
@@ -209,21 +208,27 @@ define([
 							hayNuevos = true;
 							// Crea y persiste en localstorage el nuevo resultado
 							new_result = _this.resultadosGuardados.create(resultado);
-							console.log("Nuevo resultado: "+JSON.stringify(new_result));
+							// console.log("Nuevo resultado: "+JSON.stringify(new_result));
 						}
 						// Si ya estaba, chequeo si cambió URL PDF (y marco como no leído)
 						else {
-							if (resultado['pdf'] && resultado['pdf'] != result_guardado.get('pdf')) {
+							if (resultado['pdf'] != result_guardado.get('pdf')) {
 								result_guardado.save({
 									pdf: resultado['pdf'], leido: false
 								});
 								hayNuevos = true;
+								// console.log("Resultado con URL PDF modificada: "+JSON.stringify(new_result));
 							}
 						}
 					});
 
-					if(hayNuevos)  //si no hay nuevos resultados no vuelvo a hacer renderList
+					if(hayNuevos) {
+						console.log("Hay nuevos resultados");
 						_this.renderList(true,9); // Renderiza los 9 últimos resultados
+					}
+					else { //si no hay nuevos resultados no vuelvo a hacer renderList
+						console.log("No hay nuevos resultados");
+					}
 				},
 				error: function(errormsj,errorcode) {
 					console.log("Error getResultados: "+errormsj+" "+errorcode);
