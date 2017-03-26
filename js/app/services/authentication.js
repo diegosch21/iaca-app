@@ -23,9 +23,10 @@ define([
 
         /* Defino métodos privados */
 
-        // Función privada, para inicializar "Sesión":
+        // Función privada, para inicializar "Sesión" (invocada al final del modulo, luego de haber definido todas las funciones)
         //  Intenta obtener id de usuario previamente logueado (en ejecuciones anteriores de la app)
         //  Si está, setea usuario
+        //  Bindea eventos de ShiftWS.
         var init = function() {
             console.log("Auth: Init service");
 
@@ -42,9 +43,9 @@ define([
                     if (user.get("name")) {
                         this.username = user.get("name");
                     }
-                    console.log("Auth.init: Usuario logueado: ",JSON.stringify(user));
-                    // Lanza evento (capturado por vista header)
-                    this.trigger("login","Login previo");
+                    console.log("Auth.init: Usuario logueado: "+JSON.stringify(user));
+                    // Lanza evento (capturado por vista header para actualizarse)
+                    this.trigger("login","Auth: Login previo");
                 }
                 else {
                     console.log("Auth.init: No está la data del usuario previamente logueado");
@@ -52,6 +53,13 @@ define([
                     localStorage.removeItem(STORAGE_KEY);
                 }
             }
+
+            // Bind de eventos lanzados por service Shift
+            // error al obtener resultados (por usuario inválido): desloguea
+            ShiftWS.on("invalid_user",this.logout,this);
+            // obtiene nombre usuario al obtener resultados. Acá actualiza usuario. (param: username, eventName)
+            ShiftWS.on("get_username",this.setUserName,this);
+
         };
 
         /**
@@ -67,29 +75,37 @@ define([
             if(!user) {
                 // Usuario no existía: crea modelo y lo setea como actual
                 console.log("Auth.setUsuario: Creo usuario id:"+user_id);
+                // Crea model usuario y persiste en localstorage
                 this.user = Usuarios.create({id: user_id, pass: user_pass});
             }
             else {
                 console.log("Auth.setUsuario: El usuario "+user_id+" ya existe en la colección");
                 this.user = user;
+                // Actualizo password por si cambió
+                if (user.get("pass") != user_pass) {
+                    user.save({"pass":user_pass});
+                }
+            }
+            if (this.user.get("name")) {
+                this.username = user.get("name");
+            }
+            else {
+                this.username = '';
             }
             // Marco flag logueado
             this.logueado = true;
             // Seteo id de usuario logueado en storage (para futuras ejecuciones de la app)
             localStorage.setItem(STORAGE_KEY,user_id);
-            // Lanza evento (capturado por vista header)
-            this.trigger("login","Login.setUsuario)");
+            // Lanza evento (capturado por vista header para actualizarse)
+            this.trigger("login","Auth: Login.setUsuario");
         };
 
         // Bindeo this en funciones init y setUsuario
         setUsuario = _.bind(setUsuario,this);
         init = _.bind(init,this);
 
-        // Configuro objeto para poder lanzar y bindear eventos de backbone
+        // Configuro objeto para poder lanzar y bindear eventos de backbone (capturados por HeaderView)
         _.extend(this, Backbone.Events);
-
-        // Inicializo "sesión"
-        init();
 
         /* Defino los métodos que ofrece el servicio */
 
@@ -106,9 +122,9 @@ define([
             // Chequeo existencia de funciones callbacks (y las defino si alguna no está)
             if (!callbacks) callbacks = {};
             if (!('success' in callbacks))
-                callbacks.success = function(data){ console.log('Success: ',data); };
+                callbacks.success = function(data){ console.log('Success: '+data); };
             if (!('error' in callbacks))
-                callbacks.error = function(errormsj,errorcode){ console.log('Error: ',errormsj,errorcode); };
+                callbacks.error = function(errormsj,errorcode){ console.log('Error: '+errormsj+" "+errorcode); };
             if (!('complete' in callbacks))
                 callbacks.complete = function(){ console.log('Complete'); };
 
@@ -141,17 +157,36 @@ define([
             else return null;
         };
 
+        this.setUserName = function(username,eventName) {
+            console.log("Auth: setUserName");
+            if (eventName) {
+                console.log("Evento: "+eventName);
+            }
+            if (this.username != username) {
+                this.user.save({"name":username});
+                this.username = username;
+                // Lanza evento (capturado por vista header para actualizarse)
+                this.trigger("change_username","Auth: setUserName");
+            }
+        };
+
         /** Logout: quita usuario actual en sesion y quita id de localstorage (sin eliminar data del usuario) */
-        this.logout = function() {
+        this.logout = function(eventName) {
             console.log("Auth: logout");
+            if (eventName) {
+                console.log("Evento: "+eventName);
+            }
             // Desmarco flag logueado, quito referencia a usuario
             this.logueado = false;
             this.user = null;
-            this.username = null;
+            this.username = '';
             localStorage.removeItem(STORAGE_KEY);
-            // Lanza evento (capturado por vista header)
-            this.trigger("logout","logout");
+            // Lanza evento (capturado por vista Header y ResultadoLista para actualizarse)
+            this.trigger("logout","Auth: Logout");
         };
+
+        /** Inicializo sesión */
+        init();
     };
 
     return new Auth();  //SINGLETON

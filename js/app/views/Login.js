@@ -12,13 +12,9 @@ define([
 		//precompilo el template
 		template: _.template(loginTemplate),
 		templateAlert: _.template(alertTemplate),
+		redireccion: 'resultados', // por defecto luego de login se redirecciona a resultados, para poder obtener nombre de usuario
 
 		initialize: function(options) {
-			if(options && options['redireccion'])
-				this.redireccion  = options['redireccion'];
-			else
-				this.redireccion = 'home';
-			this.options = options || {};
 			_.bindAll(this,'login','loginGuardado','deleteGuardado','alerta');
 		},
 
@@ -71,6 +67,7 @@ define([
 						console.log("Usuario logueado ",JSON.stringify(Auth.user));
 						self.alerta('Logueado correctamente');
 						console.log("Redirecciona a: "+self.redireccion);
+						// Redirecciona a resultados, donde obtiene el nombre de usuario (además de los resultados)
 						Backbone.history.navigate(self.redireccion,true);
 					},
 					error: function(error) {
@@ -109,7 +106,7 @@ define([
 			{
 				var pass = user.get("pass");
 				this.loading(true);
-				Auth.login(id,pass,{ // objeto callbacks, definiendo 3 funciones a ejecutar luego de login
+				Auth.login(id,pass,{ // objeto callbacks: defino 3 funciones a ejecutar luego de login
 					success: function() { // param: data
 						console.log("Usuario guardado Logueado: "+Auth.logueado+" Redirecciona a: "+self.redireccion);
 						self.alerta('Logueado correctamente');
