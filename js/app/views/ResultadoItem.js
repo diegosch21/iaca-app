@@ -29,7 +29,6 @@ define([
 			console.log("Render ResultadoItemView id: "+this.model.id);
 			this.$el.html(this.template(this.model.toJSON()));
 			this.marcarLeido();
-			this.ocultarBotonImg();
 			return this;
 		},
 
@@ -54,11 +53,6 @@ define([
 			else {
 				this.$el.addClass('leido_no');
 				this.$el.removeClass('leido_si');
-			}
-		},
-		ocultarBotonImg: function() {
-			if(typeof this.model.get("jpg") == 'undefined' || !this.model.get("jpg").length) {
-				this.$el.find('.boton_img').addClass('dont-show');
 			}
 		},
 		openPDF: function() {
@@ -97,6 +91,11 @@ define([
 			});
 		},
 		// Viejas funciones para obtener img de resultado con server VIANET
+		// ocultarBotonImg: function() {
+		// 	if(typeof this.model.get("jpg") == 'undefined' || !this.model.get("jpg").length) {
+		// 		this.$el.find('.boton_img').addClass('dont-show');
+		// 	}
+		// },
 		// verImgs: function() { // param: event
 		// 	console.log('pressBoton (dragging: '+window.dragging+')');
 		// 	if(!window.dragging)
