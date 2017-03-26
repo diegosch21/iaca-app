@@ -1009,6 +1009,17 @@ ul.lista_resultados{
 					display: none;
 				}
 			}
+			&.datos {
+				padding: 5px 0;
+				> span {
+					display: block;
+					line-height: 28px;
+					overflow: hidden;
+					white-space: nowrap;
+    				text-overflow: ellipsis;
+				}
+			}
+
 		}
 		.leido {
 			i {

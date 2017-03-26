@@ -316,11 +316,14 @@ ul.lista_resultados{
 		}
 		@media (max-width: 340px) {
  			.info--resultado{
- 				line-height: 48px;
+ 				line-height: 56px;
  				font-size: 14px;
+ 				&.datos > span {
+					line-height: 24px;
+				}
  			}
  			.contenedor-con-punta {
-				@include x-rem(height,3);
+				height: 56px;
 			}
 		}
 	}

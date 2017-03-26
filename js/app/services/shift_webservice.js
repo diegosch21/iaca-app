@@ -199,6 +199,10 @@ define([
                         // Lanzo evento para setear nombre de usuario (capturado por service Auth)
                         _this.trigger("get_username",$username.text(),"ShiftWS: Se obtuvo nombre de usuario");
                     }
+                    var $resultados = $paciente.find('exames > exame');
+                    var resultados = procesarDataResultados($resultados);
+                    // Genero arreglo con data de los resultados de examenes, en el formato esperado por la view
+                    callbacks.success(resultados);
                 }
                 else {
                     // Lanzo evento para logout (capturado por service Auth que realiza el logout)
@@ -216,6 +220,21 @@ define([
                 callbacks.complete();
             });
         };
+
+        function procesarDataResultados($resultados) {
+            var resultados = [], $result, result;
+            $resultados.each(function(index, resultado) {
+                $result = $(resultado);
+                result = {
+                    id: $result.children('osNumero').text(),
+                    fecha: $result.children('data').text(),
+                    hora: $result.children('hora').text(),
+                    nombre: $result.children('nomeExames').text()
+                };
+                resultados.push(result);
+            });
+            return resultados;
+        }
 
 	};
 

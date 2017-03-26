@@ -36,7 +36,7 @@ define([
 		changeLeido: function() {
 			console.log('pressBoton (dragging: '+window.dragging+')');
 			if(!window.dragging) {
-				this.model.save({'leido': !this.model.get('leido')});
+				this.model.save({leido: !this.model.get('leido')});
 				console.log("changeLeido: "+this.model.get('leido'));
 				this.marcarLeido();
 			}
