@@ -222,7 +222,7 @@ define([
         };
 
         function procesarDataResultados($resultados) {
-            var resultados = [], $result, result;
+            var resultados = [], $result, result, $urlPDF;
             $resultados.each(function(index, resultado) {
                 $result = $(resultado);
                 result = {
@@ -231,6 +231,11 @@ define([
                     hora: $result.children('hora').text(),
                     nombre: $result.children('nomeExames').text()
                 };
+                $urlPDF = $result.children('urlPDF');
+                if ($urlPDF.length) {
+                    // Quito tags CDATA
+                    result.pdf = $urlPDF.text().replace("<![CDATA[", "").replace("]]>", "");
+                }
                 resultados.push(result);
             });
             return resultados;
