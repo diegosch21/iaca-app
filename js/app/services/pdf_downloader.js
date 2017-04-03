@@ -62,9 +62,9 @@ define([],function() {
 									fileURL,
 									function(entry) {
 										console.log("PDFDownloader: Download complete: " + entry.toURL());
-										if (platform == 'android' || platform == "Android" ) {
+										if (cordova.plugins.fileOpener2) {
 											// Intenta abrir el PDF en el lector instalado
-											cordova.plugins.FileOpener2.open(
+											cordova.plugins.fileOpener2.open(
 												entry.toURL(),
 												'application/pdf',
 												{
