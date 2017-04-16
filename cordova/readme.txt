@@ -1,6 +1,6 @@
-Para compilar localmente usando Apache Cordova - branch phonegap (no incluye archivos para dev y agrega carpeta res)
+Para compilar localmente usando Apache Cordova - branch cordova (no incluye archivos para dev y agrega carpeta res)
 
-El building se hace copiando los mismos archivos del branch phonegap a otra carpeta con la instalación local de cordova (iaca-cordova):
+El building se hace copiando los mismos archivos del branch cordova a otra carpeta con la instalación local de cordova (iaca-cordova):
 
 * Archivos web :
     Copiar /iaca-www/index.html -> ../iaca-cordova/
